@@ -30,7 +30,7 @@ $email    = JRequest::getVar('email', null, 'post', 'string');
 		</label>
 	</td>
   	<td>
-<?=JHTML::_('select.genericlist', $this->getTitlees(), 'prefix', 'class="inputbox required"', 'idx', 'title'/*, '1', 'true'*/)?>
+<?=JHTML::_('select.genericlist', $this->getTitles(), 'prefix', 'class="inputbox required"', 'idx', 'title'/*, '1', 'true'*/)?>
   		<input type="text" name="fname" id="fname" size="45%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="6%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
   		<input type="text" name="lname" id="lname" size="45%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
