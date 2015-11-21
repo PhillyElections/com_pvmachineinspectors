@@ -72,7 +72,10 @@ class PvmachineinspectorsViewRegister extends JView {
 
 	public function getTitles() {
 		$arr = array(
-			'1' => 'Mr.', '2' => 'Mrs.', '3' => 'Miss', '4' => 'Dr.',
+			'1' => 'Mr.',
+			'2' => 'Mrs.',
+			'3' => 'Miss',
+			'4' => 'Dr.',
 		);
 
 		foreach ($arr as $idx             => $title) {
