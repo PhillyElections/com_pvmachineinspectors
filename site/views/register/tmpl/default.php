@@ -2,7 +2,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 if (isset($this->message)) {
-    $this->display('message');
+	$this->display('message');
 }
 
 $fname    = JRequest::getVar('fname', null, 'post', 'string');
@@ -30,38 +30,13 @@ $email    = JRequest::getVar('email', null, 'post', 'string');
 		</label>
 	</td>
   	<td>
-  		<input type="text" name="fname" id="fname" size="40" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
-  		<input type="text" name="mname" id="mname" size="4" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
-  		<input type="text" name="lname" id="lname" size="40" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
+<?=JHTML::_('select.genericlist', $this->getTitlees(), 'prefix', 'class="inputbox required"', 'idx', 'title'/*, '1', 'true'*/)?>
+  		<input type="text" name="fname" id="fname" size="45%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
+  		<input type="text" name="mname" id="mname" size="6%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
+  		<input type="text" name="lname" id="lname" size="45%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
   	</td>
 
 </tr>
-<?php /* <tr>
-<td width="30%" height="40">
-<label id="namemsg" for="fname">
-<?=JText::_('Ward and Division');?>:
-</label>
-</td>
-<td>
-<table>
-<tr>
-<td>
-<select name="division" id="selDivision">
-<option value="">Select Ward/Division</option>
-<?php
-foreach ($this->divisions as $division) {
-?>
-<option value="<?=$division->id?>" <?=$division->id == $division?'checked':''?>><?=$division->ward?>/<?=$division->division?></option>
-<?php
-}
-?>
-</select>
-</td>
-</tr>
-</table>
-</td>
-
-</tr> */?>
 <tr>
 	<td height="40">
 		<label id="address1msg" for="address1">
@@ -110,8 +85,7 @@ foreach ($this->divisions as $division) {
 	</td>
 	<td>
 <?=JHTML::_('select.genericlist', $this->getUSStates(), 'province', 'class="inputbox required"', 'abbr', 'state', ($postcode?$postcode:'PA'), 'true')?>
-<!--		<input type="text" id="province" name="province" size="60" value="<?=$province?>" class="inputbox required" maxlength="60" value="PA" placeholder="(state is required)" />-->
-	</td>
+</td>
 </tr>
 <tr>
 	<td height="40">
