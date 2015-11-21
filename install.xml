@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0">
+	<name>PVMachineInspectors</name>
+	<creationDate>2015-06-25</creationDate>
+	<author>Matthew Murphy</author>
+	<authorEmail>matthew.murphy2@phila.gov</authorEmail>
+	<authorUrl>http://www.philadelphiavotes.com</authorUrl>
+	<copyright>(C) 2015 City of Philadelphia</copyright>
+	<license>GPL</license>
+	<version>1.01</version>
+	<description>Data migration SQL package</description>
+	<install>
+		<sql>
+			<file driver="mysql">sql/install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql">sql/uninstall.sql</file>
+		</sql>
+	</uninstall>
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>pvmachineinspectors.php</filename>
+		<filename>controller.php</filename>
+		<folder>assets/</folder>
+		<folder>models/</folder>
+		<folder>tables/</folder>
+		<folder>views/</folder>
+	</files>
+	<administration>
+		<menu link="option=com_pvmachineinspectors">Election Officials</menu>
+		<submenu>
+			<menu view="manage">Manage</menu>
+			<menu view="export">Export</menu>
+		</submenu>
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>pvmachineinspectors.php</filename>
+			<folder>sql/</folder>
+		</files>
+	</administration>
+</install>
