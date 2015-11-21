@@ -111,19 +111,30 @@ class PvmachineinspectorsController extends JController {
 		curl_close($curl);
 		$json = json_decode($response);
 		d($json);
+		$division = $lon = $lat = '';
 		switch (sizeof($json->candidates)) {
 			case 0:
-				$division = '';
+				// do nothing
 				break;
 			case 1:
 				$division = (string) $json->candidates[0]->attributes->division;
+				$lon      = (string) $json->candidates[0]->location->x;
+				$lat      = (string) $json->candidates[0]->location->y;
 				break;
 			default:
-				$this->candidates($json);
-				return;
+				// sort our candidates by score -- we want the highest score result
+				uasort($json->candidates, function ($a, $b) {
+						if ($a->score == $b->score) {
+							return 0;
+						}
+						return ($a->score > $b->score)?-1:1;
+					});
+				$division = (string) $json->candidates[0]->attributes->division;
+				$lon      = (string) $json->candidates[0]->location->x;
+				$lat      = (string) $json->candidates[0]->location->y;
 				break;
 		}
-
+		d($division, $lon, $lat);
 		//save pv_person data and return a person_id
 
 		//save applicant data
