@@ -2,7 +2,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 if (isset($this->message)) {
-	$this->display('message');
+    $this->display('message');
 }
 
 $fname    = JRequest::getVar('fname', null, 'post', 'string');
@@ -30,7 +30,13 @@ $email    = JRequest::getVar('email', null, 'post', 'string');
 		</label>
 	</td>
   	<td>
-<?=JHTML::_('select.genericlist', $this->getTitles(), 'prefix', 'class="inputbox required"', 'idx', 'title', '1', 'true')?>
+<?php
+try {
+    JHTML::_('select.genericlist', $this->getTitles(), 'prefix', 'class="inputbox required"', 'idx', 'title', '1', 'true')
+} catch (Exception $e) {
+    dd($e, $this->getTitles(), $this->getUSStates());
+}
+?>
   		<input type="text" name="fname" id="fname" size="45%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="6%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
   		<input type="text" name="lname" id="lname" size="45%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
