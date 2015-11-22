@@ -16,6 +16,8 @@ $city     = JRequest::getVar('city', null, 'post', 'string');
 $province = JRequest::getVar('province', null, 'post', 'string');
 $postcode = JRequest::getVar('postcode', null, 'post', 'string');
 $email    = JRequest::getVar('email', null, 'post', 'string');
+
+d($this->getUSStates(), $this->getTitles, SELF::getTitles());
 ?>
 
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
