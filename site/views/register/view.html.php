@@ -81,6 +81,7 @@ class PvmachineinspectorsViewRegister extends JView {
 		foreach ($arr as $idx             => $title) {
 			$return[] = (object) array('idx' => $idx, 'title' => $title);
 		}
+		return $return;
 	}
 
 	public function getUSStates() {
