@@ -5,21 +5,12 @@ if (isset($this->message)) {
 	$this->display('message');
 }
 
-$fname    = JRequest::getVar('fname', null, 'post', 'string');
-$mname    = JRequest::getVar('mname', null, 'post', 'string');
-$lname    = JRequest::getVar('lname', null, 'post', 'string');
-$division = JRequest::getVar('division', null, 'post', 'string');
-$addr1    = JRequest::getVar('address1', null, 'post', 'string');
-$addr2    = JRequest::getVar('address2', null, 'post', 'string');
-$addr3    = JRequest::getVar('address3', null, 'post', 'string');
-$city     = JRequest::getVar('city', null, 'post', 'string');
-$province = JRequest::getVar('province', null, 'post', 'string');
-$postcode = JRequest::getVar('postcode', null, 'post', 'string');
-$email    = JRequest::getVar('email', null, 'post', 'string');
+$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'address3', 'city', 'province', 'postcode', 'email',);
+foreach ($fields as $field) {
+	$$field = JRequest::getVar($field, null, 'post', 'string');	
+}
 
-d($this->getUSStates(), $this->getTitles);
 ?>
-
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
 <div class="componentheading"><?=$this->escape($this->params->get('page_title'));?></div>
