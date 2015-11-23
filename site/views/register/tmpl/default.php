@@ -23,11 +23,11 @@ foreach ($fields as $field) {
 		</label>
 	</td>
   	<td>
-		<?=JHTML::_('select.genericlist', $this->getPrefixes(), 'prefix', 'class="inputbox required"', 'idx', 'title', '', 'true')?>
+		<?=JHTML::_('select.genericlist', $this->getPrefixes(), 'prefix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
   		<input type="text" name="fname" id="fname" size="20%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="1%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
   		<input type="text" name="lname" id="lname" size="20%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-		<?=JHTML::_('select.genericlist', $this->getSuffixes(), 'suffix', 'class="inputbox required"', 'idx', 'title', '', 'true')?>
+		<?=JHTML::_('select.genericlist', $this->getSuffixes(), 'suffix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
   	</td>
 
 </tr>
@@ -68,7 +68,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-<?=JHTML::_('select.genericlist', $this->getUSStates(), 'province', 'class="inputbox required"', 'abbr', 'state', ($postcode?$postcode:'PA'), 'true')?>
+<?=JHTML::_('select.genericlist', $this->getUSStates(), 'province', 'class="inputbox required"', 'idx', 'value', ($postcode?$postcode:'PA'), 'true')?>
 </td>
 </tr>
 <tr>
