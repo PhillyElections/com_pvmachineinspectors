@@ -5,7 +5,7 @@ if (isset($this->message)) {
 	$this->display('message');
 }
 
-$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'addr', 'addr2', 'addr3', 'city', 'province', 'postcode', 'email',);
+$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'address3', 'city', 'province', 'postcode', 'email',);
 foreach ($fields as $field) {
 	$$field = JRequest::getVar($field, null, 'post', 'string');	
 }
