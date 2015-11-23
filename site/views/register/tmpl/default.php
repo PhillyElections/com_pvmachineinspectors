@@ -5,7 +5,7 @@ if (isset($this->message)) {
 	$this->display('message');
 }
 
-$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'address3', 'city', 'province', 'postcode', 'email',);
+$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'province', 'postcode', 'email',);
 foreach ($fields as $field) {
 	$$field = JRequest::getVar($field, null, 'post', 'string');	
 }
@@ -49,16 +49,6 @@ foreach ($fields as $field) {
 	</td>
 	<td>
 		<input type="text" id="address2" name="address2" size="60%" value="<?=$address2?>" class="inputbox optional" maxlength="60" />
-	</td>
-</tr>
-<tr>
-	<td height="40">
-		<label id="address3msg" for="address3">
-<?=JText::_('Addtl Addr Info');?>:
-		</label>
-	</td>
-	<td>
-		<input type="text" id="address3" name="address3" size="60%" value="<?=$address3?>" class="inputbox optional" maxlength="60" />
 	</td>
 </tr>
 <tr>
