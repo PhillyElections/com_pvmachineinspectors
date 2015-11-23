@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: link_xrefs.php $
+ * $Id: link_types.php $
  * $LastChangedDate: 2015-05-24 $
  * $LastChangedBy: Matt Murphy $
  * Campaign Finance Reports - Philadelphiavotes.com
@@ -17,17 +17,16 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class PvmachineinspectorsLinkXref extends JTable
+class PvmachineinspectorsLinkTypes extends JTable
 {
-    public $id;
-    public $link_id;
-    public $right_id;
-    public $right_table_id;
-    public $created;
-    public $updated;
+	public $id;
+	public $limit;
+	public $name;
+	public $created;
+	public $updated;
 
     public function __construct(&$_db)
     {
-        parent::__construct('#__pv_link_xrefs', 'id', $_db);
+        parent::__construct('#__pv_link_types', 'id', $_db);
     }
 }
