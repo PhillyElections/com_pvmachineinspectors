@@ -5,7 +5,7 @@ if (isset($this->message)) {
 	$this->display('message');
 }
 
-$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'address3', 'city', 'province', 'postcode', 'email',);
+$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'addr', 'addr2', 'addr3', 'city', 'province', 'postcode', 'email',);
 foreach ($fields as $field) {
 	$$field = JRequest::getVar($field, null, 'post', 'string');	
 }
@@ -37,7 +37,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address1" name="address1" size="60" value="<?=$addr1?>" class="inputbox required" maxlength="60" placeholder="(street address is required)" />
+		<input type="text" id="address1" name="address1" size="60" value="<?=$address1?>" class="inputbox required" maxlength="60" placeholder="(street address is required)" />
 	</td>
 </tr>
 <tr>
@@ -47,7 +47,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address2" name="address2" size="60" value="<?=$addr2?>" class="inputbox optional" maxlength="60" />
+		<input type="text" id="address2" name="address2" size="60" value="<?=$address2?>" class="inputbox optional" maxlength="60" />
 	</td>
 </tr>
 <tr>
@@ -57,7 +57,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address3" name="address3" size="60" value="<?=$addr3?>" class="inputbox optional" maxlength="60" /> *
+		<input type="text" id="address3" name="address3" size="60" value="<?=$address3?>" class="inputbox optional" maxlength="60" /> *
 	</td>
 </tr>
 <tr>
