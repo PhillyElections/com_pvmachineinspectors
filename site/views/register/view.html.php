@@ -74,7 +74,7 @@ class PvmachineinspectorsViewRegister extends JView {
 		$arr = array(
 			'1' => 'Mr.',
 			'2' => 'Mrs.',
-			'3' => 'Miss',
+			'3' => 'Ms.',
 			'4' => 'Dr.',
 		);
 
