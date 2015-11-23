@@ -38,7 +38,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address1" name="address1" size="66%" value="<?=$address1?>" class="inputbox required" maxlength="60" placeholder="(street address is required)" />
+		<input type="text" id="address1" name="address1" size="60%" value="<?=$address1?>" class="inputbox required" maxlength="60" placeholder="(street address is required)" />
 	</td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address2" name="address2" size="66%" value="<?=$address2?>" class="inputbox optional" maxlength="60" />
+		<input type="text" id="address2" name="address2" size="60%" value="<?=$address2?>" class="inputbox optional" maxlength="60" />
 	</td>
 </tr>
 <tr>
@@ -58,7 +58,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address3" name="address3" size="66%" value="<?=$address3?>" class="inputbox optional" maxlength="60" /> *
+		<input type="text" id="address3" name="address3" size="60%" value="<?=$address3?>" class="inputbox optional" maxlength="60" />
 	</td>
 </tr>
 <tr>
@@ -68,7 +68,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="city" name="city" size="66%" value="<?=($city?$city:'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="(city is required)" />
+		<input type="text" id="city" name="city" size="60%" value="<?=($city?$city:'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="(city is required)" />
 	</td>
 </tr>
 <tr>
@@ -88,7 +88,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="postcode" name="postcode" size="66%" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
+		<input type="text" id="postcode" name="postcode" size="60%" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
 	</td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="email" name="email" size="66%" value="<?=$email?>" class="inputbox validate-email" maxlength="100" /> *
+		<input type="text" id="email" name="email" size="60%" value="<?=$email?>" class="inputbox validate-email" maxlength="100" />
 	</td>
 </tr>
 </table>
