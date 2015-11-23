@@ -24,9 +24,9 @@ foreach ($fields as $field) {
 	</td>
   	<td>
 		<?=JHTML::_('select.genericlist', $this->getPrefixes(), 'prefix', 'class="inputbox required"', 'idx', 'title', '', 'true')?>
-  		<input type="text" name="fname" id="fname" size="22%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
+  		<input type="text" name="fname" id="fname" size="20%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="3%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
-  		<input type="text" name="lname" id="lname" size="22%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
+  		<input type="text" name="lname" id="lname" size="20%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
 		<?=JHTML::_('select.genericlist', $this->getSuffixes(), 'suffix', 'class="inputbox required"', 'idx', 'title', '', 'true')?>
   	</td>
 
@@ -38,7 +38,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address1" name="address1" size="60" value="<?=$address1?>" class="inputbox required" maxlength="60" placeholder="(street address is required)" />
+		<input type="text" id="address1" name="address1" size="50%" value="<?=$address1?>" class="inputbox required" maxlength="60" placeholder="(street address is required)" />
 	</td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address2" name="address2" size="60" value="<?=$address2?>" class="inputbox optional" maxlength="60" />
+		<input type="text" id="address2" name="address2" size="50%" value="<?=$address2?>" class="inputbox optional" maxlength="60" />
 	</td>
 </tr>
 <tr>
@@ -58,7 +58,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="address3" name="address3" size="60" value="<?=$address3?>" class="inputbox optional" maxlength="60" /> *
+		<input type="text" id="address3" name="address3" size="50%" value="<?=$address3?>" class="inputbox optional" maxlength="60" /> *
 	</td>
 </tr>
 <tr>
@@ -68,7 +68,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="city" name="city" size="60" value="<?=($city?$city:'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="(city is required)" />
+		<input type="text" id="city" name="city" size="50%" value="<?=($city?$city:'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="(city is required)" />
 	</td>
 </tr>
 <tr>
@@ -88,7 +88,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="postcode" name="postcode" size="60" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
+		<input type="text" id="postcode" name="postcode" size="50%" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
 	</td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="email" name="email" size="40" value="<?=$email?>" class="inputbox validate-email" maxlength="100" /> *
+		<input type="text" id="email" name="email" size="50%" value="<?=$email?>" class="inputbox validate-email" maxlength="100" /> *
 	</td>
 </tr>
 </table>
