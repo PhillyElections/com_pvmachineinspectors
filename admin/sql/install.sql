@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `#__pv_tables` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/* - Populate table xref indexes- */
+/* - Populate table  indexes- */
 INSERT INTO `#__pv_tables` 
   SELECT 
   '' AS `id`, 
@@ -127,3 +127,12 @@ INSERT INTO `#__pv_tables`
   @tnl AS `updated` 
   FROM information_schema.tables WHERE TABLE_SCHEMA=@db AND (TABLE_NAME LIKE "%division%" OR TABLE_NAME LIKE "%ward%" OR TABLE_NAME LIKE "%_pv_%") AND TABLE_NAME NOT LIKE "%_rt_%";
  
+/* - Populate Link Types */
+id, limit, name, created updated
+INSERT INTO `#__pv_link_types` VALUES
+('', 0, 'email', @tnow, @tnl),
+('', 0, 'phone', @tnow, @tnl),
+('', 0, 'fax', @tnow, @tnl),
+('', 1, 'building_cooords', @tnow, @tnl),
+('', 1, 'voting_entrance_coords', @tnow, @tnl),
+('', 1, 'handicapped_entrance_coords', @tnow, @tnl);
