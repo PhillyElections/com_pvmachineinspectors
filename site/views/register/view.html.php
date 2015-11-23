@@ -70,12 +70,28 @@ class PvmachineinspectorsViewRegister extends JView {
 		parent::display();
 	}
 
-	public function getTitles() {
+	public function getPrefixes() {
 		$arr = array(
-			'1' => 'Mr.',
-			'2' => 'Mrs.',
-			'3' => 'Ms.',
-			'4' => 'Dr.',
+			'1' => '',
+			'2' => 'Mr.',
+			'3' => 'Mrs.',
+			'4' => 'Ms.',
+			'5' => 'Dr.',
+		);
+
+		foreach ($arr as $idx             => $title) {
+			$return[] = (object) array('idx' => $idx, 'title' => $title);
+		}
+		return $return;
+	}
+
+	public function getSuffixes() {
+		$arr = array(
+			'1' => '',
+			'2' => 'Jr.',
+			'3' => 'Sr.',
+			'4' => 'II',
+			'5' => 'III',
 		);
 
 		foreach ($arr as $idx             => $title) {

@@ -23,10 +23,11 @@ foreach ($fields as $field) {
 		</label>
 	</td>
   	<td>
-<?=JHTML::_('select.genericlist', $this->getTitles(), 'prefix', 'class="inputbox required"', 'idx', 'title', '', 'true')?>
+		<?=JHTML::_('select.genericlist', $this->getPrefixes(), 'prefix', 'class="inputbox required"', 'idx', 'title', '', 'true')?>
   		<input type="text" name="fname" id="fname" size="22%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="3%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
   		<input type="text" name="lname" id="lname" size="22%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
+		<?=JHTML::_('select.genericlist', $this->getSuffixes(), 'suffix', 'class="inputbox required"', 'idx', 'title', '', 'true')?>
   	</td>
 
 </tr>
