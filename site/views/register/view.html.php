@@ -90,7 +90,7 @@ class PvmachineinspectorsViewRegister extends JView
             '5' => 'Dr.',
         );
 
-        return setComboData($arr);
+        return $this->setComboData($arr);
     }
 
     public function getSuffixes()
@@ -103,7 +103,7 @@ class PvmachineinspectorsViewRegister extends JView
             '5' => 'III',
         );
 
-        return setComboData($arr);
+        return $this->setComboData($arr);
     }
 
     public function getUSStates()
@@ -169,6 +169,6 @@ class PvmachineinspectorsViewRegister extends JView
             'WI' => 'Wisconsin',
             'WY' => 'Wyoming');
 
-        return setComboData($arr);
+        return $this->setComboData($arr);
     }
 }
