@@ -136,24 +136,17 @@ class PvmachineinspectorsController extends JController {
 		}
 		d($division, $lon, $lat);
 		//save pv_person data and return a person_id
-		$p = $this->getTable('person');
-
-		//save applicant data
-		$ia = $this->getTable('inspector_applicant');
+		$p = $this->getModel('applicant');
+		// applicant loads ia and person
 
 		//save pv_address data and return an address_id
-		$a = $this->getTable('address');
-
-		//save pv_address_xref
-		$ax = $this->getTable('address_xref');
+		$a = $this->getModel('address');
+		// address loads address_xref, table
 
 		//save pv_link data
-		$l = $this->getTable('link');
-
-		//save pv_link_xref
-		$lx = $this->getTable('link_xref');
-
-		d($p, $ia, $a, $ax, $l, $lx);
+		$l = $this->getModel('link');
+		// link loads link_xref, link_type, and table
+		d($p, $a, $l);
 
 		return true;
 	}
