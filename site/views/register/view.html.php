@@ -64,8 +64,6 @@ class PvmachineinspectorsViewRegister extends JView
         $this->assignRef('wards', $wards);
         $this->assignRef('divisions', $divisions);
 
-        //        $pathway->addItem( JText::_( 'New' ));
-
         // Load the form validation behavior
         JHTML::_('behavior.formvalidation');
 
