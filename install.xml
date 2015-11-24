@@ -8,7 +8,7 @@
 	<copyright>(C) 2015 City of Philadelphia</copyright>
 	<license>GPL</license>
 	<version>1.01</version>
-	<description>Data migration SQL package</description>
+	<description>Machine Inspector signup and management.</description>
 	<install>
 		<sql>
 			<file driver="mysql">sql/install.sql</file>
@@ -29,7 +29,7 @@
 		<folder>views/</folder>
 	</files>
 	<administration>
-		<menu link="option=com_pvmachineinspectors">Election Officials</menu>
+		<menu link="option=com_pvmachineinspectors">Machine Inspectors</menu>
 		<submenu>
 			<menu view="manage">Manage</menu>
 			<menu view="export">Export</menu>
