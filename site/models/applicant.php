@@ -23,13 +23,13 @@ jimport('joomla.application.component.model');
  * @subpackage  User
  * @since       1.5
  */
-class PvmachineinspectorsModelPerson extends JModel
+class PvmachineinspectorsModelApplicant extends JModel
 {
     /**
      * Registry namespace prefix
      *
      * @var string
      */
-    var $_namespace = 'com_pvmachineinspectors.person.';
+    var $_namespace = 'com_pvmachineinspectors.applicant.';
 
 }

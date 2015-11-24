@@ -43,8 +43,6 @@ class PvmachineinspectorsController extends JController
     public function thanks()
     {
         JRequest::setVar('view', 'thanks');
-        //		$document   =& JFactory::getDocument();
-        //		$document->setTitle( JText::_( 'Testing jText and $document->setTitle...' ) );
 
         parent::display();
     }
