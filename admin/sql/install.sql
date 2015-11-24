@@ -8,7 +8,6 @@ SET @db   = DATABASE();
 /* ==================== tables ==================== */
 CREATE TABLE IF NOT EXISTS `#__pv_addresses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `ward_id` int(10) unsigned NOT NULL DEFAULT 0,
   `division_id` int(10) unsigned NOT NULL DEFAULT 0,
   `order` int(10) unsigned NOT NULL DEFAULT 0,
   `address1` varchar(100) NOT NULL DEFAULT '',
