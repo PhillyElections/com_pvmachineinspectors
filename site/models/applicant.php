@@ -30,6 +30,23 @@ class PvmachineinspectorsModelApplicant extends JModel
      *
      * @var string
      */
-    var $_namespace = 'com_pvmachineinspectors.applicant.';
+    public $_namespace = 'com_pvmachineinspectors.applicant.';
 
+    public function create() {
+        //save pv_person data and return a person_id
+        // applicant loads ia and person
+
+    }
+
+    public function read() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function delete() {
+
+    }
 }
