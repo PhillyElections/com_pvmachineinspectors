@@ -30,6 +30,22 @@ class PvmachineinspectorsModelLink extends JModel
 	 *
 	 * @var	string
 	 */
-	var $_namespace	= 'com_pvmachineinspectors.link.';
+	public $_namespace	= 'com_pvmachineinspectors.link.';
 
+
+    public function create() {
+
+    }
+
+    public function read() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function delete() {
+
+    }
 }

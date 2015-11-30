@@ -30,6 +30,25 @@ class PvmachineinspectorsModelAddress extends JModel
 	 *
 	 * @var	string
 	 */
-	var $_namespace	= 'com_pvmachineinspectors.address.';
+	public $_namespace	= 'com_pvmachineinspectors.address.';
 
+	public function getDivision() {
+		$divisionTable = $this->get('table', 'division');
+	}
+
+    public function create() {
+
+    }
+
+    public function read() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function delete() {
+
+    }
 }
