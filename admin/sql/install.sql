@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS `#__pv_addresses` (
   `city` varchar(100) NOT NULL DEFAULT '',
   `region` varchar(100) NOT NULL DEFAULT '',
   `postcode` varchar(100) NOT NULL DEFAULT '',
+  `lon` float(19,15) NOT NULL DEFAULT 0,
+  `lat` float(19,15) NOT NULL DEFAULT 0,
   `published` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `checked_out` int(10) unsigned NOT NULL DEFAULT 0,
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -135,6 +137,5 @@ INSERT INTO `#__pv_link_types` VALUES
 ('', 0, 'email', @tnow, @tnl),
 ('', 0, 'phone', @tnow, @tnl),
 ('', 0, 'fax', @tnow, @tnl),
-('', 1, 'building_coords', @tnow, @tnl),
 ('', 1, 'accessible_coords', @tnow, @tnl),
 ('', 1, 'voting_coords', @tnow, @tnl);
