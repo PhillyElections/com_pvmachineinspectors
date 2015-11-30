@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: link_types.php $
+ * $Id: link_type.php $
  * $LastChangedDate: 2015-05-24 $
  * $LastChangedBy: Matt Murphy $
  * Campaign Finance Reports - Philadelphiavotes.com
