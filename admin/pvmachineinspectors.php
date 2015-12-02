@@ -1,7 +1,6 @@
 <?php
 /**
  * $Id: admin/pvmachineinspectors.php $
- * $LastChangedDate: 2015-07-31 $
  * $LastChangedBy: Matt Murphy $
  * Election Officials - Philadelphiavotes.com
  * a component for Joomla! 1.5 CMS (http://www.joomla.org)

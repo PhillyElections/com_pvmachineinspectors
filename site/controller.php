@@ -1,15 +1,14 @@
 <?php
-
 /**
- * @version         $Id: controller.php 16385 2010-04-23 10:44:15Z matthew.murphy $
- *
- * @copyright   Copyright (C) 2015 City of Philadelphia Elections Commission
- * @license         GNU/GPL, see LICENSE.php
- * Joomla! is free software. This version may have been modified pursuant to the
- * GNU General Public License, and as distributed it includes or is derivative
- * of works licensed under the GNU General Public License or other free or open
- * source software licenses. See COPYRIGHT.php for copyright notices and
- * details.
+ * $Id: site/controller.php $
+ * $LastChangedDate: 2015-07-31 $
+ * $LastChangedBy: Matt Murphy $
+ * Election Officials - Philadelphiavotes.com
+ * a component for Joomla! 1.5 CMS (http://www.joomla.org)
+ * Author Website: http://www.philadelphiavotes.com
+ * @copyright Copyright (C) 2015 City of Philadelphia
+ * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+ * @package Philadelphia.Votes
  */
 
 // Check to ensure this file is included in Joomla!

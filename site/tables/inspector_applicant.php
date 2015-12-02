@@ -1,7 +1,6 @@
 <?php
 /**
- * $Id: inspector_applicant.php $
- * $LastChangedDate: 2015-05-24 $
+ * $Id: site/tables/inspector_applicant.php $
  * $LastChangedBy: Matt Murphy $
  * Campaign Finance Reports - Philadelphiavotes.com
  * a component for Joomla! 1.5 CMS (http://www.joomla.org)
