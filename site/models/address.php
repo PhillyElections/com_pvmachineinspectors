@@ -49,5 +49,5 @@ class PvmachineinspectorsModelAddress extends JModel
 
     public function delete() {
 
-    }
+    }   
 }
