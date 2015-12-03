@@ -107,10 +107,7 @@ class PvmachineinspectorsController extends JController
         $a = $this->getModel('address');
         // address loads address_xref, table
 
-        //save pv_link data
-        $l = $this->getModel('link');
-        // link loads link_xref, link_type, and table
-        d($p, $a, $l);
+        d($p, $a);
 
         return true;
     }
