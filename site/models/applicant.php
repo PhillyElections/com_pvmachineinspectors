@@ -14,7 +14,6 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
-JTable::addIncludePath(JPATH_COMPONENT.DS.'tables');
 
 /**
  * User Component Remind Model.
@@ -36,6 +35,8 @@ class PvmachineinspectorsModelApplicant extends JModel
      */
     public function create($data = array())
     {
+JTable::addIncludePath(JPATH_COMPONENT.DS.'tables');
+
         $iat = $this->getTable('InspectorApplicant');
         $p = $this->getTable('Person');
         d($data, $this, $iat, $p);
