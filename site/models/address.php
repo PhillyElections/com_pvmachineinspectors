@@ -46,7 +46,7 @@ class PvmachineinspectorsModelAddress extends JModel
     }
 
     /**
-     * Read an applicant from applicant id.
+     * Read an address from address id.
      * 
      * @param  int
      *
