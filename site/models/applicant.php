@@ -38,9 +38,8 @@ class PvmachineinspectorsModelApplicant extends JModel
      */
     public function create($data = array())
     {
-        $a = $this->getTable('address');
-        $ax = $this->getTable('address_xref');
-        $t = $this->getTable('table');
+        $iat = $this->getTable('inspector_applicant');
+        $p = $this->getTable('person');
         d($data, $this, $a, $ax, $t);
         //save pv_person data and return a person_id
         // applicant loads ia and person

@@ -34,7 +34,7 @@ class PvmachineinspectorsModelLink extends JModel
 
     /**
      * Create a new link.
-     * 
+     *
      * @param  array
      *
      * @return bool

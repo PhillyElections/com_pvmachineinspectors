@@ -38,8 +38,10 @@ class PvmachineinspectorsModelAddress extends JModel
      */
     public function create($data = array())
     {
-        $iat = $this->getTable('inspector_applicant');
-        $p = $this->getTable('person');
+        $a = $this->getTable('inspector_appliant');
+        $ax = $this->getTable('address_xref');
+        $t = $this->getTable('table');
+
         d($data, $this, $iat, $p);
 
         return true;
