@@ -105,7 +105,7 @@ class PvmachineinspectorsController extends JController
         $a = $this->getModel('address');
         $l = $this->getModel('link');
         d(JPATH_COMPONENT.DS.'tables');
-/*        // create applicant record and get applicant id
+        // create applicant record and get applicant id
         $ia->create(
             array(
                 'prefix'=>JRequest::getVar('prefix', null, 'post', 'string'),
@@ -115,7 +115,7 @@ class PvmachineinspectorsController extends JController
                 'suffix'=>JRequest::getVar('suffix', null, 'post', 'string'),
             )
         );
-        // save applicant links
+/*        // save applicant links
 
         // 
         // save the address
