@@ -31,7 +31,8 @@ class PvmachineinspectorsModelApplicant extends JModel
      */
     public $_namespace = 'com_pvmachineinspectors.applicant.';
 
-    public function create() {
+    public function create($data = null) {
+        d($data, $this);
         //save pv_person data and return a person_id
         // applicant loads ia and person
 

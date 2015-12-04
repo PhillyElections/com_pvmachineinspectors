@@ -100,12 +100,24 @@ class PvmachineinspectorsController extends JController
      */
     public function save()
     {
-
+        //
         $p = $this->getModel('applicant');
+        // create applicant record and get applicant id
+        $p->create(
+            array(
+                'prefix'=>JRequest::getVar('prefix', null, 'post', 'string'),
+                'fname' =>JRequest::getVar('fname', null, 'post', 'string'),
+                'mname' =>JRequest::getVar('mname', null, 'post', 'string'),
+                'lname' =>JRequest::getVar('lname', null, 'post', 'string'),
+                'suffix'=>JRequest::getVar('suffix', null, 'post', 'string'),
+            )
+        );
+        // save applicant links
 
-        //save pv_address data and return an address_id
+        // 
         $a = $this->getModel('address');
-        // address loads address_xref, table
+        // save the address
+        // bind the address to the applicant (person)
 
         d($p, $a);
 
