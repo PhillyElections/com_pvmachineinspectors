@@ -31,23 +31,53 @@ class PvmachineinspectorsModelAddress extends JModel
 	 */
 	public $_namespace	= 'com_pvmachineinspectors.address.';
 
-	public function getDivision() {
-		$divisionTable = $this->get('table', 'division');
-	}
+    /**
+     * Create a new applicant.
+     * 
+     * @param  array
+     *
+     * @return bool
+     */
+    public function create($data = array())
+    {
+        d($data, $this);
 
-    public function create() {
-
+        return true;
     }
 
-    public function read() {
-
+    /**
+     * Read an applicant from applicant id.
+     * 
+     * @param  int
+     *
+     * @return bool
+     */
+    public function read($id = null)
+    {
+        // todo
     }
 
-    public function update() {
-
+    /**
+     * Update an applicant.
+     * 
+     * @param  array
+     *
+     * @return bool
+     */
+    public function update($data = array())
+    {
+        // todo
     }
 
-    public function delete() {
-
-    }   
+    /**
+     * Delete an applicant.
+     * 
+     * @param  int
+     *
+     * @return bool
+     */
+    public function delete($id = null)
+    {
+        // todo
+    }
 }
