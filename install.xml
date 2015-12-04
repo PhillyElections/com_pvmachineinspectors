@@ -25,7 +25,6 @@
 		<filename>controller.php</filename>
 		<folder>assets/</folder>
 		<folder>models/</folder>
-		<folder>tables/</folder>
 		<folder>views/</folder>
 	</files>
 	<administration>
@@ -38,6 +37,7 @@
 			<filename>index.html</filename>
 			<filename>pvmachineinspectors.php</filename>
 			<folder>sql/</folder>
+			<folder>tables/</folder>
 		</files>
 	</administration>
 </install>
