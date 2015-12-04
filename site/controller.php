@@ -101,9 +101,9 @@ class PvmachineinspectorsController extends JController
     public function save()
     {
         //
-        $p = $this->getModel('applicant');
+        $ia = $this->getModel('applicant');
         // create applicant record and get applicant id
-        $p->create(
+        $ia->create(
             array(
                 'prefix'=>JRequest::getVar('prefix', null, 'post', 'string'),
                 'fname' =>JRequest::getVar('fname', null, 'post', 'string'),
@@ -117,9 +117,19 @@ class PvmachineinspectorsController extends JController
         // 
         $a = $this->getModel('address');
         // save the address
+        $a->create(
+            array(
+                'address1'=>JRequest::getVar('address1', null, 'post', 'string'),
+                'address2'=>JRequest::getVar('address2', null, 'post', 'string'),
+                'address3'=>JRequest::getVar('address3', null, 'post', 'string'),
+                'city'    =>JRequest::getVar('city', null, 'post', 'string'),
+                'province'=>JRequest::getVar('province', null, 'post', 'string'),
+                'postcode'=>JRequest::getVar('postcode', null, 'post', 'string'),
+            )
+        );
         // bind the address to the applicant (person)
 
-        d($p, $a);
+        d($ia, $a);
 
         return true;
     }
