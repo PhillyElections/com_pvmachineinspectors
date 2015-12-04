@@ -102,7 +102,10 @@ class PvmachineinspectorsController extends JController
     {
         //
         $ia = $this->getModel('applicant');
-        // create applicant record and get applicant id
+        $a = $this->getModel('address');
+        $l = $this->getModel('link');
+        d(JPATH_COMPONENT.DS.'tables');
+/*        // create applicant record and get applicant id
         $ia->create(
             array(
                 'prefix'=>JRequest::getVar('prefix', null, 'post', 'string'),
@@ -113,9 +116,8 @@ class PvmachineinspectorsController extends JController
             )
         );
         // save applicant links
-/*
+
         // 
-        $a = $this->getModel('address');
         // save the address
         $a->create(
             array(
@@ -128,7 +130,6 @@ class PvmachineinspectorsController extends JController
         );
         // bind the address to the applicant (person)
 
-        $l = $this->getModel('link');
         $l->create(
             array(
                 'email'=>JRequest::getVar('email', null, 'post', 'string')
