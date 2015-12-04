@@ -41,7 +41,11 @@ class PvmachineinspectorsModelLink extends JModel
      */
     public function create($data = array())
     {
-        d($data, $this);
+        $l = $this->getTable('link');
+        $lt = $this->getTable('link_type');
+        $lx = $this->getTable('link_xref');
+        $t = $this->getTable('table');
+        d($data, $this, $l, $lt, $lx, $t);
 
         return true;
     }

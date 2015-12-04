@@ -31,14 +31,17 @@ class PvmachineinspectorsModelApplicant extends JModel
 
     /**
      * Create a new applicant.
-     * 
+     *
      * @param  array
      *
      * @return bool
      */
     public function create($data = array())
     {
-        d($data, $this);
+        $a = $this->getTable('address');
+        $ax = $this->getTable('address_xref');
+        $t = $this->getTable('table');
+        d($data, $this, $a, $ax, $t);
         //save pv_person data and return a person_id
         // applicant loads ia and person
         return true;
@@ -46,7 +49,7 @@ class PvmachineinspectorsModelApplicant extends JModel
 
     /**
      * Read an applicant from applicant id.
-     * 
+     *
      * @param  int
      *
      * @return bool
@@ -58,7 +61,7 @@ class PvmachineinspectorsModelApplicant extends JModel
 
     /**
      * Update an applicant.
-     * 
+     *
      * @param  array
      *
      * @return bool
@@ -70,7 +73,7 @@ class PvmachineinspectorsModelApplicant extends JModel
 
     /**
      * Delete an applicant.
-     * 
+     *
      * @param  int
      *
      * @return bool
