@@ -121,7 +121,6 @@ class PvmachineinspectorsController extends JController
             array(
                 'address1'=>JRequest::getVar('address1', null, 'post', 'string'),
                 'address2'=>JRequest::getVar('address2', null, 'post', 'string'),
-                'address3'=>JRequest::getVar('address3', null, 'post', 'string'),
                 'city'    =>JRequest::getVar('city', null, 'post', 'string'),
                 'province'=>JRequest::getVar('province', null, 'post', 'string'),
                 'postcode'=>JRequest::getVar('postcode', null, 'post', 'string'),
