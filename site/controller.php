@@ -101,7 +101,7 @@ class PvmachineinspectorsController extends JController
     public function save()
     {
         //
-        $ia = $this->getModel('applicant');
+/*        $ia = $this->getModel('applicant');
         // create applicant record and get applicant id
         $ia->create(
             array(
@@ -135,7 +135,7 @@ class PvmachineinspectorsController extends JController
             )
         );
 
-        d($ia, $a, $l);
+        d($ia, $a, $l);*/
         return true;
     }
 
