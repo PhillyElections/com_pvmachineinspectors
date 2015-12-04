@@ -15,6 +15,7 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
+JTable::addIncludePath(JPATH_COMPONENT.DS.'tables');
 
 /**
  * User Component Remind Model
