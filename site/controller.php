@@ -128,8 +128,10 @@ class PvmachineinspectorsController extends JController
         );
         // bind the address to the applicant (person)
 
-        d($ia, $a);
+        $l = $this->getModel('link');
+        $l->create(array('email'=>JRequest::getVar('email', null, 'post', 'string'),));
 
+        d($ia, $a, $l);
         return true;
     }
 

@@ -19,33 +19,66 @@ jimport('joomla.application.component.model');
 /**
  * User Component Remind Model
  *
- * @package		Joomla
- * @subpackage	User
- * @since		1.5
+ * @package      Joomla
+ * @subpackage   User
+ * @since        1.5
  */
 class PvmachineinspectorsModelLink extends JModel
 {
-	/**
-	 * Registry namespace prefix
-	 *
-	 * @var	string
-	 */
-	public $_namespace	= 'com_pvmachineinspectors.link.';
+    /**
+     * Registry namespace prefix
+     *
+     * @var  string
+     */
+    public $_namespace    = 'com_pvmachineinspectors.link.';
 
+    /**
+     * Create a new link.
+     * 
+     * @param  array
+     *
+     * @return bool
+     */
+    public function create($data = array())
+    {
+        d($data, $this);
 
-    public function create() {
-
+        return true;
     }
 
-    public function read() {
-
+    /**
+     * Read an link from applicant id.
+     *
+     * @param  int
+     *
+     * @return bool
+     */
+    public function read($id = null)
+    {
+        // todo
     }
 
-    public function update() {
-
+    /**
+     * Update a link.
+     *
+     * @param  array
+     *
+     * @return bool
+     */
+    public function update($data = array())
+    {
+        // todo
     }
 
-    public function delete() {
-
+    /**
+     * Delete a link.
+     *
+     * @param  int
+     *
+     * @return bool
+     */
+    public function delete($id = null)
+    {
+        // todo
     }
 }
