@@ -1,13 +1,14 @@
-<?php 
+<?php
+
 /**
  * $Id: site/models/person.php $
  * $LastChangedBy: Matt Murphy $
  * Election Officials - Philadelphiavotes.com
  * a component for Joomla! 1.5 CMS (http://www.joomla.org)
- * Author Website: http://www.philadelphiavotes.com
+ * Author Website: http://www.philadelphiavotes.com.
+ *
  * @copyright Copyright (C) 2015 City of Philadelphia
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
- * @package Philadelphia.Votes
  */
 
 // No direct access
@@ -16,37 +17,67 @@ defined('_JEXEC') or die;
 jimport('joomla.application.component.model');
 
 /**
- * User Component Remind Model
+ * User Component Remind Model.
  *
- * @package     Joomla
- * @subpackage  User
  * @since       1.5
  */
 class PvmachineinspectorsModelApplicant extends JModel
 {
     /**
-     * Registry namespace prefix
+     * Registry namespace prefix.
      *
      * @var string
      */
     public $_namespace = 'com_pvmachineinspectors.applicant.';
 
-    public function create($data = null) {
+    /**
+     * Create a new applicant.
+     * 
+     * @param  array
+     *
+     * @return bool
+     */
+    public function create($data = array())
+    {
         d($data, $this);
         //save pv_person data and return a person_id
         // applicant loads ia and person
-
+        return true;
     }
 
-    public function read() {
-
+    /**
+     * Read an applicant from applicant id.
+     * 
+     * @param  int
+     *
+     * @return bool
+     */
+    public function read($id = null)
+    {
+        // todo
     }
 
-    public function update() {
-
+    /**
+     * Update an applicant.
+     * 
+     * @param  array
+     *
+     * @return bool
+     */
+    public function update($data = array())
+    {
+        // todo
     }
 
-    public function delete() {
-
+    /**
+     * Delete an applicant.
+     * 
+     * @param  int
+     *
+     * @return bool
+     */
+    public function delete($id = null)
+    {
+        // todo
     }
 }
