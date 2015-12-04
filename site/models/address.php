@@ -32,7 +32,7 @@ class PvmachineinspectorsModelAddress extends JModel
     /**
      * Create a new applicant.
      *
-     * @param  array
+     * @param  array    $data
      *
      * @return bool
      */
@@ -42,44 +42,41 @@ class PvmachineinspectorsModelAddress extends JModel
         $ax = $this->getTable('address_xref');
         $t = $this->getTable('table');
 
-        d($data, $this, $iat, $p);
+        d($data, $this, $a, $ax, $t);
 
         return true;
     }
 
     /**
-     * Read an address from address id.
-     *
-     * @param  int
-     *
+     * Read an address
+     * @param  int  $id
      * @return bool
      */
     public function read($id = null)
     {
         // todo
+        return true;
     }
 
     /**
      * Update an applicant.
-     *
-     * @param  array
-     *
+     * @param  array    $data
      * @return bool
      */
     public function update($data = array())
     {
         // todo
+        return true;
     }
 
     /**
      * Delete an applicant.
-     *
-     * @param  int
-     *
-     * @return boolp
+     * @param  int  $id
+     * @return bool
      */
     public function delete($id = null)
     {
         // todo
+        return true;
     }
 }

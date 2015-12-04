@@ -34,9 +34,7 @@ class PvmachineinspectorsModelLink extends JModel
 
     /**
      * Create a new link.
-     *
      * @param  array
-     *
      * @return bool
      */
     public function create($data = array())
@@ -51,38 +49,35 @@ class PvmachineinspectorsModelLink extends JModel
     }
 
     /**
-     * Read an link from applicant id.
-     *
-     * @param  int
-     *
+     * Read a link.
+     * @param  int  $id
      * @return bool
      */
     public function read($id = null)
     {
         // todo
+        return true;
     }
 
     /**
      * Update a link.
-     *
-     * @param  array
-     *
+     * @param  array    $data
      * @return bool
      */
     public function update($data = array())
     {
         // todo
+        return true;
     }
 
     /**
      * Delete a link.
-     *
-     * @param  int
-     *
+     * @param  int  $id
      * @return bool
      */
     public function delete($id = null)
     {
         // todo
+        return true;
     }
 }

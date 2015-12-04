@@ -24,61 +24,55 @@ class PvmachineinspectorsModelApplicant extends JModel
 {
     /**
      * Registry namespace prefix.
-     *
      * @var string
      */
     public $_namespace = 'com_pvmachineinspectors.applicant.';
 
     /**
      * Create a new applicant.
-     *
      * @param  array
-     *
      * @return bool
      */
     public function create($data = array())
     {
         $iat = $this->getTable('inspector_applicant');
-        $p = $this->getTable('person');
-        d($data, $this, $a, $ax, $t);
+        //$p = $this->getTable('person');
+        d($data, $this, $iat);
         //save pv_person data and return a person_id
         // applicant loads ia and person
         return true;
     }
 
     /**
-     * Read an applicant from applicant id.
-     *
-     * @param  int
-     *
+     * Read an address
+     * @param  int  $id
      * @return bool
      */
     public function read($id = null)
     {
         // todo
+        return true;
     }
 
     /**
      * Update an applicant.
-     *
-     * @param  array
-     *
+     * @param  array    $data
      * @return bool
      */
     public function update($data = array())
     {
         // todo
+        return true;
     }
 
     /**
      * Delete an applicant.
-     *
-     * @param  int
-     *
+     * @param  int  $id
      * @return bool
      */
     public function delete($id = null)
     {
         // todo
+        return true;
     }
 }
