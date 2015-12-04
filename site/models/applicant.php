@@ -1,5 +1,4 @@
 <?php
-
 /**
  * $Id: site/models/person.php $
  * $LastChangedBy: Matt Murphy $
