@@ -108,28 +108,27 @@ class PvmachineinspectorsController extends JController {
                 'suffix' => JRequest::getVar('suffix', null, 'post', 'string'),
             )
         );
-/*        // save applicant links
+        // save applicant links
 
-//
-// save the address
-$a->create(
-array(
-'address1'=>JRequest::getVar('address1', null, 'post', 'string'),
-'address2'=>JRequest::getVar('address2', null, 'post', 'string'),
-'city'    =>JRequest::getVar('city', null, 'post', 'string'),
-'province'=>JRequest::getVar('province', null, 'post', 'string'),
-'postcode'=>JRequest::getVar('postcode', null, 'post', 'string'),
-)
-);
-// bind the address to the applicant (person)
+        // save the address
+        $a->create(
+            array(
+                'address1' => JRequest::getVar('address1', null, 'post', 'string'),
+                'address2' => JRequest::getVar('address2', null, 'post', 'string'),
+                'city' => JRequest::getVar('city', null, 'post', 'string'),
+                'province' => JRequest::getVar('province', null, 'post', 'string'),
+                'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
+            )
+        );
+        // bind the address to the applicant (person)
 
-$l->create(
-array(
-'email'=>JRequest::getVar('email', null, 'post', 'string')
-)
-);
+        $l->create(
+            array(
+                'email' => JRequest::getVar('email', null, 'post', 'string'),
+            )
+        );
 
-d($ia, $a, $l);*/
+        d($ia, $a, $l);
         return true;
     }
 
