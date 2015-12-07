@@ -95,6 +95,7 @@ class PvmachineinspectorsController extends JController {
      * Save the form data in the various proper locations
      */
     public function save() {
+        $stamp = date('Y-m-d h:i:s'),
         d('saving');
         //
         $ia = $this->getModel('applicant');
@@ -108,6 +109,7 @@ class PvmachineinspectorsController extends JController {
                 'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
                 'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
                 'suffix' => JRequest::getVar('suffix', null, 'post', 'string'),
+                'created' => $stamp,
             )
         );
         // save applicant links
@@ -120,6 +122,7 @@ class PvmachineinspectorsController extends JController {
                 'city' => JRequest::getVar('city', null, 'post', 'string'),
                 'region' => JRequest::getVar('region', null, 'post', 'string'),
                 'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
+                'created' => $stamp,
             )
         );
         // bind the address to the applicant (person)
@@ -127,6 +130,7 @@ class PvmachineinspectorsController extends JController {
         $l->create(
             array(
                 'email' => JRequest::getVar('email', null, 'post', 'string'),
+                'created' => $stamp,
             )
         );
 
