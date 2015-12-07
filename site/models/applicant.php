@@ -20,8 +20,7 @@ jimport('joomla.application.component.model');
  *
  * @since       1.5
  */
-class PvmachineinspectorsModelApplicant extends JModel
-{
+class PvmachineinspectorsModelApplicant extends JModel {
     /**
      * Registry namespace prefix.
      * @var string
@@ -33,10 +32,9 @@ class PvmachineinspectorsModelApplicant extends JModel
      * @param  array
      * @return bool
      */
-    public function create($data = array())
-    {
+    public function create($data = array()) {
 
-        $iat = $this->getTable('inspector_applicant');
+        //$iat = $this->getTable('inspector_applicant');
         $p = $this->getTable('Person');
         d($data, $this, $iat, $p);
         //save pv_person data and return a person_id
@@ -49,8 +47,7 @@ class PvmachineinspectorsModelApplicant extends JModel
      * @param  int  $id
      * @return bool
      */
-    public function read($id = null)
-    {
+    public function read($id = null) {
         // todo
         return true;
     }
@@ -60,8 +57,7 @@ class PvmachineinspectorsModelApplicant extends JModel
      * @param  array    $data
      * @return bool
      */
-    public function update($data = array())
-    {
+    public function update($data = array()) {
         // todo
         return true;
     }
@@ -71,8 +67,7 @@ class PvmachineinspectorsModelApplicant extends JModel
      * @param  int  $id
      * @return bool
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         // todo
         return true;
     }
