@@ -35,10 +35,14 @@ class PvmachineinspectorsModelApplicant extends JModel {
     public function create($data = array()) {
         d(JPATH_COMPONENT_ADMINISTRATOR . DS . 'tables', JTable::addIncludePath());
 
-        $iat = $this->getTable('InspectorApplicant', 'PVTable');
+        $ia = $this->getTable('InspectorApplicant', 'PVTable');
 
         $p = $this->getTable('Person', 'PVTable');
+        d($p);
         $p->bind($data);
+        d($p);
+        $p->save();
+
         d($data, $this, $iat, $p);
         //save pv_person data and return a person_id
         // applicant loads ia and person
