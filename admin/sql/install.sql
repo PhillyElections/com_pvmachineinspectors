@@ -9,7 +9,7 @@ SET @db   = DATABASE();
 CREATE TABLE IF NOT EXISTS `#__pv_addresses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `division_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `order` int(10) unsigned NOT NULL DEFAULT 0,
+  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `address1` varchar(100) NOT NULL DEFAULT '',
   `address2` varchar(100) DEFAULT NULL,
   `address3` varchar(100) DEFAULT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `#__pv_inspector_applicants` (
   `person_id` int(10) unsigned NOT NULL DEFAULT 0,
   `ward_id` int(10) unsigned NOT NULL DEFAULT 0,
   `division_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `order` int(10) unsigned NOT NULL DEFAULT 0,
+  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `published` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `checked_out` int(10) unsigned NOT NULL DEFAULT 0,
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `#__pv_inspector_applicants` (
 
 CREATE TABLE IF NOT EXISTS `#__pv_link_types` (
   `id` tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
+  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `limit` tinyint(2) DEFAULT 2 COMMENT '0 for no limit, 1 or greater for a specific limit',
   `name` varchar(100) NOT NULL DEFAULT '',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -81,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `#__pv_link_xrefs` (
 CREATE TABLE IF NOT EXISTS `#__pv_links` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type_id` tinyint(2) unsigned NOT NULL DEFAULT 0,
-  `order` int(10) unsigned NOT NULL DEFAULT 0,
+  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `value` varchar(255) NOT NULL DEFAULT '',
   `published` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `checked_out` int(10) unsigned NOT NULL DEFAULT 0,
@@ -95,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `#__pv_links` (
 CREATE TABLE IF NOT EXISTS `#__pv_persons` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `party_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `order` int(10) unsigned NOT NULL DEFAULT 0,
+  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `image` varchar(255) DEFAULT NULL,
   `prefix` varchar(25) DEFAULT NULL,
   `first_name` varchar(40) NOT NULL DEFAULT '',
@@ -134,8 +135,8 @@ INSERT INTO `#__pv_tables`
 /* - Populate Link Types */
 id, limit, name, created updated
 INSERT INTO `#__pv_link_types` VALUES
-('', 0, 'email', @tnow, @tnl),
-('', 0, 'phone', @tnow, @tnl),
-('', 0, 'fax', @tnow, @tnl),
-('', 1, 'accessible_coords', @tnow, @tnl),
-('', 1, 'voting_coords', @tnow, @tnl);
+('', 3, 0, 'email', @tnow, @tnl),
+('', 1, 0, 'phone', @tnow, @tnl),
+('', 2, 0, 'fax', @tnow, @tnl),
+('', 4, 1, 'accessible_coords', @tnow, @tnl),
+('', 5, 1, 'voting_coords', @tnow, @tnl);
