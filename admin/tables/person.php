@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class TablePerson extends JTable {
+class PVTablePerson extends JTable {
     public $id;
     public $current_party_id;
     public $image;

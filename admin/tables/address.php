@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class TableAddress extends JTable {
+class PVTableAddress extends JTable {
     public $id;
     public $address1;
     public $address2;
