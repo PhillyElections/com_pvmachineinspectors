@@ -133,7 +133,6 @@ INSERT INTO `#__pv_tables`
   FROM information_schema.tables WHERE TABLE_SCHEMA=@db AND (TABLE_NAME LIKE "%division%" OR TABLE_NAME LIKE "%ward%" OR TABLE_NAME LIKE "%_pv_%") AND TABLE_NAME NOT LIKE "%_rt_%";
  
 /* - Populate Link Types */
-id, limit, name, created updated
 INSERT INTO `#__pv_link_types` VALUES
 ('', 3, 0, 'email', @tnow, @tnl),
 ('', 1, 0, 'phone', @tnow, @tnl),
