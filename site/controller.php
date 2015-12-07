@@ -95,7 +95,7 @@ class PvmachineinspectorsController extends JController {
      * Save the form data in the various proper locations
      */
     public function save() {
-        $stamp = date('Y-m-d h:i:s'),
+        $stamp = date('Y-m-d h:i:s');
         d('saving');
         //
         $ia = $this->getModel('applicant');
