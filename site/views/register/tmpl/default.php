@@ -3,12 +3,12 @@
 defined('_JEXEC') or die('Restricted access');
 
 if (isset($this->message)) {
-	$this->display('message');
+    $this->display('message');
 }
 
-$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'province', 'postcode', 'email',);
+$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'email');
 foreach ($fields as $field) {
-	$$field = JRequest::getVar($field, null, 'post', 'string');	
+    $$field = JRequest::getVar($field, null, 'post', 'string');
 }
 
 ?>
@@ -59,17 +59,17 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="city" name="city" size="60%" value="<?=($city?$city:'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="(city is required)" />
+		<input type="text" id="city" name="city" size="60%" value="<?=($city ? $city : 'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="(city is required)" />
 	</td>
 </tr>
 <tr>
 	<td height="40">
-		<label id="provincemsg" for="province">
+		<label id="regionmsg" for="region">
 <?=JText::_('State');?>:
 		</label>
 	</td>
 	<td>
-<?=JHTML::_('select.genericlist', $this->getUSStates(), 'province', 'class="inputbox required"', 'idx', 'value', ($postcode?$postcode:'PA'), 'true')?>
+<?=JHTML::_('select.genericlist', $this->getUSStates(), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'true')?>
 </td>
 </tr>
 <tr>
@@ -95,5 +95,5 @@ foreach ($fields as $field) {
 </table>
 	<button class="button validate" type="submit"><?=JText::_('Register');?></button>
 	<input type="hidden" name="task" value="register_save" />
-<?php echo JHTML::_('form.token');?>
+<?php echo JHTML::_('form.token'); ?>
 </form>

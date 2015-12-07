@@ -102,9 +102,9 @@ class PvmachineinspectorsController extends JController {
         $ia->create(
             array(
                 'prefix' => JRequest::getVar('prefix', null, 'post', 'string'),
-                'fname' => JRequest::getVar('fname', null, 'post', 'string'),
-                'mname' => JRequest::getVar('mname', null, 'post', 'string'),
-                'lname' => JRequest::getVar('lname', null, 'post', 'string'),
+                'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
+                'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
+                'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
                 'suffix' => JRequest::getVar('suffix', null, 'post', 'string'),
             )
         );
@@ -116,7 +116,7 @@ class PvmachineinspectorsController extends JController {
                 'address1' => JRequest::getVar('address1', null, 'post', 'string'),
                 'address2' => JRequest::getVar('address2', null, 'post', 'string'),
                 'city' => JRequest::getVar('city', null, 'post', 'string'),
-                'province' => JRequest::getVar('province', null, 'post', 'string'),
+                'region' => JRequest::getVar('region', null, 'post', 'string'),
                 'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
             )
         );
