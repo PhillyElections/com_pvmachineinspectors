@@ -11,12 +11,12 @@
 	<description>Machine Inspector signup and management.</description>
 	<install>
 		<sql>
-			<file driver="mysql">sql/install.sql</file>
+			<file driver="mysqli">sql/install.sql</file>
 		</sql>
 	</install>
 	<uninstall>
 		<sql>
-			<file driver="mysql">sql/uninstall.sql</file>
+			<file driver="mysqli">sql/uninstall.sql</file>
 		</sql>
 	</uninstall>
 	<files folder="site">
