@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: site/tables/table.php $
+ * $Id: admin/tables/table.php $
  * $LastChangedBy: Matt Murphy $
  * Campaign Finance Reports - Philadelphiavotes.com
  * a component for Joomla! 1.5 CMS (http://www.joomla.org)
