@@ -52,6 +52,7 @@ class PvmachineinspectorsController extends JController {
 
         // call to validate save, and ditch out to form on failure
         if (!$this->validate_save()) {
+            d('invalidated');
             // load the form and a message
             $message = 'Form invalidated, sucka!';
             // load the form again
