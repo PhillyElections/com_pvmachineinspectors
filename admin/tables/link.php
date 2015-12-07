@@ -16,8 +16,7 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class PvmachineinspectorsLink extends JTable
-{
+class TableLink extends JTable {
     public $id;
     public $type_id;
     public $order;
@@ -28,8 +27,7 @@ class PvmachineinspectorsLink extends JTable
     public $created;
     public $updated;
 
-    public function __construct(&$_db)
-    {
+    public function __construct(&$_db) {
         parent::__construct('#__pv_links', 'id', $_db);
     }
 }

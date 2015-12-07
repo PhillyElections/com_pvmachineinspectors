@@ -16,15 +16,13 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class PvmachineinspectorsTable extends JTable
-{
+class TableTable extends JTable {
     public $id;
     public $name;
     public $created;
     public $updated;
 
-    public function __construct(&$_db)
-    {
+    public function __construct(&$_db) {
         parent::__construct('#__pv_tables', 'id', $_db);
     }
 }

@@ -16,8 +16,7 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class PvmachineinspectorsPerson extends JTable
-{
+class TablePerson extends JTable {
     public $id;
     public $current_party_id;
     public $image;
@@ -35,8 +34,7 @@ class PvmachineinspectorsPerson extends JTable
     public $created;
     public $updated;
 
-    public function __construct(&$_db)
-    {
+    public function __construct(&$_db) {
         parent::__construct('#__pv_persons', 'id', $_db);
     }
 }

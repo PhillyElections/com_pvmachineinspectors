@@ -16,8 +16,7 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class PvmachineinspectorsAddress extends JTable
-{
+class TableAddress extends JTable {
     public $id;
     public $address1;
     public $address2;
@@ -31,8 +30,7 @@ class PvmachineinspectorsAddress extends JTable
     public $created;
     public $updated;
 
-    public function __construct(&$_db)
-    {
+    public function __construct(&$_db) {
         parent::__construct('#__pv_addresses', 'id', $_db);
     }
 }
