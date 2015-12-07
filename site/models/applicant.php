@@ -39,9 +39,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
 
         $p = $this->getTable('Person', 'PVTable');
         d($p);
-        $p->bind($data);
-        d($p);
-        $p->save();
+        $p->save($data);
 
         d($data, $this, $iat, $p);
         //save pv_person data and return a person_id
