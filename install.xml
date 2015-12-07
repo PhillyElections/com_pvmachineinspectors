@@ -11,12 +11,14 @@
 	<description>Machine Inspector signup and management.</description>
 	<install>
 		<sql>
-			<file driver="mysqli">admin/sql/install.sql</file>
+			<file driver="mysql" charset="utf8">install.sql</file>
+			<file driver="mysql">install.sql</file>
 		</sql>
 	</install>
 	<uninstall>
 		<sql>
-			<file driver="mysqli">admin/sql/uninstall.sql</file>
+			<file driver="mysqli" charset="utf8">uninstall.sql</file>
+			<file driver="mysqli">uninstall.sql</file>
 		</sql>
 	</uninstall>
 	<files folder="site">
@@ -36,6 +38,8 @@
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>pvmachineinspectors.php</filename>
+			<filename>install.sql</filename>
+			<filename>uninstall.sql</filename>
 			<folder>sql/</folder>
 			<folder>tables/</folder>
 		</files>
