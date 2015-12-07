@@ -57,12 +57,12 @@ class PvmachineinspectorsController extends JController {
             // load the form again
             return $this->display();
         }
-
+        d('validated');
         if (!$this->save()) {
             $message = 'Could not save. -- replace with a JError call';
             return $this->display();
         }
-
+        d('saved');
         // hey, we have good data!  let's set a message for the redirect
         $message = "Thank you for registering to be a Machine Inspector.";
 
