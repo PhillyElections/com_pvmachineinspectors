@@ -36,7 +36,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
         d(JPATH_COMPONENT_ADMINISTRATOR . DS . 'tables');
         parent::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . DS . 'tables');
         //$iat = $this->getTable('inspector_applicant');
-        $p = parent::getInstance('person', 'table');
+        $p = parent::getInstance('person', 'Pvmachineinspectors');
         d($data, $this, $iat, $p);
         //save pv_person data and return a person_id
         // applicant loads ia and person
