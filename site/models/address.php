@@ -20,8 +20,7 @@ jimport('joomla.application.component.model');
  *
  * @since        1.5
  */
-class PvmachineinspectorsModelAddress extends JModel
-{
+class PvmachineinspectorsModelAddress extends JModel {
     /**
      * Registry namespace prefix.
      *
@@ -36,11 +35,10 @@ class PvmachineinspectorsModelAddress extends JModel
      *
      * @return bool
      */
-    public function create($data = array())
-    {
-        $a = $this->getTable('inspector_appliant');
-        $ax = $this->getTable('address_xref');
-        $t = $this->getTable('table');
+    public function create($data = array()) {
+        $a = $this->getInstance('inspector_appliant', 'PVTable');
+        $ax = $this->getInstance('address_xref', 'PVTable');
+        $t = $this->getInstance('table', 'PVTable');
 
         d($data, $this, $a, $ax, $t);
 
@@ -52,8 +50,7 @@ class PvmachineinspectorsModelAddress extends JModel
      * @param  int  $id
      * @return bool
      */
-    public function read($id = null)
-    {
+    public function read($id = null) {
         // todo
         return true;
     }
@@ -63,8 +60,7 @@ class PvmachineinspectorsModelAddress extends JModel
      * @param  array    $data
      * @return bool
      */
-    public function update($data = array())
-    {
+    public function update($data = array()) {
         // todo
         return true;
     }
@@ -74,8 +70,7 @@ class PvmachineinspectorsModelAddress extends JModel
      * @param  int  $id
      * @return bool
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         // todo
         return true;
     }

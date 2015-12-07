@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * $Id: site/models/link.php $
  * $LastChangedDate: 2015-07-31 $
@@ -23,26 +23,24 @@ jimport('joomla.application.component.model');
  * @subpackage   User
  * @since        1.5
  */
-class PvmachineinspectorsModelLink extends JModel
-{
+class PvmachineinspectorsModelLink extends JModel {
     /**
      * Registry namespace prefix
      *
      * @var  string
      */
-    public $_namespace    = 'com_pvmachineinspectors.link.';
+    public $_namespace = 'com_pvmachineinspectors.link.';
 
     /**
      * Create a new link.
      * @param  array
      * @return bool
      */
-    public function create($data = array())
-    {
-        $l = $this->getTable('link');
-        $lt = $this->getTable('link_type');
-        $lx = $this->getTable('link_xref');
-        $t = $this->getTable('table');
+    public function create($data = array()) {
+        $l = $this->getInstance('link', 'PVTable');
+        $lt = $this->getInstance('link_type', 'PVTable');
+        $lx = $this->getInstance('link_xref', 'PVTable');
+        $t = $this->getInstance('table', 'PVTable');
         d($data, $this, $l, $lt, $lx, $t);
 
         return true;
@@ -53,8 +51,7 @@ class PvmachineinspectorsModelLink extends JModel
      * @param  int  $id
      * @return bool
      */
-    public function read($id = null)
-    {
+    public function read($id = null) {
         // todo
         return true;
     }
@@ -64,8 +61,7 @@ class PvmachineinspectorsModelLink extends JModel
      * @param  array    $data
      * @return bool
      */
-    public function update($data = array())
-    {
+    public function update($data = array()) {
         // todo
         return true;
     }
@@ -75,8 +71,7 @@ class PvmachineinspectorsModelLink extends JModel
      * @param  int  $id
      * @return bool
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         // todo
         return true;
     }
