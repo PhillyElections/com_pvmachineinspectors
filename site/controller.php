@@ -22,6 +22,7 @@ jimport('joomla.application.component.controller');
  * @since 1.5
  */
 class PvmachineinspectorsController extends JController {
+    public $message = '';
     /**
      * Display signup form.
      *
@@ -29,6 +30,7 @@ class PvmachineinspectorsController extends JController {
      */
     public function display() {
         JRequest::setVar('view', 'register');
+        JRequest::setVar('message', $this->message);
         parent::display();
     }
 
@@ -54,26 +56,21 @@ class PvmachineinspectorsController extends JController {
         if (!$this->validate_save()) {
             d('invalidated');
             // load the form and a message
-            $message = 'Form invalidated, sucka!';
+            $this->message = 'Form invalidated, sucka!';
             // load the form again
             return $this->display();
         }
         d('validated');
         if (!$this->save()) {
-            $message = 'Could not save. -- replace with a JError call';
+            $this->message = 'Could not save. -- replace with a JError call';
             return $this->display();
         }
         d('saved');
         // hey, we have good data!  let's set a message for the redirect
-        $message = "Thank you for registering to be a Machine Inspector.";
+        $this->message = "Thank you for registering to be a Machine Inspector.";
 
-        //
-        $email = JRequest::getVar('email', null, 'post', 'string');
-        if ($email) {
-            $message .= "<br>...And thank you for providing an email address.  <br>At your convenience please check your email for a confirmation email and click the link within to <b>verify</b> your email.";
-        }
         dd('stopping before we redirect');
-        $this->setRedirect('index.php', $message);
+        $this->setRedirect('index.php', $this->message);
     }
 
     /**
@@ -115,7 +112,7 @@ class PvmachineinspectorsController extends JController {
         $a = $this->getModel('address');
         $l = $this->getModel('link');
         // create applicant record and get applicant id
-        $ia->create(
+        $pid = $ia->create(
             array(
                 'prefix' => $prefix,
                 'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
@@ -126,26 +123,31 @@ class PvmachineinspectorsController extends JController {
             )
         );
         // save applicant links
+        if ($pid) {
+            // save the address
+            $a->create(
+                array(
+                    'person_id' => $pid,
+                    'address1' => JRequest::getVar('address1', null, 'post', 'string'),
+                    'address2' => JRequest::getVar('address2', null, 'post', 'string'),
+                    'city' => JRequest::getVar('city', null, 'post', 'string'),
+                    'region' => $state,
+                    'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
+                    'created' => $created,
+                )
+            );
+            // bind the address to the applicant (person)
 
-        // save the address
-        $a->create(
-            array(
-                'address1' => JRequest::getVar('address1', null, 'post', 'string'),
-                'address2' => JRequest::getVar('address2', null, 'post', 'string'),
-                'city' => JRequest::getVar('city', null, 'post', 'string'),
-                'region' => $state,
-                'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
-                'created' => $created,
-            )
-        );
-        // bind the address to the applicant (person)
-
-        $l->create(
-            array(
-                'email' => JRequest::getVar('email', null, 'post', 'string'),
-                'created' => $created,
-            )
-        );
+            $l->create(
+                array(
+                    'person_id' => $pid,
+                    'email' => JRequest::getVar('email', null, 'post', 'string'),
+                    'created' => $created,
+                )
+            );
+        } else {
+            return false;
+        }
 
         d($ia, $a, $l);
         return true;

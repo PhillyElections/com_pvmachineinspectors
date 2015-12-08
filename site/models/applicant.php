@@ -35,16 +35,14 @@ class PvmachineinspectorsModelApplicant extends JModel {
     public function create($data = array()) {
 
         $ia = $this->getTable('InspectorApplicant', 'PVTable');
-
         $p = $this->getTable('Person', 'PVTable');
-        d($p);
-        $p->save($data);
 
+        $p->save($data);
         $ia->save(array_merge($data, array('person_id' => $p->get('id'))));
-        d($data, $this, $ia, $p);
-        //save pv_person data and return a person_id
-        // applicant loads ia and person
-        return true;
+        d($ia, $p);
+
+        // return the new person_id for the address bind
+        return $p->get('id');
     }
 
     /**
