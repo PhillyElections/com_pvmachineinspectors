@@ -33,7 +33,6 @@ class PvmachineinspectorsModelApplicant extends JModel {
      * @return bool
      */
     public function create($data = array()) {
-        d(JPATH_COMPONENT_ADMINISTRATOR . DS . 'tables', JTable::addIncludePath());
 
         $ia = $this->getTable('InspectorApplicant', 'PVTable');
 
