@@ -96,6 +96,19 @@ class PvmachineinspectorsController extends JController {
      */
     public function save() {
         $created = date('Y-m-d h:i:s');
+
+        jimport("combo.Combo");
+        $region = $suffix = $prefix = '';
+        // lets get values to replace references
+        if (JRequest::getVar('prefix', null, 'post', 'string')) {
+            $prefix = Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) || '';
+        }
+        if (JRequest::getVar('suffix', null, 'post', 'string')) {
+            $suffix = Combo::getPrefix(JRequest::getVar('suffix', null, 'post', 'string')) || '';
+        }
+        if (JRequest::getVar('region', null, 'post', 'string')) {
+            $region = Combo::getPrefix(JRequest::getVar('region', null, 'post', 'string')) || '';
+        }
         d('saving');
         //
         $ia = $this->getModel('applicant');
@@ -104,11 +117,11 @@ class PvmachineinspectorsController extends JController {
         // create applicant record and get applicant id
         $ia->create(
             array(
-                'prefix' => JRequest::getVar('prefix', null, 'post', 'string'),
+                'prefix' => $prefix,
                 'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
                 'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
                 'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
-                'suffix' => JRequest::getVar('suffix', null, 'post', 'string'),
+                'suffix' => $suffix,
                 'created' => $created,
             )
         );
@@ -120,7 +133,7 @@ class PvmachineinspectorsController extends JController {
                 'address1' => JRequest::getVar('address1', null, 'post', 'string'),
                 'address2' => JRequest::getVar('address2', null, 'post', 'string'),
                 'city' => JRequest::getVar('city', null, 'post', 'string'),
-                'region' => JRequest::getVar('region', null, 'post', 'string'),
+                'region' => $state,
                 'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
                 'created' => $created,
             )
