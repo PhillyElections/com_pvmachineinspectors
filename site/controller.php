@@ -101,13 +101,13 @@ class PvmachineinspectorsController extends JController {
         $region = $suffix = $prefix = '';
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
-            $prefix = Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) || '';
+            $prefix = Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) ? Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('suffix', null, 'post', 'string')) {
-            $suffix = Combo::getPrefix(JRequest::getVar('suffix', null, 'post', 'string')) || '';
+            $suffix = Combo::getPrefix(JRequest::getVar('suffix', null, 'post', 'string')) ? Combo::getPrefix(JRequest::getVar('suffix', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('region', null, 'post', 'string')) {
-            $region = Combo::getPrefix(JRequest::getVar('region', null, 'post', 'string')) || '';
+            $region = Combo::getPrefix(JRequest::getVar('region', null, 'post', 'string')) ? Combo::getPrefix(JRequest::getVar('region', null, 'post', 'string')) : '';
         }
         d('saving');
         //
