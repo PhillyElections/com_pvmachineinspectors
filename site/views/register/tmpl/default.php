@@ -11,6 +11,7 @@ foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post', 'string');
 }
 
+jimport("combo.Combo");
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
@@ -24,11 +25,11 @@ foreach ($fields as $field) {
 		</label>
 	</td>
   	<td>
-		<?=JHTML::_('select.genericlist', $this->getPrefixes(), 'prefix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
+		<?=JHTML::_('select.genericlist', Combo::getPrefixes(), 'prefix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
   		<input type="text" name="fname" id="fname" size="20%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="1%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
   		<input type="text" name="lname" id="lname" size="20%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-		<?=JHTML::_('select.genericlist', $this->getSuffixes(), 'suffix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
+		<?=JHTML::_('select.genericlist', Combo::getSuffixes(), 'suffix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
   	</td>
 
 </tr>
@@ -69,7 +70,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-<?=JHTML::_('select.genericlist', $this->getUSStates(), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'true')?>
+<?=JHTML::_('select.genericlist', Combo::getUSStates(), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'true')?>
 </td>
 </tr>
 <tr>
