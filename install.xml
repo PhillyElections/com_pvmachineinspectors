@@ -38,8 +38,6 @@
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>pvmachineinspectors.php</filename>
-			<filename>install.sql</filename>
-			<filename>uninstall.sql</filename>
 			<folder>sql/</folder>
 			<folder>tables/</folder>
 		</files>
