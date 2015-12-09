@@ -30,7 +30,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
     /**
      * Create a new applicant.
      * @param  array
-     * @return bool
+     * @return integer $id of created person for link and address binding
      */
     public function create($data = array()) {
 
@@ -39,9 +39,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
 
         $p->save($data);
         $ia->save(array_merge($data, array('person_id' => $p->get('id'))));
-        d($ia, $p);
 
-        // return the new person_id for the address bind
         return $p->get('id');
     }
 
