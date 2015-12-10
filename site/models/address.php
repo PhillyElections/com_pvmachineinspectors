@@ -50,17 +50,18 @@ class PvmachineinspectorsModelAddress extends JModel {
         $d->loadFromKeyValuePairs(array('division_id' => $remote_array['division']));
         $did = $d->get('id');
         d($remote_array, $did, $d, $data);
-        $a->save(
-            array_merge(
-                $data,
-                array(
-                    'division_id' => (int) $did,
-                    'lon' => (float) $remote_array['lon'],
-                    'lat' => (float) $remote_array['lat'],
+        if ($did) {
+            $a->save(
+                array_merge(
+                    $data,
+                    array(
+                        'division_id' => (int) $did,
+                        'lon' => (float) $remote_array['lon'],
+                        'lat' => (float) $remote_array['lat'],
+                    )
                 )
-            )
-        );
-
+            );
+        }
         $aid = $a->get('id');
 
         $ax->save(
