@@ -55,9 +55,9 @@ class PvmachineinspectorsModelAddress extends JModel {
                 array_merge(
                     $data,
                     array(
-                        'division_id' => (int) $did,
-                        'lon' => (float) $remote_array['lon'],
-                        'lat' => (float) $remote_array['lat'],
+                        'division_id' => $did,
+                        'lon' => $remote_array['lon'],
+                        'lat' => $remote_array['lat'],
                     )
                 )
             );
