@@ -37,9 +37,10 @@ class PvmachineinspectorsModelAddress extends JModel {
      */
     public function create($data = array()) {
         $a = $this->getTable('Address', 'PVTable');
-        $tableName = JString::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName());
         $ax = $this->getTable('AddressXref', 'PVTable');
         $t = $this->getTable('Table', 'PVTable');
+
+        $tableName = JString::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName());
 
         $t->loadFromKeyValuePairs(array('name' => $tableName));
         $tid = $t->get('id');
