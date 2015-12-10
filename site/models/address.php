@@ -89,7 +89,7 @@ class PvmachineinspectorsModelAddress extends JModel {
     }
 
     /**
-     * Update an applicant.
+     * Update an address.
      * @param  array    $data
      * @return bool
      */
