@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `#__pv_address_xrefs` (
 CREATE TABLE IF NOT EXISTS `#__pv_inspector_applicants` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `person_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `ward_id` int(10) unsigned NOT NULL DEFAULT 0,
   `division_id` int(10) unsigned NOT NULL DEFAULT 0,
   `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `published` tinyint(1) unsigned NOT NULL DEFAULT 0,
