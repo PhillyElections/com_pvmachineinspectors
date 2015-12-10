@@ -12,16 +12,26 @@ defined('_JEXEC') or die;
 
 class PVTable extends JTable {
     public function getByKeyValuePairs($data) {
+        $i = 0;
+        d($i++, 'reset');
         $this->reset();
+        d($i++, "db");
         $db = &$this->getDBO();
+        d($i++, "sql");
         $sql = "SELECT * from `" . $this->_tbl . "` WHERE ";
+        d($i++, "foreach");
         foreach ($data as $key => $value) {
+            d($i++, ".sql");
             $sql .= "`" . $key . "`=" . $db->Quote($value) . " AND ";
         }
+        d($i++, "substr ...-4", $sql);
         $sql = JString::substr($sql, 0, -4);
+        d($i++, "db-sq", $sql);
         $db->setQuery($query);
 
+        d($i++, "if, load");
         if ($result = $db->loadAssoc()) {
+            d($i++, "return", $result, $this);
             return $this->bind($result);
         } else {
             $this->setError($db->getErrorMsg());
