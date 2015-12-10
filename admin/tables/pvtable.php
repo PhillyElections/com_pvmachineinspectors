@@ -11,7 +11,7 @@
 defined('_JEXEC') or die;
 
 class PVTable extends JTable {
-    public function getByKeyValuePairs($data) {
+    public function loadFromKeyValuePairs($data) {
         $this->reset();
         $db = &$this->getDBO();
         $sql = "SELECT * from `" . $this->_tbl . "` WHERE ";

@@ -42,7 +42,7 @@ class PvmachineinspectorsModelAddress extends JModel {
         $ax = $this->getTable('AddressXref', 'PVTable');
         $t = $this->getTable('Table', 'PVTable');
 
-        d($t->getByKeyValuePairs(array('name' => $tableName)));
+        $t->loadFromKeyValuePairs(array('name' => $tableName)));
         $a->save($data);
         $aid = $a->get('id');
 
