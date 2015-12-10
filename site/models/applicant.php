@@ -39,7 +39,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
 
         $p->save($data);
         $ia->save(array_merge($data, array('person_id' => $p->get('id'))));
-        d($p, $ia);
+        d($data, $p, $ia);
         return $p->get('id');
     }
 
