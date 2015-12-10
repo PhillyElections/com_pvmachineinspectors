@@ -21,6 +21,7 @@ class PVTableAddressXref extends PVTable {
     public $id;
     public $address_id;
     public $right_id;
+    public $right_table_id;
     public $created;
     public $updated;
 
