@@ -14,7 +14,7 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
-//jimport('joomla.utilities.string');
+jimport('combo.Combo');
 
 /**
  * User Component Remind Model.
