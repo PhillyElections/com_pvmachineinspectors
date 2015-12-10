@@ -108,7 +108,14 @@ class PvmachineinspectorsController extends JController {
         if (JRequest::getVar('region', null, 'post', 'string')) {
             $region = Combo::getUSState(JRequest::getVar('region', null, 'post', 'string')) ? Combo::getUSState(JRequest::getVar('region', null, 'post', 'string')) : '';
         }
-        d('saving',
+
+        // load our models
+        $ia = $this->getModel('applicant');
+        $a = $this->getModel('address');
+        $l = $this->getModel('link');
+
+        // create applicant record and get person id (applicant = person + inspector_applicant)
+        $pid = $ia->create(
             array(
                 'prefix' => $prefix,
                 'gender' => $gender,
@@ -118,28 +125,12 @@ class PvmachineinspectorsController extends JController {
                 'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
                 'suffix' => $suffix,
                 'created' => $created,
-            ), Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')), JRequest::getVar('prefix', null, 'post', 'string')
-            , Combo::getGender($prefix), $prefix
-            , Combo::getMarital($prefix), $prefix
-        );
-        //
-        $ia = $this->getModel('applicant');
-        $a = $this->getModel('address');
-        $l = $this->getModel('link');
-        // create applicant record and get applicant id
-        $pid = $ia->create(
-            array(
-                'prefix' => $prefix,
-                'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
-                'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
-                'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
-                'suffix' => $suffix,
-                'created' => $created,
             )
         );
-        // save applicant links
+
+        // a returned $pid means we wrote a person
         if ($pid) {
-            // save the address
+            // save person's address (address_xref is bound to person)
             $a->create(
                 array(
                     'person_id' => $pid,
@@ -151,8 +142,8 @@ class PvmachineinspectorsController extends JController {
                     'created' => $created,
                 )
             );
-            // bind the address to the applicant (person)
 
+            // link email to person
             $l->create(
                 array(
                     'person_id' => $pid,
