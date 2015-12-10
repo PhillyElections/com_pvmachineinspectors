@@ -14,7 +14,7 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
-jimport('joomla.utilities.string');
+//jimport('joomla.utilities.string');
 
 /**
  * User Component Remind Model.
@@ -38,7 +38,7 @@ class PvmachineinspectorsModelAddress extends JModel {
      */
     public function create($data = array()) {
         $a = $this->getTable('Address', 'PVTable');
-        dd(JSttring::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName()));
+        dd(JString::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName()));
         $ax = $this->getTable('AddressXref', 'PVTable');
         $t = $this->getTable('Table', 'PVTable');
         $t->getTableId();
