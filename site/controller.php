@@ -105,7 +105,7 @@ class PvmachineinspectorsController extends JController {
             $suffix = Combo::getSuffix(JRequest::getVar('suffix', null, 'post', 'string')) ? Combo::getSuffix(JRequest::getVar('suffix', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('region', null, 'post', 'string')) {
-            $region = Combo::getState(JRequest::getVar('region', null, 'post', 'string')) ? Combo::getState(JRequest::getVar('region', null, 'post', 'string')) : '';
+            $region = Combo::getUSState(JRequest::getVar('region', null, 'post', 'string')) ? Combo::getUSState(JRequest::getVar('region', null, 'post', 'string')) : '';
         }
         d('saving', array(
             'prefix' => $prefix,
