@@ -15,9 +15,11 @@ class PVTable extends JTable {
         $this->reset();
         $db = &$this->getDBO();
         $sql = "SELECT * from `" . $this->_tbl . "` WHERE ";
+        // make criteria out of each pair
         foreach ($data as $key => $value) {
             $sql .= "`" . $key . "`=" . $db->Quote($value) . " AND ";
         }
+        // drop the final " AND"
         $sql = JString::substr($sql, 0, -4);
         $db->setQuery($sql);
 
