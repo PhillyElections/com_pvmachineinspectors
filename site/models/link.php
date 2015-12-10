@@ -43,7 +43,7 @@ class PvmachineinspectorsModelLink extends JModel {
         $lx = $this->getTable('LinkXref', 'PVTable');
         $t = $this->getTable('Table', 'PVTable');
 
-        $tableName = JString::str_ireplace('#__', $l->_db->getPrefix(), $a->getTableName());
+        $tableName = JString::str_ireplace('#__', $l->_db->getPrefix(), $l->getTableName());
 
         $t->loadFromKeyValuePairs(array('name' => $tableName));
         $tid = $t->get('id');
