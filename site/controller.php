@@ -137,7 +137,7 @@ class PvmachineinspectorsController extends JController {
                     'address1' => JRequest::getVar('address1', null, 'post', 'string'),
                     'address2' => JRequest::getVar('address2', null, 'post', 'string'),
                     'city' => JRequest::getVar('city', null, 'post', 'string'),
-                    'region' => $state,
+                    'region' => $region,
                     'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
                     'created' => $created,
                 )
