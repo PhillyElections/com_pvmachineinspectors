@@ -11,7 +11,7 @@
  */
 
 defined('_JEXEC') or die('Restricted access');
-require_once __DIR__ . "pvtable.php";
+require_once __DIR__ . DS . "pvtable.php";
 
 /**
  * @package Philadelphia.Votes
