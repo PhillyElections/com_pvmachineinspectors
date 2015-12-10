@@ -43,10 +43,11 @@ class PvmachineinspectorsModelAddress extends JModel {
         $t = $this->getTable('Table', 'PVTable');
 
         $t->loadFromKeyValuePairs(array('name' => $tableName));
+        $tid = $t->get('id');
         $a->save($data);
         $aid = $a->get('id');
 
-        //$ax->save(array('right_id', $data['person_id']
+        $ax->save(array_merge($data, array('address_id' => $aid, 'right_id' => $data['person_id'], 'right_table_id' => $tid)));
         d($data, $this, $a, $ax, $t);
 
         return true;
