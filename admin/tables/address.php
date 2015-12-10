@@ -26,6 +26,8 @@ class PVTableAddress extends PVTable {
     public $city;
     public $region;
     public $postcode;
+    public $lon;
+    public $lat;
     public $published;
     public $checked_out;
     public $checked_out_time;
