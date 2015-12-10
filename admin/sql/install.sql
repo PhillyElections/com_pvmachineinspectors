@@ -50,7 +50,6 @@ CREATE TABLE IF NOT EXISTS `#__pv_inspector_applicants` (
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
-  KEY `pv_inspector_applicants_ward_id` (`ward_id`),
   KEY `pv_inspector_applicants_division_id` (`division_id`),
   KEY `pv_inspector_applicants_person_id` (`person_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
