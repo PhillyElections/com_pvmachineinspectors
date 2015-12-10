@@ -49,7 +49,14 @@ class PvmachineinspectorsModelAddress extends JModel {
         $remote_array = $d->remoteLookup($data['address1']);
         $d->loadFromKeyValuePairs(array('division_id' => $remote_array['division']));
         $did = $d->get('id');
-        d($remote_array, $did, $d, $data);
+        d($remote_array, $did, $d, $data, array_merge(
+            $data,
+            array(
+                'division_id' => $did,
+                'lon' => $remote_array['lon'],
+                'lat' => $remote_array['lat'],
+            )
+        ));
         if ($did) {
             $a->save(
                 array_merge(
