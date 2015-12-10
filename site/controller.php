@@ -145,7 +145,7 @@ class PvmachineinspectorsController extends JController {
 
             // a returned $did means we wrote a division
             if ($did) {
-                $a->update(array('inspector_applicant' => array('division_id' => $did)));
+                $a->update(array('InspectorApplicant' => array('division_id' => $did)));
             }
 
             // link email to person
