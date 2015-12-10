@@ -11,12 +11,13 @@
  */
 
 defined('_JEXEC') or die('Restricted access');
+require_once __DIR__ . "pvtable.php";
 
 /**
  * @package Philadelphia.Votes
  */
 
-class PVTableTable extends JTable {
+class PVTableTable extends PVTable {
     public $id;
     public $name;
     public $created;

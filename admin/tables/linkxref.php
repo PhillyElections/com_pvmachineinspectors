@@ -11,12 +11,13 @@
  */
 
 defined('_JEXEC') or die('Restricted access');
+require_once __DIR__ . DS . "pvtable.php";
 
 /**
  * @package Philadelphia.Votes
  */
 
-class PVTableLinkXref extends PVTable {
+class TableLinkXref extends PVTable {
     public $id;
     public $link_id;
     public $right_id;

@@ -11,12 +11,13 @@
  */
 
 defined('_JEXEC') or die('Restricted access');
+require_once __DIR__ . DS . "pvtable.php";
 
 /**
  * @package Philadelphia.Votes
  */
 
-class PVTableAddress extends PVTable {
+class PVTableAddress extends Table {
     public $id;
     public $address1;
     public $address2;
