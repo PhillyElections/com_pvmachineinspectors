@@ -19,6 +19,7 @@ require_once __DIR__ . DS . "pvtable.php";
 
 class PVTableAddress extends PVTable {
     public $id;
+    public $division_id;
     public $address1;
     public $address2;
     public $address3;
