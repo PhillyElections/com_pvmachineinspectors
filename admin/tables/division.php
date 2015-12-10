@@ -30,7 +30,7 @@ class PVTableDivision extends PVTable {
     public $published;
 
     public function __construct(&$_db) {
-        parent::__construct('#__division', 'id', $_db);
+        parent::__construct('#__divisions', 'id', $_db);
     }
 
     public function remoteLookup($address1) {
