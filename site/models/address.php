@@ -45,7 +45,19 @@ class PvmachineinspectorsModelAddress extends JModel {
 
         $t->loadFromKeyValuePairs(array('name' => $tableName));
         $tid = $t->get('id');
-        $a->save($data);
+
+        $remote_array = $d->remoteLookup($data['address1']);
+        $did = $d->loadFromKeyValuePairs(array('division_id' => $remote_array['division']));
+
+        $a->save(
+            array_merge(
+                $data,
+                array(
+                    'division_id' => $did,
+                )
+            )
+        );
+
         $aid = $a->get('id');
 
         $ax->save(
@@ -59,7 +71,7 @@ class PvmachineinspectorsModelAddress extends JModel {
             )
         );
 
-        return true;
+        return $did;
     }
 
     /**

@@ -130,8 +130,8 @@ class PvmachineinspectorsController extends JController {
 
         // a returned $pid means we wrote a person
         if ($pid) {
-            // save person's address (address_xref is bound to person)
-            $a->create(
+            // save person's address and get a division_id
+            $did = $a->create(
                 array(
                     'person_id' => $pid,
                     'address1' => JRequest::getVar('address1', null, 'post', 'string'),
@@ -142,6 +142,11 @@ class PvmachineinspectorsController extends JController {
                     'created' => $created,
                 )
             );
+
+            // a returned $did means we wrote a division
+            if ($did) {
+                $a->update(array('inspector_applicant' => array('division_id' => $did)));
+            }
 
             // link email to person
             $l->create(
