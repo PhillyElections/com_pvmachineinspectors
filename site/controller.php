@@ -111,6 +111,7 @@ class PvmachineinspectorsController extends JController {
         d('saving', array(
             'prefix' => $prefix,
             'gender' => $gender,
+            'marital_status' => $marital,
             'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
             'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
             'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
