@@ -17,7 +17,7 @@ require_once __DIR__ . DS . "pvtable.php";
  * @package Philadelphia.Votes
  */
 
-class TableLinkType extends PVTable {
+class PVTableLinkType extends PVTable {
     public $id;
     public $limit;
     public $name;

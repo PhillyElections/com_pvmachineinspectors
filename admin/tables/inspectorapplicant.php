@@ -17,7 +17,7 @@ require_once __DIR__ . DS . "pvtable.php";
  * @package Philadelphia.Votes
  */
 
-class TableInspectorApplicant extends Table {
+class PVTableInspectorApplicant extends PVTable {
     public $id;
     public $person_id;
     public $ward_id;
