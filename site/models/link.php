@@ -62,7 +62,6 @@ class PvmachineinspectorsModelLink extends JModel {
                 'created' => $data['created'],
             )
         );
-        d($data, $this, $l, $lt, $lx, $t);
 
         return true;
     }
