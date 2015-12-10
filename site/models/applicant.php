@@ -14,7 +14,7 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
-jimport('combo.Combo');
+
 /**
  * User Component Remind Model.
  *
@@ -33,7 +33,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
      * @return integer $id of created person for link and address binding
      */
     public function create($data = array()) {
-        $data['prefix'] = is_numeric($data['prefix']) ? Combo::getPrefix($data['prefix']) : $data['prefix'];
+
         $ia = $this->getTable('InspectorApplicant', 'PVTable');
         $p = $this->getTable('Person', 'PVTable');
 
