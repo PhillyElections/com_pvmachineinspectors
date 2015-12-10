@@ -95,7 +95,7 @@ class PvmachineinspectorsController extends JController {
         $created = date('Y-m-d h:i:s');
 
         jimport("combo.Combo");
-        $region = $suffix = $prefix = '';
+        $region = $suffix = $prefix = $marital = $gender = '';
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
             $prefix = Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) ? Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) : '';
@@ -108,16 +108,20 @@ class PvmachineinspectorsController extends JController {
         if (JRequest::getVar('region', null, 'post', 'string')) {
             $region = Combo::getUSState(JRequest::getVar('region', null, 'post', 'string')) ? Combo::getUSState(JRequest::getVar('region', null, 'post', 'string')) : '';
         }
-        d('saving', array(
-            'prefix' => $prefix,
-            'gender' => $gender,
-            'marital_status' => $marital,
-            'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
-            'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
-            'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
-            'suffix' => $suffix,
-            'created' => $created,
-        ), Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')), JRequest::getVar('prefix', null, 'post', 'string'));
+        d('saving',
+            array(
+                'prefix' => $prefix,
+                'gender' => $gender,
+                'marital_status' => $marital,
+                'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
+                'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
+                'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
+                'suffix' => $suffix,
+                'created' => $created,
+            ), Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')), JRequest::getVar('prefix', null, 'post', 'string')
+            , Combo::getGender($prefix), $prefix
+            , Combo::getMarital($prefix), $prefix
+        );
         //
         $ia = $this->getModel('applicant');
         $a = $this->getModel('address');
