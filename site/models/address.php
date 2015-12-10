@@ -90,7 +90,11 @@ class PvmachineinspectorsModelAddress extends JModel {
      * @return bool
      */
     public function update($data = array()) {
-        // todo
+        foreach ($data as $table => $array) {
+            $activeTable = $this->getTable($table, 'PVTable');
+            d($activeTable, $array);
+        }
+
         return true;
     }
 
