@@ -27,7 +27,7 @@ class PVTable extends JTable {
         d($i++, "substr ...-4", $sql);
         $sql = JString::substr($sql, 0, -4);
         d($i++, "db-sq", $sql);
-        $db->setQuery($query);
+        $db->setQuery($sql);
 
         d($i++, "if, load");
         if ($result = $db->loadAssoc()) {
