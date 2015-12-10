@@ -38,7 +38,14 @@ class PvmachineinspectorsModelApplicant extends JModel {
         $p = $this->getTable('Person', 'PVTable');
 
         $p->save($data);
-        $ia->save(array_merge($data, array('person_id' => $p->get('id'))));
+        $ia->save(
+            array_merge(
+                $data,
+                array(
+                    'person_id' => $p->get('id'),
+                )
+            )
+        );
 
         return $p->get('id');
     }
