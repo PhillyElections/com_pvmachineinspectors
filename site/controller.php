@@ -99,7 +99,7 @@ class PvmachineinspectorsController extends JController {
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
             $prefix = Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) ? Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) : '';
-            $gender = Combo::getGender(JRequest::getVar('prefix', null, 'post', 'string'));
+            $gender = Combo::getGender($prefix);
         }
         if (JRequest::getVar('suffix', null, 'post', 'string')) {
             $suffix = Combo::getSuffix(JRequest::getVar('suffix', null, 'post', 'string')) ? Combo::getSuffix(JRequest::getVar('suffix', null, 'post', 'string')) : '';
