@@ -118,12 +118,12 @@ class PvmachineinspectorsController extends JController {
         $pid = $ia->create(
             array(
                 'prefix' => $prefix,
-                'gender' => $gender,
-                'marital_status' => $marital,
                 'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
                 'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
                 'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
                 'suffix' => $suffix,
+                'gender' => $gender,
+                'marital_status' => $marital,
                 'created' => $created,
             )
         );
