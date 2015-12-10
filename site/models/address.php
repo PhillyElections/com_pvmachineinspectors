@@ -54,8 +54,8 @@ class PvmachineinspectorsModelAddress extends JModel {
                 $data,
                 array(
                     'division_id' => $did,
-                    'lon' => $remote_array['lon'],
-                    'lat' => $remote_array['lat'],
+                    'lon' => (float) $remote_array['lon'],
+                    'lat' => (float) $remote_array['lat'],
                 )
             )
         );
