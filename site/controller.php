@@ -147,7 +147,8 @@ class PvmachineinspectorsController extends JController {
             $l->create(
                 array(
                     'person_id' => $pid,
-                    'email' => JRequest::getVar('email', null, 'post', 'string'),
+                    'type' => 'email',
+                    'value' => JRequest::getVar('email', null, 'post', 'string'),
                     'created' => $created,
                 )
             );
@@ -155,7 +156,6 @@ class PvmachineinspectorsController extends JController {
             return false;
         }
 
-        d($ia, $a, $l);
         return true;
     }
 }

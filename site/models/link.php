@@ -37,10 +37,30 @@ class PvmachineinspectorsModelLink extends JModel {
      * @return bool
      */
     public function create($data = array()) {
+        $tableName = JString::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName());
+
+        $t = $this->getTable('Table', 'PVTable');
         $l = $this->getTable('Link', 'PVTable');
         $lt = $this->getTable('LinkType', 'PVTable');
         $lx = $this->getTable('LinkXref', 'PVTable');
-        $t = $this->getTable('Table', 'PVTable');
+
+        $t->loadFromKeyValuePairs(array('name' => $tableName));
+        $tid = $t->get('id');
+
+        $lt->loadFromKeyValuePairs(array('name' => $data[type]));
+        $ltid = $lt->get('id');
+
+        $l->save($data);
+        $lid = $l->get('id');
+
+        $lx->save(
+            array(
+                'link_id' => $lid,
+                'right_id' => $data['person_id'],
+                'right_table_id' => $tid,
+                'created' => $data['created'],
+            )
+        );
         d($data, $this, $l, $lt, $lx, $t);
 
         return true;
