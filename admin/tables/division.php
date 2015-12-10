@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class PVTableDivision extends JTable {
+class PVTableDivision extends PVTable {
     public $id;
     public $division_id;
     public $ward;

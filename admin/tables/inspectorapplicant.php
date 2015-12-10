@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class PVTableInspectorApplicant extends JTable {
+class PVTableInspectorApplicant extends PVTable {
     public $id;
     public $person_id;
     public $ward_id;

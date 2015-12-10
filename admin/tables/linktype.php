@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-class PVTableLinkType extends JTable {
+class PVTableLinkType extends PVTable {
     public $id;
     public $limit;
     public $name;
