@@ -27,7 +27,15 @@ class PvmachineinspectorsModelAddress extends JModel {
      * @var string
      */
     public $_namespace = 'com_pvmachineinspectors.address.';
+    public $_tables = array();
 
+    public function __construct() {
+        $_tables->address = $this->getTable('Address', 'PVTable');
+        $_tables->address_xref = $this->getTable('AddressXref', 'PVTable');
+        $_tables->division = $this->getTable('Division', 'PVTable');
+        $_tables->table = $this->getTable('Table', 'PVTable');
+        parent::__construct();
+    }
     /**
      * Create a new applicant.
      *
@@ -36,10 +44,6 @@ class PvmachineinspectorsModelAddress extends JModel {
      * @return bool
      */
     public function create($data = array()) {
-        $a = $this->getTable('Address', 'PVTable');
-        $ax = $this->getTable('AddressXref', 'PVTable');
-        $d = $this->getTable('Division', 'PVTable');
-        $t = $this->getTable('Table', 'PVTable');
 
         $tableName = JString::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName());
 
