@@ -27,9 +27,10 @@ class PvmachineinspectorsModelAddress extends JModel {
      * @var string
      */
     public $_namespace = 'com_pvmachineinspectors.address.';
-    public $_tables = array();
+    public $_tables;
 
     public function __construct() {
+        $this->_tables = new StdObject();
         $this->_tables->address = $this->getTable('Address', 'PVTable');
         $this->_tables->address_xref = $this->getTable('AddressXref', 'PVTable');
         $this->_tables->division = $this->getTable('Division', 'PVTable');
