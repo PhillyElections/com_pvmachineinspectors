@@ -43,22 +43,9 @@ class PvmachineinspectorsViewRegister extends JView {
             $params->set('page_title', JText::_($title));
         }
 
-        // data for select elements
-        $db = &JFactory::getDBO();
-        $db->setQuery('SELECT DISTINCT `ward` FROM `#__divisions` ORDER BY left(`division_id`, 2) ASC');
-        if (!($wards = $db->loadObjectList())) {
-            $this->setError(JText::_('Wards query failed'));
-        }
-        $db->setQuery('SELECT `id`, `division_id`, `ward`, `division` FROM `#__divisions` ORDER BY `division_id` ASC');
-        if (!($divisions = $db->loadObjectList())) {
-            $this->setError(JText::_('Divisions query failed'));
-        }
-
         //
         $document->setTitle($params->get('page_title'));
         $this->assignRef('params', $params);
-        $this->assignRef('wards', $wards);
-        $this->assignRef('divisions', $divisions);
 
         // Load the form validation behavior
         JHTML::_('behavior.formvalidation');
