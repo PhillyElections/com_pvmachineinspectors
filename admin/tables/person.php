@@ -19,8 +19,6 @@ require_once __DIR__ . DS . "pvtable.php";
 
 class PVTablePerson extends PVTable {
     public $id;
-    public $current_party_id;
-    public $image;
     public $prefix;
     public $first_name;
     public $middle_name;
@@ -28,7 +26,6 @@ class PVTablePerson extends PVTable {
     public $suffix;
     public $gender;
     public $marital_status;
-    public $bio;
     public $published;
     public $checked_out;
     public $checked_out_time;

@@ -9,7 +9,6 @@ SET @db   = DATABASE();
 CREATE TABLE IF NOT EXISTS `#__pv_addresses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `division_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `address1` varchar(100) NOT NULL DEFAULT '',
   `address2` varchar(100) DEFAULT NULL,
   `address3` varchar(100) DEFAULT NULL,
@@ -31,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `#__pv_address_xrefs` (
   `address_id` int(10) unsigned NOT NULL DEFAULT 0,
   `right_id` int(10) unsigned NOT NULL DEFAULT 0,
   `right_table_id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
@@ -56,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `#__pv_inspector_applicants` (
 
 CREATE TABLE IF NOT EXISTS `#__pv_link_types` (
   `id` tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
-  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `limit` tinyint(2) DEFAULT 2 COMMENT '0 for no limit, 1 or greater for a specific limit',
   `name` varchar(100) NOT NULL DEFAULT '',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -69,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `#__pv_link_xrefs` (
   `link_id` int(10) unsigned NOT NULL DEFAULT 0,
   `right_id` int(10) unsigned NOT NULL DEFAULT 0,
   `right_table_id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
@@ -80,7 +80,6 @@ CREATE TABLE IF NOT EXISTS `#__pv_link_xrefs` (
 CREATE TABLE IF NOT EXISTS `#__pv_links` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type_id` tinyint(2) unsigned NOT NULL DEFAULT 0,
-  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
   `value` varchar(255) NOT NULL DEFAULT '',
   `published` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `checked_out` int(10) unsigned NOT NULL DEFAULT 0,
@@ -93,9 +92,6 @@ CREATE TABLE IF NOT EXISTS `#__pv_links` (
 
 CREATE TABLE IF NOT EXISTS `#__pv_persons` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `party_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `ordering` int(10) unsigned NOT NULL DEFAULT 0,
-  `image` varchar(255) DEFAULT NULL,
   `prefix` varchar(25) DEFAULT NULL,
   `first_name` varchar(40) NOT NULL DEFAULT '',
   `middle_name` varchar(40) DEFAULT NULL,
@@ -103,7 +99,6 @@ CREATE TABLE IF NOT EXISTS `#__pv_persons` (
   `suffix` varchar(25) DEFAULT NULL,
   `gender` char(1) DEFAULT NULL,
   `marital_status` char(1) DEFAULT NULL,
-  `bio` text NOT NULL DEFAULT '',
   `published` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `checked_out` int(10) unsigned NOT NULL DEFAULT 0,
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',

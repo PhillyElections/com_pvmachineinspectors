@@ -20,8 +20,8 @@ require_once __DIR__ . DS . "pvtable.php";
 class PVTableInspectorApplicant extends PVTable {
     public $id;
     public $person_id;
-    public $ward_id;
     public $division_id;
+    public $ordering;
     public $published;
     public $checked_out;
     public $checked_out_time;

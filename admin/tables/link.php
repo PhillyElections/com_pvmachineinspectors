@@ -20,7 +20,6 @@ require_once __DIR__ . DS . "pvtable.php";
 class PVTableLink extends PVTable {
     public $id;
     public $type_id;
-    public $order;
     public $value;
     public $published;
     public $checked_out;
