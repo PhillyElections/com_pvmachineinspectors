@@ -112,7 +112,7 @@ class PvmachineinspectorsModelAddress extends JModel {
         foreach ($data as $table => $array) {
             $activeTable = $this->getTable($table, 'PVTable');
 
-            d("1", $activeTable->load($array['id']), $activeTable, $array);
+            d("one", $activeTable->load($array['id']), $activeTable, $array);
 
         }
 
