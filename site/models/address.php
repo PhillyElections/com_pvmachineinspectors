@@ -46,7 +46,7 @@ class PvmachineinspectorsModelAddress extends JModel {
      * @return bool
      */
     public function create($data = array()) {
-        d($this);
+        d($this->_tables->a);
         $tableName = JString::str_ireplace('#__', $this->_tables->a->_db->getPrefix(), $this->_tables->a->getTableName());
 
         $this->_tables->t->loadFromKeyValuePairs(array('name' => $tableName));
