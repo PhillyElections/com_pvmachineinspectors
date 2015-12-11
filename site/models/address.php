@@ -101,6 +101,13 @@ class PvmachineinspectorsModelAddress extends JModel {
      * @return bool
      */
     public function update($data = array()) {
+        if (!gettype($data) === 'array') {
+            //set error error
+            return false;
+        } elseif (!sizeof($data)) {
+            //set error
+            return false;
+        }
         $created = date('Y-m-d h:i:s');
         foreach ($data as $table => $array) {
             $activeTable = $this->getTable($table, 'PVTable');
