@@ -27,18 +27,6 @@ class PvmachineinspectorsModelAddress extends JModel {
      * @var string
      */
     public $_namespace = 'com_pvmachineinspectors.address.';
-    public $_tables;
-
-    public function getTables() {
-        if (!$this->_tables) {
-            $this->_tables = (object) array(
-                'a' => $this->getTable('Address', 'PVTable'),
-                'ax' => $this->getTable('AddressXref', 'PVTable'),
-                'd' => $this->getTable('Division', 'PVTable'),
-                't' => $this->getTable('Table', 'PVTable'),
-            );
-        }
-    }
 
     /**
      * Create a new applicant.
@@ -48,7 +36,6 @@ class PvmachineinspectorsModelAddress extends JModel {
      * @return bool
      */
     public function create($data = array()) {
-        $this->getTables();
         $a = $this->getTable('Address', 'PVTable');
         $ax = $this->getTable('AddressXref', 'PVTable');
         $d = $this->getTable('Division', 'PVTable');
@@ -125,8 +112,7 @@ class PvmachineinspectorsModelAddress extends JModel {
         foreach ($data as $table => $array) {
             $activeTable = $this->getTable($table, 'PVTable');
 
-            $activeTable->setProperties($array);
-            $activeTable->store();
+            $activeTable->load($array['id']);
             d($activeTable, $array);
 
         }
