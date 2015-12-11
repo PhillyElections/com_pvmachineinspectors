@@ -30,11 +30,12 @@ class PvmachineinspectorsModelAddress extends JModel {
     public $_tables;
 
     public function __construct() {
-        $this->_tables = new StdObject();
-        $this->_tables->address = $this->getTable('Address', 'PVTable');
-        $this->_tables->address_xref = $this->getTable('AddressXref', 'PVTable');
-        $this->_tables->division = $this->getTable('Division', 'PVTable');
-        $this->_tables->table = $this->getTable('Table', 'PVTable');
+        $this->_tables = (object) array(
+            'a' => $this->getTable('Address', 'PVTable'),
+            'ax' => $this->getTable('AddressXref', 'PVTable'),
+            'd' => $this->getTable('Division', 'PVTable'),
+            't' => $this->getTable('Table', 'PVTable'),
+        );
         parent::__construct();
     }
     /**
@@ -46,14 +47,14 @@ class PvmachineinspectorsModelAddress extends JModel {
      */
     public function create($data = array()) {
 
-        $tableName = JString::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName());
+        $tableName = JString::str_ireplace('#__', $this->_tables->a->_db->getPrefix(), $this->_tables->a->getTableName());
 
-        $t->loadFromKeyValuePairs(array('name' => $tableName));
-        $tid = $t->get('id');
+        $this->_tables->t->loadFromKeyValuePairs(array('name' => $tableName));
+        $tid = $this->_tables->t->get('id');
 
-        $remote_array = $d->remoteLookup($data['address1']);
-        $d->loadFromKeyValuePairs(array('division_id' => $remote_array['division']));
-        $did = $d->get('id');
+        $remote_array = $this->_tables->d->remoteLookup($data['address1']);
+        $this->_tables->d->loadFromKeyValuePairs(array('division_id' => $remote_array['division']));
+        $did = $this->_tables->d->get('id');
         d($remote_array, $did, $d, $data, array_merge(
             $data,
             array(
@@ -63,7 +64,7 @@ class PvmachineinspectorsModelAddress extends JModel {
             )
         ));
         if ($did) {
-            $a->save(
+            $this->_tables->a->save(
                 array_merge(
                     $data,
                     array(
@@ -74,9 +75,9 @@ class PvmachineinspectorsModelAddress extends JModel {
                 )
             );
         }
-        $aid = $a->get('id');
+        $aid = $this->_tables->a->get('id');
 
-        $ax->save(
+        $this->_tables->ax->save(
             array_merge(
                 $data,
                 array(
