@@ -51,25 +51,24 @@ class PvmachineinspectorsModelApplicant extends JModel {
     }
 
     /**
-     * Read an address
-     * @param  int  $id
-     * @return bool
-     */
-    public function read($id = null) {
-        // todo
-        return true;
-    }
-
-    /**
-     * Update an applicant.
+     * Update an appliant.
      * @param  array    $data
      * @return bool
      */
     public function update($data = array()) {
+        if (!gettype($data) === 'array') {
+            //set error error
+            return false;
+        } elseif (!sizeof($data)) {
+            //set error
+            return false;
+        }
         $created = date('Y-m-d h:i:s');
         foreach ($data as $table => $array) {
             $activeTable = $this->getTable($table, 'PVTable');
-            d($activeTable, $array);
+
+            d("one", $activeTable->load($array['id']), $activeTable, $array);
+
         }
 
         return true;
