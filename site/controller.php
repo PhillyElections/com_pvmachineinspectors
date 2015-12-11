@@ -115,7 +115,7 @@ class PvmachineinspectorsController extends JController {
         $l = $this->getModel('link');
 
         // create applicant record and get person id (applicant = person + inspector_applicant)
-        $pid = $ia->create(
+        $aids = $ia->create(
             array(
                 'prefix' => $prefix,
                 'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
@@ -129,7 +129,7 @@ class PvmachineinspectorsController extends JController {
         );
 
         // a returned $pid means we wrote a person
-        if ($pid) {
+        if ($aids['pid']) {
             // save person's address and get a division_id
             $did = $a->create(
                 array(
@@ -146,7 +146,7 @@ class PvmachineinspectorsController extends JController {
             // a returned $did means we wrote a division
             if ($did) {
                 d('updating IA with division');
-                $ia->update(array('InspectorApplicant' => array('division_id' => $did)));
+                $ia->update(array('InspectorApplicant' => array('id' => $aids['aid'], 'division_id' => $did)));
             }
 
             // link email to person

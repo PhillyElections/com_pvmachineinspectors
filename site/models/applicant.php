@@ -47,7 +47,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
             )
         );
 
-        return $p->get('id');
+        return array('pid' => $p->get('id'), 'aid' => $ia->get('id'));
     }
 
     /**
