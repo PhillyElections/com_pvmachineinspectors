@@ -30,11 +30,12 @@ class PvmachineinspectorsModelAddress extends JModel {
     public $_tables = array();
 
     public function __construct() {
+        parent::__construct();
         $_tables->address = $this->getTable('Address', 'PVTable');
         $_tables->address_xref = $this->getTable('AddressXref', 'PVTable');
         $_tables->division = $this->getTable('Division', 'PVTable');
         $_tables->table = $this->getTable('Table', 'PVTable');
-        parent::__construct();
+
     }
     /**
      * Create a new applicant.
