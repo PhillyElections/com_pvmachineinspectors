@@ -21,6 +21,7 @@ class PVTableLinkType extends PVTable {
     public $id;
     public $limit;
     public $name;
+    public $ordering;
     public $created;
     public $updated;
 
