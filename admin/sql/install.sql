@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS `#__pv_inspector_applicants` (
 CREATE TABLE IF NOT EXISTS `#__pv_link_types` (
   `id` tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
   `limit` tinyint(2) DEFAULT 2 COMMENT '0 for no limit, 1 or greater for a specific limit',
-  `name` varchar(100) NOT NULL DEFAULT '',
   `ordering` int(10) unsigned NOT NULL DEFAULT 0,
+  `name` varchar(100) NOT NULL DEFAULT '',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
