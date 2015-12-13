@@ -74,16 +74,6 @@ class PvmachineinspectorsModelAddress extends JModel {
     }
 
     /**
-     * Read an address.
-     * @param  int  $id
-     * @return bool
-     */
-    public function read($id = null) {
-        // todo
-        return true;
-    }
-
-    /**
      * Update an address.
      * @param  array    $data
      * @return bool

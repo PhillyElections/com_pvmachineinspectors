@@ -115,6 +115,8 @@ class PvmachineinspectorsController extends JController {
                 'gender' => $gender,
                 'marital_status' => $marital,
                 'created' => $created,
+                'address1' => JRequest::getVar('address1', null, 'post', 'string'),
+                'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
             )
         );
 
