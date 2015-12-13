@@ -38,26 +38,23 @@ class PvmachineinspectorsController extends JController {
      */
     public function register_save() {
         $db = &JFactory::getDBO();
-        d('processing the save', $_POST);
 
         // call to validate save, and ditch out to form on failure
         if (!$this->validate_save()) {
-            d('invalidated');
             // load the form and a message
             $this->message = 'Form invalidated, sucka!';
             // load the form again
             return $this->display();
         }
-        d('validated');
+
+        // save or fail by dumping to form
         if (!$this->save()) {
             $this->message = 'Could not save. -- replace with a JError call';
             return $this->display();
         }
-        d('saved');
         // hey, we have good data!  let's set a message for the redirect
         $this->message = "Thank you for registering to be a Machine Inspector.";
 
-        dd('stopping before we redirect');
         $this->setRedirect('index.php', $this->message);
     }
 
