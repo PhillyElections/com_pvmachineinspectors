@@ -47,7 +47,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
                 $data,
                 array(
                     'person_id' => $p->get('id'),
-                    'division_id' => $remote_array['division'],
+                    'division_id' => $did,
                 )
             )
         );
