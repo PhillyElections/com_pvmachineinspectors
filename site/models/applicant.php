@@ -40,8 +40,11 @@ class PvmachineinspectorsModelApplicant extends JModel {
         $remote_array = $d->remoteLookup($data['address1']);
         $d->loadFromKeyValuePairs(array('division_id' => $remote_array['division']));
         $did = $d->get('id');
-        d($remote_array, $did);
-        $p->save($data);
+
+        if (!$p->save($data)) {
+            return false;
+        }
+
         $p->publish();
         $ia->save(
             array_merge(

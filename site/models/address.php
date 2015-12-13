@@ -30,9 +30,7 @@ class PvmachineinspectorsModelAddress extends JModel {
 
     /**
      * Create a new applicant.
-     *
      * @param  array    $data
-     *
      * @return bool
      */
     public function create($data = array()) {
@@ -74,15 +72,14 @@ class PvmachineinspectorsModelAddress extends JModel {
     }
 
     /**
-     * Update an address.
+     * Update an address. FINISH ME
      * @param  array    $data
      * @return bool
      */
     public function update($data = array()) {
-        $created = date('Y-m-d h:i:s');
+        $updated = date('Y-m-d h:i:s');
         foreach ($data as $table => $array) {
             $activeTable = $this->getTable($table, 'PVTable');
-            d($activeTable, $array);
         }
 
         return true;
