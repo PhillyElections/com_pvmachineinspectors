@@ -78,6 +78,7 @@ class PvmachineinspectorsController extends JController {
      *
      */
     public function validate_save() {
+        // very basic check.  very.  basic.
         return (JRequest::getVar('fname', null, 'post', 'word') &&
             JRequest::getVar('lname', null, 'post', 'string') &&
             JRequest::getVar('address1', null, 'post', 'string') &&
