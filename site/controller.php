@@ -81,10 +81,11 @@ class PvmachineinspectorsController extends JController {
      * @return boolean
      */
     public function save() {
-        $created = date('Y-m-d h:i:s');
-
         jimport("combo.Combo");
+
+        $created = date('Y-m-d h:i:s');
         $region = $suffix = $prefix = $marital = $gender = '';
+
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
             $prefix = Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) ? Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) : '';
