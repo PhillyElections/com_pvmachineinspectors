@@ -48,7 +48,7 @@ class PvmachineinspectorsModelLink extends JModel {
         $t->loadFromKeyValuePairs(array('name' => $tableName));
         $tid = $t->get('id');
 
-        $lt->loadFromKeyValuePairs(array('name' => $data[type]));
+        $lt->loadFromKeyValuePairs(array('name' => $data['type']));
         $ltid = $lt->get('id');
 
         $l->save($data);
