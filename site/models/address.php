@@ -38,7 +38,6 @@ class PvmachineinspectorsModelAddress extends JModel {
     public function create($data = array()) {
         $a = $this->getTable('Address', 'PVTable');
         $ax = $this->getTable('AddressXref', 'PVTable');
-        $d = $this->getTable('Division', 'PVTable');
         $t = $this->getTable('Table', 'PVTable');
 
         $tableName = JString::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName());
@@ -46,29 +45,8 @@ class PvmachineinspectorsModelAddress extends JModel {
         $t->loadFromKeyValuePairs(array('name' => $tableName));
         $tid = $t->get('id');
 
-        $remote_array = $d->remoteLookup($data['address1']);
-        $d->loadFromKeyValuePairs(array('division_id' => $remote_array['division']));
-        $did = $d->get('id');
-        d($remote_array, $did, $d, $data, array_merge(
-            $data,
-            array(
-                'division_id' => $did,
-                'lon' => $remote_array['lon'],
-                'lat' => $remote_array['lat'],
-            )
-        ));
-        if ($did) {
-            $a->save(
-                array_merge(
-                    $data,
-                    array(
-                        'division_id' => $did,
-                        'lon' => $remote_array['lon'],
-                        'lat' => $remote_array['lat'],
-                    )
-                )
-            );
-        }
+        $a->save($data);
+
         $aid = $a->get('id');
 
         $ax->save(

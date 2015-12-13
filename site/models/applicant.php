@@ -36,6 +36,10 @@ class PvmachineinspectorsModelApplicant extends JModel {
 
         $ia = $this->getTable('InspectorApplicant', 'PVTable');
         $p = $this->getTable('Person', 'PVTable');
+        $d = $this->getTable('Division', 'PVTable');
+        $remote_array = $d->remoteLookup($data['address1']);
+        $d->loadFromKeyValuePairs(array('division_id' => $remote_array['division']));
+        $did = $d->get('id');
 
         $p->save($data);
         $ia->save(
@@ -43,6 +47,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
                 $data,
                 array(
                     'person_id' => $p->get('id'),
+                    'division_id' => $remote_array,
                 )
             )
         );
