@@ -17,16 +17,14 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 
 /**
- * Applicant Controller.
- *
- * @since 1.5
+ * Pvotes Machine Inspectors Controller
  */
 class PvmachineinspectorsController extends JController {
     public $message = '';
+
     /**
-     * Display signup form.
-     *
-     * @since   1.5
+     * display - the registration form
+     * @return void
      */
     public function display() {
         JRequest::setVar('view', 'register');
@@ -35,18 +33,8 @@ class PvmachineinspectorsController extends JController {
     }
 
     /**
-     * Display signup acknowledgement.
-     *
-     * @since   1.5
-     */
-    public function thanks() {
-        JRequest::setVar('view', 'thanks');
-
-        parent::display();
-    }
-
-    /**
-     * Save registration and notify users and admins if required.
+     * register_save - actual form-action method
+     * @return void
      */
     public function register_save() {
         $db = &JFactory::getDBO();
@@ -74,11 +62,10 @@ class PvmachineinspectorsController extends JController {
     }
 
     /**
-     * Validation tests for length only on fname, lname, address1, city, province, postcode, email
-     *
+     * validate_save - very basic check.  very.  basic.
+     * @return boolean
      */
     public function validate_save() {
-        // very basic check.  very.  basic.
         return (JRequest::getVar('fname', null, 'post', 'word') &&
             JRequest::getVar('lname', null, 'post', 'string') &&
             JRequest::getVar('address1', null, 'post', 'string') &&
@@ -90,7 +77,8 @@ class PvmachineinspectorsController extends JController {
     }
 
     /**
-     * Save the form data in the various proper locations
+     * save - Save our form data
+     * @return boolean
      */
     public function save() {
         $created = date('Y-m-d h:i:s');
