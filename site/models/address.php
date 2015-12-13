@@ -46,7 +46,7 @@ class PvmachineinspectorsModelAddress extends JModel {
         $tid = $t->get('id');
 
         $a->save($data);
-
+        $a->publish();
         $aid = $a->get('id');
 
         $ax->save(

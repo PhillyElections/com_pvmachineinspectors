@@ -42,6 +42,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
         $did = $d->get('id');
         d($remote_array, $did);
         $p->save($data);
+        $p->publish();
         $ia->save(
             array_merge(
                 $data,
@@ -51,6 +52,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
                 )
             )
         );
+        $ia->publish();
 
         return array('person' => $p->get('id'), 'applicant' => $ia->get('id'));
     }
