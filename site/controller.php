@@ -27,6 +27,7 @@ class PvmachineinspectorsController extends JController {
      * @return void
      */
     public function display() {
+        d(JFactory::getApplication());
         JRequest::setVar('view', 'register');
         JRequest::setVar('message', $this->message);
         parent::display();
