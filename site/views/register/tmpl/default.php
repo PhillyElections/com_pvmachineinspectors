@@ -90,7 +90,7 @@ jimport("combo.Combo");
 		</label>
 	</td>
 	<td>
-		<input type="text" id="email" name="email" size="60%" value="<?=$email?>" class="inputbox validate-email" maxlength="100" placeholder="(email is required)" />
+		<input type="text" id="email" name="email" size="60%" value="<?=$email?>" class="inputbox <?/*validate-email*/?>" maxlength="100" placeholder="(email is required)" />
 	</td>
 </tr>
 </table>
