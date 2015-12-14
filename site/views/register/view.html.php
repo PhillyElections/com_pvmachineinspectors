@@ -32,7 +32,7 @@ class PvmachineinspectorsViewRegister extends JView {
         $menu = $menus->getActive();
 
         // fallback title
-        $title = 'Machine Inspector Application';
+        $title = 'Apply to be a Machine Inspector';
 
         if (is_object($menu)) {
             $menu_params = new JParameter($menu->params);
