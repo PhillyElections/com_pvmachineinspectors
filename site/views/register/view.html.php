@@ -23,7 +23,6 @@ jimport('joomla.application.component.view');
 class PvmachineinspectorsViewRegister extends JView {
     public function display() {
         global $mainframe;
-        d($this);
         $pathway = &$mainframe->getPathway();
         $document = &JFactory::getDocument();
         $params = &$mainframe->getParams();

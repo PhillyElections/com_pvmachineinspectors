@@ -10,7 +10,7 @@ $fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'addr
 foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post', 'string');
 }
-d($this);
+
 jimport("combo.Combo");
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
