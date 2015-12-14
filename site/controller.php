@@ -109,7 +109,7 @@ class PvmachineinspectorsController extends JController {
             $application->enqueueMessage('A valid email is required.');
         }
 
-        return $this->display();
+        return $invalid || false;
     }
 
     /**
