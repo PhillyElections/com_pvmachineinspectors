@@ -28,7 +28,15 @@ class PvmachineinspectorsController extends JController {
      */
     public function display() {
         JRequest::setVar('view', 'register');
-        JRequest::setVar('message', $this->message);
+        parent::display();
+    }
+
+    /**
+     * display - the registration form
+     * @return void
+     */
+    public function thanks() {
+        JRequest::setVar('view', 'thanks');
         parent::display();
     }
 
@@ -42,7 +50,7 @@ class PvmachineinspectorsController extends JController {
         // call to validate save, and ditch out to form on failure
         if (!$this->validate_save()) {
             // load the form and a message
-            $this->setRedirect("index.php?option=com_pvmachineinspectors", $this->message);
+            $this->setRedirect('index.php?option=com_pvmachineinspectors', $this->message);
             // load the form again
             return $this->redirect();
         }
@@ -53,9 +61,9 @@ class PvmachineinspectorsController extends JController {
             return $this->display();
         }
         // hey, we have good data!  let's set a message for the redirect
-        $this->message = "Thank you for registering to be a Machine Inspector.";
+        $this->message = 'Thank you for registering to be a Machine Inspector.';
 
-        $this->setRedirect('index.php', $this->message);
+        $this->setRedirect('index.php?option=com_pvmachineinspectors', $this->message);
     }
 
     /**
