@@ -42,7 +42,7 @@ class PvmachineinspectorsController extends JController {
         // call to validate save, and ditch out to form on failure
         if (!$this->validate_save()) {
             // load the form and a message
-            $this->setRedirect("index.php?com_pvmachineinspectors");
+            $this->setRedirect("index.php?option=com_pvmachineinspectors");
             // load the form again
             return $this->redirect();
         }
