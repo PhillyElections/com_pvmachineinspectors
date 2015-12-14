@@ -96,7 +96,7 @@ class PvmachineinspectorsController extends JController {
             $invalid++;
             $application->enqueueMessage('A valid zipcode is required.');
         }
-        dd(filter_var(JRequest::getVar('email', null, 'post', 'word'), FILTER_VALIDATE_EMAIL));
+        dd(JRequest::getVar('email', null, 'post', 'word'), filter_var(JRequest::getVar('email', null, 'post', 'word'), FILTER_VALIDATE_EMAIL));
         if (filter_var(JRequest::getVar('email', null, 'post', 'word'), FILTER_VALIDATE_EMAIL)) {
             $invalid++;
             $application->enqueueMessage('Last name is required.');
