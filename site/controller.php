@@ -84,22 +84,22 @@ class PvmachineinspectorsController extends JController {
 
         if (JRequest::getVar('city', null, 'post', 'word')) {
             $invalid++;
-            $application->enqueueMessage('Last name is required.');
+            $application->enqueueMessage('A city is required.');
         }
 
         if (JRequest::getVar('region', null, 'post', 'word')) {
             $invalid++;
-            $application->enqueueMessage('Last name is required.');
+            $application->enqueueMessage('A state is required.');
         }
 
         if (JString::substr(JRequest::getVar('postcode', null, 'post', 'word'), 0, 5)) {
             $invalid++;
             $application->enqueueMessage('A valid zipcode is required.');
         }
-        dd(JRequest::getVar('email', null, 'post', 'word'), filter_var(JRequest::getVar('email', null, 'post'), FILTER_VALIDATE_EMAIL));
-        if (filter_var(JRequest::getVar('email', null, 'post', 'word'), FILTER_VALIDATE_EMAIL)) {
+
+        if (filter_var(JRequest::getVar('email', null, 'post'), FILTER_VALIDATE_EMAIL)) {
             $invalid++;
-            $application->enqueueMessage('Last name is required.');
+            $application->enqueueMessage('A valid email is required.');
         }
 
         return !($invalid === 0);
