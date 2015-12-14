@@ -43,7 +43,9 @@ class PvmachineinspectorsModelAddress extends JModel {
         $t->loadFromKeyValuePairs(array('name' => $tableName));
         $tid = $t->get('id');
 
-        $a->save($data);
+        if (!$a->save($data)) {
+            return false;
+        }
         $a->publish();
         $aid = $a->get('id');
 
@@ -58,7 +60,7 @@ class PvmachineinspectorsModelAddress extends JModel {
             )
         );
 
-        return $did;
+        return true;
     }
 
     /**

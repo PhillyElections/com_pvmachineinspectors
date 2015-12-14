@@ -38,7 +38,7 @@ class PvmachineinspectorsController extends JController {
      */
     public function register_save() {
         $db = &JFactory::getDBO();
-
+        dd(JFactory::getApplication());
         // call to validate save, and ditch out to form on failure
         if (!$this->validate_save()) {
             // load the form and a message
@@ -63,7 +63,13 @@ class PvmachineinspectorsController extends JController {
      * @return boolean
      */
     public function validate_save() {
-        return (JRequest::getVar('fname', null, 'post', 'word') &&
+        //
+        $message = '';
+        if (JRequest::getVar('fname', null, 'post', 'word')) {
+            $message .= "First name is required. <br>";
+        }
+
+        return (
             JRequest::getVar('lname', null, 'post', 'string') &&
             JRequest::getVar('address1', null, 'post', 'string') &&
             JRequest::getVar('city', null, 'post', 'string') &&
@@ -142,6 +148,7 @@ class PvmachineinspectorsController extends JController {
                 )
             );
         } else {
+            // No pid, no write...
             return false;
         }
 
