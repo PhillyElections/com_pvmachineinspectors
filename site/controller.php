@@ -38,7 +38,7 @@ class PvmachineinspectorsController extends JController {
      */
     public function register_save() {
         $db = &JFactory::getDBO();
-        dd(JFactory::getApplication());
+
         // call to validate save, and ditch out to form on failure
         if (!$this->validate_save()) {
             // load the form and a message
@@ -64,19 +64,45 @@ class PvmachineinspectorsController extends JController {
      */
     public function validate_save() {
         //
-        $message = '';
+        $invalid = 0;
+        $application = &JFactory::getApplication();
+
         if (JRequest::getVar('fname', null, 'post', 'word')) {
-            $message .= "First name is required. <br>";
+            $invalid++;
+            $application->enqueueMessage('First name is required.');
         }
 
-        return (
-            JRequest::getVar('lname', null, 'post', 'string') &&
-            JRequest::getVar('address1', null, 'post', 'string') &&
-            JRequest::getVar('city', null, 'post', 'string') &&
-            JRequest::getVar('region', null, 'post', 'string') &&
-            JRequest::getVar('postcode', null, 'post', 'string') &&
-            JRequest::getVar('email', null, 'post', 'string')
-        );
+        if (JRequest::getVar('lname', null, 'post', 'word')) {
+            $invalid++;
+            $application->enqueueMessage('Last name is required.');
+        }
+
+        if (JRequest::getVar('address1', null, 'post', 'word')) {
+            $invalid++;
+            $application->enqueueMessage('A street address is required.');
+        }
+
+        if (JRequest::getVar('city', null, 'post', 'word')) {
+            $invalid++;
+            $application->enqueueMessage('Last name is required.');
+        }
+
+        if (JRequest::getVar('region', null, 'post', 'word')) {
+            $invalid++;
+            $application->enqueueMessage('Last name is required.');
+        }
+
+        if (JString::substr(JRequest::getVar('postcode', null, 'post', 'word'), 0, 5)) {
+            $invalid++;
+            $application->enqueueMessage('A valid zipcode is required.');
+        }
+        dd(filter_var(JRequest::getVar('email', null, 'post', 'word'), FILTER_VALIDATE_EMAIL));
+        if (filter_var(JRequest::getVar('email', null, 'post', 'word'), FILTER_VALIDATE_EMAIL)) {
+            $invalid++;
+            $application->enqueueMessage('Last name is required.');
+        }
+
+        return !($invalid === 0);
     }
 
     /**
