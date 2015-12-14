@@ -100,6 +100,7 @@ class PvmachineinspectorsController extends JController {
         // we need a 5 numeric digits starting from the left in out postcode
         if (!is_numeric(JString::substr(JRequest::getVar('postcode', null, 'post', 'word'), 0, 5))) {
             $invalid++;
+            d(JString::substr(JRequest::getVar('postcode', null, 'post', 'word'), 0, 5));
             $application->enqueueMessage('A valid zipcode is required.');
         }
 
