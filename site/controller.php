@@ -32,7 +32,7 @@ class PvmachineinspectorsController extends JController {
     }
 
     /**
-     * display - the registration form
+     * display - thank you
      * @return void
      */
     public function thanks() {
@@ -60,10 +60,9 @@ class PvmachineinspectorsController extends JController {
             $this->message = 'Could not save. -- replace with a JError call';
             return $this->display();
         }
-        // hey, we have good data!  let's set a message for the redirect
-        $this->message = 'Thank you for registering to be a Machine Inspector.';
 
-        $this->setRedirect('index.php?option=com_pvmachineinspectors', $this->message);
+        // hey, we have good data, and it's been saved  let's say thanks!
+        $this->setRedirect('index.php?option=com_pvmachineinspectors&task=thanks');
     }
 
     /**
