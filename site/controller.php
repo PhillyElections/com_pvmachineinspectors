@@ -27,7 +27,6 @@ class PvmachineinspectorsController extends JController {
      * @return void
      */
     public function display() {
-        d(JFactory::getApplication());
         JRequest::setVar('view', 'register');
         JRequest::setVar('message', $this->message);
         parent::display();
@@ -71,43 +70,43 @@ class PvmachineinspectorsController extends JController {
         // we need a fname
         if (!JRequest::getVar('fname', null, 'post', 'word')) {
             $invalid++;
-            $application->enqueueMessage('First name is required.');
+            $this->message = 'First name is required.';
         }
 
         // we need a lname
         if (!JRequest::getVar('lname', null, 'post', 'word')) {
             $invalid++;
-            $application->enqueueMessage('Last name is required.');
+            $this->message = 'Last name is required.';
         }
 
         // we need an address1
         if (!JRequest::getVar('address1', null, 'post')) {
             $invalid++;
-            $application->enqueueMessage('A street address is required.');
+            $this->message = 'A street address is required.';
         }
 
         // we need a city
         if (!JRequest::getVar('city', null, 'post', 'word')) {
             $invalid++;
-            $application->enqueueMessage('A city is required.');
+            $this->message = 'A city is required.';
         }
 
         // we need a 2-digit region
         if (!(JString::strlen(JRequest::getVar('region', null, 'post', 'word')) === 2)) {
             $invalid++;
-            $application->enqueueMessage('A state is required.');
+            $this->message = 'A state is required.';
         }
 
         // we need a 5 numeric digits starting from the left in out postcode
         if (!is_numeric(JString::substr(JRequest::getVar('postcode', null, 'post'), 0, 5))) {
             $invalid++;
-            $application->enqueueMessage('A valid zipcode is required.');
+            $this->message = 'A valid zipcode is required.';
         }
 
         // we need a valid email
         if (!filter_var(JRequest::getVar('email', null, 'post'), FILTER_VALIDATE_EMAIL)) {
             $invalid++;
-            $application->enqueueMessage('A valid email is required.');
+            $this->message = 'A valid email is required.';
         }
 
         return !$invalid;
