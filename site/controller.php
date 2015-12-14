@@ -32,7 +32,7 @@ class PvmachineinspectorsController extends JController {
     }
 
     /**
-     * display - thank you
+     * thanks - thank you
      * @return void
      */
     public function thanks() {
@@ -63,6 +63,7 @@ class PvmachineinspectorsController extends JController {
 
         // hey, we have good data, and it's been saved  let's say thanks!
         $this->setRedirect('index.php?option=com_pvmachineinspectors&task=thanks');
+        $this->redirect();
     }
 
     /**
