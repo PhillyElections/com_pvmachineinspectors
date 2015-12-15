@@ -12,7 +12,7 @@ foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post', 'string');
 }
 
-jimport("combo.Combo");
+jimport("pvcombo.PVCombo");
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
@@ -26,11 +26,11 @@ jimport("combo.Combo");
 		</label>
 	</td>
   	<td>
-		<?=JHTML::_('select.genericlist', Combo::getPrefixes(), 'prefix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
   		<input type="text" name="fname" id="fname" size="20%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="1%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
   		<input type="text" name="lname" id="lname" size="20%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-		<?=JHTML::_('select.genericlist', Combo::getSuffixes(), 'suffix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
   	</td>
 
 </tr>
@@ -71,7 +71,7 @@ jimport("combo.Combo");
 		</label>
 	</td>
 	<td>
-<?=JHTML::_('select.genericlist', Combo::getUSStates(), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'true')?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('states'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'true')?>
 </td>
 </tr>
 <tr>
@@ -81,6 +81,7 @@ jimport("combo.Combo");
 		</label>
 	</td>
 	<td>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneType'), 'phone', 'class="inputbox required"', 'idx', 'value', ($phone ? $phone : 'phone'), 'true')?>
 		<input type="text" id="postcode" name="postcode" size="60%" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
 	</td>
 </tr>
