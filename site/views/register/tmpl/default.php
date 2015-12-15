@@ -26,11 +26,11 @@ jimport("pvcombo.PVCombo");
 		</label>
 	</td>
   	<td>
-		<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', '', true)?>
   		<input type="text" name="fname" id="fname" size="19%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="1%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
   		<input type="text" name="lname" id="lname" size="19%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-		<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', '', 'true')?>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', '', true)?>
   	</td>
 
 </tr>
@@ -71,7 +71,7 @@ jimport("pvcombo.PVCombo");
 		</label>
 	</td>
 	<td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'true')?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), true)?>
 </td>
 </tr>
 <tr>
@@ -92,7 +92,7 @@ jimport("pvcombo.PVCombo");
 	</td>
 	<td>
 		<input type="text" id="phone" name="phone" size="50%" value="<?=$phone?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
-		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneTypeShort'), 'phonetype', 'class="inputbox required"', 'idx', 'value', ($phonetype ? $phonetype : 'home'), 'true')?>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneTypeShort'), 'phonetype', 'class="inputbox required"', 'idx', 'value', ($phonetype ? $phonetype : 'home'), true)?>
 	</td>
 </tr>
 <tr>
