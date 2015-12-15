@@ -112,13 +112,13 @@ class PvmachineinspectorsController extends JController {
         }
 
         // if we have an email, we need a valid email
-        if (!is_null(JRequest::getVar('email', null, 'post')) && !filter_var(JRequest::getVar('email', null, 'post'), FILTER_VALIDATE_EMAIL)) {
+        if (!JRequest::getVar('email', null, 'post') && !filter_var(JRequest::getVar('email', null, 'post'), FILTER_VALIDATE_EMAIL)) {
             $invalid++;
             $application->enqueueMessage(JRequest::getVar('email', null, 'post') . ' is not a valid email.');
         }
 
         // if we have a phone we need a valid phone
-        if (!(JRequest::getVar('phone', null, 'post'))) {
+        if (JRequest::getVar('phone', null, 'post')) {
             // reject phone numbers with letters in them
             if (JString::strlen(JRequest::getVar('phone', null, 'post', 'word'))) {
                 $invalid++;
@@ -132,7 +132,7 @@ class PvmachineinspectorsController extends JController {
         }
 
         // we must have either phone or email for ease of contact
-        if (is_null(JRequest::getVar('phone', null, 'post')) && is_null(JRequest::getVar('email', null, 'post'))) {
+        if (!JRequest::getVar('phone', null, 'post') && !JRequest::getVar('email', null, 'post')) {
             $invalid++;
             $application->enqueueMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
@@ -152,22 +152,21 @@ class PvmachineinspectorsController extends JController {
 
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
-            $prefix = PVCombo::get('prefix', JRequest::getVar('prefix', null, 'post', 'string')) ?
-            PVCombo::get('prefix', JRequest::getVar('prefix', null, 'post', 'string')) : '';
+            $prefix = PVCombo::get('prefix', JRequest::getVar('prefix', null, 'post', 'string')) ? PVCombo::get('prefix', JRequest::getVar('prefix', null, 'post', 'string')) : '';
             $gender = PVCombo::get('gender', $prefix);
             $marital = PVCombo::get('marital', $prefix);
         }
         if (JRequest::getVar('suffix', null, 'post', 'string')) {
-            $suffix = PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) ?
-            PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) : '';
+            $suffix = PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) ? PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('region', null, 'post', 'string')) {
-            $region = PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) ?
-            PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) : '';
+            $region = PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) ? PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) : '';
+        }
+        if (JRequest::getVar('email', null, 'post', 'string')) {
+            $email = JRequest::getVar('email', null, 'post', 'string');
         }
         if (JRequest::getVar('phone', null, 'post', 'int')) {
-            $phone = PVCombo::get('state ', JRequest::getVar('phone', null, 'post', 'int')) ?
-            PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) : '';
+            $phone = JRequest::getVar('phone', null, 'post', 'int');
         }
 
         // load our models
