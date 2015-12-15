@@ -116,7 +116,7 @@ class PvmachineinspectorsController extends JController {
             $invalid++;
             $application->enqueueMessage(JRequest::getVar('email', null, 'post') . ' is not a valid email.');
         }
-        dd(filter_var(JRequest::getVar('phone', null, 'int'), FILTER_VALIDATE_INT), JRequest::getVar('phone', null, 'int'), JRequest::getVar('phone', null, 'string'), JRequest::getVar('phone', null, 'word'));
+        dd(filter_var(JRequest::getVar('phone', null, 'int'), FILTER_VALIDATE_INT), filter_var(JRequest::getVar('phone', null, 'string'), FILTER_VALIDATE_INT), JRequest::getVar('phone', null, 'int'), JRequest::getVar('phone', null, 'string'), JRequest::getVar('phone', null, 'word'));
         // if we have a phone we need a valid phone
         if (!filter_var(JRequest::getVar('phone', null, 'int'), FILTER_VALIDATE_INT)) {
             $invalid++;
