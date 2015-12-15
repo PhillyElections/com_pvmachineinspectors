@@ -112,19 +112,29 @@ class PvmachineinspectorsController extends JController {
         }
 
         // if we have an email, we need a valid email
-        if (!filter_var(JRequest::getVar('email', null, 'post'), FILTER_VALIDATE_EMAIL)) {
+        if (!is_null(JRequest::getVar('email', null, 'post')) && !filter_var(JRequest::getVar('email', null, 'post'), FILTER_VALIDATE_EMAIL)) {
             $invalid++;
             $application->enqueueMessage(JRequest::getVar('email', null, 'post') . ' is not a valid email.');
         }
-        dd(filter_var(JRequest::getVar('phone', null, 'post', 'int'), FILTER_VALIDATE_INT),
-            filter_var(JRequest::getVar('phone', null, 'post', 'string'), FILTER_VALIDATE_INT),
-            JRequest::getVar('phone', null, 'post', 'int'),
-            JRequest::getVar('phone', null, 'post', 'string'),
-            JRequest::getVar('phone', null, 'post', 'word'));
+
         // if we have a phone we need a valid phone
-        if (!filter_var(JRequest::getVar('phone', null, 'int'), FILTER_VALIDATE_INT)) {
+        if (!is_null(JRequest::getVar('phone', null, 'post'))) {
+            // reject phone numbers with letters in them
+            if (JString::strlen(JRequest::getVar('phone', null, 'post', 'word'))) {
+                $invalid++;
+                $application->enqueueMessage('Please write your phone number using numbers only.');
+            }
+            // Phone numbers may be given with the leading '1' or not
+            if (in_array(JString::strlen(filter_var(JRequest::getVar('phone', null, 'post', 'int'), FILTER_VALIDATE_INT)), array(10, 11))) {
+                $invalid++;
+                $application->enqueueMessage('Your phone number doesn\'t seem to be the normal length (10 numbers). Please reenter.');
+            }
+        }
+
+        // we must have either phone or email for ease of contact
+        if (is_null(JRequest::getVar('phone', null, 'post')) && is_null(JRequest::getVar('email', null, 'post'))) {
             $invalid++;
-            $application->enqueueMessage('A valid email is required.');
+            $application->enqueueMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
 
         return !$invalid;
