@@ -77,28 +77,28 @@ jimport("pvcombo.PVCombo");
 <tr>
 	<td height="40">
 		<label id="postcodemsg" for="postcode">
-<?=JText::_('Zipcode');?>:
+		<?=JText::_('Zipcode');?>:
 		</label>
 	</td>
 	<td>
-		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneType'), 'phone', 'class="inputbox required"', 'idx', 'value', ($phone ? $phone : 'phone'), 'true')?>
-		<input type="text" id="postcode" name="postcode" size="42.5%" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
+		<input type="text" id="postcode" name="postcode" size="60%" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
 	</td>
 </tr>
 <tr>
 	<td height="40">
 		<label id="emailmsg" for="phone">
-<?=JText::_('Email');?>:
+			<?=JText::_('Phone');?>:
 		</label>
 	</td>
 	<td>
-		<input type="text" id="phone" name="phone" size="60%" value="<?=$phone?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
+		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneType'), 'phone', 'class="inputbox required"', 'idx', 'value', ($phone ? $phone : 'phone'), 'true')?>
+		<input type="text" id="phone" name="phone" size="42.5%" value="<?=$phone?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
 	</td>
 </tr>
 <tr>
 	<td height="40">
 		<label id="emailmsg" for="email">
-<?=JText::_('Email');?>:
+			<?=JText::_('Email');?>:
 		</label>
 	</td>
 	<td>
