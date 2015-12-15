@@ -20,10 +20,8 @@ jimport('joomla.application.component.view');
  *
  * @since 1.0
  */
-class PvmachineinspectorsViewThanks extends JView
-{
-    public function display()
-    {
+class PvmachineinspectorsViewThanks extends JView {
+    public function display() {
         global $mainframe;
         $pathway = &$mainframe->getPathway();
         $document = &JFactory::getDocument();
@@ -34,7 +32,7 @@ class PvmachineinspectorsViewThanks extends JView
         $menu = $menus->getActive();
 
         // fallback title
-        $title = 'Thank you for applying to be an election official.';
+        $title = 'Thank you.';
 
         if (is_object($menu)) {
             $menu_params = new JParameter($menu->params);
