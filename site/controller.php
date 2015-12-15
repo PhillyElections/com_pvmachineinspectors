@@ -118,7 +118,7 @@ class PvmachineinspectorsController extends JController {
         }
 
         // if we have a phone we need a valid phone
-        if (!is_null(JRequest::getVar('phone', null, 'post'))) {
+        if (!(JRequest::getVar('phone', null, 'post'))) {
             // reject phone numbers with letters in them
             if (JString::strlen(JRequest::getVar('phone', null, 'post', 'word'))) {
                 $invalid++;
@@ -145,22 +145,29 @@ class PvmachineinspectorsController extends JController {
      * @return boolean
      */
     public function save() {
-        jimport("combo.Combo");
+        jimport("pvcombo.PVCombo");
 
         $created = date('Y-m-d h:i:s');
         $region = $suffix = $prefix = $marital = $gender = '';
 
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
-            $prefix = Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) ? Combo::getPrefix(JRequest::getVar('prefix', null, 'post', 'string')) : '';
-            $gender = Combo::getGender($prefix);
-            $marital = Combo::getMarital($prefix);
+            $prefix = PVCombo::get('prefix', JRequest::getVar('prefix', null, 'post', 'string')) ?
+            PVCombo::get('prefix', JRequest::getVar('prefix', null, 'post', 'string')) : '';
+            $gender = PVCombo::get('gender', $prefix);
+            $marital = PVCombo::get('marital', $prefix);
         }
         if (JRequest::getVar('suffix', null, 'post', 'string')) {
-            $suffix = Combo::getSuffix(JRequest::getVar('suffix', null, 'post', 'string')) ? Combo::getSuffix(JRequest::getVar('suffix', null, 'post', 'string')) : '';
+            $suffix = PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) ?
+            PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('region', null, 'post', 'string')) {
-            $region = Combo::getUSState(JRequest::getVar('region', null, 'post', 'string')) ? Combo::getUSState(JRequest::getVar('region', null, 'post', 'string')) : '';
+            $region = PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) ?
+            PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) : '';
+        }
+        if (JRequest::getVar('phone', null, 'post', 'int')) {
+            $phone = PVCombo::get('state ', JRequest::getVar('phone', null, 'post', 'int')) ?
+            PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) : '';
         }
 
         // load our models
