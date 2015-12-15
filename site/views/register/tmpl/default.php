@@ -6,7 +6,8 @@ if (isset($this->message)) {
     $this->display('message');
 }
 
-$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'email');
+// lets go through the post array and extract any existing values for display
+$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
 foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post', 'string');
 }
@@ -85,12 +86,22 @@ jimport("combo.Combo");
 </tr>
 <tr>
 	<td height="40">
+		<label id="emailmsg" for="phone">
+<?=JText::_('Email');?>:
+		</label>
+	</td>
+	<td>
+		<input type="text" id="phone" name="phone" size="60%" value="<?=$phone?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
+	</td>
+</tr>
+<tr>
+	<td height="40">
 		<label id="emailmsg" for="email">
 <?=JText::_('Email');?>:
 		</label>
 	</td>
 	<td>
-		<input type="text" id="email" name="email" size="60%" value="<?=$email?>" class="inputbox validate-email" maxlength="100" placeholder="(email is required)" />
+		<input type="text" id="email" name="email" size="60%" value="<?=$email?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
 	</td>
 </tr>
 </table>

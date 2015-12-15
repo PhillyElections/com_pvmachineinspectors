@@ -57,7 +57,7 @@ class PvmachineinspectorsController extends JController {
 
         // save or fail by dumping to form
         if (!$this->save()) {
-            $this->message = 'Could not save. -- replace with a JError call';
+            $this->setError("Unable to save this form.");
             return $this->display();
         }
 
@@ -180,14 +180,29 @@ class PvmachineinspectorsController extends JController {
             );
 
             // link email to person
-            $l->create(
-                array(
-                    'person_id' => $pid['person'],
-                    'type' => 'email',
-                    'value' => JRequest::getVar('email', null, 'post', 'string'),
-                    'created' => $created,
-                )
-            );
+            if ($email) {
+                $l->create(
+                    array(
+                        'person_id' => $pid['person'],
+                        'type' => 'email',
+                        'value' => $email,
+                        'created' => $created,
+                    )
+                );
+            }
+
+            // link phone to person
+            if ($phone) {
+                $l->create(
+                    array(
+                        'person_id' => $pid['person'],
+                        'type' => 'phone',
+                        'value' => $phone,
+                        'created' => $created,
+                    )
+                );
+            }
+
         } else {
             // No pid, no write...
             return false;
