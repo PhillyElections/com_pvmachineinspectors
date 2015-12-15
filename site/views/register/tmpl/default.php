@@ -92,7 +92,7 @@ jimport("pvcombo.PVCombo");
 	</td>
 	<td>
 		<input type="text" id="phone" name="phone" size="52%" value="<?=$phone?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
-		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneType'), 'phone', 'class="inputbox required"', 'idx', 'value', ($phone ? $phone : 'phone'), 'true')?>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneTypeShort'), 'phone', 'class="inputbox required"', 'idx', 'value', ($phone ? $phone : 'phone'), 'true')?>
 	</td>
 </tr>
 <tr>
