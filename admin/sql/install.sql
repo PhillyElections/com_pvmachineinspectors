@@ -125,7 +125,9 @@ INSERT INTO `#__pv_tables`
 /* - Populate Link Types */
 INSERT INTO `#__pv_link_types` VALUES
 ('', 3, 0, 'email', @tnow, @tnl),
-('', 1, 0, 'phone', @tnow, @tnl),
+('', 1, 0, 'home', @tnow, @tnl),
+('', 1, 0, 'cell', @tnow, @tnl),
 ('', 2, 0, 'fax', @tnow, @tnl),
+('', 2, 0, 'pager', @tnow, @tnl),
 ('', 4, 1, 'accessible_coords', @tnow, @tnl),
 ('', 5, 1, 'voting_coords', @tnow, @tnl);
