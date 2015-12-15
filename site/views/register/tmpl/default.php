@@ -82,7 +82,7 @@ jimport("pvcombo.PVCombo");
 	</td>
 	<td>
 		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneType'), 'phone', 'class="inputbox required"', 'idx', 'value', ($phone ? $phone : 'phone'), 'true')?>
-		<input type="text" id="postcode" name="postcode" size="60%" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
+		<input type="text" id="postcode" name="postcode" size="42.5%" value="<?=$postcode?>" class="inputbox required" maxlength="60" placeholder="(zip is required)" />
 	</td>
 </tr>
 <tr>
@@ -105,8 +105,14 @@ jimport("pvcombo.PVCombo");
 		<input type="text" id="email" name="email" size="60%" value="<?=$email?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
 	</td>
 </tr>
+<tr>
+	<td height="40">&nbsp;</td>
+	<td>
+		<button class="button validate" type="submit"><?=JText::_('Register');?></button>
+		<input type="hidden" name="task" value="register_save" />
+	</td>
+</tr>
 </table>
-	<button class="button validate" type="submit"><?=JText::_('Register');?></button>
-	<input type="hidden" name="task" value="register_save" />
+
 <?php echo JHTML::_('form.token'); ?>
 </form>
