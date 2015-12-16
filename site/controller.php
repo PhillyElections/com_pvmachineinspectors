@@ -151,6 +151,7 @@ class PvmachineinspectorsController extends JController {
             $invalid++;
             $this->_setMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
+        d($invalid);
         return !$invalid;
     }
 
@@ -183,7 +184,7 @@ class PvmachineinspectorsController extends JController {
             $phone = preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'));
             $phoneType = PVCombo::get('phoneTypeShort')[JRequest::getVar('phoneType', null, 'post')];
         }
-        d($region, $suffix, $prefix, $marital, $gender, $email, $phone, $phoneType);
+        d($region, $suffix, $prefix, $marital, $gender, $email, $jphone, $phoneType);
         // load our models
         $ia = $this->getModel('applicant');
         $a = $this->getModel('address');
