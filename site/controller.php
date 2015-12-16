@@ -149,7 +149,8 @@ class PvmachineinspectorsController extends JController {
             'phone preg_replace',
             preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post')),
             preg_replace("/[^0-9,.]/", "", JRequest::getVar('phone', null, 'post')),
-            filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_VALIDATE_INT)
+            filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_VALIDATE_INT),
+            filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_INT) === JRequest::getVar('postcode', null, 'post')
         );
         return !$invalid;
     }
