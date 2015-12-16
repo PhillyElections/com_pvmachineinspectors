@@ -171,10 +171,10 @@ class PvmachineinspectorsController extends JController {
             $marital = PVCombo::get('prefixMarital')[$prefix];
         }
         if (JRequest::getVar('suffix', null, 'post', 'string')) {
-            $suffix = PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) ? PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) : '';
+            $suffix = PVCombo::get('suffix')[JRequest::getVar('suffix', null, 'post', 'string')] ? PVCombo::get('suffix')[JRequest::getVar('suffix', null, 'post', 'string')] : '';
         }
         if (JRequest::getVar('region', null, 'post', 'string')) {
-            $region = PVCombo::get('state', JRequest::getVar('region', null, 'post', 'string')) ? PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) : '';
+            $region = PVCombo::get('state')[JRequest::getVar('region', null, 'post', 'string')] ? PVCombo::get('state ')[JRequest::getVar('region', null, 'post', 'string')] : '';
         }
         if (JRequest::getVar('email', null, 'post', 'string')) {
             $email = filter_var(JRequest::getVar('email', null, 'post', 'string'));
