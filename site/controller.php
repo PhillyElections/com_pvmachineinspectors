@@ -162,7 +162,7 @@ class PvmachineinspectorsController extends JController {
         jimport("pvcombo.PVCombo");
 
         $created = date('Y-m-d h:i:s');
-        $region = $suffix = $prefix = $marital = $gender = '';
+        $region = $suffix = $prefix = $marital = $gender = $email = $phone = $phoneType = '';
 
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
@@ -181,6 +181,7 @@ class PvmachineinspectorsController extends JController {
         }
         if (JRequest::getVar('phone', null, 'post')) {
             $phone = preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'));
+            $phoneType = JRequest::getVar('phoneType', null, 'post');
         }
 
         // load our models
@@ -205,11 +206,11 @@ class PvmachineinspectorsController extends JController {
         );
 
         // a returned $pid means we wrote a person
-        if ($pid) {
+        if ($pid['person_id']) {
             // save person's address
             $a->create(
                 array(
-                    'person_id' => $pid,
+                    'person_id' => $pid['person_id'],
                     'address1' => JRequest::getVar('address1', null, 'post', 'string'),
                     'address2' => JRequest::getVar('address2', null, 'post', 'string'),
                     'city' => JRequest::getVar('city', null, 'post', 'string'),
@@ -236,7 +237,7 @@ class PvmachineinspectorsController extends JController {
                 $l->create(
                     array(
                         'person_id' => $pid['person'],
-                        'type' => 'phone',
+                        'type' => $phoneType,
                         'value' => $phone,
                         'created' => $created,
                     )
