@@ -139,7 +139,7 @@ class PvmachineinspectorsController extends JController {
                 $this->_setMessage('Please write your phone number using numbers only.');
             }
             // Phone numbers may be given with the leading '1' or not
-            if (JString::strlen(preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'))) === 10) {
+            if (JString::strlen(preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'))) !== 10) {
                 $invalid *= 23;
                 $this->_setMessage('Your phone number doesn\'t seem to be the normal length (10 digits). Please reenter.');
             }
