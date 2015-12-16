@@ -147,7 +147,7 @@ class PvmachineinspectorsController extends JController {
             'phone sanitize integer',
             filter_var(filter_var(JRequest::getVar('phone', null, 'post'), FILTER_SANITIZE_NUMBER_FLOAT), FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW),
             'phone preg_replace',
-            preg_replace("/[^0-9,.]/", "", JRequest::getVar('phone', null, 'post')), 
+            preg_replace("/[^0-9,.]/", "", JRequest::getVar('phone', null, 'post')),
             filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_VALIDATE_INT)
         );
         return !$invalid;
@@ -176,7 +176,7 @@ class PvmachineinspectorsController extends JController {
             $region = PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) ? PVCombo::get('state ', JRequest::getVar('region', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('email', null, 'post', 'string')) {
-            $email = filter_var(JRequest::getVar('email', null, 'post', 'string');
+            $email = filter_var(JRequest::getVar('email', null, 'post', 'string'));
         }
         if (JRequest::getVar('phone', null, 'post')) {
             $phone = preg_replace("/[^0-9,.]/", "", JRequest::getVar('phone', null, 'post'));
