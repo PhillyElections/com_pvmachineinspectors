@@ -111,7 +111,7 @@ class PvmachineinspectorsController extends JController {
         }
 
         // we need a 5 numeric digits starting from the left in out postcode
-        if (!filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_NUMBER_INT) === JRequest::getVar('postcode', null, 'post')) {
+        if (!(filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_NUMBER_INT) === JRequest::getVar('postcode', null, 'post'))) {
             d("mising zip");
             $invalid++;
             $application->enqueueMessage('A valid zipcode is required.');
@@ -144,7 +144,9 @@ class PvmachineinspectorsController extends JController {
             $application->enqueueMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
         dd(
-            'zip'
+            'zip',
+            filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_NUMBER_INT),
+            JRequest::getVar('postcode', null, 'post'),
             'phone default',
             JRequest::getVar('phone', null, 'post'),
             'phone word',
