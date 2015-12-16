@@ -136,7 +136,13 @@ class PvmachineinspectorsController extends JController {
             $invalid++;
             $application->enqueueMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
+        dd(
+            'phone default',
+            JRequest::getVar('phone', null, 'post'),
+            'phone word',
+            JRequest::getVar('phone', null, 'post', 'word')
 
+        );
         return !$invalid;
     }
 
