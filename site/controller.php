@@ -144,7 +144,7 @@ class PvmachineinspectorsController extends JController {
             'phone integer',
             JRequest::getVar('phone', null, 'post', 'int'),
             'phone sanitize integer',
-            filter_var(JRequest::getVar('phone', null, 'post'), FILTER_SANITIZE_NUMBER_FLOAT)
+            filter_var(filter_var(JRequest::getVar('phone', null, 'post'), FILTER_SANITIZE_NUMBER_FLOAT), FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW)
         );
         return !$invalid;
     }
