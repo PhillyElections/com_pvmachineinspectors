@@ -33,6 +33,19 @@ class PvmachineinspectorsController extends JController {
     }
 
     /**
+     * Set the message on usage of $this->display();
+     * @param string  $message message
+     * @param boolean $append  append or new?
+     */
+    public function _setMessage($message, $append = true) {
+        if (!$append) {
+            $this->message = $message;
+        } else {
+            $this->message .= $message . "<br />";
+        }
+    }
+
+    /**
      * thanks - thank you
      * @return void
      */
@@ -51,9 +64,9 @@ class PvmachineinspectorsController extends JController {
         // call to validate save, and ditch out to form on failure
         if (!$this->validate_save()) {
             // load the form and a message
-            $this->setRedirect('index.php?option=com_pvmachineinspectors', $this->message);
+            //            $this->setRedirect('index.php?option=com_pvmachineinspectors', $this->message);
             // load the form again
-            return $this->redirect();
+            return $this->display();
         }
 
         // save or fail by dumping to form
@@ -79,43 +92,43 @@ class PvmachineinspectorsController extends JController {
         // we need a fname
         if (!JRequest::getVar('fname', null, 'post', 'word')) {
             $invalid++;
-            $application->enqueueMessage('First name is required.');
+            $this->_setMessage('First name is required.');
         }
 
         // we need a lname
         if (!JRequest::getVar('lname', null, 'post', 'word')) {
             $invalid++;
-            $application->enqueueMessage('Last name is required.');
+            $this->_setMessage('Last name is required.');
         }
 
         // we need an address1
         if (!JRequest::getVar('address1', null, 'post')) {
             $invalid++;
-            $application->enqueueMessage('A street address is required.');
+            $this->_setMessage('A street address is required.');
         }
 
         // we need a city
         if (!JRequest::getVar('city', null, 'post', 'word')) {
             $invalid++;
-            $application->enqueueMessage('A city is required.');
+            $this->_setMessage('A city is required.');
         }
 
         // we need a 2-digit region
         if (!(JString::strlen(JRequest::getVar('region', null, 'post', 'word')) === 2)) {
             $invalid++;
-            $application->enqueueMessage('A state is required.');
+            $this->_setMessage('A state is required.');
         }
 
         // we need a 5 numeric digits starting from the left in out postcode
         if (!(filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_NUMBER_INT) === JRequest::getVar('postcode', null, 'post'))) {
             $invalid++;
-            $application->enqueueMessage('A valid zipcode is required.');
+            $this->_setMessage('A valid zipcode is required.');
         }
 
         // if we have an email, we need a valid email
         if (JRequest::getVar('email', null, 'post') && !filter_var(JRequest::getVar('email', null, 'post'), FILTER_VALIDATE_EMAIL)) {
             $invalid++;
-            $application->enqueueMessage(JRequest::getVar('email', null, 'post') . ' is not a valid email.');
+            $this->_setMessage(JRequest::getVar('email', null, 'post') . ' is not a valid email.');
         }
 
         // if we have a phone we need a valid phone
@@ -123,12 +136,12 @@ class PvmachineinspectorsController extends JController {
             // reject phone numbers with letters in them
             if (JString::strlen(JRequest::getVar('phone', null, 'post', 'word'))) {
                 $invalid++;
-                $application->enqueueMessage('Please write your phone number using numbers only.');
+                $this->_setMessage('Please write your phone number using numbers only.');
             }
             // Phone numbers may be given with the leading '1' or not
             if (JString::strlen(preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'))) === 10) {
                 $invalid++;
-                $application->enqueueMessage('Your phone number doesn\'t seem to be the normal length (10 digits). Please reenter.');
+                $this->_setMessage('Your phone number doesn\'t seem to be the normal length (10 digits). Please reenter.');
             }
         }
 
@@ -136,7 +149,7 @@ class PvmachineinspectorsController extends JController {
         if (!JRequest::getVar('phone', null, 'post') && !JRequest::getVar('email', null, 'post')) {
             d('need either phone or email');
             $invalid++;
-            $application->enqueueMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
+            $this->_setMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
         return !$invalid;
     }
