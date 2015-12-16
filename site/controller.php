@@ -125,7 +125,7 @@ class PvmachineinspectorsController extends JController {
                 $application->enqueueMessage('Please write your phone number using numbers only.');
             }
             // Phone numbers may be given with the leading '1' or not
-            if (in_array(JString::strlen(filter_var(JRequest::getVar('phone', null, 'post', 'int'), FILTER_VALIDATE_INT)), array(10, 11))) {
+            if (JString::strlen(preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'))) === 10) {
                 $invalid++;
                 $application->enqueueMessage('Your phone number doesn\'t seem to be the normal length (10 numbers). Please reenter.');
             }
@@ -147,6 +147,7 @@ class PvmachineinspectorsController extends JController {
             'phone sanitize integer',
             filter_var(filter_var(JRequest::getVar('phone', null, 'post'), FILTER_SANITIZE_NUMBER_FLOAT), FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW),
             'phone preg_replace',
+            preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post')),
             preg_replace("/[^0-9,.]/", "", JRequest::getVar('phone', null, 'post')),
             filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_VALIDATE_INT)
         );
@@ -179,7 +180,7 @@ class PvmachineinspectorsController extends JController {
             $email = filter_var(JRequest::getVar('email', null, 'post', 'string'));
         }
         if (JRequest::getVar('phone', null, 'post')) {
-            $phone = preg_replace("/[^0-9,.]/", "", JRequest::getVar('phone', null, 'post'));
+            $phone = preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'));
         }
 
         // load our models
