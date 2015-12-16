@@ -183,7 +183,7 @@ class PvmachineinspectorsController extends JController {
             $phone = preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'));
             $phonetype = PVCombo::get('phoneTypeShort')[JRequest::getVar('phonetype', null, 'post')];
         }
-        d($region, $suffix, $prefix, $marital, $gender, $email, $jphone, $phonetype);
+        d($region, $suffix, $prefix, $marital, $gender, $email, $phone, $phonetype);
         // load our models
         $ia = $this->getModel('applicant');
         $a = $this->getModel('address');
