@@ -167,8 +167,8 @@ class PvmachineinspectorsController extends JController {
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
             $prefix = PVCombo::get('prefix')[JRequest::getVar('prefix', null, 'post', 'string')] ? PVCombo::get('prefix')[JRequest::getVar('prefix', null, 'post', 'string')] : '';
-            $gender = PVCombo::get('gender')[$prefix];
-            $marital = PVCombo::get('marital')[$prefix];
+            $gender = PVCombo::get('prefixGender')[$prefix];
+            $marital = PVCombo::get('prefixMarital')[$prefix];
         }
         if (JRequest::getVar('suffix', null, 'post', 'string')) {
             $suffix = PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) ? PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) : '';
