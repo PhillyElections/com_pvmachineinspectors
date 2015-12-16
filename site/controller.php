@@ -140,8 +140,9 @@ class PvmachineinspectorsController extends JController {
             'phone default',
             JRequest::getVar('phone', null, 'post'),
             'phone word',
-            JRequest::getVar('phone', null, 'post', 'word')
-
+            JRequest::getVar('phone', null, 'post', 'word'),
+            'phone integer',
+            JRequest::getVar('phone', null, 'post', 'int')
         );
         return !$invalid;
     }
