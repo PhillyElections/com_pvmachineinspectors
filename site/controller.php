@@ -147,11 +147,10 @@ class PvmachineinspectorsController extends JController {
 
         // we must have either phone or email for ease of contact
         if (!JRequest::getVar('phone', null, 'post') && !JRequest::getVar('email', null, 'post')) {
-            d('need either phone or email');
             $invalid *= 29;
             $this->_setMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
-        d($invalid);
+        d($invalid, preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post')));
         return !($invalid - 1);
     }
 
