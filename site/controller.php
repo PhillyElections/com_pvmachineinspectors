@@ -77,42 +77,36 @@ class PvmachineinspectorsController extends JController {
 
         // we need a fname
         if (!JRequest::getVar('fname', null, 'post', 'word')) {
-            d("mising fname");
             $invalid++;
             $application->enqueueMessage('First name is required.');
         }
 
         // we need a lname
         if (!JRequest::getVar('lname', null, 'post', 'word')) {
-            d("mising lname");
             $invalid++;
             $application->enqueueMessage('Last name is required.');
         }
 
         // we need an address1
         if (!JRequest::getVar('address1', null, 'post')) {
-            d("mising address1");
             $invalid++;
             $application->enqueueMessage('A street address is required.');
         }
 
         // we need a city
         if (!JRequest::getVar('city', null, 'post', 'word')) {
-            d("mising city");
             $invalid++;
             $application->enqueueMessage('A city is required.');
         }
 
         // we need a 2-digit region
         if (!(JString::strlen(JRequest::getVar('region', null, 'post', 'word')) === 2)) {
-            d("mising state");
             $invalid++;
             $application->enqueueMessage('A state is required.');
         }
 
         // we need a 5 numeric digits starting from the left in out postcode
         if (!(filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_NUMBER_INT) === JRequest::getVar('postcode', null, 'post'))) {
-            d("mising zip");
             $invalid++;
             $application->enqueueMessage('A valid zipcode is required.');
         }
@@ -143,25 +137,6 @@ class PvmachineinspectorsController extends JController {
             $invalid++;
             $application->enqueueMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
-        dd(
-            'zip',
-            filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_NUMBER_INT),
-            JRequest::getVar('postcode', null, 'post'),
-            'phone default',
-            JRequest::getVar('phone', null, 'post'),
-            'phone word',
-            JRequest::getVar('phone', null, 'post', 'word'),
-            'phone integer',
-            JRequest::getVar('phone', null, 'post', 'int'),
-            'phone sanitize integer',
-            filter_var(filter_var(JRequest::getVar('phone', null, 'post'), FILTER_SANITIZE_NUMBER_FLOAT), FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW),
-            'phone preg_replace',
-            preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post')),
-            preg_replace("/[^0-9,.]/", "", JRequest::getVar('phone', null, 'post')),
-            filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_VALIDATE_INT),
-            filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_NUMBER_INT),
-            filter_var(JRequest::getVar('postcode', null, 'post'), FILTER_SANITIZE_NUMBER_INT) === JRequest::getVar('postcode', null, 'post')
-        );
         return !$invalid;
     }
 
