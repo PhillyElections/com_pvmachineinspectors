@@ -162,7 +162,7 @@ class PvmachineinspectorsController extends JController {
         jimport("pvcombo.PVCombo");
 
         $created = date('Y-m-d h:i:s');
-        $region = $suffix = $prefix = $marital = $gender = $email = $phone = $phoneType = '';
+        $region = $suffix = $prefix = $marital = $gender = $email = $phone = $phonetype = '';
 
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
@@ -181,9 +181,9 @@ class PvmachineinspectorsController extends JController {
         }
         if (JRequest::getVar('phone', null, 'post')) {
             $phone = preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'));
-            $phoneType = PVCombo::get('phoneTypeShort')[JRequest::getVar('phoneType', null, 'post')];
+            $phonetype = PVCombo::get('phonetypeShort')[JRequest::getVar('phonetype', null, 'post')];
         }
-        d($region, $suffix, $prefix, $marital, $gender, $email, $jphone, $phoneType);
+        d($region, $suffix, $prefix, $marital, $gender, $email, $jphone, $phonetype);
         // load our models
         $ia = $this->getModel('applicant');
         $a = $this->getModel('address');
@@ -237,7 +237,7 @@ class PvmachineinspectorsController extends JController {
                 $l->create(
                     array(
                         'person_id' => $pid['person'],
-                        'type' => $phoneType,
+                        'type' => $phonetype,
                         'value' => $phone,
                         'created' => $created,
                     )
