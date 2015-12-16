@@ -150,7 +150,7 @@ class PvmachineinspectorsController extends JController {
             $invalid *= 29;
             $this->_setMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
-        d($invalid, preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post')), JString::strlen(preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'))));
+        d($this, $invalid, preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post')), JString::strlen(preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'))));
         return !($invalid - 1);
     }
 
