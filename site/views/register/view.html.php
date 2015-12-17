@@ -49,7 +49,7 @@ class PvmachineinspectorsViewRegister extends JView {
 
         // Load the form validation behavior
         JHTML::_('behavior.formvalidation');
-
+        d($this);
         parent::display();
     }
 }

@@ -1,7 +1,7 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-
+d($this, JRequest::getVar('msg', null, 'post'));
 if (!JRequest::getVar('msg', null, 'post')) {
     d(JRequest::getVar('msg', null, 'post'));
 }
