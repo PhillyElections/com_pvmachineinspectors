@@ -2,8 +2,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-if (isset($this->message)) {
-    $this->display('message');
+if (!JRequest::getVar('msg', null, 'post')) {
+    d(JRequest::getVar('msg', null, 'post'));
 }
 
 // lets go through the post array and extract any existing values for display
