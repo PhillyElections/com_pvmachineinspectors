@@ -20,7 +20,7 @@ jimport('joomla.application.component.controller');
  * Pvotes Machine Inspectors Controller
  */
 class PvmachineinspectorsController extends JController {
-    public $message = '';
+    public $_msg = '';
 
     /**
      * display - the registration form
@@ -29,6 +29,8 @@ class PvmachineinspectorsController extends JController {
     public function display() {
         d($_POST);
         JRequest::setVar('view', 'register');
+        JRequest::setVar('msg', $this->_msg);
+
         parent::display();
     }
 
@@ -39,9 +41,9 @@ class PvmachineinspectorsController extends JController {
      */
     public function _setMessage($message, $append = true) {
         if (!$append) {
-            $this->message = $message;
+            $this->_msg = $message;
         } else {
-            $this->message .= $message . "<br />";
+            $this->_msg .= $message . "<br />";
         }
     }
 
@@ -59,6 +61,7 @@ class PvmachineinspectorsController extends JController {
      * @return void
      */
     public function register_save() {
+        JRequest::checkToken() or jexit('Invalid Token');
         $db = &JFactory::getDBO();
 
         // call to validate save, and ditch out to form on failure
