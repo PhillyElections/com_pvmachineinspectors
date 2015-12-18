@@ -1,9 +1,13 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-d($this, JRequest::getVar('msg', null, 'post'));
-if (!JRequest::getVar('msg', null, 'post')) {
-    d(JRequest::getVar('msg', null, 'post'));
+
+if (count(JRequest::getVar('msg', null, 'post'))) {
+    echo "<ul>\n";
+    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
+        echo "  <li>$msg</li>\n";
+    }
+    echo "</ul>\n";
 }
 
 // lets go through the post array and extract any existing values for display
