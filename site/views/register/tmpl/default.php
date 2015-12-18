@@ -3,11 +3,11 @@
 defined('_JEXEC') or die('Restricted access');
 
 if (count(JRequest::getVar('msg', null, 'post'))) {
-    echo "<dl id=\"system-message\">\n<dd class=\"warning\">\n";
+    echo "<dl id=\"system-message\">\n<dd class=\"warning\">\n<ul>\n";
     foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-        echo "  <ul>$msg</ul>\n";
+        echo "<li>$msg</li>";
     }
-    echo "</dd></dl>\n";
+    echo "</ul>\n</dd>\n</dl>\n";
 }
 
 // lets go through the post array and extract any existing values for display
