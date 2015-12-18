@@ -41,9 +41,9 @@ class PvmachineinspectorsController extends JController {
      */
     public function _setMessage($message, $append = true) {
         if (!$append) {
-            $this->_msg = $message;
+            $this->_msg = array($message);
         } else {
-            $this->_msg .= $message . "<br />";
+            array_push($this->_msg, $message);
         }
     }
 
