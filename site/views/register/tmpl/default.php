@@ -10,7 +10,7 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
     echo "</ul>\n</dd>\n</dl>\n";
 
     foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-        JError::raiseError(1, $msg);
+        JError::raiseNotice(1, $msg);
     }
 
 }
