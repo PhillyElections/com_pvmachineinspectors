@@ -13,7 +13,7 @@
 // No direct access
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.model');
+require_once __DIR__ . DS . "pvmodel.php";
 
 /**
  * User Component Remind Model.

@@ -13,14 +13,14 @@
 // No direct access
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.model');
+require_once __DIR__ . DS . "pvmodel.php";
 
 /**
  * User Component Remind Model.
  *
  * @since       1.5
  */
-class PvmachineinspectorsModelApplicant extends JModel {
+class PvmachineinspectorsModelApplicant extends PVModel {
     /**
      * Registry namespace prefix.
      * @var string
@@ -60,7 +60,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
         );
         $ia->publish();
 
-        return array('right_id' => $p->get('id'), 'right_table_id' => $p->getXrefTableId());
+        return array('right_id' => $p->get('id'), 'right_table_id' => $this->getXrefTableId($p));
     }
 
     /**

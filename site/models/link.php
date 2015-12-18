@@ -14,7 +14,7 @@
 // No direct access
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.model');
+require_once __DIR__ . DS . "pvmodel.php";
 
 /**
  * User Component Remind Model
@@ -23,7 +23,7 @@ jimport('joomla.application.component.model');
  * @subpackage   User
  * @since        1.5
  */
-class PvmachineinspectorsModelLink extends JModel {
+class PvmachineinspectorsModelLink extends PVModel {
     /**
      * Registry namespace prefix
      *
