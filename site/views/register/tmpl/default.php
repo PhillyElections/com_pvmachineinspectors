@@ -8,6 +8,11 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
         echo "<div>$msg</div>";
     }
     echo "</ul>\n</dd>\n</dl>\n";
+
+    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
+        JError::raiseWarning("$msg");
+    }
+
 }
 
 // lets go through the post array and extract any existing values for display
