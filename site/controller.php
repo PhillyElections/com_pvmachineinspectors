@@ -205,7 +205,7 @@ class PvmachineinspectorsController extends JController {
                 'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
             )
         );
-        $ia->getPersonTable();
+
         // a returned $pid means we wrote a person
         if ($linkData['right_id']) {
             // save person's address
