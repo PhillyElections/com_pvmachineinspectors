@@ -41,6 +41,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
         if ($response->status === 'success') {
             $d->loadFromKeyValuePairs(array('division_id' => $response['division']));
             $did = $d->get('id');
+            d($response);
         }
         if (!$p->save($data)) {
             return false;

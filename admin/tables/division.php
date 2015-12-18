@@ -71,8 +71,8 @@ class PVTableDivision extends PVTable {
                 break;
             }
         } catch (Exception $e) {
-            return array('status' => 'failure', 'response' => $json);
+            return array('status' => 'failure', 'data' => $json);
         }
-        return array('status' => 'success', 'division' => $division, 'lon' => $lon, 'lat' => $lat, 'response' => $json);
+        return array('status' => 'success', 'division' => $division, 'lon' => $lon, 'lat' => $lat, 'data' => $json);
     }
 }

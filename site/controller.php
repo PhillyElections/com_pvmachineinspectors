@@ -207,11 +207,11 @@ class PvmachineinspectorsController extends JController {
         );
 
         // a returned $pid means we wrote a person
-        if ($pid['person_id']) {
+        if ($pid['person']) {
             // save person's address
             $a->create(
                 array(
-                    'person_id' => $pid['person_id'],
+                    'person_id' => $pid['person'],
                     'address1' => JRequest::getVar('address1', null, 'post', 'string'),
                     'address2' => JRequest::getVar('address2', null, 'post', 'string'),
                     'city' => JRequest::getVar('city', null, 'post', 'string'),
