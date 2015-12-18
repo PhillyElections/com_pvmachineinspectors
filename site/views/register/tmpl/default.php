@@ -1,7 +1,7 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-
+d($this);
 if (count(JRequest::getVar('msg', null, 'post'))) {
     echo "<dl id=\"system-message\">\n<dd class=\"warning\">\n<ul>\n";
     foreach (JRequest::getVar('msg', null, 'post') as $msg) {
