@@ -30,4 +30,14 @@ class PVTable extends JTable {
             return false;
         }
     }
+
+    public function getXrefTableId() {
+        $t = $this->getTable('Table', 'PVTable');
+
+        $tableName = JString::str_ireplace('#__', $this->_db->getPrefix(), $this->getTableName());
+
+        $t->loadFromKeyValuePairs(array('name' => $tableName));
+        return $t->get('id');
+
+    }
 }

@@ -38,11 +38,6 @@ class PvmachineinspectorsModelAddress extends JModel {
         $ax = $this->getTable('AddressXref', 'PVTable');
         $t = $this->getTable('Table', 'PVTable');
 
-        $tableName = JString::str_ireplace('#__', $a->_db->getPrefix(), $a->getTableName());
-
-        $t->loadFromKeyValuePairs(array('name' => $tableName));
-        $tid = $t->get('id');
-
         if (!$a->save($data)) {
             return false;
         }
@@ -54,8 +49,6 @@ class PvmachineinspectorsModelAddress extends JModel {
                 $data,
                 array(
                     'address_id' => $aid,
-                    'right_id' => $data['person_id'],
-                    'right_table_id' => $tid,
                 )
             )
         );

@@ -191,7 +191,7 @@ class PvmachineinspectorsController extends JController {
         $l = $this->getModel('link');
 
         // create applicant record and get person id (applicant = person + inspector_applicant)
-        $pid = $ia->create(
+        $linkData = $ia->create(
             array(
                 'prefix' => $prefix,
                 'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
@@ -205,30 +205,34 @@ class PvmachineinspectorsController extends JController {
                 'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
             )
         );
-
+        $ia->getPersonTable();
         // a returned $pid means we wrote a person
-        if ($pid['person']) {
+        if ($linkData['right_id']) {
             // save person's address
             $a->create(
-                array(
-                    'person_id' => $pid['person'],
-                    'address1' => JRequest::getVar('address1', null, 'post', 'string'),
-                    'address2' => JRequest::getVar('address2', null, 'post', 'string'),
-                    'city' => JRequest::getVar('city', null, 'post', 'string'),
-                    'region' => $region,
-                    'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
-                    'created' => $created,
+                array_merge(
+                    $linkData,
+                    array(
+                        'address1' => JRequest::getVar('address1', null, 'post', 'string'),
+                        'address2' => JRequest::getVar('address2', null, 'post', 'string'),
+                        'city' => JRequest::getVar('city', null, 'post', 'string'),
+                        'region' => $region,
+                        'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
+                        'created' => $created,
+                    )
                 )
             );
 
             // link email to person
             if ($email) {
                 $l->create(
-                    array(
-                        'person_id' => $pid['person'],
-                        'type' => 'email',
-                        'value' => $email,
-                        'created' => $created,
+                    array_merge(
+                        $linkData,
+                        array(
+                            'type' => 'email',
+                            'value' => $email,
+                            'created' => $created,
+                        )
                     )
                 );
             }
@@ -236,11 +240,13 @@ class PvmachineinspectorsController extends JController {
             // link phone to person
             if ($phone) {
                 $l->create(
-                    array(
-                        'person_id' => $pid['person'],
-                        'type' => $phonetype,
-                        'value' => $phone,
-                        'created' => $created,
+                    array_merge(
+                        $linkData,
+                        array(
+                            'type' => $phonetype,
+                            'value' => $phone,
+                            'created' => $created,
+                        )
                     )
                 );
             }
