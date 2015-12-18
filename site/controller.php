@@ -27,7 +27,6 @@ class PvmachineinspectorsController extends JController {
      * @return void
      */
     public function display() {
-        d($_POST);
         JRequest::setVar('view', 'register');
         JRequest::setVar('msg', $this->_msg);
 
@@ -139,7 +138,7 @@ class PvmachineinspectorsController extends JController {
             // reject phone numbers with letters in them
             if (JString::strlen(JRequest::getVar('phone', null, 'post', 'word'))) {
                 $invalid *= 19;
-                $this->_setMessage('Please write your phone number using numbers only.');
+                $this->_setMessage('Please supply a phone using numbers only.');
             }
             // Phone numbers may be given with the leading '1' or not
             if (JString::strlen(preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'))) !== 10) {
@@ -153,7 +152,6 @@ class PvmachineinspectorsController extends JController {
             $invalid *= 29;
             $this->_setMessage('Either email or phone would help us to contact you more easily.  Please supply one or both.');
         }
-        d($this, $invalid, preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post')), JString::strlen(preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'))));
         return !($invalid - 1);
     }
 
@@ -186,7 +184,7 @@ class PvmachineinspectorsController extends JController {
             $phone = preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'));
             $phonetype = PVCombo::get('phoneTypeShort')[JRequest::getVar('phonetype', null, 'post')];
         }
-        d($region, $suffix, $prefix, $marital, $gender, $email, $phone, $phonetype);
+
         // load our models
         $ia = $this->getModel('applicant');
         $a = $this->getModel('address');
