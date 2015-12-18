@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 if (count(JRequest::getVar('msg', null, 'post'))) {
     echo "<dl id=\"system-message\">\n";
     foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-        echo "  <dd class=\"notice\">$msg</dd>\n";
+        echo "  <dd class=\"notice\"><ul>$msg</ul></dd>\n";
     }
     echo "</dl>\n";
 }
