@@ -1,10 +1,11 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-    JError::raiseWarning(1, $msg);
+if (count(JRequest::getVar('msg', null, 'post'))) {
+    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
+        JError::raiseWarning(1, $msg);
+    }
 }
-
 // lets go through the post array and extract any existing values for display
 $fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'phonetype', 'email');
 foreach ($fields as $field) {
