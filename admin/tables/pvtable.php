@@ -32,7 +32,7 @@ class PVTable extends JTable {
     }
 
     public function getXrefTableId() {
-        $t = $this->getTable('Table', 'PVTable');
+        $t = JModel::getTable('Table', 'PVTable');
 
         $tableName = JString::str_ireplace('#__', $this->_db->getPrefix(), $this->getTableName());
 
