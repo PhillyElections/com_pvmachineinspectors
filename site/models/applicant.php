@@ -33,7 +33,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
      * @return integer $id of created person for link and address binding
      */
     public function create($data = array()) {
-
+        $did = '';
         $ia = $this->getTable('InspectorApplicant', 'PVTable');
         $p = $this->getTable('Person', 'PVTable');
         $d = $this->getTable('Division', 'PVTable');
@@ -69,7 +69,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
      */
     public function update($data = array()) {
         if (!gettype($data) === 'array') {
-            //set error error
+            //set error
             return false;
         } elseif (!sizeof($data)) {
             //set error
