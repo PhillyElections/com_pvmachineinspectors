@@ -20,7 +20,7 @@ jimport('joomla.application.component.controller');
  * Pvotes Machine Inspectors Controller
  */
 class PvmachineinspectorsController extends JController {
-    public $_msg = '';
+    public $_msg = array();
 
     /**
      * display - the registration form
