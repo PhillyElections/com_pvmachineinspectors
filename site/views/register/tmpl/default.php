@@ -5,7 +5,7 @@ d($this);
 if (count(JRequest::getVar('msg', null, 'post'))) {
     echo "<dl id=\"system-message\">\n<dd class=\"warning\">\n<ul>\n";
     foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-        echo "<li>$msg</li>";
+        echo "<div>$msg</div>";
     }
     echo "</ul>\n</dd>\n</dl>\n";
 }
