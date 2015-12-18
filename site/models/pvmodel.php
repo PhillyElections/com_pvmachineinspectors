@@ -22,8 +22,8 @@ jimport('joomla.application.component.model');
  */
 class PVModel extends JModel {
 
-    public function getXrefTableId($XrefTo) {
-        $x2 = $this->getTable('Table', $XrefTo);
+    public function getXrefTableId(&$x2) {
+
         $t = $this->getTable('Table', 'PVTable');
 
         $tableName = JString::str_ireplace('#__', $x2->_db->getPrefix(), $x2->getTableName());
