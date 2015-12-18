@@ -46,7 +46,7 @@ class PVTableDivision extends PVTable {
             $response = curl_exec($curl);
             curl_close($curl);
             $json = json_decode($response);
-            d($json);
+
             $division = $lon = $lat = '';
             switch (sizeof($json->candidates)) {
             case 0:
@@ -71,8 +71,8 @@ class PVTableDivision extends PVTable {
                 break;
             }
         } catch (Exception $e) {
-            return false;
+            return array('status' => 'failure', 'response' => $json);
         }
-        return array('division' => $division, 'lon' => $lon, 'lat' => $lat);
+        return array('status' => 'success', 'division' => $division, 'lon' => $lon, 'lat' => $lat, 'response' => $json);
     }
 }
