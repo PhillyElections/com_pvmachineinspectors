@@ -1,18 +1,8 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-d($this);
-if (count(JRequest::getVar('msg', null, 'post'))) {
-    echo "<dl id=\"system-message\">\n<dd class=\"warning\">\n<ul>\n";
-    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-        echo "<div>$msg</div>";
-    }
-    echo "</ul>\n</dd>\n</dl>\n";
-
-    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-        JError::raiseWarning(1, $msg);
-    }
-
+foreach (JRequest::getVar('msg', null, 'post') as $msg) {
+    JError::raiseWarning(1, $msg);
 }
 
 // lets go through the post array and extract any existing values for display

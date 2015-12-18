@@ -43,13 +43,13 @@ class PvmachineinspectorsViewRegister extends JView {
             $params->set('page_title', JText::_($title));
         }
 
-        //
+        // assign
         $document->setTitle($params->get('page_title'));
         $this->assignRef('params', $params);
 
         // Load the form validation behavior
         JHTML::_('behavior.formvalidation');
-        d($this);
+
         parent::display();
     }
 }
