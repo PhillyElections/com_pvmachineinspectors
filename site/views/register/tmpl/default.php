@@ -2,7 +2,6 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 if (count(JRequest::getVar('msg', null, 'post'))) {
-    d(count(JRequest::getVar('msg', null, 'post')));
     foreach (JRequest::getVar('msg', null, 'post') as $msg) {
         JError::raiseWarning(1, $msg);
     }
