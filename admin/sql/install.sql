@@ -125,6 +125,7 @@ INSERT INTO `#__pv_tables`
 /* - Populate Link Types */
 INSERT INTO `#__pv_link_types` VALUES
 ('', 3, 0, 'email', @tnow, @tnl),
+('', 1, 0, 'main', @tnow, @tnl),
 ('', 1, 0, 'home', @tnow, @tnl),
 ('', 1, 0, 'cell', @tnow, @tnl),
 ('', 2, 0, 'fax', @tnow, @tnl),
