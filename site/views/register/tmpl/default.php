@@ -7,7 +7,7 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
     }
 }
 // lets go through the post array and extract any existing values for display
-$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'phonetype', 'email');
+$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
 foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post');
 }
@@ -91,8 +91,7 @@ jimport("pvcombo.PVCombo");
 		</label>
 	</td>
 	<td>
-		<input type="text" id="phone" name="phone" size="51%" value="<?=$phone?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
-		<?=JHTML::_('select.genericlist', PVCombo::gets('phoneTypeShort'), 'phonetype', 'class="inputbox required"', 'idx', 'value', ($phonetype ? $phonetype : 'home'), true)?>
+		<input type="text" id="phone" name="phone" size="60%" value="<?=$phone?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
 	</td>
 </tr>
 <tr>

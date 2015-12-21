@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS `#__pv_inspector_applicants` (
   `suffix` varchar(25) DEFAULT NULL,
   `address1` varchar(100) NOT NULL DEFAULT '',
   `address2` varchar(100) DEFAULT NULL,
-  `address3` varchar(100) DEFAULT NULL,
   `city` varchar(100) NOT NULL DEFAULT '',
   `region` varchar(100) NOT NULL DEFAULT '',
   `postcode` varchar(100) NOT NULL DEFAULT '',
