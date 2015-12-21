@@ -13,14 +13,12 @@
 // No direct access
 defined('_JEXEC') or die;
 
-require_once __DIR__ . DS . "pvmodel.php";
-
 /**
  * User Component Remind Model.
  *
  * @since       1.5
  */
-class PvmachineinspectorsModelApplicant extends PVModel {
+class PvmachineinspectorsModelApplicant extends JModel {
     /**
      * Registry namespace prefix.
      * @var string
@@ -34,33 +32,21 @@ class PvmachineinspectorsModelApplicant extends PVModel {
      */
     public function create($data = array()) {
         $did = '';
-        $ia = $this->getTable('InspectorApplicant', 'PVTable');
-        $p = $this->getTable('Person', 'PVTable');
-        $d = $this->getTable('Division', 'PVTable');
+        $ia = $this->getTable('InspectorApplicant');
+        $d = $this->getTable('Division');
 
         $response = $d->remoteLookup($data['address1']);
         if ($response->status === 'success') {
             $d->loadFromKeyValuePairs(array('division_id' => $response['division']));
             $did = $d->get('id');
-            d($response);
         }
-        if (!$p->save($data)) {
+
+        // save form data with division data
+        if (!$ia->save(array_merge($data, array('division_id' => $did)))) {
             return false;
         }
-
-        $p->publish();
-        $ia->save(
-            array_merge(
-                $data,
-                array(
-                    'person_id' => $p->get('id'),
-                    'division_id' => $did,
-                )
-            )
-        );
+        // if success, publish
         $ia->publish();
-
-        return array('right_id' => $p->get('id'), 'right_table_id' => $this->getXrefTableId($p));
     }
 
     /**
@@ -69,18 +55,7 @@ class PvmachineinspectorsModelApplicant extends PVModel {
      * @return bool
      */
     public function update($data = array()) {
-        if (!gettype($data) === 'array') {
-            //set error
-            return false;
-        } elseif (!sizeof($data)) {
-            //set error
-            return false;
-        }
-        $created = date('Y-m-d h:i:s');
-        foreach ($data as $table => $array) {
-            $activeTable = $this->getTable($table, 'PVTable');
-        }
-
+        // todo
         return true;
     }
 

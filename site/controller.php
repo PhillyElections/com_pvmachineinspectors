@@ -163,13 +163,11 @@ class PvmachineinspectorsController extends JController {
         jimport("pvcombo.PVCombo");
 
         $created = date('Y-m-d h:i:s');
-        $region = $suffix = $prefix = $marital = $gender = $email = $phone = $phonetype = '';
+        $region = $suffix = $prefix = $marital = $gender = $email = $phone = '';
 
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
             $prefix = PVCombo::get('prefix')[JRequest::getVar('prefix', null, 'post', 'string')] ? PVCombo::get('prefix')[JRequest::getVar('prefix', null, 'post', 'string')] : '';
-            $gender = PVCombo::get('prefixGender')[$prefix];
-            $marital = PVCombo::get('prefixMarital')[$prefix];
         }
         if (JRequest::getVar('suffix', null, 'post', 'string')) {
             $suffix = PVCombo::get('suffix')[JRequest::getVar('suffix', null, 'post', 'string')] ? PVCombo::get('suffix')[JRequest::getVar('suffix', null, 'post', 'string')] : '';
@@ -182,13 +180,10 @@ class PvmachineinspectorsController extends JController {
         }
         if (JRequest::getVar('phone', null, 'post')) {
             $phone = preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'));
-            $phonetype = PVCombo::get('phoneTypeShort')[JRequest::getVar('phonetype', null, 'post')];
         }
 
         // load our models
         $ia = $this->getModel('applicant');
-        $a = $this->getModel('address');
-        $l = $this->getModel('link');
 
         // create applicant record and get person id (applicant = person + inspector_applicant)
         $linkData = $ia->create(
@@ -198,63 +193,16 @@ class PvmachineinspectorsController extends JController {
                 'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
                 'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
                 'suffix' => $suffix,
-                'gender' => $gender,
-                'marital_status' => $marital,
-                'created' => $created,
                 'address1' => JRequest::getVar('address1', null, 'post', 'string'),
+                'address2' => JRequest::getVar('address2', null, 'post', 'string'),
+                'city' => JRequest::getVar('city', null, 'post', 'string'),
+                'region' => $region,
                 'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
+                'email' => $email,
+                'phone' => $phone,
+                'created' => $created,
             )
         );
-
-        // a returned $pid means we wrote a person
-        if ($linkData['right_id']) {
-            // save person's address
-            $a->create(
-                array_merge(
-                    $linkData,
-                    array(
-                        'address1' => JRequest::getVar('address1', null, 'post', 'string'),
-                        'address2' => JRequest::getVar('address2', null, 'post', 'string'),
-                        'city' => JRequest::getVar('city', null, 'post', 'string'),
-                        'region' => $region,
-                        'postcode' => JRequest::getVar('postcode', null, 'post', 'string'),
-                        'created' => $created,
-                    )
-                )
-            );
-
-            // link email to person
-            if ($email) {
-                $l->create(
-                    array_merge(
-                        $linkData,
-                        array(
-                            'type' => 'email',
-                            'value' => $email,
-                            'created' => $created,
-                        )
-                    )
-                );
-            }
-
-            // link phone to person
-            if ($phone) {
-                $l->create(
-                    array_merge(
-                        $linkData,
-                        array(
-                            'type' => $phonetype,
-                            'value' => $phone,
-                            'created' => $created,
-                        )
-                    )
-                );
-            }
-
-        } else {
-            // No pid, no write...
-            return false;
-        }
 
         return true;
     }
