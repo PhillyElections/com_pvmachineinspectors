@@ -30,4 +30,3 @@ CREATE TABLE IF NOT EXISTS `#__pv_inspector_applicants` (
   PRIMARY KEY (`id`),
   KEY `pv_inspector_applicants_division_id` (`division_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-SAM DEFAULT CHARSET=utf8;
