@@ -1,2 +1,2 @@
 DROP TABLE 
-`#__pv_inspector_applicants`,;
+`#__pv_inspector_applicants`;
