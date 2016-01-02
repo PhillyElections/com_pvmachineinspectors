@@ -11,34 +11,35 @@
  */
 
 defined('_JEXEC') or die('Restricted access');
+require_once __DIR__ .DS."pvtable.php";
 
 /**
  * @package Philadelphia.Votes
  */
 
-class PVTableInspectorApplicant extends JTable {
-    public $id;
-    public $division_id;
-    public $prefix;
-    public $first_name;
-    public $middle_name;
-    public $last_name;
-    public $suffix;
-    public $address1;
-    public $address2;
-    public $address3;
-    public $city;
-    public $region;
-    public $postcode;
-    public $email;
-    public $phone;
-    public $published;
-    public $checked_out;
-    public $checked_out_time;
-    public $created;
-    public $updated;
+class PVTableInspectorApplicant extends PVTable {
+	public $id;
+	public $division_id;
+	public $prefix;
+	public $first_name;
+	public $middle_name;
+	public $last_name;
+	public $suffix;
+	public $address1;
+	public $address2;
+	public $address3;
+	public $city;
+	public $region;
+	public $postcode;
+	public $email;
+	public $phone;
+	public $published;
+	public $checked_out;
+	public $checked_out_time;
+	public $created;
+	public $updated;
 
-    public function __construct(&$_db) {
-        parent::__construct('#__pv_inspector_applicants', 'id', $_db);
-    }
+	public function __construct(&$_db) {
+		parent::__construct('#__pv_inspector_applicants', 'id', $_db);
+	}
 }
