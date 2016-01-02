@@ -33,7 +33,7 @@ class PvmachineinspectorsModelApplicant extends JModel {
 	public function create($data = array()) {
 		$did = '';
 		$ia  = $this->getTable('InspectorApplicant', 'PVTable');
-		$d   = $this->getTable('Division');
+		$d   = $this->getTable('Division', 'JTable');
 
 		$response = $d->remoteLookup($data['address1']);
 		if ($response->status === 'success') {
