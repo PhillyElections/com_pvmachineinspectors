@@ -18,58 +18,54 @@ defined('_JEXEC') or die;
  *
  * @since       1.5
  */
-class PvmachineinspectorsModelApplicant extends JModel
-{
-    /**
-     * Registry namespace prefix.
-     * @var string
-     */
-    public $_namespace = 'com_pvmachineinspectors.applicant.';
+class PvmachineinspectorsModelApplicant extends JModel {
+	/**
+	 * Registry namespace prefix.
+	 * @var string
+	 */
+	public $_namespace = 'com_pvmachineinspectors.applicant.';
 
-    /**
-     * Create a new applicant.
-     * @param  array
-     * @return integer $id of created person for link and address binding
-     */
-    public function create($data = array())
-    {
-        $did = '';
-        $ia  = $this->getTable('InspectorApplicant', 'PVTable');
-        $d   = $this->getTable('Division', 'Table');
+	/**
+	 * Create a new applicant.
+	 * @param  array
+	 * @return integer $id of created person for link and address binding
+	 */
+	public function create($data = array()) {
+		$did = '';
+		$ia  = $this->getTable('InspectorApplicant', 'PVTable');
+		$d   = $this->getTable('Division', 'JTable');
 
-        $response = $d->remoteLookup($data['address1']);
-        if ($response->status === 'success') {
-            $d->loadFromKeyValuePairs(array('division_id' => $response['division']));
-            $did = $d->get('id');
-        }
+		$response = $d->remoteLookup($data['address1']);
+		if ($response->status === 'success') {
+			$d->loadFromKeyValuePairs(array('division_id' => $response['division']));
+			$did = $d->get('id');
+		}
 
-        // save form data with division data
-        if (!$ia->save(array_merge($data, array('division_id' => $did)))) {
-            return false;
-        }
-        // if success, publish
-        $ia->publish();
-    }
+		// save form data with division data
+		if (!$ia->save(array_merge($data, array('division_id' => $did)))) {
+			return false;
+		}
+		// if success, publish
+		$ia->publish();
+	}
 
-    /**
-     * Update an appliant.
-     * @param  array    $data
-     * @return bool
-     */
-    public function update($data = array())
-    {
-        // todo
-        return true;
-    }
+	/**
+	 * Update an appliant.
+	 * @param  array    $data
+	 * @return bool
+	 */
+	public function update($data = array()) {
+		// todo
+		return true;
+	}
 
-    /**
-     * Delete an applicant.
-     * @param  int  $id
-     * @return bool
-     */
-    public function delete($id = null)
-    {
-        // todo
-        return true;
-    }
+	/**
+	 * Delete an applicant.
+	 * @param  int  $id
+	 * @return bool
+	 */
+	public function delete($id = null) {
+		// todo
+		return true;
+	}
 }
