@@ -80,7 +80,7 @@ class PvmachineinspectorsController extends JController {
         }
 
         // hey, we have good data, and it's been saved  let's say thanks!
-        $this->setRedirect('index.php?option=com_pvmachineinspectors&task=thanks');
+        $this->setRedirect('index.php?option=com_pvmachineinspectors&task=list');
         $this->redirect();
     }
 
