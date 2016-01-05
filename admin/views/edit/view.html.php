@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: site/views/register/view.html.php $
+ * $Id: site/views/edit/view.html.php $
  * $LastChangedBy: Matt Murphy $
  * Election Officials - Philadelphiavotes.com
  * a component for Joomla! 1.5 CMS (http://www.joomla.org)
@@ -20,7 +20,7 @@ jimport('joomla.application.component.view');
  *
  * @since 1.0
  */
-class PvmachineinspectorsViewRegister extends JView {
+class PvmachineinspectorsViewEdit extends JView {
     public function display() {
         global $mainframe;
         $pathway = &$mainframe->getPathway();
@@ -32,7 +32,7 @@ class PvmachineinspectorsViewRegister extends JView {
         $menu = $menus->getActive();
 
         // fallback title
-        $title = 'Apply to be a Machine Inspector';
+        $title = 'Edit a Machine Inspector Applicant';
 
         if (is_object($menu)) {
             $menu_params = new JParameter($menu->params);
