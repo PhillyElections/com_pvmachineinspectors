@@ -7,7 +7,7 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
     }
 }
 // lets go through the post array and extract any existing values for display
-$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
+$fields = array('id', 'prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
 foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post');
 }
@@ -109,6 +109,7 @@ jimport("pvcombo.PVCombo");
 	<td>
 		<button class="button validate" type="submit"><?=JText::_('save');?></button>
 		<input type="hidden" name="task" value="edit_save" />
+		<input type="hidden" name="task" value="<?=$id?>" />
 	</td>
 </tr>
 </table>
