@@ -11,8 +11,8 @@
 	<description>Machine Inspector signup and management.</description>
 	<install>
 		<sql>
-			<file driver="mysql" charset="utf8">sql/install.sql</file>
-			<file driver="mysql">sql/install.sql</file>
+			<file driver="mysqli" charset="utf8">sql/install.sql</file>
+			<file driver="mysqli">sql/install.sql</file>
 		</sql>
 	</install>
 	<uninstall>
