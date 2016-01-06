@@ -1,6 +1,9 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+
+jimport("pvcombo.PVCombo");
+
 if (count(JRequest::getVar('msg', null, 'post'))) {
     foreach (JRequest::getVar('msg', null, 'post') as $msg) {
         JError::raiseWarning(1, $msg);
@@ -11,8 +14,7 @@ $fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'addr
 foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post');
 }
-
-jimport("pvcombo.PVCombo");
+d($_POST);
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
