@@ -19,9 +19,14 @@ defined('_JEXEC') or die('Restricted access');
 // pull in the super-groovy debugger
 jimport('kint.kint');
 
-JToolBarHelper::title(JText::_('Machine Inspector Signups'), 'generic.png');
-JToolBarHelper::publishList();
-JToolBarHelper::unpublishList();
-JToolBarHelper::editList();
-JToolBarHelper::deleteList();
-JToolBarHelper::addNew();
+// Require the base controller
+require_once JPATH_COMPONENT . DS . 'controller.php';
+
+// Create the controller
+$controller = new PvmachineinspectorsController();
+
+// Perform the Request task
+$controller->execute('display');
+
+// Redirect if set by the controller
+$controller->redirect();

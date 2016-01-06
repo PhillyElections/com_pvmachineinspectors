@@ -13,7 +13,7 @@
 
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die('Restricted access');
-
+d("we got this far");
 jimport('joomla.application.component.controller');
 
 /**
@@ -27,7 +27,18 @@ class PvmachineinspectorsController extends JController {
      * @return void
      */
     public function display() {
-        JRequest::setVar('view', 'edit');
+        JRequest::setVar('view', 'manage');
+        JRequest::setVar('msg', $this->_msg);
+
+        parent::display();
+    }
+
+    /**
+     * display - the registration form
+     * @return void
+     */
+    public function manage() {
+        JRequest::setVar('view', 'manage');
         JRequest::setVar('msg', $this->_msg);
 
         parent::display();
