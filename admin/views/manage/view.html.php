@@ -20,7 +20,7 @@ jimport('joomla.application.component.view');
  *
  * @since 1.0
  */
-class PvmachineinspectorsViewList extends JView {
+class PvmachineinspectorsViewManage extends JView {
     public function display() {
         global $mainframe;
         $pathway = &$mainframe->getPathway();
