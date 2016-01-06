@@ -34,6 +34,7 @@
 		<submenu>
 			<menu view="manage">Manage</menu>
 			<menu view="export">Export</menu>
+			<menu view="import">Import</menu>
 		</submenu>
 		<files folder="admin">
 			<filename>index.html</filename>
