@@ -163,7 +163,7 @@ class PvmachineinspectorsController extends JController {
 
         $created = date('Y-m-d h:i:s');
         $region = $suffix = $prefix = $marital = $gender = $email = $phone = '';
-        d($_POST);
+
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
             $prefix = PVCombo::get('prefix')[JRequest::getVar('prefix', null, 'post', 'string')] ? PVCombo::get('prefix')[JRequest::getVar('prefix', null, 'post', 'string')] : '';
