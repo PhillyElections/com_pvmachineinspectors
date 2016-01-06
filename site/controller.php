@@ -175,9 +175,10 @@ class PvmachineinspectorsController extends JController {
             $region = PVCombo::get('state')[JRequest::getVar('region', null, 'post', 'string')] ? PVCombo::get('state')[JRequest::getVar('region', null, 'post', 'string')] : '';
         }
         if (JRequest::getVar('email', null, 'post', 'string')) {
-            $email = filter_var(JRequest::getVar('email', null, 'post', 'string'));
+            $email = JRequest::getVar('email', null, 'post', 'string');
         }
         if (JRequest::getVar('phone', null, 'post')) {
+            // eat the leading '1' and any non numeric chars
             $phone = preg_replace('/^1|\D/', "", JRequest::getVar('phone', null, 'post'));
         }
 
