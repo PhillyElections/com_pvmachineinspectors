@@ -28,11 +28,11 @@ d($_POST);
 		</label>
 	</td>
   	<td>
-		<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', '', true)?>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', $prefix, true)?>
   		<input type="text" name="fname" id="fname" size="18%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
   		<input type="text" name="mname" id="mname" size="1%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
   		<input type="text" name="lname" id="lname" size="18%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-		<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', '', true)?>
+		<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', $suffix, true)?>
   	</td>
 
 </tr>
