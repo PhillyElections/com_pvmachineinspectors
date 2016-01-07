@@ -18,8 +18,7 @@ require_once __DIR__ . DS . "pvcontroller.php";
 /**
  * Pvotes Machine Inspectors Controller
  */
-class PvmachineinspectorsControllerManage extends PVController {
-
+class PvmachineinspectorsControllerImport extends PVController {
     /**
      * display - the registration form
      * @return string

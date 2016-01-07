@@ -21,7 +21,6 @@ require_once __DIR__ . DS . "pvcontroller.php";
  * Pvotes Machine Inspectors Controller
  */
 class PvmachineinspectorsControllerManage extends PVController {
-    public $_msg = array();
 
     /**
      * display - the registration form
@@ -77,19 +76,6 @@ class PvmachineinspectorsControllerManage extends PVController {
         JRequest::setVar('msg', $this->_msg);
 
         parent::display();
-    }
-
-    /**
-     * Set the message on usage of $this->display();
-     * @param string  $message message
-     * @param boolean $append  append or new?
-     */
-    public function _setMessage($message, $append = true) {
-        if (!$append) {
-            $this->_msg = array($message);
-        } else {
-            array_push($this->_msg, $message);
-        }
     }
 
     /**

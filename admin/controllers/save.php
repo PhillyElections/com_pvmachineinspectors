@@ -13,13 +13,12 @@
 
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die('Restricted access');
-
-jimport('joomla.application.component.controller');
+require_once __DIR__ . DS . "pvcontroller.php";
 
 /**
  * Pvotes Machine Inspectors Controller
  */
-class PvmachineinspectorsController extends JController {
+class PvmachineinspectorsControllerSave extends PVController {
     public $_msg = array();
 
     public function __construct() {
@@ -32,7 +31,7 @@ class PvmachineinspectorsController extends JController {
      * @return string
      */
     public function display() {
-        JRequest::setVar('view', 'manage');
+        JRequest::setVar('view', 'list');
         JRequest::setVar('msg', $this->_msg);
 
         parent::display();

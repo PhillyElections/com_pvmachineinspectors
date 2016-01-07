@@ -25,21 +25,21 @@ if (file_exists(JPATH_COMPONENT . DS . 'controllers' . DS . $task . '.php')) {
 } else {
     require_once JPATH_COMPONENT . DS . 'controllers' . DS . 'manage.php';
 }
-$task = JRequest::getCmd('task', 'manage');
+$controllerName = JRequest::getCmd('controller', 'manage');
+$task = JRequest::getCmd('task', 'edit');
 
 // Create the controller
-$controllerName = 'PvmachineinspectorsController' . ucfirst($task);
+$controllerName = 'PvmachineinspectorsController' . ucfirst($controllerName);
 $controller = new $controllerName();
 
 //$controller->registerTask('manage', 'manage');
-$view = 'display';
-if (in_array(JRequest::getWord('view', null), $controller->_methods)) {
-    $task = JRequest::getWord('view', null);
+/*if (in_array(JRequest::getWord('view', null), $controller->_methods)) {
+$task = JRequest::getWord('view', null);
 }
-//d($controller, $task, $controller->$task());
+ *///d($controller, $task, $controller->$task());
 // Perform the Request task
 //
 d($controller, $task);
-//$controller->execute($task);
+$controller->$task();
 // Redirect if set by the controller
 $controller->redirect();
