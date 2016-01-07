@@ -18,7 +18,7 @@ defined('_JEXEC') or die('Restricted access');
 
 // pull in the super-groovy debugger
 jimport('kint.kint');
-
+d(JPATH_COMPONENT . DS . 'controllers' . DS . 'manage.php');
 // Require the base controller
 if (file_exists(JPATH_COMPONENT . DS . 'controllers' . DS . $task . '.php')) {
     require_once JPATH_COMPONENT . DS . 'controllers' . DS . $task . '.php';
