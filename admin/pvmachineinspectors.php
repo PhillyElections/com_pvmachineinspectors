@@ -20,21 +20,26 @@ defined('_JEXEC') or die('Restricted access');
 jimport('kint.kint');
 
 // Require the base controller
-require_once JPATH_COMPONENT . DS . 'controller.php';
-
-$task = JRequest::getCmd('task', null);
+if (file_exists(JPATH_COMPONENT . DS . 'controllers' . DS . $task . '.php')) {
+    require_once JPATH_COMPONENT . DS . 'controllers' . DS . $task . '.php';
+} else {
+    require_once JPATH_COMPONENT . DS . 'controllers' . DS . 'manage.php';
+}
+$task = JRequest::getCmd('task', 'manage');
 
 // Create the controller
-$controller = new PvmachineinspectorsController();
+$controllerName = 'PvmachineinspectorsController' . ucfirst($task);
+$controller = new $controllerName();
 
-$controller->registerTask('manage', 'manage');
-$task = 'display';
+//$controller->registerTask('manage', 'manage');
+$view = 'display';
 if (in_array(JRequest::getWord('view', null), $controller->_methods)) {
     $task = JRequest::getWord('view', null);
 }
-d($controller, $task, $controller->$task());
+//d($controller, $task, $controller->$task());
 // Perform the Request task
-$controller->$task(); //execute('display');
-
+//
+d($controller, $task);
+//$controller->execute($task);
 // Redirect if set by the controller
 $controller->redirect();
