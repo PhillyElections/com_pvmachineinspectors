@@ -19,15 +19,10 @@ defined('_JEXEC') or die('Restricted access');
 // pull in the super-groovy debugger
 jimport('kint.kint');
 
-// Make sure the user is authorized to view this page
-$user = &JFactory::getUser();
-dd($user);
-if (!$user->authorize('com_pvmachineinspectors', 'manage')) {
-    $mainframe->redirect('index.php', JText::_('ALERTNOTAUTH'));
-}
-exit;
 // Require the base controller
 require_once JPATH_COMPONENT . DS . 'controller.php';
+
+$task = JRequest::getCmd('task', null);
 
 // Create the controller
 $controller = new PvmachineinspectorsController();
