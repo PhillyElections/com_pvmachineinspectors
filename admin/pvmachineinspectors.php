@@ -26,7 +26,7 @@ require_once JPATH_COMPONENT . DS . 'controller.php';
 $controller = new PvmachineinspectorsController();
 
 // Perform the Request task
-$controller->execute('display');
+$controller->execute('manage' /*JRequest::getCmd('task', null)*/);
 
 // Redirect if set by the controller
 $controller->redirect();

@@ -13,7 +13,7 @@
 
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die('Restricted access');
-d("we got this far");
+
 jimport('joomla.application.component.controller');
 
 /**
