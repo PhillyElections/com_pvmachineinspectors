@@ -32,9 +32,9 @@
 	<administration>
 		<menu link="option=com_pvmachineinspectors">Machine Inspectors</menu>
 		<submenu>
-			<menu task="manage">Manage</menu>
-			<menu task="export">Export</menu>
-			<menu task="import">Import</menu>
+			<menu controller="manage">Manage</menu>
+			<menu controller="export">Export</menu>
+			<menu controller="import">Import</menu>
 		</submenu>
 		<files folder="admin">
 			<filename>index.html</filename>
