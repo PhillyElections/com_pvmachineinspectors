@@ -24,7 +24,7 @@ class PvmachineinspectorsController extends JController {
 
     /**
      * display - the registration form
-     * @return void
+     * @return string
      */
     public function display() {
         JRequest::setVar('view', 'manage');
@@ -35,7 +35,7 @@ class PvmachineinspectorsController extends JController {
 
     /**
      * display - the registration form
-     * @return void
+     * @return string
      */
     public function manage() {
         JRequest::setVar('view', 'manage');
@@ -50,6 +50,29 @@ class PvmachineinspectorsController extends JController {
      */
     public function edit() {
         JRequest::setVar('view', 'edit');
+        JRequest::setVar('msg', $this->_msg);
+
+        parent::display();
+    }
+
+    /**
+     * display - the registration form
+     * @return void
+     */
+    public function export() {
+        JRequest::setVar('view', 'export');
+        JRequest::setVar('msg', $this->_msg);
+
+        return 'export';
+        parent::display();
+    }
+
+    /**
+     * display - the registration form
+     * @return void
+     */
+    public function import() {
+        JRequest::setVar('view', 'import');
         JRequest::setVar('msg', $this->_msg);
 
         parent::display();
