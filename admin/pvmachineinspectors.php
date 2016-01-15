@@ -18,28 +18,29 @@ defined('_JEXEC') or die('Restricted access');
 
 // pull in the super-groovy debugger
 jimport('kint.kint');
-d(JPATH_COMPONENT . DS . 'controllers' . DS . 'manage.php');
+
 // Require the base controller
-if (file_exists(JPATH_COMPONENT . DS . 'controllers' . DS . $task . '.php')) {
-    require_once JPATH_COMPONENT . DS . 'controllers' . DS . $task . '.php';
-} else {
-    require_once JPATH_COMPONENT . DS . 'controllers' . DS . 'manage.php';
+
+require_once JPATH_COMPONENT . DS . 'controller.php';
+
+// Require specific controller if requested
+if ($controller = JRequest::getWord('controller')) {
+    $path = JPATH_COMPONENT . DS . 'controllers' . DS . $controller . '.php';
+    if (file_exists($path)) {
+        d('require_once');
+        require_once $path;
+    } else {
+        $controller = '';
+    }
 }
-$controllerName = JRequest::getCmd('controller', 'manage');
-$task = JRequest::getCmd('task', 'edit');
 
 // Create the controller
-$controllerName = 'PvmachineinspectorsController' . ucfirst($controllerName);
-$controller = new $controllerName();
+$classname = 'PvmachineinspectorsController' . ucfirst($controller);
 
-//$controller->registerTask('manage', 'manage');
-/*if (in_array(JRequest::getWord('view', null), $controller->_methods)) {
-$task = JRequest::getWord('view', null);
-}
- *///d($controller, $task, $controller->$task());
+$controller = new $classname();
+d($controller, $classname, JRequest::getVar('task'), JRequest::getWord('controller'), $path);
 // Perform the Request task
-//
-d($controller, $task);
-$controller->$task();
+$controller->execute(JRequest::getVar('task'));
+
 // Redirect if set by the controller
 $controller->redirect();

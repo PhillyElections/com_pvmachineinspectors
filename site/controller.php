@@ -19,14 +19,16 @@ jimport('joomla.application.component.controller');
 /**
  * Pvotes Machine Inspectors Controller
  */
-class PvmachineinspectorsController extends JController {
+class PvmachineinspectorsController extends JController
+{
     public $_msg = array();
 
     /**
      * display - the registration form
      * @return void
      */
-    public function display() {
+    public function display()
+    {
         JRequest::setVar('view', 'register');
         JRequest::setVar('msg', $this->_msg);
 
@@ -38,7 +40,8 @@ class PvmachineinspectorsController extends JController {
      * @param string  $message message
      * @param boolean $append  append or new?
      */
-    public function _setMessage($message, $append = true) {
+    public function _setMessage($message, $append = true)
+    {
         if (!$append) {
             $this->_msg = array($message);
         } else {
@@ -50,7 +53,8 @@ class PvmachineinspectorsController extends JController {
      * thanks - thank you
      * @return void
      */
-    public function thanks() {
+    public function thanks()
+    {
         JRequest::setVar('view', 'thanks');
         parent::display();
     }
@@ -59,7 +63,8 @@ class PvmachineinspectorsController extends JController {
      * register_save - actual form-action method
      * @return void
      */
-    public function register_save() {
+    public function register_save()
+    {
         JRequest::checkToken() or jexit('Invalid Token');
         $db = &JFactory::getDBO();
 
@@ -85,7 +90,8 @@ class PvmachineinspectorsController extends JController {
      * validate_save - very basic check.  very.  basic.
      * @return boolean
      */
-    public function validate_save() {
+    public function validate_save()
+    {
         //
         $invalid = 1;
         $application = &JFactory::getApplication();
@@ -158,7 +164,8 @@ class PvmachineinspectorsController extends JController {
      * save - Save our form data
      * @return boolean
      */
-    public function save() {
+    public function save()
+    {
         jimport("pvcombo.PVCombo");
 
         $created = date('Y-m-d h:i:s');

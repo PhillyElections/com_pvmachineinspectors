@@ -18,17 +18,19 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-// pull in the super-groovy debugger
 jimport('kint.kint');
 
 // Require the base controller
-require_once (JPATH_COMPONENT.DS.'controller.php');
+
+require_once JPATH_COMPONENT . DS . 'controller.php';
 
 // Create the controller
-$controller = new PvmachineinspectorsController();
+$classname = 'PvmachineinspectorsController';
+
+$controller = new $classname();
 
 // Perform the Request task
-$controller->execute(JRequest::getCmd('task'));
+$controller->execute(JRequest::getVar('task'));
 
 // Redirect if set by the controller
 $controller->redirect();

@@ -1,71 +1,128 @@
 <?php
 /**
- * $Id: site/models/person.php $
- * $LastChangedBy: Matt Murphy $
- * Election Officials - Philadelphiavotes.com
- * a component for Joomla! 1.5 CMS (http://www.joomla.org)
- * Author Website: http://www.philadelphiavotes.com.
+ * Pvmachineinspector Model for Pvmachineinspectors Component
  *
- * @copyright Copyright (C) 2015 City of Philadelphia
- * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+ * @package    Joomla.Tutorials
+ * @subpackage Components
+ * @link http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_4
+ * @license        GNU/GPL
  */
 
 // No direct access
-defined('_JEXEC') or die;
+defined('_JEXEC') or die('Restricted access');
+
+jimport('joomla.application.component.model');
 
 /**
- * User Component Remind Model.
+ * Pvmachineinspector Pvmachineinspector Model
  *
- * @since       1.5
+ * @package    Joomla.Tutorials
+ * @subpackage Components
  */
-class PvmachineinspectorsModelApplicant extends JModel {
-	/**
-	 * Registry namespace prefix.
-	 * @var string
-	 */
-	public $_namespace = 'com_pvmachineinspectors.applicant.';
+class PvmachineinspectorsModelApplicant extends JModel
+{
+    /**
+     * Constructor that retrieves the ID from the request
+     *
+     * @access    public
+     * @return    void
+     */
+    public function __construct()
+    {
+        parent::__construct();
 
-	/**
-	 * Create a new applicant.
-	 * @param  array
-	 * @return integer $id of created person for link and address binding
-	 */
-	public function create($data = array()) {
-		$did = '';
-		$ia  = $this->getTable('InspectorApplicant', 'PVTable');
-		$d   = $this->getTable('Division', 'PVTable');
+        $array = JRequest::getVar('cid', 0, '', 'array');
+        $this->setId((int) $array[0]);
+    }
 
-		$response = $d->remoteLookup($data['address1']);
-		if ($response->status === 'success') {
-			$d->loadFromKeyValuePairs(array('division_id' => $response['division']));
-			$did = $d->get('id');
-		}
+    /**
+     * Method to set the Pvmachineinspector identifier
+     *
+     * @access    public
+     * @param    int Pvmachineinspector identifier
+     * @return    void
+     */
+    public function setId($id)
+    {
+        // Set id and wipe data
+        $this->_id = $id;
+        $this->_data = null;
+    }
 
-		// save form data with division data
-		if (!$ia->save(array_merge($data, array('division_id' => $did)))) {
-			return false;
-		}
-		// if success, publish
-		$ia->publish();
-	}
+    /**
+     * Method to get a Pvmachineinspector
+     * @return object with data
+     */
+    public function &getData()
+    {
+        // Load the data
+        if (empty($this->_data)) {
+            $query = ' SELECT * FROM #__pv_inspector_applicants ' .
+            '  WHERE id = ' . $this->_id;
+            $this->_db->setQuery($query);
+            $this->_data = $this->_db->loadObject();
+        }
+        if (!$this->_data) {
+            $this->_data = new stdClass();
+            $this->_data->id = 0;
+            $this->_data->greeting = null;
+        }
+        return $this->_data;
+    }
 
-	/**
-	 * Update an appliant.
-	 * @param  array    $data
-	 * @return bool
-	 */
-	public function update($data = array()) {
-		// todo
-		return true;
-	}
+    /**
+     * Method to store a record
+     *
+     * @access    public
+     * @return    boolean    True on success
+     */
+    public function store()
+    {
+        $row = &$this->getTable();
 
-	/**
-	 * Delete an applicant.
-	 * @param  int  $id
-	 * @return bool
-	 */
-	public function delete($id = null) {
-		// todo
-		return true;
-	}
+        $data = JRequest::get('post');
+
+        // Bind the form fields to the Pvmachineinspector table
+        if (!$row->bind($data)) {
+            $this->setError($this->_db->getErrorMsg());
+            return false;
+        }
+
+        // Make sure the Pvmachineinspector record is valid
+        if (!$row->check()) {
+            $this->setError($this->_db->getErrorMsg());
+            return false;
+        }
+
+        // Store the web link table to the database
+        if (!$row->store()) {
+            $this->setError($row->getErrorMsg());
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Method to delete record(s)
+     *
+     * @access    public
+     * @return    boolean    True on success
+     */
+    public function delete()
+    {
+        $cids = JRequest::getVar('cid', array(0), 'post', 'array');
+
+        $row = &$this->getTable();
+
+        if (count($cids)) {
+            foreach ($cids as $cid) {
+                if (!$row->delete($cid)) {
+                    $this->setError($row->getErrorMsg());
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
