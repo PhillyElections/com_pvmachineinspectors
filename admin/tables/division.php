@@ -33,4 +33,24 @@ class TableDivision extends JTable
     {
         parent::__construct('#__divisions', 'id', $_db);
     }
+
+    public function loadFromKeyValuePairs($data)
+    {
+        $this->reset();
+        $db = &$this->getDBO();
+        $sql = "SELECT * from `" . $this->_tbl . "` WHERE ";
+        // make criteria out of each pair
+        foreach ($data as $key => $value) {
+            $sql .= "`" . $key . "`=" . $db->Quote($value) . " AND ";
+        }
+        // drop the final " AND"
+        $sql = JString::substr($sql, 0, -4);
+        $db->setQuery($sql);
+        if ($result = $db->loadAssoc()) {
+            return $this->bind($result);
+        } else {
+            $this->setError($db->getErrorMsg());
+            return false;
+        }
+    }
 }

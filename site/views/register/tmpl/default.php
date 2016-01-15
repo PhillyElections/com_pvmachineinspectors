@@ -115,5 +115,5 @@ d($_POST);
 </tr>
 </table>
 
-<?php echo JHTML::_('form.token'); ?>
+<?=JHTML::_('form.token');?>
 </form>

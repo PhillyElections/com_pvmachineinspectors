@@ -30,7 +30,6 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 
         // Register Extra tasks
         $this->registerTask('add', 'edit');
-        $this->registerTask('edit', 'display');
     }
 
     /**
@@ -39,9 +38,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      */
     public function edit()
     {
-        JRequest::setVar('view', 'pvmachineinspector');
-        JRequest::setVar('layout', 'form');
-        JRequest::setVar('hidemainmenu', 1);
+        JRequest::setVar('view', 'edit');
 
         parent::display();
     }
@@ -52,6 +49,8 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      */
     public function save()
     {
+        JRequest::checkToken() or jexit('Invalid Token');
+
         $model = $this->getModel('applicant');
 
         if ($model->store($post)) {
@@ -71,6 +70,8 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      */
     public function remove()
     {
+        JRequest::checkToken() or jexit('Invalid Token');
+
         $model = $this->getModel('applicant');
         if (!$model->delete()) {
             $msg = JText::_('Error: One or More Greetings Could not be Deleted');
@@ -87,6 +88,8 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      */
     public function cancel()
     {
+        JRequest::checkToken() or jexit('Invalid Token');
+
         $msg = JText::_('Operation Cancelled');
         $this->setRedirect('index.php?option=com_pvmachineinspectors', $msg);
     }

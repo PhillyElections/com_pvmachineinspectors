@@ -24,7 +24,7 @@ jimport('kint.kint');
 require_once JPATH_COMPONENT . DS . 'controller.php';
 
 // Require specific controller if requested
-if ($controller = JRequest::getWord('controller')) {
+if ($controller = JRequest::getWord('controller', 'applicants')) {
     $path = JPATH_COMPONENT . DS . 'controllers' . DS . $controller . '.php';
     if (file_exists($path)) {
         d('require_once');
