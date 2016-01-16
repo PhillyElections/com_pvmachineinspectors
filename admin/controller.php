@@ -28,7 +28,6 @@ class PvmachineinspectorsController extends JController
      */
     public function display()
     {
-        JRequest::setVar('view', 'applicants');
         parent::display();
     }
 }

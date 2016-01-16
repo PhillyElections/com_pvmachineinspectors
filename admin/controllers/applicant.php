@@ -54,9 +54,9 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
         $model = $this->getModel('applicant');
 
         if ($model->store($post)) {
-            $msg = JText::_('Greeting Saved!');
+            $msg = JText::_('Saved!');
         } else {
-            $msg = JText::_('Error Saving Greeting');
+            $msg = JText::_('Error - not saved.');
         }
 
         // Check the table in so it can be edited.... we are done with it anyway

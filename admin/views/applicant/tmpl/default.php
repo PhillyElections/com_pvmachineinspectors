@@ -18,8 +18,6 @@ foreach ($fields as $field) {
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
-<div class="componentheading"><?=$this->escape($this->params->get('page_title'));?></div>
-
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="contentpane">
 <tr>
     <td width="30%" height="40">
@@ -110,10 +108,10 @@ foreach ($fields as $field) {
     <td height="40">&nbsp;</td>
     <td>
         <button class="button validate" type="submit"><?=JText::_('Register');?></button>
-        <input type="hidden" name="task" value="register_save" />
+        <input type="hidden" name="task" value="save" />
+        <input type="hidden" name="controller" value="applicant" />
+        <?=JHTML::_('form.token');?>
     </td>
 </tr>
 </table>
-
-<?=JHTML::_('form.token');?>
 </form>

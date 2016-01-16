@@ -19,4 +19,9 @@ defined('_JEXEC') or die('Restricted access');
  */
 class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsController
 {
+    public function display()
+    {
+        JRequest::setVar('view', 'applicants');
+        parent::display();
+    }
 }
