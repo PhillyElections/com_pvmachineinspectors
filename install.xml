@@ -25,21 +25,21 @@
 		<filename>index.html</filename>
 		<filename>pvmachineinspectors.php</filename>
 		<filename>controller.php</filename>
-		<folder>assets/</folder>
 		<folder>models/</folder>
 		<folder>views/</folder>
 	</files>
 	<administration>
 		<menu link="option=com_pvmachineinspectors">Machine Inspectors</menu>
 		<submenu>
-			<menu controller="manage">Manage</menu>
+			<menu controller="applicants">Manage</menu>
 			<menu controller="export">Export</menu>
-			<menu controller="import">Import</menu>
 		</submenu>
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>pvmachineinspectors.php</filename>
 			<filename>controller.php</filename>
+			<folder>controllers/</folder>
+			<folder>models/</folder>
 			<folder>sql/</folder>
 			<folder>tables/</folder>
 			<folder>views/</folder>
