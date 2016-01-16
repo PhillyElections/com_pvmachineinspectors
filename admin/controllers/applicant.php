@@ -38,7 +38,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      */
     public function edit()
     {
-        JRequest::setVar('view', 'edit');
+        JRequest::setVar('view', 'applicant');
 
         parent::display();
     }
@@ -88,7 +88,6 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      */
     public function cancel()
     {
-        JRequest::checkToken() or jexit('Invalid Token');
 
         $msg = JText::_('Operation Cancelled');
         $this->setRedirect('index.php?option=com_pvmachineinspectors', $msg);
