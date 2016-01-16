@@ -7,13 +7,25 @@ d($this->items);
 	<thead>
 		<tr>
 			<th width="5">
-				<?php echo JText::_('ID'); ?>
+				<?=JText::_('ID');?>
 			</th>
-			<th width="20">
-				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->items); ?>);" />
+			<th width="5">
+				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?=count($this->items);?>);" />
 			</th>
 			<th>
-				<?php echo JText::_('Greeting'); ?>
+				<?=JText::_('Name');?>
+			</th>
+			<th width="5">
+				<?=JText::_('Ward');?>
+			</th>
+			<th width="5">
+				<?=JText::_('Division');?>
+			</th>
+			<th>
+				<?=JText::_('Phone');?>
+			</th>
+			<th>
+				<?=JText::_('Email');?>
 			</th>
 		</tr>
 	</thead>
@@ -23,16 +35,32 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
     $row = &$this->items[$i];
     $checked = JHTML::_('grid.id', $i, $row->id);
     $link = JRoute::_('index.php?option=com_pvmachineinspectors&controller=applicant&task=edit&cid[]=' . $row->id);
+    $fullname = ($row->prefix ? $row->prefix . " " : "") . $row->first_name . " " . ($row->middle_name ? $row->middle_name . " " : "") . $row->last_name . " " . ($row->suffix ? ", " . $row->suffix : "");
+    $matches = '';
+    preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
+
     ?>
-		<tr class="<?php echo "row$k"; ?>">
+		<tr class="<?="row$k";?>">
 			<td>
-				<?php echo $row->id; ?>
+				<?=$row->id;?>
 			</td>
 			<td>
-				<?php echo $checked; ?>
+				<?=$checked;?>
 			</td>
 			<td>
-				<a href="<?php echo $link; ?>"><?php echo $row->greeting; ?></a>
+				<a href="<?=$link;?>"><?=$fullname;?></a>
+			</td>
+			<td>
+				<?=$row->ward;?>
+			</td>
+			<td>
+				<?=$row->division;?>
+			</td>
+			<td>
+				<?=count($matches) ? sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]) : '';?>
+			</td>
+			<td>
+				<?=$row->email;?>
 			</td>
 		</tr>
 		<?php

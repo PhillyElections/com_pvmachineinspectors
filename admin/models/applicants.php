@@ -34,8 +34,8 @@ class PvmachineinspectorsModelApplicants extends JModel
      */
     public function _buildQuery()
     {
-        $query = ' SELECT * '
-            . ' FROM #__pv_inspector_applicants '
+        $query = ' SELECT ia.*, d.ward, d.division '
+            . ' FROM #__pv_inspector_applicants ia left join #__divisions d on ia.division_id=d.id '
         ;
 
         return $query;
