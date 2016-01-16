@@ -1,7 +1,7 @@
 <?php defined('_JEXEC') or die('Restricted access');
 d($this->items);
 ?>
-<form action="index.php" method="post" name="adminForm">
+<form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm">
 <div id="editcell">
 	<table class="adminlist">
 	<thead>
@@ -70,8 +70,8 @@ $k = 1 - $k;
 	</table>
 </div>
 <?=JHTML::_('form.token');?>
-<input type="hidden" name="option" value="com_pvmachineinspectors" />
 <input type="hidden" name="task" value="" />
 <input type="hidden" name="boxchecked" value="0" />
 <input type="hidden" name="controller" value="applicant" />
+<?=JHTML::_('form.token');?>
 </form>
