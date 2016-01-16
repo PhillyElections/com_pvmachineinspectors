@@ -185,7 +185,7 @@ class PvmachineinspectorsController extends JController
             $region = $temp[JRequest::getVar('region', null, 'post', 'string')] ? $temp[JRequest::getVar('region', null, 'post', 'string')] : '';
         }
         if (JRequest::getVar('email', null, 'post', 'string')) {
-            $email = JRequest::getVar('email', null, 'post', 'string');
+            $email = JString::strtolower(JRequest::getVar('email', null, 'post', 'string'));
         }
         if (JRequest::getVar('phone', null, 'post')) {
             // eat the leading '1' and any non numeric chars

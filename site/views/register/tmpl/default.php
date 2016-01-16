@@ -14,7 +14,7 @@ $fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'addr
 foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post');
 }
-d($_POST);
+
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 

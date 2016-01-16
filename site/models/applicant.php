@@ -34,9 +34,8 @@ class PvmachineinspectorsModelApplicant extends JModel
         $division = $this->getTable('Division');
 
         $response = Division::lookup($data['address1']);
-
-        if ($response->status === 'success') {
-            $division->loadFromKeyValuePair(array('division_id' => $response['division']));
+        if ($response['status'] === 'success') {
+            $division->loadFromKeyValuePairs(array('division_id' => $response['data']['division']));
             $did = $division->get('id');
         }
 
