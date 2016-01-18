@@ -78,25 +78,44 @@ class PvmachineinspectorsModelApplicant extends JModel
      */
     public function store()
     {
+        jimport('pvcombo.PVCombo');
         $row = &$this->getTable();
 
         $data = JRequest::get('post');
 
+        $data['prefix'] = $data['prefix'] ? PVCombo::get('prefix', $data['prefix']) : '';
+        $data['suffix'] = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
+        $data['state'] = $data['state'] ? PVCombo::get('state', $data['state']) : '';
+
+        if (!$data['division_id']) {
+            jimport('division.Division');
+            $division = $this->getTable('Division');
+
+            $response = Division::lookup($data['address1']);
+            if ($response['status'] === 'success') {
+                $division->loadFromKeyValuePairs(array('division_id' => $response['data']['division']));
+                $data['division_id'] = $division->get('id');
+            }
+        }
+
         // Bind the form fields to the Pvmachineinspector table
         if (!$row->bind($data)) {
             $this->setError($this->_db->getErrorMsg());
+            dd('bind failed');
             return false;
         }
 
         // Make sure the Pvmachineinspector record is valid
         if (!$row->check()) {
             $this->setError($this->_db->getErrorMsg());
+            dd('check failed');
             return false;
         }
 
         // Store the web link table to the database
         if (!$row->store()) {
             $this->setError($row->getErrorMsg());
+            dd('store failed');
             return false;
         }
 

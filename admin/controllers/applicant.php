@@ -30,6 +30,8 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 
         // Register Extra tasks
         $this->registerTask('add', 'edit');
+        $this->registerTask('register', 'save');
+        $this->registerTask('update', 'save');
     }
 
     /**
