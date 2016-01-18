@@ -96,14 +96,14 @@ class PvmachineinspectorsController extends JController
         $invalid = 1;
         $application = &JFactory::getApplication();
 
-        // we need a fname
-        if (!JRequest::getVar('fname', null, 'post', 'word')) {
+        // we need a first_name
+        if (!JRequest::getVar('first_name', null, 'post', 'word')) {
             $invalid *= 2;
             $this->_setMessage('First name is required.');
         }
 
-        // we need a lname
-        if (!JRequest::getVar('lname', null, 'post', 'word')) {
+        // we need a last_name
+        if (!JRequest::getVar('last_name', null, 'post', 'word')) {
             $invalid *= 3;
             $this->_setMessage('Last name is required.');
         }
@@ -199,9 +199,9 @@ class PvmachineinspectorsController extends JController
         $linkData = $ia->create(
             array(
                 'prefix' => $prefix,
-                'first_name' => JRequest::getVar('fname', null, 'post', 'string'),
-                'middle_name' => JRequest::getVar('mname', null, 'post', 'string'),
-                'last_name' => JRequest::getVar('lname', null, 'post', 'string'),
+                'first_name' => JRequest::getVar('first_name', null, 'post', 'string'),
+                'middle_name' => JRequest::getVar('middle_name', null, 'post', 'string'),
+                'last_name' => JRequest::getVar('last_name', null, 'post', 'string'),
                 'suffix' => $suffix,
                 'address1' => JRequest::getVar('address1', null, 'post', 'string'),
                 'address2' => JRequest::getVar('address2', null, 'post', 'string'),

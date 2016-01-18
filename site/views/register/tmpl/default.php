@@ -10,7 +10,7 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
     }
 }
 // lets go through the post array and extract any existing values for display
-$fields = array('prefix', 'fname', 'mname', 'lname', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
+$fields = array('prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
 foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post');
 }
@@ -23,15 +23,15 @@ foreach ($fields as $field) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="contentpane">
 <tr>
 	<td width="30%" height="40">
-		<label id="namemsg" for="fname">
+		<label id="namemsg" for="first_name">
 <?=JText::_('Name');?>:
 		</label>
 	</td>
   	<td>
 		<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', $prefix, true)?>
-  		<input type="text" name="fname" id="fname" size="18%" value="<?=$fname?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
-  		<input type="text" name="mname" id="mname" size="1%" value="<?=$mname?>" class="inputbox optional" maxlength="25" />
-  		<input type="text" name="lname" id="lname" size="18%" value="<?=$lname?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
+  		<input type="text" name="first_name" id="first_name" size="18%" value="<?=$first_name?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
+  		<input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$middle_name?>" class="inputbox optional" maxlength="25" />
+  		<input type="text" name="last_name" id="last_name" size="18%" value="<?=$last_name?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
 		<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', $suffix, true)?>
   	</td>
 
@@ -88,7 +88,7 @@ foreach ($fields as $field) {
 </tr>
 <tr>
 	<td height="40">
-		<label id="emailmsg" for="phone">
+		<label id="phonemsg" for="phone">
 			<?=JText::_('Phone');?>:
 		</label>
 	</td>
