@@ -34,11 +34,11 @@ class PvmachineinspectorsViewApplicant extends JView
         $text = $isNew ? JText::_('New') : JText::_('Edit');
         JToolBarHelper::title(JText::_('Applicant') . ': <small><small>[ ' . $text . ' ]</small></small>');
         if ($isNew) {
-            JToolBarHelper::register();
+            JToolBarHelper::save('save', 'Register');
             JToolBarHelper::cancel();
         } else {
             // for existing items the button is renamed `close`
-            JToolBarHelper::save('update', 'Update');
+            JToolBarHelper::save('save', 'Update');
             JToolBarHelper::cancel('cancel', 'Close');
         }
 
