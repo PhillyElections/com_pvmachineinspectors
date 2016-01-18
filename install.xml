@@ -30,10 +30,10 @@
 	</files>
 	<administration>
 		<menu link="option=com_pvmachineinspectors">Machine Inspectors</menu>
-		<submenu>
+<!-- 		<submenu>
 			<menu controller="applicants">Manage</menu>
 			<menu controller="export">Export</menu>
-		</submenu>
+		</submenu> -->
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>pvmachineinspectors.php</filename>
