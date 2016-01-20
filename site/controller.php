@@ -173,16 +173,13 @@ class PvmachineinspectorsController extends JController
 
         // lets get values to replace references
         if (JRequest::getVar('prefix', null, 'post', 'string')) {
-            $temp = PVCombo::get('prefix');
-            $prefix = $temp[JRequest::getVar('prefix', null, 'post', 'string')] ? $temp[JRequest::getVar('prefix', null, 'post', 'string')] : '';
+            $prefix = PVCombo::get('prefix', JRequest::getVar('prefix', null, 'post', 'string')) ? PVCombo::get('prefix', JRequest::getVar('prefix', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('suffix', null, 'post', 'string')) {
-            $temp = PVCombo::get('suffix');
-            $suffix = $temp[JRequest::getVar('suffix', null, 'post', 'string')] ? $temp[JRequest::getVar('suffix', null, 'post', 'string')] : '';
+            $suffix = PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) ? PVCombo::get('suffix', JRequest::getVar('suffix', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('region', null, 'post', 'string')) {
-            $temp = PVCombo::get('state');
-            $region = $temp[JRequest::getVar('region', null, 'post', 'string')] ? $temp[JRequest::getVar('region', null, 'post', 'string')] : '';
+            $region = PVCombo::get('state', JRequest::getVar('region', null, 'post', 'string')) ? PVCombo::get('state', JRequest::getVar('region', null, 'post', 'string')) : '';
         }
         if (JRequest::getVar('email', null, 'post', 'string')) {
             $email = JString::strtolower(JRequest::getVar('email', null, 'post', 'string'));
