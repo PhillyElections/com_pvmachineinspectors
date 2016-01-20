@@ -25,7 +25,6 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      */
     public function __construct()
     {
-        d($this);
         parent::__construct();
 
         // Register Extra tasks
