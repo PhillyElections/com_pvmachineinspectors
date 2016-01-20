@@ -29,18 +29,13 @@ class PvmachineinspectorsModelApplicant extends JModel
     {
         jimport('division.Division');
 
-        $did = '';
         $applicant = $this->getTable();
         $division = $this->getTable('Division');
 
-        $response = Division::lookup($data['address1']);
-        if ($response['status'] === 'success') {
-            $division->loadFromKeyValuePairs(array('division_id' => $response['data']['division']));
-            $did = $division->get('id');
-        }
+        $data['division_id'] = $division->getRemoteDivision($data);
 
         // save form data with division data
-        if (!$applicant->save(array_merge($data, array('division_id' => $did)))) {
+        if (!$applicant->save($data)) {
             return false;
         }
         // if success, publish

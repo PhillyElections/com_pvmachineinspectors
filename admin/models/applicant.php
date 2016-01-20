@@ -83,19 +83,16 @@ class PvmachineinspectorsModelApplicant extends JModel
 
         $data = JRequest::get('post');
 
+        $data['phone'] = $data['phone'] ? preg_replace('/^1|\D/', "", $data['phone']) : '';
         $data['prefix'] = $data['prefix'] ? PVCombo::get('prefix', $data['prefix']) : '';
         $data['suffix'] = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
         $data['state'] = $data['state'] ? PVCombo::get('state', $data['state']) : '';
+        $data['email'] = $data['email'] ? JString::strtolower($data['email']) : '';
 
         if (!$data['division_id']) {
-            jimport('division.Division');
             $division = $this->getTable('Division');
 
-            $response = Division::lookup($data['address1']);
-            if ($response['status'] === 'success') {
-                $division->loadFromKeyValuePairs(array('division_id' => $response['data']['division']));
-                $data['division_id'] = $division->get('id');
-            }
+            $data['division_id'] = $division->getRemoteDivision($data);
         }
 
         // Bind the form fields to the Pvmachineinspector table
