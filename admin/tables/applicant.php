@@ -95,7 +95,7 @@ class TableApplicant extends JTable
         // if we have a phone we need a valid phone
         if (trim($this->phone)) {
             // reject phone numbers with letters in them
-            if (JString::strlen(trim($this->phone))) {
+            if (is_numeric(trim($this->phone))) {
                 $this->setError('Please supply a phone using numbers only.');
                 return false;
             }
