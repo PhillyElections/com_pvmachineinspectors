@@ -64,6 +64,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 
         // Check the table in so it can be edited.... we are done with it anyway
         $link = 'index.php?option=com_pvmachineinspectors';
+        dd($msg);
         $this->setRedirect($link, $msg);
     }
 
@@ -71,11 +72,10 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      * validate_save - very basic check.  very.  basic.
      * @return boolean
      */
-    public function validate_save($msg)
+    public function validate_save(&$msg)
     {
         // initialize
-        $invalid = 1;
-        $application = &JFactory::getApplication();
+        $invalid = 2;
         $msg = "";
 
         // we need a first_name
@@ -133,7 +133,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
                 $msg .= 'Your phone number doesn\'t seem to be the normal length (10 digits). Please reenter.';
             }
         }
-
+        d($invalid, !($invalid - 1), $_POST);
         return !($invalid - 1);
     }
 
