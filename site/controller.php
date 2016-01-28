@@ -50,7 +50,7 @@ class PvmachineinspectorsController extends JController
     }
 
     /**
-     * thanks - thank you
+     * thanks - thank you for registering!
      * @return void
      */
     public function thanks()
