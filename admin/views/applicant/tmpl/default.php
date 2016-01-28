@@ -3,7 +3,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 jimport("pvcombo.PVCombo");
-d($isNew, $this)
+
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
