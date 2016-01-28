@@ -61,7 +61,7 @@ class TableDivision extends JTable
         $response = Division::lookup($data['address1']);
         if ($response['status'] === 'success') {
             $this->loadFromKeyValuePairs(array('division_id' => $response['data']['division']));
-            return $division->get('id');
+            return $this->get('id');
         }
         return null;
     }
