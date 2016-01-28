@@ -86,7 +86,7 @@ class PvmachineinspectorsModelApplicant extends JModel
         $data['phone'] = $data['phone'] ? preg_replace('/^1|\D/', "", $data['phone']) : '';
         $data['prefix'] = $data['prefix'] ? PVCombo::get('prefix', $data['prefix']) : '';
         $data['suffix'] = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
-        $data['state'] = $data['state'] ? PVCombo::get('state', $data['state']) : '';
+        $data['region'] = $data['region'] ? PVCombo::get('state', $data['region']) : '';
         $data['email'] = $data['email'] ? JString::strtolower($data['email']) : '';
 
         if (!$data['division_id']) {
