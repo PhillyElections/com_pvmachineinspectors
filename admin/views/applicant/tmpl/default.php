@@ -15,11 +15,11 @@ d($isNew, $this)
         </label>
     </td>
     <td>
-        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', array_search($this->applicant->prefix, PVCombo::get('prefix')), true)?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', PVCombo::get('prefix', $this->applicant->prefix), true)?>
         <input type="text" name="first_name" id="first_name" size="18%" value="<?=$this->applicant->first_name?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
         <input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$this->applicant->middle_name?>" class="inputbox optional" maxlength="25" />
         <input type="text" name="last_name" id="last_name" size="18%" value="<?=$this->applicant->last_name?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', array_search($this->applicant->suffix, PVCombo::get('suffix')), true)?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::get('suffix', $this->applicant->suffix), true)?>
     </td>
 
 </tr>
@@ -60,7 +60,7 @@ d($isNew, $this)
         </label>
     </td>
     <td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($this->applicant->region ? array_search($this->applicant->region, PVCombo::get('state')) : 'PA'), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($this->applicant->region ? PVCombo::get('state', $this->applicant->region) : 'PA'), true)?>
 </td>
 </tr>
 <tr>
