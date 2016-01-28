@@ -92,7 +92,7 @@ class PvmachineinspectorsController extends JController
      */
     public function validate_save()
     {
-        //
+        // initialize
         $invalid = 1;
         $application = &JFactory::getApplication();
 
