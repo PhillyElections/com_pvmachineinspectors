@@ -1,11 +1,11 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-// we'll need these for the combo boxes
+// we'll need these for the combo
 jimport("pvcombo.PVCombo");
 
 ?>
-<form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
+<form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="contentpane">
 <tr>
