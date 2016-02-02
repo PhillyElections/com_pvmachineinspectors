@@ -99,7 +99,6 @@ class PvmachineinspectorsModelApplicant extends JModel
         // Bind the form fields to the Pvmachineinspector table
         if (!$row->bind($data)) {
             $this->setError($this->_db->getErrorMsg());
-            dd('bind failed');
             return false;
         }
 
@@ -109,14 +108,12 @@ class PvmachineinspectorsModelApplicant extends JModel
             foreach ($row->getErrors() as $msg) {
                 $this->setError($msg);
             }
-            dd($this->getErrors());
             return false;
         }
 
         // Store the web link table to the database
         if (!$row->store()) {
             $this->setError($row->getErrorMsg());
-            dd('store failed');
             return false;
         }
 
