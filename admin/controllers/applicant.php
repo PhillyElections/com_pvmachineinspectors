@@ -32,7 +32,6 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
         $this->registerTask('register', 'save');
         $this->registerTask('update', 'save');
 
-        d($this);
     }
 
     /**

@@ -99,7 +99,6 @@ class TableApplicant extends JTable
             }
         }
         if (count($this->getErrors())) {
-            dd($this->getErrors());
             return false;
         }
         return true;

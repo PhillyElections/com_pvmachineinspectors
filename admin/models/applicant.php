@@ -89,7 +89,7 @@ class PvmachineinspectorsModelApplicant extends JModel
         $data['suffix'] = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
         //$data['region'] = $data['region'] ? PVCombo::get('state', $data['region']) : '';
         $data['email'] = $data['email'] ? JString::strtolower($data['email']) : '';
-        d($data, $_POST);
+
         if (!$data['division_id']) {
             $division = $this->getTable('Division');
 
