@@ -1,7 +1,7 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-
+// we'll need these for the combo boxes
 jimport("pvcombo.PVCombo");
 
 ?>

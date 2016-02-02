@@ -1,6 +1,4 @@
-<?php defined('_JEXEC') or die('Restricted access');
-d($this->items);
-?>
+<?php defined('_JEXEC') or die('Restricted access');?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm">
 <div id="editcell">
 	<table class="adminlist">
@@ -38,7 +36,6 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
     $fullname = ($row->prefix ? $row->prefix . " " : "") . $row->first_name . " " . ($row->middle_name ? $row->middle_name . " " : "") . $row->last_name . ($row->suffix ? ", " . $row->suffix : "");
     $matches = '';
     preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
-
     ?>
 		<tr class="<?="row$k";?>">
 			<td>
@@ -63,7 +60,7 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
 				<?=$row->email;?>
 			</td>
 		</tr>
-		<?php
+<?php
 $k = 1 - $k;
 }
 ?>
