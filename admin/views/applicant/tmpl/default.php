@@ -60,7 +60,7 @@ jimport("pvcombo.PVCombo");
         </label>
     </td>
     <td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($this->applicant->region ? PVCombo::get('state', $this->applicant->region) : 'PA'), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($this->applicant->region ? $this->applicant->region : 'PA'), true)?>
 </td>
 </tr>
 <tr>
