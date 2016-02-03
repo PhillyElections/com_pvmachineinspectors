@@ -42,7 +42,6 @@ class TableApplicant extends JTable
     public function __construct(&$_db)
     {
         parent::__construct('#__pv_inspector_applicants', 'id', $_db);
-        d($this);
     }
 
     /**
@@ -78,7 +77,7 @@ class TableApplicant extends JTable
         }
 
         // we need a 5 numeric digits starting from the left in out postcode
-        if (!(filter_var(JString::trim($this->postcode), FILTER_SANITIZE_NUMBER_INT) === JString::trim($this->postcode))) {
+        if (!is_numeric(JString::trim($this->postcode))) {
             $this->setError('A valid zipcode is required.');
         }
 
@@ -99,6 +98,7 @@ class TableApplicant extends JTable
             }
         }
         if (count($this->getErrors())) {
+            $this->setError('Simply \'Cancel\'  if you aren\'t confident of the edit.');
             return false;
         }
         return true;
