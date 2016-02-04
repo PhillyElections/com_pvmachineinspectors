@@ -34,18 +34,18 @@ class PvmachineinspectorsModelApplicant extends JModel
         $array = JRequest::getVar('cid', 0, '', 'array');
         $id = JRequest::getInt('id');
         if ($id) {
+            // in case we're updating and check() failed
             $this->setId((int) $id);
         } else {
             $this->setId((int) $array[0]);
         }
-        d($this);
     }
 
     /**
-     * Method to set the Pvmachineinspector identifier
+     * Method to set the applicant identifier
      *
      * @access    public
-     * @param    int Pvmachineinspector identifier
+     * @param    int applicant identifier
      * @return    void
      */
     public function setId($id)
@@ -56,7 +56,8 @@ class PvmachineinspectorsModelApplicant extends JModel
     }
 
     /**
-     * Method to get a Pvmachineinspector
+     * Method to get an applicant
+     *
      * @return object with data
      */
     public function &getData()

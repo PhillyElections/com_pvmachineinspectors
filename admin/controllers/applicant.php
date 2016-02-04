@@ -74,6 +74,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 
     /**
      * remove record(s)
+     *
      * @return void
      */
     public function remove()
@@ -92,6 +93,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 
     /**
      * cancel editing a record
+     *
      * @return void
      */
     public function cancel()
