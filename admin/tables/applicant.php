@@ -98,7 +98,6 @@ class TableApplicant extends JTable
             }
         }
         if (count($this->getErrors())) {
-            $this->setError('Simply \'Cancel\'  if you aren\'t confident of the edit.');
             return false;
         }
         return true;

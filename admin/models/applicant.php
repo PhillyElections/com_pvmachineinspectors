@@ -32,7 +32,12 @@ class PvmachineinspectorsModelApplicant extends JModel
         parent::__construct();
 
         $array = JRequest::getVar('cid', 0, '', 'array');
-        $this->setId((int) $array[0]);
+        $id = JRequest::getInt('id');
+        if ($id) {
+            $this->setId((int) $id);
+        } else {
+            $this->setId((int) $array[0]);
+        }
         d($this);
     }
 
@@ -87,8 +92,8 @@ class PvmachineinspectorsModelApplicant extends JModel
         $data['phone'] = $data['phone'] ? preg_replace('/^1|\D/', "", $data['phone']) : '';
         $data['prefix'] = $data['prefix'] ? PVCombo::get('prefix', $data['prefix']) : '';
         $data['suffix'] = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
-        //$data['region'] = $data['region'] ? PVCombo::get('state', $data['region']) : '';
         $data['email'] = $data['email'] ? JString::strtolower($data['email']) : '';
+        $data['postcode'] = $data['postcode'] ? JString::substr(trim($data['postcode']), 0, 5) : '';
 
         if (!$data['division_id']) {
             $division = $this->getTable('Division');
