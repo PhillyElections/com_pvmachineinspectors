@@ -37,6 +37,7 @@ class PvmachineinspectorsViewApplicant extends JView
         if ($isNew) {
             JToolBarHelper::save('save', 'Register');
             JToolBarHelper::cancel();
+            // We'll use a separate template for new applicants: default_add
             $tpl = 'add';
         } else {
             // for existing items the button is renamed `close`
