@@ -58,7 +58,11 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
         if ($model->store($post)) {
             $msg = JText::_('Saved!');
         } else {
-            $msg = JText::_('Error - not saved.');
+            JRequest::setVar('msg', $model->getErrors());
+            JRequest::setVar('view', 'applicant');
+            parent::display();
+
+            return;
         }
 
         // Check the table in so it can be edited.... we are done with it anyway
@@ -76,9 +80,9 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 
         $model = $this->getModel('applicant');
         if (!$model->delete()) {
-            $msg = JText::_('Error: One or More Greetings Could not be Deleted');
+            $msg = JText::_('Error: One or More Applicants Could not be Deleted');
         } else {
-            $msg = JText::_('Greeting(s) Deleted');
+            $msg = JText::_('Applicants(s) Deleted');
         }
 
         $this->setRedirect('index.php?option=com_pvmachineinspectors', $msg);
