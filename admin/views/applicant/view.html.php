@@ -27,8 +27,9 @@ class PvmachineinspectorsViewApplicant extends JView
      **/
     public function display($tpl = null)
     {
-        //get the applicant
+
         $applicant = &$this->get('Data');
+
         $isNew = ($applicant->id < 1);
 
         $text = $isNew ? JText::_('New') : JText::_('Edit');
@@ -36,6 +37,7 @@ class PvmachineinspectorsViewApplicant extends JView
         if ($isNew) {
             JToolBarHelper::save('save', 'Register');
             JToolBarHelper::cancel();
+            $tpl = 'add';
         } else {
             // for existing items the button is renamed `close`
             JToolBarHelper::save('save', 'Update');
