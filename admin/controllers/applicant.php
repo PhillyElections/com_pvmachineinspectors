@@ -21,6 +21,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 {
     /**
      * constructor (registers additional tasks to methods)
+     *
      * @return void
      */
     public function __construct()
@@ -47,6 +48,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 
     /**
      * save a record (and redirect to main page)
+     *
      * @return void
      */
     public function save()
@@ -58,14 +60,14 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
         if ($model->store($post)) {
             $msg = JText::_('Saved!');
         } else {
+            // let's grab all those errors and make them available to the view
             JRequest::setVar('msg', $model->getErrors());
             JRequest::setVar('view', 'applicant');
             parent::display();
-
             return;
         }
 
-        // Check the table in so it can be edited.... we are done with it anyway
+        // Let's go back to the default view
         $link = 'index.php?option=com_pvmachineinspectors';
         $this->setRedirect($link, $msg);
     }
@@ -94,7 +96,6 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
      */
     public function cancel()
     {
-
         $msg = JText::_('Operation Cancelled');
         $this->setRedirect('index.php?option=com_pvmachineinspectors', $msg);
     }
