@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: site/Pvmachineinspecttors.php $
+ * $Id: site/Pvmachineinspectors.php $
  * $LastChangedBy: Matt Murphy $
  * Election Officials - Philadelphiavotes.com
  * a component for Joomla! 1.5 CMS (http://www.joomla.org)
@@ -9,8 +9,6 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  * @package Philadelphia.Votes
  */
-
-ini_set(display_errors, 1);
 
 defined('_JEXEC') or die('Restricted access');
 
