@@ -18,27 +18,53 @@ defined('_JEXEC') or die;
  *
  * @since       1.5
  */
-class PvmachineinspectorsModelApplicant extends JModel
-{
-    /**
-     * Create a new applicant.
-     * @param  array
-     * @return integer $id of created person for link and address binding
-     */
-    public function create($data = array())
-    {
-        jimport('division.Division');
+class PvmachineinspectorsModelApplicant extends JModel {
 
-        $applicant = $this->getTable();
-        $division = $this->getTable('Division');
+	/**
+	 * Method to store a record
+	 *
+	 * @access    public
+	 * @return    boolean    True on success
+	 */
+	public function store() {
+		jimport('pvcombo.PVCombo');
+		$row = &$this->getTable();
 
-        $data['division_id'] = $division->getRemoteDivision($data);
+		$data = JRequest::get('post');
 
-        // save form data with division data
-        if (!$applicant->save($data)) {
-            return false;
-        }
-        // if success, publish
-        $applicant->publish();
-    }
+		$data['phone']    = $data['phone']?preg_replace('/^1|\D/', "", $data['phone']):'';
+		$data['prefix']   = $data['prefix']?PVCombo::get('prefix', $data['prefix']):'';
+		$data['suffix']   = $data['suffix']?PVCombo::get('suffix', $data['suffix']):'';
+		$data['email']    = $data['email']?JString::strtolower($data['email']):'';
+		$data['postcode'] = $data['postcode']?JString::substr(trim($data['postcode']), 0, 5):'';
+
+		if (!$data['division_id']) {
+			$division = $this->getTable('Division');
+
+			$data['division_id'] = $division->getRemoteDivision($data);
+		}
+
+		// Bind the form fields to the Pvmachineinspector table
+		if (!$row->bind($data)) {
+			$this->setError($this->_db->getErrorMsg());
+			return false;
+		}
+
+		// Make sure the Pvmachineinspector record is valid
+		if (!$row->check()) {
+			//$this->setError($this->_db->getErrorMsg());
+			foreach ($row->getErrors() as $msg) {
+				$this->setError($msg);
+			}
+			return false;
+		}
+
+		// Store the web link table to the database
+		if (!$row->store()) {
+			$this->setError($row->getErrorMsg());
+			return false;
+		}
+
+		return true;
+	}
 }
