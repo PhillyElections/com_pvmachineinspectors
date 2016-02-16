@@ -3,7 +3,7 @@
 	<name>PVMachineInspectors</name>
 	<creationDate>2015-06-25</creationDate>
 	<author>Matthew Murphy</author>
-	<authorEmail>matthew.murphy2@phila.gov</authorEmail>
+	<authorEmail>matthew.e.murphy@phila.gov</authorEmail>
 	<authorUrl>http://www.philadelphiavotes.com</authorUrl>
 	<copyright>(C) 2015 City of Philadelphia</copyright>
 	<license>GPL</license>
@@ -45,4 +45,8 @@
 			<folder>views/</folder>
 		</files>
 	</administration>
+    <languages folder="site/">
+        <language tag="en-GB">language/en-GB/en-GB.plg_ballotdisplay.ini</language>
+        <language tag="es-ES">language/es-ES/es-ES.plg_ballotdisplay.ini</language>
+    </languages>
 </install>
