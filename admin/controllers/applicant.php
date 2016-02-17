@@ -59,9 +59,9 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
 		} else {
 			// let's grab all those errors and make them available to the view
 			JRequest::setVar('msg', $model->getErrors());
-			JRequest::setVar('view', 'applicant');
-			parent::display();
-			return;
+			/*			JRequest::setVar('view', 'applicant');
+			parent::display();*/
+			return $this->edit();
 		}
 
 		// Let's go back to the default view
