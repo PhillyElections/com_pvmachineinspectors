@@ -4,9 +4,9 @@ defined('_JEXEC') or die('Restricted access');
 // we'll need these for the combo
 jimport("pvcombo.PVCombo");
 if (count(JRequest::getVar('msg', null, 'post'))) {
-    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-        JError::raiseWarning(1, $msg);
-    }
+	foreach (JRequest::getVar('msg', null, 'post') as $msg) {
+		JError::raiseWarning(1, $msg);
+	}
 }
 $applicant = $this->applicant;
 ?>
@@ -18,11 +18,11 @@ $applicant = $this->applicant;
         <label id="namemsg" for="first_name"><?=JText::_('Name');?>:</label>
     </td>
     <td>
-        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('prefix', $appliant->prefix), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('prefix', $appliant->prefix), true)?>
         <input type="text" name="first_name" id="first_name" size="18%" value="<?=$applicant->first_name?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
         <input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$applicant->middle_name?>" class="inputbox optional" maxlength="25" />
         <input type="text" name="last_name" id="last_name" size="18%" value="<?=$applicant->last_name?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('suffix', $appliant->suffix), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('suffix', $appliant->suffix), true)?>
     </td>
 
 </tr>
@@ -47,7 +47,7 @@ $applicant = $this->applicant;
         <label id="citymsg" for="city"><?=JText::_('City');?>:</label>
     </td>
     <td>
-        <input type="text" id="city" name="city" size="60%" value="<?=($applicant->city ? $applicant->city : 'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="(city is required)" />
+        <input type="text" id="city" name="city" size="60%" value="<?=($applicant->city?$applicant->city:'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="(city is required)" />
     </td>
 </tr>
 <tr>
@@ -55,7 +55,7 @@ $applicant = $this->applicant;
         <label id="regionmsg" for="region"><?=JText::_('State');?>:</label>
     </td>
     <td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($applicant->region ? PVCombo::keySearch('state', $appliant->region) : 'PA'), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($applicant->region?PVCombo::keySearch('state', $appliant->region):'PA'), true)?>
 </td>
 </tr>
 <tr>
@@ -86,12 +86,12 @@ $applicant = $this->applicant;
     <td height="40">&nbsp;</td>
     <td>
         <button class="button validate" type="submit"><?=JText::_('Update');?></button>
-        <input type="hidden" name="task" value="udpate" />
+        <input type="hidden" name="task" value="update" />
         <input type="hidden" name="controller" value="applicant" />
         <input type="hidden" name="id" value="<?=$applicant->id?>" />
         <input type="hidden" name="division_id" value="<?=$applicant->division_id?>" />
-        <?=JHTML::_('form.token');?>
-    </td>
+<?=JHTML::_('form.token');?>
+</td>
 </tr>
 </table>
 </form>
