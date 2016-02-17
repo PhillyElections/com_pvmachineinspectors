@@ -69,6 +69,9 @@ class PvmachineinspectorsController extends JController {
 			$msg = JText::_('Saved!');
 		} else {
 			// let's grab all those errors and make them available to the view
+			foreach ($model->getErrors() as $msg) {
+				$this->_setMessage($msg);
+			}
 			$this->display();
 			return;
 		}
