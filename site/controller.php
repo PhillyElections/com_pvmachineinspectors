@@ -56,7 +56,8 @@ class PvmachineinspectorsController extends JController {
 	}
 
 	/**
-	 * save - actual form-action method
+	 * save
+	 *
 	 * @return void
 	 */
 	public function save() {
