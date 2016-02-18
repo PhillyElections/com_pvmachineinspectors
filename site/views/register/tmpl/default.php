@@ -83,7 +83,7 @@ foreach ($fields as $field) {
 		</label>
 	</td>
 	<td>
-		<input type="text" id="phone" name="phone" size="60%" value="<?=$phone?>" class="inputbox" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
+		<input type="text" id="phone" name="phone" size="60%" value="<?=$phone?>" class="inputbox required" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
 	</td>
 </tr>
 <tr>
@@ -100,7 +100,7 @@ foreach ($fields as $field) {
 	<td height="40">&nbsp;</td>
 	<td>
 		<button class="button validate" type="submit"><?=JText::_('REGISTER');?></button>
-		<input type="hidden" name="task" value="register_save" />
+		<input type="hidden" name="task" value="save" />
 	</td>
 </tr>
 </table>
