@@ -56,10 +56,10 @@ class PvmachineinspectorsController extends JController {
 	}
 
 	/**
-	 * register_save - actual form-action method
+	 * save - actual form-action method
 	 * @return void
 	 */
-	public function register_save() {
+	public function save() {
 		JRequest::checkToken() or jexit('Invalid Token');
 
 		$model = $this->getModel('applicant');
