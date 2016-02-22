@@ -15,7 +15,7 @@ foreach ($fields as $field) {
 	$$field = JRequest::getVar($field, null, 'post');
 }
 
-$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&callback=initAutocomplete"></script>');
+$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
