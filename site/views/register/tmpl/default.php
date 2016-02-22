@@ -15,9 +15,16 @@ foreach ($fields as $field) {
 	$$field = JRequest::getVar($field, null, 'post');
 }
 
-//$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>');
+$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>');
 $document->addCustomTag('<script src="components/com_voterapp/lib/infobox_packed.js"></script>');
-$document->addCustomTag('<script type="text/javascript" src="components/com_voterapp/map.js"></script>');
+$document->addCustomTag('<!--[if lt IE 9]>
+    <script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script src="//codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+    <!--<![endif]-->');
+$document->addCustomTag('<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>');
+$document->addStyleSheet('//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
