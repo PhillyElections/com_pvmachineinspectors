@@ -1,7 +1,7 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-
+$document = JFactory::getDocument();
 jimport("pvcombo.PVCombo");
 
 if (count(JRequest::getVar('msg', null, 'post'))) {
@@ -15,6 +15,9 @@ foreach ($fields as $field) {
 	$$field = JRequest::getVar($field, null, 'post');
 }
 
+//$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>');
+$document->addCustomTag('<script src="components/com_voterapp/lib/infobox_packed.js"></script>');
+$document->addCustomTag('<script type="text/javascript" src="components/com_voterapp/map.js"></script>');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
@@ -39,7 +42,7 @@ foreach ($fields as $field) {
 		<label id="address1msg" for="address1"><?=JText::_('STREET ADDRESS');?>:</label>
 	</td>
 	<td>
-		<input type="text" id="address1" name="address1" size="60%" value="<?=$address1?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
+		<input type="text" id="target" name="address1" size="60%" value="<?=$address1?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
 	</td>
 </tr>
 <tr>
