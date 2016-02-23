@@ -15,9 +15,9 @@ foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post');
 }
 
-$document->addScript('http://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete');
+//$document->addScript('http://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete');
 $document->addScript(JURI::root(true) . '/components/com_pvmachineinspectors/js/machineinspectors.js');
-//$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>');
+$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
