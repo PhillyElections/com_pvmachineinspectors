@@ -79,7 +79,7 @@ $applicant = $this->applicant;
         <label id="emailmsg" for="email"><?=JText::_('EMAIL');?>:</label>
     </td>
     <td>
-        <input type="text" id="email" name="email" size="60%" value="<?=$applicant->email?>" class="inputbox" maxlength="100"  />
+        <input type="text" id="email" name="email" size="60%" value="<?=$applicant->email?>" class="inputbox required" maxlength="100"  />
     </td>
 </tr>
 <tr>
