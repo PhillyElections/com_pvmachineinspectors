@@ -41,7 +41,6 @@ function fillInAddress() {
       formData[addressType] = val;
     }
   }
-//  document.getElementById('address2').focus();
   document.getElementById('address1').value = formData['street_number'] + ' ' + formData['route'];
   document.getElementById('city').value = formData['locality'];
   document.getElementById('state').value = formData['administrative_area_level_1'];
