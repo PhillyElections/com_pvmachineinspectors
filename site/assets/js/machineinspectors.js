@@ -42,7 +42,7 @@ function fillInAddress() {
     }
   }
  // document.getElementById('address1').value = formData['street_number'] + ' ' + formData['route'];
- // document.getElementById('city').value = formData['locality'];
+  document.getElementById('city').value = formData['locality'];
  // document.getElementById('state').value = formData['administrative_area_level_1'];
   document.getElementById('postcode').value = formData['postal_code'];
 
