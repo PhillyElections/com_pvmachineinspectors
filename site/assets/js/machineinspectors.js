@@ -41,11 +41,11 @@ function fillInAddress() {
       formData[addressType] = val;
     }
   }
-/*  document.getElementById('address1').value = formData['street_number'] + ' ' + formData['route'];
-  document.getElementById('city').value = formData['locality'];
-  document.getElementById('state').value = formData['administrative_area_level_1'];
+ // document.getElementById('address1').value = formData['street_number'] + ' ' + formData['route'];
+ // document.getElementById('city').value = formData['locality'];
+ // document.getElementById('state').value = formData['administrative_area_level_1'];
   document.getElementById('postcode').value = formData['postal_code'];
-*/
+
 }
 // [END region_fillform]
 
