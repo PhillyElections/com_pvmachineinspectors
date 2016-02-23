@@ -26,10 +26,10 @@ function fillInAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
 
-  for (var component in returnData) {
+/*  for (var component in returnData) {
     document.getElementById(component).value = '';
     document.getElementById(component).disabled = false;
-  }
+  }*/
 
   // Get each component of the address from the place details
   // and fill the corresponding field on the form.
@@ -63,6 +63,7 @@ function geolocate() {
         center: geolocation,
         radius: position.coords.accuracy
       });
+      console.log("geolocation", geolocation, "position.coords.accuracy", position.coords.accuracy, circle.getBounds());
       autocomplete.setBounds(circle.getBounds());
     });
   }
