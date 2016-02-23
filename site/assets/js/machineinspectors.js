@@ -13,7 +13,7 @@ function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
   // location types.
   autocomplete = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      /** @type {!HTMLInputElement} */(document.getElementById('address1')),
       {types: ['geocode']});
 
   // When the user selects an address from the dropdown, populate the address
@@ -78,7 +78,7 @@ document.addEventListener("focus", function(e) {
     for (var target=e.target; target && target!=this; target=target.parentNode) {
     // loop parent nodes from the target to the delegation node
         if (target.matches("#autocomplete")) {
-  geolocate();
+            geolocate();
             break;
         }
     }
