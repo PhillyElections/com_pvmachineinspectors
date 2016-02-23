@@ -74,7 +74,7 @@ function geolocate() {
   e.preventDefault();
 });*/
 
-document.addEventListener("onfocus", function(e) {
+document.addEventListener("focus", function(e) {
     for (var target=e.target; target && target!=this; target=target.parentNode) {
     // loop parent nodes from the target to the delegation node
         if (target.matches("#autocomplete")) {
