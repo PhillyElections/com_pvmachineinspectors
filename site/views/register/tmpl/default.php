@@ -104,7 +104,7 @@ $document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?lib
 <?=JText::_('REGION');?>:
 		</label>
 	</td>
-	<td><? /*=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), true)*/?><input type="text" id="state" name="state" size="60%" value="<?=($region ? $region : 'PA')?>"</td>
+	<td><? /*=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), true)*/?><input type="text" id="state" name="state" size="60%" value="<?=($region ? $region : 'PA')?>" /></td>
 </tr>
 <tr>
 	<td height="40">
