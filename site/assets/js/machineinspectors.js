@@ -68,7 +68,17 @@ function geolocate() {
   }
 }
 
-document.getElementById("autocomplete").addEventListener("onFocus", function(e) {
+document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
   initAutocomplete();
   e.preventDefault();
 });
+
+/*document.addEventListener("onfocus", function(e) {
+    for (var target=e.target; target && target!=this; target=target.parentNode) {
+    // loop parent nodes from the target to the delegation node
+        if (target.matches(<selector>)) {
+            handler.call(target, e);
+            break;
+        }
+    }
+}, false);*/
