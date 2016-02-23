@@ -21,36 +21,6 @@ $document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?lib
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
-
-<div class="componentheading"><?=$this->escape($this->params->get('page_title'));?></div>
-    <table id="address">
-      <tr>
-        <td class="label">Street address</td>
-        <td class="slimField"><input class="field" id="street_number"
-              disabled="true"></input></td>
-        <td class="wideField" colspan="2"><input class="field" id="route"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">City</td>
-        <td class="wideField" colspan="3"><input class="field" id="locality"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">State</td>
-        <td class="slimField"><input class="field"
-              id="administrative_area_level_1" disabled="true"></input></td>
-        <td class="label">Zip code</td>
-        <td class="wideField"><input class="field" id="postal_code"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">Country</td>
-        <td class="wideField" colspan="3"><input class="field"
-              id="country" disabled="true"></input></td>
-      </tr>
-    </table>
-
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="contentpane">
 <tr>
 	<td width="30%" height="40">
@@ -71,8 +41,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
 	</td>
 	<td>
     <td id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
-             type="text"></input>
+      <input id="autocomplete" placeholder="Enter your address" type="text"></input>
 	</td>
 </tr>
 <tr>
