@@ -1,7 +1,7 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-$document = JFactory::getDocument();
+$document = &JFactory::getDocument();
 jimport("pvcombo.PVCombo");
 jimport("kint.kint");
 if (count(JRequest::getVar('msg', null, 'post'))) {
@@ -14,8 +14,10 @@ $fields = array('prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'd
 foreach ($fields as $field) {
 	$$field = JRequest::getVar($field, null, 'post');
 }
-d($this, $document, '$this->addScript(JURI::base() . "media/system/js/myjavascript.js");');
-$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>');
+d(JPATH_COMPONENT_SITE);
+$document->addScript('http://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete');
+//$document->addScript(JURI::base()."media/system/js/myjavascript.js");
+//$document->addCustomTag('<script src="http://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
 
