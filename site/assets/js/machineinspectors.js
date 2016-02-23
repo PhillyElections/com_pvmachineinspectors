@@ -1,13 +1,13 @@
 
-var placeSearch, autocomplete;
-var componentForm = {
+var placeSearch, autocomplete,
+returnData = {
   street_number: 'short_name',
   route: 'long_name',
   locality: 'long_name',
   administrative_area_level_1: 'short_name',
-  country: 'long_name',
   postal_code: 'short_name'
-};
+},
+formData = {};
 
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
@@ -26,7 +26,7 @@ function fillInAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
 
-  for (var component in componentForm) {
+  for (var component in returnData) {
     document.getElementById(component).value = '';
     document.getElementById(component).disabled = false;
   }
@@ -35,11 +35,17 @@ function fillInAddress() {
   // and fill the corresponding field on the form.
   for (var i = 0; i < place.address_components.length; i++) {
     var addressType = place.address_components[i].types[0];
-    if (componentForm[addressType]) {
-      var val = place.address_components[i][componentForm[addressType]];
-      document.getElementById(addressType).value = val;
+    if (returnData[addressType]) {
+      var val = place.address_components[i][returnData[addressType]];
+
+      formData[addressType] = val;
     }
   }
+  document.getElementById('address1').value = formData['street_number'] + ' ' + formData['route'];
+  document.getElementById('city').value = formData['locality'];
+  document.getElementById('state').value = formData['administrative_area_level_1'];
+  document.getElementById('postcode').value = formData['postal_code'];
+
 }
 // [END region_fillform]
 
