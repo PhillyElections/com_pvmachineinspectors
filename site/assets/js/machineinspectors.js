@@ -67,3 +67,8 @@ function geolocate() {
     });
   }
 }
+
+document.getElementById("autocomplete").addEventListener("onFocus", function(e) {
+  geoLocate();
+  e.preventDefault();
+});
