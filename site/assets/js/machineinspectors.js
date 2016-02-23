@@ -13,7 +13,7 @@ function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
   // location types.
   autocomplete = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */(document.getElementById('address1')),
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
       {types: ['geocode']});
 
   // When the user selects an address from the dropdown, populate the address
@@ -41,11 +41,11 @@ function fillInAddress() {
       formData[addressType] = val;
     }
   }
-  document.getElementById('address2').focus();
   document.getElementById('address1').value = formData['street_number'] + ' ' + formData['route'];
   document.getElementById('city').value = formData['locality'];
   document.getElementById('state').value = formData['administrative_area_level_1'];
   document.getElementById('postcode').value = formData['postal_code'];
+
 }
 // [END region_fillform]
 
@@ -69,17 +69,17 @@ function geolocate() {
   }
 }
 
-document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
+/*document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
   geolocate();
   e.preventDefault();
-});
+});*/
 
-/*document.addEventListener("onfocus", function(e) {
+document.addEventListener("onfocus", function(e) {
     for (var target=e.target; target && target!=this; target=target.parentNode) {
     // loop parent nodes from the target to the delegation node
-        if (target.matches("#address1")) {
+        if (target.matches("#autocomplete")) {
             handler.call(target, e);
             break;
         }
     }
-}, false);*/
+}, false);
