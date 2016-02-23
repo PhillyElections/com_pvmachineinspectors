@@ -61,7 +61,7 @@ function geolocate() {
       };
       var circle = new google.maps.Circle({
         center: geolocation,
-        radius: position.coords.accuracy
+        radius: 20000
       });
       console.log("geolocation", geolocation, "position.coords.accuracy", position.coords.accuracy, circle.getBounds());
       autocomplete.setBounds(circle.getBounds());
