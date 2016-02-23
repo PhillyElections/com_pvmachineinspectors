@@ -69,7 +69,7 @@ function geolocate() {
 }
 
 document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
-  initAutocomplete();
+  geolocate();
   e.preventDefault();
 });
 
