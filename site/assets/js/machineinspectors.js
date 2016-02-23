@@ -69,17 +69,17 @@ function geolocate() {
   }
 }
 
-document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
+/*document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
   geolocate();
   e.preventDefault();
-});
+});*/
 
-/*document.addEventListener("onfocus", function(e) {
+document.addEventListener("onfocus", function(e) {
     for (var target=e.target; target && target!=this; target=target.parentNode) {
     // loop parent nodes from the target to the delegation node
-        if (target.matches(<selector>)) {
+        if (target.matches("#autocomplete")) {
             handler.call(target, e);
             break;
         }
     }
-}, false);*/
+}, false);
