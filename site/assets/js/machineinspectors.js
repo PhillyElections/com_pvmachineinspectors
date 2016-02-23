@@ -69,6 +69,6 @@ function geolocate() {
 }
 
 document.getElementById("autocomplete").addEventListener("onFocus", function(e) {
-  geoLocate();
+  initAutocomplete();
   e.preventDefault();
 });
