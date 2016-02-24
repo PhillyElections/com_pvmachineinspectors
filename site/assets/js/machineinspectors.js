@@ -13,7 +13,7 @@ function initAutocomplete() {
   // location types.
   autocomplete = new google.maps.places.Autocomplete(
     /** @type {!HTMLInputElement} */
-    (document.getElementById('address1')), {
+    document.getElementById('address1'), {
       types: ['geocode']
     });
 
@@ -54,16 +54,16 @@ function fillInAddress() {
 // Bias the autocomplete object to the user's geographical location,
 // as supplied by the browser's 'navigator.geolocation' object.
 function geolocate() {
-      var geolocation = {
-        lat: 39.952464,
-        lng: -75.1662477
-      };
-      var circle = new google.maps.Circle({
-        center: geolocation,
-        radius: 20000
-      });
-      console.log("geolocation", geolocation, "position.coords.accuracy", position.coords.accuracy, circle.getBounds());
-      autocomplete.setBounds(circle.getBounds());
+  var geolocation = {
+    lat: 39.952464,
+    lng: -75.1662477
+  };
+  var circle = new google.maps.Circle({
+    center: geolocation,
+    radius: 20000
+  });
+  console.log("geolocation", geolocation, "position.coords.accuracy", position.coords.accuracy, circle.getBounds());
+  autocomplete.setBounds(circle.getBounds());
 }
 
 /*document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
