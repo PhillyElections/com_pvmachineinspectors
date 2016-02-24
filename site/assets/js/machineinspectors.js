@@ -1,6 +1,7 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+var AC=(function(){
 
   var placeSearch, autocomplete,
+    // map of data we're going to use
     returnData = {
       street_number: 'short_name',
       route: 'long_name',
@@ -8,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
       administrative_area_level_1: 'short_name',
       postal_code: 'short_name'
     },
+    // rough center of the city
+    geolocation = {
+      lat: 39.952464,
+      lng: -75.1662477
+    },
+    // intermediary between return and form
     formData = {};
 
   function init () {
@@ -40,19 +47,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById('state').value = formData['administrative_area_level_1'];
     document.getElementById('postcode').value = formData['postal_code'];
   }
-  // [START region_geolocation]
+
   // Bias the autocomplete object to the city center, with a 15000m radius
   function geolocate() {
     console.log('geolocate running');
-    var geolocation = {
-      lat: 39.952464,
-      lng: -75.1662477
-    };
     var circle = new google.maps.Circle({
       center: geolocation,
       radius: 15000
     });
-    console.log("geolocation", geolocation, "circle.getbounds()", circle.getBounds());
     autocomplete.setBounds(circle.getBounds());
   }
 
@@ -61,5 +63,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     e.preventDefault();
   }, null);
 
-  window.AC=this;
+  return{init:init,geolocate:geolocate};
 });
