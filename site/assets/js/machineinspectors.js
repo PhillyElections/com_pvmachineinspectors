@@ -1,7 +1,7 @@
-var AC = jQuery(function(){
+var AC = function() {
   var outer = {},
     inner = {};
-  inner.autoComplete;
+  inner.autoComplete = {};
   // map of data we're going to use
   inner.returnData = {
     street_number: 'short_name',
@@ -36,10 +36,10 @@ var AC = jQuery(function(){
     document.getElementById('postcode').value = inner.formData['postal_code'];
   }
 
-  inner.geolocate = function() {
+  outer.geolocate = function() {
     console.log('geolocate running');
     var circle = new google.maps.Circle({
-      center: inner.geolocation,
+      center: geolocation,
       radius: 15000
     });
     inner.autoComplete.setBounds(circle.getBounds());
@@ -61,12 +61,13 @@ var AC = jQuery(function(){
   outer.init = function() {
     document.getElementById("address1").addEventListener("focus", function(e) {
       inner.geolocate();
+      outer.complete();
       e.preventDefault();
     }, null);
   };
-  outer.init();
+  jQuery(function(){outer.init()});
   return outer;
-});
+};
 
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
