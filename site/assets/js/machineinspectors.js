@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   AC();
   console.log(AC(), AC);
 });
-var AC = function() {
+(function (exports) {
   var placeSearch, autocomplete,
     returnData = {
       street_number: 'short_name',
@@ -65,6 +65,17 @@ var AC = function() {
   });
 
   return {
-    init: initAutocomplete
+    init: function(){
+    // Create the autocomplete object, restricting the search to geographical
+    // location types.
+    autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */
+      document.getElementById('address1'), {
+        types: ['geocode']
+      });
+    // When the user selects an address from the dropdown, populate the address
+    // fields in the form.
+    autocomplete.addListener('place_changed', fillInAddress);      
+    };
   };
-}
+})(this.AC);
