@@ -68,7 +68,7 @@ var AC = (function() {
   return outer;
 }());
 
-document.addEventListener("DOMContentLoaded", function () {AC.init();});
+document.addEventListener("DOMContentLoaded", AC.init);
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
     returnData = {
