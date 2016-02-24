@@ -65,9 +65,10 @@ var AC = function() {
       e.preventDefault();
     }, null);
   };
-  jQuery(function(){outer.init()});
   return outer;
 };
+
+  jQuery(function(){AC.init()});
 
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
