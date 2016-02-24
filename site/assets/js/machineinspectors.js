@@ -36,7 +36,7 @@ var AC = (function() {
     document.getElementById('postcode').value = inner.formData['postal_code'];
   }
 
-  inner.geolocate = function() {
+  outer.geolocate = function() {
     console.log('geolocate running');
     var circle = new google.maps.Circle({
       center: geolocation,
@@ -59,16 +59,17 @@ var AC = (function() {
   };
 
   outer.init = function() {
-    document.getElementById("address1").addEventListener("onfocus", function(e) {
+    document.getElementById("address1").addEventListener("focus", function(e) {
       inner.geolocate();
+      outer.complete();
       e.preventDefault();
     }, null);
   };
 
   return outer;
 }());
-
-document.addEventListener("DOMContentLoaded", AC.init);
+console.log(jQuery);
+document.addEventListener("DOMContentLoaded", function(){AC.init();console.log(jQuery);});
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
     returnData = {
