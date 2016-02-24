@@ -64,4 +64,4 @@
     e.preventDefault();
   });
 
-})(window.AC);
+})(window.AC = {});
