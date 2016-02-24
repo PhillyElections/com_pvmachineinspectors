@@ -1,7 +1,7 @@
 var AC = (function() {
   var outer = {},
-    inner = {},
-    inner.autoComplete,
+    inner = {};
+    inner.autoComplete = {};
     // map of data we're going to use
     inner.returnData = {
       street_number: 'short_name',
@@ -9,12 +9,12 @@ var AC = (function() {
       locality: 'long_name',
       administrative_area_level_1: 'short_name',
       postal_code: 'short_name'
-    },
+    };
     // rough center of the city
     inner.geolocation = {
       lat: 39.952464,
       lng: -75.1662477
-    },
+    };
     // intermediary between return and form
     inner.formData = {};
 
