@@ -61,7 +61,7 @@ var AC=(function(){
   return{init:init,geolocate:geolocate};
 });
 
-  document.getElementById("address1").addEventListener("focus", function(e) {
+  document.getElementById("address1").addEventListener("onfocus", function(e) {
     AC.geolocate();
     e.preventDefault();
   }, null);
