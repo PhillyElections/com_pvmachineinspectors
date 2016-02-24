@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+
   var placeSearch, autocomplete,
     returnData = {
       street_number: 'short_name',
@@ -71,11 +71,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   }
 
-  /*document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
-  geolocate();
-  e.preventDefault();
-});*/
-
   document.addEventListener("focus", function(e) {
     for (var target = e.target; target && target != this; target = target.parentNode) {
       // loop parent nodes from the target to the delegation node
@@ -86,4 +81,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
     }
   }, false);
-}, false);
