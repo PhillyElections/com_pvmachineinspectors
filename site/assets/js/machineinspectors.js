@@ -62,6 +62,6 @@
   document.getElementById("address1").addEventListener("onfocus", function(e) {
     geolocate();
     e.preventDefault();
-  });
+  }, null);
 
 })(window.AC = {});
