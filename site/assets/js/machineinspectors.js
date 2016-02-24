@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+  AC();
+});
+var AC = function() {
   var placeSearch, autocomplete,
     returnData = {
       street_number: 'short_name',
@@ -54,8 +57,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log("geolocation", geolocation, "circle.getbounds()", circle.getBounds());
     autocomplete.setBounds(circle.getBounds());
   }
+
   document.getElementById("address1").addEventListener("onfocus", function(e) {
     geolocate();
     e.preventDefault();
   });
-});
+
+  return {
+    init: initAutocomplete
+  };
+}
