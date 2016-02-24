@@ -70,6 +70,7 @@ var AC = (function() {
 }());
 console.log(jQuery);
 document.addEventListener("DOMContentLoaded", function(){AC.init();console.log(jQuery);});
+jQuery(function(){console.log("document loaded")});
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
     returnData = {
