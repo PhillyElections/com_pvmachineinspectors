@@ -1,4 +1,4 @@
-var AC = (function() {
+var AC = function() {
   var outer = {},
     inner = {};
   inner.autoComplete = {};
@@ -39,7 +39,7 @@ var AC = (function() {
   inner.geolocate = function() {
     console.log('geolocate running');
     var circle = new google.maps.Circle({
-      center: geolocation,
+      center: innter.geolocation,
       radius: 15000
     });
     inner.autoComplete.setBounds(circle.getBounds());
@@ -66,7 +66,7 @@ var AC = (function() {
   };
 
   return outer;
-}());
+};
 
 jQuery(function(){AC.init()});
 /*  var placeSearch, autocomplete,
