@@ -63,7 +63,7 @@ document.addEventListener("focus", function(e) {
   console.log('focus triggered');
   for (var target = e.target; target && target != this; target = target.parentNode) {
     // loop parent nodes from the target to the delegation node
-    if (target.matches("#address1")) {
+    if (target.matches("input[name=address1]")) {
       geolocate();
       break;
     }
