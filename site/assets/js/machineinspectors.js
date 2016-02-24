@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     autocomplete.setBounds(circle.getBounds());
   }
 
-  document.getElementById("address1").addEventListener("onfocus", function(e) {
+  document.getElementById("address1").addEventListener("focus", function(e) {
     geolocate();
     e.preventDefault();
   }, null);
