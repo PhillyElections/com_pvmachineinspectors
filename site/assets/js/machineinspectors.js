@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     formData = {};
 
-  function initAutocomplete() {
+  exports.init=function() {
     // Create the autocomplete object, restricting the search to geographical
     // location types.
     autocomplete = new google.maps.places.Autocomplete(
@@ -64,18 +64,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     e.preventDefault();
   });
 
-  return {
-    init: function(){
-    // Create the autocomplete object, restricting the search to geographical
-    // location types.
-    autocomplete = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */
-      document.getElementById('address1'), {
-        types: ['geocode']
-      });
-    // When the user selects an address from the dropdown, populate the address
-    // fields in the form.
-    autocomplete.addListener('place_changed', fillInAddress);      
-    };
-  };
 })(this.AC);
