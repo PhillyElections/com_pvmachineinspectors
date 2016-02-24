@@ -1,6 +1,76 @@
-var AC=function(){
+var AC = (function() {
+  var outer = {},
+    inner = {},
+    inner.autoComplete,
+    // map of data we're going to use
+    inner.returnData = {
+      street_number: 'short_name',
+  7    route: 'long_name',
+      locality: 'long_name',
+      administrative_area_level_1: 'short_name',
+      postal_code: 'short_name'
+    },
+    // rough center of the city
+    inner.geolocation = {
+      lat: 39.952464,
+      lng: -75.1662477
+    },
+    // intermediary between return and form
+    inner.formData = {};
 
-  var placeSearch, autocomplete,
+  inner.fillInAddress = function() {
+    // Get the place details from the inner.autoComplete object.
+    var place = inner.autoComplete.getPlace();
+    // Get each component of the address from the place details
+    // and fill the corresponding field on the form.
+    for (var i = 0; i < place.address_components.length; i++) {
+      var addressType = place.address_components[i].types[0];
+      if (inner.returnData[addressType]) {
+        var val = place.address_components[i][inner.returnData[addressType]];
+        inner.formData[addressType] = val;
+      }
+    }
+    document.getElementById('address1').value = inner.formData['street_number'] + ' ' + inner.formData['route'];
+    document.getElementById('city').value = inner.formData['locality'];
+    document.getElementById('state').value = inner.formData['administrative_area_level_1'];
+    document.getElementById('postcode').value = inner.formData['postal_code'];
+  }
+
+  inner.geolocate = function () {
+    console.log('geolocate running');
+    var circle = new google.maps.Circle({
+      center: geolocation,
+      radius: 15000
+    });
+    inner.autoComplete.setBounds(circle.getBounds());
+  };
+
+  outer.complete = function() {
+    // Create the inner.autoComplete object, restricting the search to geographical
+    // location types.
+    inner.autoComplete = new google.maps.places.Autocomplete(
+      // @type {!HTMLInputElement} 
+      document.getElementById('address1'), {
+        types: ['geocode']
+      });
+    // When the user selects an address from the dropdown, populate the address
+    // fields in the form.
+    inner.autoComplete.addListener('place_changed', inner.fillInAddress);
+  };
+
+
+  outer.init = function () {
+    document.getElementById("address1").addEventListener("onfocus", function(e) {
+      inner.geolocate();
+      e.preventDefault();
+    }, null);
+  };
+
+  return outer;
+}());
+
+document.addEventListener("DOMContentLoaded", AC.init());
+/*  var placeSearch, autocomplete,
     // map of data we're going to use
     returnData = {
       street_number: 'short_name',
@@ -21,7 +91,7 @@ var AC=function(){
     // Create the autocomplete object, restricting the search to geographical
     // location types.
     autocomplete = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */
+      // @type {!HTMLInputElement} 
       document.getElementById('address1'), {
         types: ['geocode']
       });
@@ -66,4 +136,4 @@ var AC=function(){
     e.preventDefault();
   }, null);
 
-  console.log($);
+  console.log($);*/
