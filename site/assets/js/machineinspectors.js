@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-(function (exports) {
   var placeSearch, autocomplete,
     returnData = {
       street_number: 'short_name',
@@ -62,5 +61,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     e.preventDefault();
   }, null);
 
-})(window.AC = {});
+  window.AC=this;
 });
