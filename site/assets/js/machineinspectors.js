@@ -1,4 +1,5 @@
-;(var placeSearch, autocomplete,
+document.addEventListener("DOMContentLoaded", function(event) {
+var placeSearch, autocomplete,
 returnData = {
   street_number: 'short_name',
   route: 'long_name',
@@ -83,4 +84,4 @@ document.addEventListener("focus", function(e) {
         }
     }
 }, false);
-)
+});
