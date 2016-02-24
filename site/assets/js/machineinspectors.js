@@ -1,7 +1,7 @@
 var AC = jQuery(function(){
   var outer = {},
     inner = {};
-  inner.autoComplete = {};
+  inner.autoComplete;
   // map of data we're going to use
   inner.returnData = {
     street_number: 'short_name',
