@@ -39,7 +39,7 @@ var AC = jQuery(function(){
   inner.geolocate = function() {
     console.log('geolocate running');
     var circle = new google.maps.Circle({
-      center: innter.geolocation,
+      center: inter.geolocation,
       radius: 15000
     });
     inner.autoComplete.setBounds(circle.getBounds());
