@@ -61,7 +61,7 @@ function geolocate() {
       };
       var circle = new google.maps.Circle({
         center: geolocation,
-        radius: 20000
+        radius: 15000
       });
       console.log("geolocation", geolocation, "position.coords.accuracy", position.coords.accuracy, circle.getBounds());
       autocomplete.setBounds(circle.getBounds());
@@ -78,6 +78,7 @@ document.addEventListener("focus", function(e) {
     for (var target=e.target; target && target!=this; target=target.parentNode) {
     // loop parent nodes from the target to the delegation node
         if (target.matches("#autocomplete")) {
+            console.log('geolocate');
             geolocate();
             break;
         }
