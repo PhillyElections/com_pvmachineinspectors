@@ -1,7 +1,5 @@
-/*document.addEventListener("DOMContentLoaded", function(event) {
-  AC();
-  console.log(AC(), AC);
-});*/
+document.addEventListener("DOMContentLoaded", function(event) {
+
 (function (exports) {
   var placeSearch, autocomplete,
     returnData = {
@@ -65,3 +63,4 @@
   }, null);
 
 })(window.AC = {});
+});
