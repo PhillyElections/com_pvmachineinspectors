@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   AC();
+  console.log(AC(), AC);
 });
 var AC = function() {
   var placeSearch, autocomplete,
