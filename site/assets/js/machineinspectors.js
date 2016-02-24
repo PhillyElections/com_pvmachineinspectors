@@ -23,15 +23,9 @@ function initAutocomplete() {
   autocomplete.addListener('place_changed', fillInAddress);
 }
 
-// [START region_fillform]
 function fillInAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
-
-  /*  for (var component in returnData) {
-    document.getElementById(component).value = '';
-    document.getElementById(component).disabled = false;
-  }*/
 
   // Get each component of the address from the place details
   // and fill the corresponding field on the form.
@@ -47,32 +41,26 @@ function fillInAddress() {
   document.getElementById('city').value = formData['locality'];
   document.getElementById('state').value = formData['administrative_area_level_1'];
   document.getElementById('postcode').value = formData['postal_code'];
-
 }
-// [END region_fillform]
 
 // [START region_geolocation]
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
+// Bias the autocomplete object to the city center, with a 15000m radius
 function geolocate() {
+  console.log('geolocate running');
   var geolocation = {
     lat: 39.952464,
     lng: -75.1662477
   };
   var circle = new google.maps.Circle({
     center: geolocation,
-    radius: 20000
+    radius: 15000
   });
-  console.log("geolocation", geolocation, "position.coords.accuracy", position.coords.accuracy, circle.getBounds());
+  console.log("geolocation", geolocation, "circle.getbounds()",circle.getBounds());
   autocomplete.setBounds(circle.getBounds());
 }
 
-/*document.getElementById("autocomplete").addEventListener("onfocus", function(e) {
-  geolocate();
-  e.preventDefault();
-});*/
-
 document.addEventListener("focus", function(e) {
+  console.log('focus triggered');
   for (var target = e.target; target && target != this; target = target.parentNode) {
     // loop parent nodes from the target to the delegation node
     if (target.matches("#address1")) {
