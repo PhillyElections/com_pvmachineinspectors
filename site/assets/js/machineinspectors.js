@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+/*document.addEventListener("DOMContentLoaded", function(event) {
   AC();
   console.log(AC(), AC);
-});
+});*/
 (function (exports) {
   var placeSearch, autocomplete,
     returnData = {
@@ -64,4 +64,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     e.preventDefault();
   });
 
-})(this.AC);
+})(window.AC);
