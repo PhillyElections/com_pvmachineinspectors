@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function(event) {
 var placeSearch, autocomplete,
   returnData = {
     street_number: 'short_name',
@@ -74,9 +75,10 @@ function geolocate() {
 document.addEventListener("focus", function(e) {
   for (var target = e.target; target && target != this; target = target.parentNode) {
     // loop parent nodes from the target to the delegation node
-    if (target.matches("#autocomplete")) {
+    if (target.matches("#address1")) {
       geolocate();
       break;
     }
   }
 }, false);
+});
