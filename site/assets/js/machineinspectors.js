@@ -61,10 +61,13 @@ function geolocate() {
 
 document.addEventListener("focus", function(e) {
   console.log('focus triggered');
+  for (var target = e.target; target && target != this; target = target.parentNode) {
+    // loop parent nodes from the target to the delegation node
     if (selectorMatches(e.target, "#address")) {
       geolocate();
       break;
     }
+  }
 }, false);
 
 function selectorMatches(el, selector) {
