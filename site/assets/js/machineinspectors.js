@@ -1,22 +1,22 @@
 var AC = (function() {
   var outer = {},
     inner = {};
-    inner.autoComplete = {};
-    // map of data we're going to use
-    inner.returnData = {
-      street_number: 'short_name',
-      route: 'long_name',
-      locality: 'long_name',
-      administrative_area_level_1: 'short_name',
-      postal_code: 'short_name'
-    };
-    // rough center of the city
-    inner.geolocation = {
-      lat: 39.952464,
-      lng: -75.1662477
-    };
-    // intermediary between return and form
-    inner.formData = {};
+  inner.autoComplete = {};
+  // map of data we're going to use
+  inner.returnData = {
+    street_number: 'short_name',
+    route: 'long_name',
+    locality: 'long_name',
+    administrative_area_level_1: 'short_name',
+    postal_code: 'short_name'
+  };
+  // rough center of the city
+  inner.geolocation = {
+    lat: 39.952464,
+    lng: -75.1662477
+  };
+  // intermediary between return and form
+  inner.formData = {};
 
   inner.fillInAddress = function() {
     // Get the place details from the inner.autoComplete object.
@@ -36,7 +36,7 @@ var AC = (function() {
     document.getElementById('postcode').value = inner.formData['postal_code'];
   }
 
-  inner.geolocate = function () {
+  inner.geolocate = function() {
     console.log('geolocate running');
     var circle = new google.maps.Circle({
       center: geolocation,
@@ -58,8 +58,7 @@ var AC = (function() {
     inner.autoComplete.addListener('place_changed', inner.fillInAddress);
   };
 
-
-  outer.init = function () {
+  outer.init = function() {
     document.getElementById("address1").addEventListener("onfocus", function(e) {
       inner.geolocate();
       e.preventDefault();
@@ -69,7 +68,7 @@ var AC = (function() {
   return outer;
 }());
 
-document.addEventListener("DOMContentLoaded", AC.init());
+document.addEventListener("DOMContentLoaded", function () {AC.init();});
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
     returnData = {
