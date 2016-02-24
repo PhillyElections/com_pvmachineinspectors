@@ -33,16 +33,6 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
   		<input type="text" name="last_name" id="last_name" size="18%" value="<?=$last_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
 <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', $suffix, true)?>
   	</td>
-
-</tr>
-<tr>
-	<td height="40">
-		<label id="address1msg" for="address1"><?=JText::_('STREET ADDRESS');?>:</label>
-	</td>
-	<td>
-    <td id="locationField">
-      <input id="autocomplete" placeholder="Enter your address" type="text"></input>
-	</td>
 </tr>
 <tr>
 	<td height="40">
