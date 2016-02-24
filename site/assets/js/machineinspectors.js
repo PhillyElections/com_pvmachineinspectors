@@ -59,7 +59,7 @@ function geolocate() {
   autocomplete.setBounds(circle.getBounds());
 }
 
-document.addEventListener("focus", function(e) {
+document.addEventListener("mouseenter", function(e) {
   console.log('focus triggered');
   for (var target = e.target; target && target != this; target = target.parentNode) {
     // loop parent nodes from the target to the delegation node
