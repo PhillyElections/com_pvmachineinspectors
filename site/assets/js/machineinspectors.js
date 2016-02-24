@@ -58,10 +58,10 @@ var AC=(function(){
     autocomplete.setBounds(circle.getBounds());
   }
 
-  document.getElementById("address1").addEventListener("focus", function(e) {
-    geolocate();
-    e.preventDefault();
-  }, null);
-
   return{init:init,geolocate:geolocate};
 });
+
+  document.getElementById("address1").addEventListener("focus", function(e) {
+    AC.geolocate();
+    e.preventDefault();
+  }, null);
