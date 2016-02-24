@@ -59,15 +59,10 @@ function geolocate() {
   autocomplete.setBounds(circle.getBounds());
 }
 
-document.addEventListener("mouseenter", function(e) {
+document.getElementById("#address1").addEventListener("focus", function(e) {
   console.log('focus triggered');
-  for (var target = e.target; target && target != this; target = target.parentNode) {
-    // loop parent nodes from the target to the delegation node
-    if (selectorMatches(e.target, "#address1")) {
-      geolocate();
-      break;
-    }
-  }
+  geolocate();
+  e.preventDefault();
 }, false);
 
 function selectorMatches(el, selector) {
