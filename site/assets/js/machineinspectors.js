@@ -1,4 +1,4 @@
-var AC = function() {
+var AC = jQuery(function(){
   var outer = {},
     inner = {};
   inner.autoComplete = {};
@@ -64,11 +64,10 @@ var AC = function() {
       e.preventDefault();
     }, null);
   };
-
+  outer.init();
   return outer;
-};
+});
 
-jQuery(function(){AC();AC.init()});
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
     returnData = {
