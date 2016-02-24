@@ -1,4 +1,4 @@
-var AC=(function(){
+var AC=function(){
 
   var placeSearch, autocomplete,
     // map of data we're going to use
@@ -59,9 +59,11 @@ var AC=(function(){
   }
 
   return{init:init,geolocate:geolocate};
-});
+};
 
   document.getElementById("address1").addEventListener("onfocus", function(e) {
     AC.geolocate();
     e.preventDefault();
   }, null);
+
+  console.log($);
