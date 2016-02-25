@@ -68,7 +68,7 @@ inner.autoComplete.addListener('place_changed', function() {inner.fillInAddress(
   };
   return outer;
 };
-
+var ac;
   jQuery(function(){ac=new AC();ac.init()});
 
 /*  var placeSearch, autocomplete,
