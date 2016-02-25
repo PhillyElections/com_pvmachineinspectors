@@ -55,10 +55,11 @@ var AC = function() {
       });
     // When the user selects an address from the dropdown, populate the address
     // fields in the form.
-    inner.autoComplete.addListener('place_changed', inner.fillInAddress);
+inner.autoComplete.addListener('place_changed', function() {inner.fillInAddress();});
   };
 
   outer.init = function() {
+//http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
       inner.geolocate();
       outer.complete();
