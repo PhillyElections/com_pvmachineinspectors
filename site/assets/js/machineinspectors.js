@@ -38,7 +38,7 @@ var AC = function () {
 
   inner.geolocate = function() {
     console.log('geolocate running');
-    var circle = new google.maps.Circle({
+    var circle = new window.google.maps.Circle({
       center: geolocation,
       radius: 15000
     });
@@ -62,6 +62,7 @@ var AC = function () {
 
   inner.build = function() {
     var script = document.createElement('script');
+    script.id = '_gmaps';
     script.type = 'text/javascript';
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=ac.complete';
     document.body.appendChild(script);
@@ -70,7 +71,9 @@ var AC = function () {
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
       inner.build();
-      inner.geolocate();
+      $('#_gmaps').load(function(){
+        inner.geolocate();
+      });
       e.preventDefault();
     }, null);
   };
