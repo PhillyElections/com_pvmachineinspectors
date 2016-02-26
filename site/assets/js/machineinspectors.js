@@ -1,4 +1,4 @@
-var AC = {
+var AC = function () {
   var outer = {},
     inner = {};
   inner.autoComplete = {};
