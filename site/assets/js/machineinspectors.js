@@ -1,4 +1,4 @@
-var AC = function() {
+var AC = {
   var outer = {},
     inner = {};
   inner.autoComplete = {};
@@ -36,7 +36,7 @@ var AC = function() {
     document.getElementById('postcode').value = inner.formData['postal_code'];
   }
 
-  outer.geolocate = function() {
+  inner.geolocate = function() {
     console.log('geolocate running');
     var circle = new google.maps.Circle({
       center: geolocation,
@@ -66,7 +66,7 @@ var AC = function() {
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=ac.complete';
     document.body.appendChild(script);
   }
-  inner.init = function() {
+  outer.init = function() {
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
       inner.build();
