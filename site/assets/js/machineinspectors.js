@@ -58,18 +58,23 @@ var AC = function() {
 inner.autoComplete.addListener('place_changed', function() {inner.fillInAddress();});
   };
 
+  inner.build = function (){
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
+    document.body.appendChild(script);
+  }
   outer.init = function() {
 //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
+      inner.build();
       inner.geolocate();
-      outer.complete();
       e.preventDefault();
     }, null);
   };
   return outer;
 };
-var ac;
-  jQuery(function(){ac=new AC();ac.init()});
+  jQuery(function(){AC.init()});
 
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
