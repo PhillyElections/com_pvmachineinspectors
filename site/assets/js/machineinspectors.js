@@ -1,5 +1,6 @@
 var AC = function () {
-  var outer = {},
+  var $ = window.jQuery;
+  outer = {},
     inner = {};
   inner.autoComplete = {};
   // map of data we're going to use
