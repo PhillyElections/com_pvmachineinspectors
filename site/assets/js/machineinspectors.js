@@ -55,27 +55,31 @@ var AC = function() {
       });
     // When the user selects an address from the dropdown, populate the address
     // fields in the form.
-inner.autoComplete.addListener('place_changed', function() {inner.fillInAddress();});
+    inner.autoComplete.addListener('place_changed', function() {
+      inner.fillInAddress();
+    });
   };
 
-  inner.build = function (){
+  inner.build = function() {
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=ac.complete';
     document.body.appendChild(script);
   }
   inner.init = function() {
-//http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
+    //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
       inner.build();
       inner.geolocate();
       e.preventDefault();
     }, null);
   };
-  inner.init();
   return outer;
 };
-  jQuery(function(){AC()});
+var ac = new AC();
+jQuery(function() {
+  ac.init()
+});
 
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
