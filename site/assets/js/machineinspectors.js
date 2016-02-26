@@ -64,7 +64,7 @@ inner.autoComplete.addListener('place_changed', function() {inner.fillInAddress(
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
     document.body.appendChild(script);
   }
-  outer.init = function() {
+  inner.init = function() {
 //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
       inner.build();
@@ -72,9 +72,10 @@ inner.autoComplete.addListener('place_changed', function() {inner.fillInAddress(
       e.preventDefault();
     }, null);
   };
+  inner.init();
   return outer;
 };
-  jQuery(function(){AC.init()});
+  jQuery(function(){AC()});
 
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
