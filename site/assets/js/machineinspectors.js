@@ -80,7 +80,7 @@ var AC = function() {
     script.load = function() {
     console.log("setCircle");
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
-    document.getElementById("address1").addEventListener("focus", function(e) {
+    document.getElementById("address1").addEventListener("onfocus", function(e) {
 
       inner.geolocate();
       e.preventDefault();
