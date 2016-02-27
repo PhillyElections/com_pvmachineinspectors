@@ -60,9 +60,11 @@ var AC = function() {
     });
   };
 
-  inner.setCircle = function() {
+  outer.setCircle = function() {
+    console.log("setCircle");
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
+
       inner.geolocate();
       e.preventDefault();
     }, null);
@@ -74,15 +76,15 @@ var AC = function() {
     script.id = '_gmaps';
     script.type = 'text/javascript';
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
-    script.load = inner.setCircle;
+    script.load = outer.setCircle;
     document.body.appendChild(script);
   };
-  inner.init();
+
   return outer;
 }();
-/*jQuery(function() {
+jQuery(function() {
   AC.init();
-});*/
+});
 
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
