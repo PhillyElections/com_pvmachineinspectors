@@ -1,6 +1,5 @@
 var AC = function() {
-  var $ = window.jQuery;
-  outer = {},
+  var outer = {},
   inner = {};
   inner.autoComplete = {};
   // map of data we're going to use
@@ -35,7 +34,7 @@ var AC = function() {
     document.getElementById('city').value = inner.formData['locality'];
     document.getElementById('state').value = inner.formData['administrative_area_level_1'];
     document.getElementById('postcode').value = inner.formData['postal_code'];
-  }
+  };
 
   inner.geolocate = function() {
     console.log('geolocate running');
@@ -61,23 +60,23 @@ var AC = function() {
     });
   };
 
-  inner.build = function() {
+  init.setCircle = function() {
+    //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
+    document.getElementById("address1").addEventListener("focus", function(e) {
+      inner.geolocate();
+      e.preventDefault();
+    }, null);
+  };
+
+// hot init function
+  inner.init = function() {
     var script = document.createElement('script');
     script.id = '_gmaps';
     script.type = 'text/javascript';
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
-    script.load = outer.init;
+    script.load = inner.setCircle;
     document.body.appendChild(script);
-  }
-  outer.init = function() {
-    //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
-    document.getElementById("address1").addEventListener("focus", function(e) {
-
-        inner.geolocate();
-      e.preventDefault();
-    }, null);
-  };
-  inner.build();
+  }();
 
   return outer;
 }();
