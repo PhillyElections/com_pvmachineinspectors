@@ -1,4 +1,4 @@
-(function(window) {
+var AC = function() {
   var outer = {},
   inner = {};
   inner.autoComplete = {};
@@ -71,17 +71,17 @@
   };
 
 // hot init function
-  inner.init = function() {
+  outer.init = function() {
     var script = document.createElement('script');
     script.id = '_gmaps';
     script.type = 'text/javascript';
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
-    script.load = outer.setCircle;
+    script.load = AC.setCircle;
     document.body.appendChild(script);
   };
-  window.AC=outer;
-})(window);
 
+  return outer;
+}();
 jQuery(function() {
   AC.init();
 });
