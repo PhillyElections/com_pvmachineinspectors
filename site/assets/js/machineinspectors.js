@@ -90,7 +90,6 @@ var AC = function() {
 }();
 jQuery(function() {
   AC.init();
-  AC.setCircle();
 });
 
 /*  var placeSearch, autocomplete,
