@@ -62,11 +62,7 @@ var AC = function () {
   };
 
   outer.build = function() {
-    var script = document.createElement('script');
-    script.id = '_gmaps';
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=ac.complete';
-    document.body.appendChild(script);
+
   }
   outer.init = function() {
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
@@ -78,7 +74,12 @@ var AC = function () {
   return outer;
 };
 jQuery(function() {
-  AC.build();AC.init();
+    var script = document.createElement('script');
+    script.id = '_gmaps';
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
+    document.body.appendChild(script);
+AC.init();
 });
 
 /*  var placeSearch, autocomplete,
