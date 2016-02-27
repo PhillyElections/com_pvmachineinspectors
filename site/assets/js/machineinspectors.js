@@ -64,11 +64,11 @@ var AC = function() {
   outer.setCircle = function() {
     console.log("setCircle");
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
-    document.getElementById("address1").addEventListener("focus", function(e) {
+    //document.getElementById("address1").addEventListener("focus", function(e) {
 
       inner.geolocate();
-      e.preventDefault();
-    }, null);
+      //e.preventDefault();
+    //}, null);
   };
 
 // hot init function
@@ -92,7 +92,7 @@ var AC = function() {
   return outer;
 }();
 jQuery(function() {
-  AC.init();
+  AC.init().setCircle();
 });
 
 /*  var placeSearch, autocomplete,
