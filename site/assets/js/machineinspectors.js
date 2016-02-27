@@ -79,11 +79,12 @@ var AC = function() {
     }, null);
   };
   inner.build();
+  outer.init();
   return outer;
 }();
-jQuery(function() {
+/*jQuery(function() {
   AC.init();
-});
+});*/
 
 /*  var placeSearch, autocomplete,
     // map of data we're going to use
