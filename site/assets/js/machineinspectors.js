@@ -60,7 +60,7 @@ var AC = function() {
     });
   };
 
-  init.setCircle = function() {
+  inner.setCircle = function() {
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
       inner.geolocate();
