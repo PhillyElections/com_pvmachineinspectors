@@ -76,8 +76,8 @@ var AC = function() {
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
     script.load = inner.setCircle;
     document.body.appendChild(script);
-  }();
-
+  };
+  inner.init();
   return outer;
 }();
 /*jQuery(function() {
