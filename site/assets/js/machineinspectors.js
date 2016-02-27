@@ -34,6 +34,7 @@ var AC = function() {
     document.getElementById('city').value = inner.formData['locality'];
     document.querySelectorAll('select[name=region]')[0].value=inner.formData['administrative_area_level_1'];
     document.getElementById('postcode').value = inner.formData['postal_code'];
+    document.getElementById('address1').focus();
   };
 
   inner.geolocate = function() {
