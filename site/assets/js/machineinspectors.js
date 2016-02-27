@@ -83,7 +83,7 @@ var AC = function() {
   return outer;
 }();
 jQuery(function() {
-  AC.init();
+  window.AC.init();
 });
 
 /*  var placeSearch, autocomplete,
