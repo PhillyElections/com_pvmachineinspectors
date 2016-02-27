@@ -32,7 +32,7 @@ var AC = function() {
     }
     document.getElementById('address1').value = inner.formData['street_number'] + ' ' + inner.formData['route'];
     document.getElementById('city').value = inner.formData['locality'];
-    document.getElementById('state').value = inner.formData['administrative_area_level_1'];
+    document.getElementById('region').value = inner.formData['administrative_area_level_1'];
     document.getElementById('postcode').value = inner.formData['postal_code'];
   };
 
