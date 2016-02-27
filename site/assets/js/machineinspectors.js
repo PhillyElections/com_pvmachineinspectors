@@ -79,7 +79,7 @@ var AC = function () {
     }, null);
   };
   return {init: outer.init, complete: outer.complete};
-};
+}();
 jQuery(function() {
   AC.init();
 });
