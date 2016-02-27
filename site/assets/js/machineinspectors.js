@@ -77,22 +77,14 @@ var AC = function() {
     script.id = '_gmaps';
     script.type = 'text/javascript';
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
-    script.load = function() {
-    console.log("setCircle");
-    //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
-    document.getElementById("address1").addEventListener("onfocus", function(e) {
-
-      inner.geolocate();
-      e.preventDefault();
-    }, null);
-  };
     document.body.appendChild(script);
   };
 
   return outer;
 }();
 jQuery(function() {
-  AC.init().setCircle();
+  AC.init();
+  AC.setCircle();
 });
 
 /*  var placeSearch, autocomplete,
