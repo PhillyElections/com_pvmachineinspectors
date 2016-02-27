@@ -1,4 +1,4 @@
-var AC = function() {
+(function(window) {
   var outer = {},
   inner = {};
   inner.autoComplete = {};
@@ -79,11 +79,11 @@ var AC = function() {
     script.load = outer.setCircle;
     document.body.appendChild(script);
   };
+  window.AC=outer;
+})(window);
 
-  return outer;
-}();
 jQuery(function() {
-  window.AC.init();
+  AC.init();
 });
 
 /*  var placeSearch, autocomplete,
