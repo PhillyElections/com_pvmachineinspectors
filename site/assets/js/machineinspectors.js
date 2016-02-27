@@ -65,7 +65,7 @@ var AC = function () {
     var script = document.createElement('script');
     script.id = '_gmaps';
     script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=ac.complete';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
     document.body.appendChild(script);
   }
   outer.init = function() {
