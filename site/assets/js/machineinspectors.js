@@ -62,24 +62,26 @@ var AC = function () {
   };
 
   outer.build = function() {
-
+    var script = document.createElement('script');
+    script.id = '_gmaps';
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=ac.complete';
+    document.body.appendChild(script);
   }
   outer.init = function() {
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
+      inner.build();
+      $('#_gmaps').load(function(){
         inner.geolocate();
+      });
       e.preventDefault();
     }, null);
   };
   return outer;
 };
 jQuery(function() {
-    var script = document.createElement('script');
-    script.id = '_gmaps';
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=AC.complete';
-    document.body.appendChild(script);
-AC.init();
+  AC.init();
 });
 
 /*  var placeSearch, autocomplete,
