@@ -1,7 +1,7 @@
 var AC = function() {
   var outer = {},
-  inner = {};
-  inner.autoComplete = {};
+    inner = {};
+  //inner.autoComplete = {};
   // map of data we're going to use
   inner.returnData = {
     street_number: 'short_name',
@@ -32,7 +32,7 @@ var AC = function() {
     }
     document.getElementById('address1').value = inner.formData['street_number'] + ' ' + inner.formData['route'];
     document.getElementById('city').value = inner.formData['locality'];
-    document.querySelectorAll('select[name=region]')[0].value=inner.formData['administrative_area_level_1'];
+    document.querySelectorAll('select[name=region]')[0].value = inner.formData['administrative_area_level_1'];
     document.getElementById('postcode').value = inner.formData['postal_code'];
     document.getElementById('address1').focus();
   };
@@ -49,16 +49,22 @@ var AC = function() {
   outer.complete = function() {
     // Create the inner.autoComplete object, restricting the search to geographical
     // location types.
-    inner.autoComplete = new google.maps.places.Autocomplete(
-      // @type {!HTMLInputElement} 
-      document.getElementById('address1'), {
-        types: ['geocode']
+    if (typeof inner.autoComplete === 'undefined') {
+      inner.autoComplete = new google.maps.places.Autocomplete(
+        // @type {!HTMLInputElement} 
+        document.getElementById('address1'), {
+          types: ['geocode']
+        });
+      // When the user selects an address from the dropdown, populate the address
+      // fields in the form.
+      inner.autoComplete.addListener('place_changed', function() {
+        inner.fillInAddress();
       });
-    // When the user selects an address from the dropdown, populate the address
-    // fields in the form.
-    inner.autoComplete.addListener('place_changed', function() {
-      inner.fillInAddress();
-    });
+    }
+    if (typeof inner.located === 'undefined') {
+      inner.geolocate();
+      inner.located=true;
+    }    
   };
 
   outer.setCircle = function() {
@@ -66,12 +72,12 @@ var AC = function() {
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     //document.getElementById("address1").addEventListener("focus", function(e) {
 
-      inner.geolocate();
-      //e.preventDefault();
+    inner.geolocate();
+    //e.preventDefault();
     //}, null);
   };
 
-// hot init function
+  // hot init function
   outer.init = function() {
     var script = document.createElement('script');
     script.id = '_gmaps';
