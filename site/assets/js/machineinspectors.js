@@ -78,10 +78,10 @@ var AC = function () {
       e.preventDefault();
     }, null);
   };
-  return outer;
+  return {init: outer.init, complete: outer.complete};
 };
 jQuery(function() {
-  AC/outer.init();
+  AC.init();
 });
 
 /*  var placeSearch, autocomplete,
