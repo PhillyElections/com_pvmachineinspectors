@@ -61,7 +61,7 @@ var AC = function () {
     });
   };
 
-  outer.build = function() {
+  inner.build = function() {
     var script = document.createElement('script');
     script.id = '_gmaps';
     script.type = 'text/javascript';
@@ -81,7 +81,7 @@ var AC = function () {
   return outer;
 };
 jQuery(function() {
-  AC.init();
+  AC().init();
 });
 
 /*  var placeSearch, autocomplete,
