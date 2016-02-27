@@ -40,7 +40,7 @@ var AC = function () {
   inner.geolocate = function() {
     console.log('geolocate running');
     var circle = new window.google.maps.Circle({
-      center: geolocation,
+      center: inner.geolocation,
       radius: 15000
     });
     inner.autoComplete.setBounds(circle.getBounds());
@@ -61,7 +61,7 @@ var AC = function () {
     });
   };
 
-  inner.build = function() {
+  outer.build = function() {
     var script = document.createElement('script');
     script.id = '_gmaps';
     script.type = 'text/javascript';
@@ -71,18 +71,14 @@ var AC = function () {
   outer.init = function() {
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
-      inner.build();
-      $('#_gmaps').load(function(){
         inner.geolocate();
-      });
       e.preventDefault();
     }, null);
   };
   return outer;
 };
-var ac = new AC();
 jQuery(function() {
-  ac.init()
+  AC.build();AC.init();
 });
 
 /*  var placeSearch, autocomplete,
