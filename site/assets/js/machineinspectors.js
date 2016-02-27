@@ -1,7 +1,7 @@
-var AC = function () {
+var AC = function() {
   var $ = window.jQuery;
   outer = {},
-    inner = {};
+  inner = {};
   inner.autoComplete = {};
   // map of data we're going to use
   inner.returnData = {
@@ -71,14 +71,15 @@ var AC = function () {
   outer.init = function() {
     //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
     document.getElementById("address1").addEventListener("focus", function(e) {
-      inner.build();
-      $('#_gmaps').load(function(){
+
+      $('#_gmaps').load(function() {
         inner.geolocate();
       });
       e.preventDefault();
     }, null);
   };
-  return {init: outer.init, complete: outer.complete};
+  inner.build();
+  return outer;
 }();
 jQuery(function() {
   AC.init();
