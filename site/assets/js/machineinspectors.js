@@ -1,4 +1,5 @@
 var AC = function() {
+  'use strict';
   var outer = {},
     inner = {};
   //inner.autoComplete = {};
@@ -38,7 +39,7 @@ var AC = function() {
   };
 
   inner.geolocate = function() {
-    console.log('geolocate running');
+    // set center to city hall
     var circle = new window.google.maps.Circle({
       center: inner.geolocation,
       radius: 15000
@@ -49,6 +50,7 @@ var AC = function() {
   outer.complete = function() {
     // Create the inner.autoComplete object, restricting the search to geographical
     // location types.
+    // singleton call
     if (typeof inner.autoComplete === 'undefined') {
       inner.autoComplete = new google.maps.places.Autocomplete(
         // @type {!HTMLInputElement} 
@@ -61,20 +63,12 @@ var AC = function() {
         inner.fillInAddress();
       });
     }
+    // only set the circle once
+    // singleton call
     if (typeof inner.located === 'undefined') {
       inner.geolocate();
       inner.located=true;
     }    
-  };
-
-  outer.setCircle = function() {
-    console.log("setCircle");
-    //http://maps.googleapis.com/maps/api/js?libraries=places&callback=AC.complete
-    //document.getElementById("address1").addEventListener("focus", function(e) {
-
-    inner.geolocate();
-    //e.preventDefault();
-    //}, null);
   };
 
   // hot init function
