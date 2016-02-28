@@ -1,12 +1,13 @@
 <?php
+ini_set('display_errors', 1);
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 // we'll need these for the combo
 jimport("pvcombo.PVCombo");
 if (count(JRequest::getVar('msg', null, 'post'))) {
-	foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-		JError::raiseWarning(1, $msg);
-	}
+    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
+        JError::raiseWarning(1, $msg);
+    }
 }
 $applicant = $this->applicant;
 ?>
@@ -47,7 +48,7 @@ $applicant = $this->applicant;
         <label id="citymsg" for="city"><?=JText::_('CITY');?>:</label>
     </td>
     <td>
-        <input type="text" id="city" name="city" size="60%" value="<?=($applicant->city?$applicant->city:'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('CITY REQUIRED');?>" />
+        <input type="text" id="city" name="city" size="60%" value="<?=($applicant->city ? $applicant->city : 'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('CITY REQUIRED');?>" />
     </td>
 </tr>
 <tr>
@@ -55,7 +56,7 @@ $applicant = $this->applicant;
         <label id="regionmsg" for="region"><?=JText::_('STATE');?>:</label>
     </td>
     <td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($applicant->region?PVCombo::keySearch('state', $appliant->region):'PA'), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($applicant->region ? PVCombo::keySearch('state', $appliant->region) : 'PA'), true)?>
 </td>
 </tr>
 <tr>
