@@ -1,8 +1,7 @@
-var AC = function() {
+var AC = (function() {
   'use strict';
   var outer = {},
     inner = {};
-  //inner.autoComplete = {};
   // map of data we're going to use
   inner.returnData = {
     street_number: 'short_name',
@@ -81,7 +80,7 @@ var AC = function() {
   };
 
   return outer;
-}();
+})(); 
 window.addEvent( 'domready', function() { 
   AC.init();
 });
