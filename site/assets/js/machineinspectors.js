@@ -82,6 +82,6 @@ var AC = function() {
 
   return outer;
 }();
-jQuery(function() {
+window.addEvent( domready, function() { 
   AC.init();
 });
