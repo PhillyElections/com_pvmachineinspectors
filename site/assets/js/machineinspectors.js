@@ -32,7 +32,7 @@ var AC = (function() {
     }
     document.getElementById('address1').value = inner.formData['street_number'] + ' ' + inner.formData['route'];
     document.getElementById('city').value = inner.formData['locality'];
-    document.querySelectorAll('select[name=region]')[0].value = inner.formData['administrative_area_level_1'];
+    document.getElementById('region').value = inner.formData['administrative_area_level_1'];
     document.getElementById('postcode').value = inner.formData['postal_code'];
     document.getElementById('address2').focus();
   };
@@ -64,10 +64,16 @@ var AC = (function() {
     }
     // only set the circle once
     // singleton call
-    if (typeof inner.located === 'undefined') {
+    if (typeof inner.located || inner.located === false) {
       inner.geolocate();
-      inner.located=true;
-    }    
+      inner.located = true;
+    }
+  };
+
+  outer.noComplete = function() {
+    this.autoComplete.unbindAll();
+    google.maps.event.clearInstanceListeners(document.getElementById('address1'));
+    inner.located = false;
   };
 
   // hot init function
@@ -80,7 +86,13 @@ var AC = (function() {
   };
 
   return outer;
-})(); 
-window.addEvent( 'domready', function() { 
-  AC.init();
+})();
+window.addEvent('domready', function() {
+  if (typeof document.getElementById('goGoogle') === 'undefined' || document.getElementById('goGoogle').value = false) {
+    AC.init();
+  }
+  document.getElementById('goGoogle').addEventListener('changed', function(){
+    console.log('changed');
+    if 
+  });
 });
