@@ -12,6 +12,8 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
 }
 $applicant = $this->applicant;
 d(PVCombo::keySearch('suffix', $applicant->suffix), PVCombo::get('state', $applicant->region));
+
+$document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
 
