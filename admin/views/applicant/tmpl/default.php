@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors', 1);
+
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 // we'll need these for the combo
@@ -10,6 +11,7 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
     }
 }
 $applicant = $this->applicant;
+d(PVCombo::keySearch('suffix', $applicant->suffix), PVCombo::get('state', $applicant->region));
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
 
@@ -19,20 +21,20 @@ $applicant = $this->applicant;
         <label id="namemsg" for="first_name"><?=JText::_('NAME');?>:</label>
     </td>
     <td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('prefix', $appliant->prefix), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', PVCombo::get('prefix', PVCombo::keySearch('suffix', $applicant->prefix)), true)?>
         <input type="text" name="first_name" id="first_name" size="18%" value="<?=$applicant->first_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('FNAME PLACEHOLDER');?>" />
         <input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$applicant->middle_name?>" class="inputbox optional" maxlength="25" />
         <input type="text" name="last_name" id="last_name" size="18%" value="<?=$applicant->last_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
-<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('suffix', $appliant->suffix), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::get('suffix', PVCombo::keySearch('suffix', $applicant->suffix)), true)?>
     </td>
 
 </tr>
 <tr>
     <td height="40">
-        <label id="address1msg" for="address1"><?=JText::_('STREET NAME');?>:</label>
+        <label id="address1msg" for="address1"><?=JText::_('STREET ADDRESS');?>:</label>
     </td>
     <td>
-        <input type="text" id="address1" name="address1" size="60%" value="<?=$applicant->address1?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('STREET ADDRESS PLACEHOLDER');?>" />
+        <input type="text" id="address1" name="address1" size="60%" value="<?=$applicant->address1?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('STREET ADDRESS PLACEHOLDER');?>" /><input type="checkbox" id="goGoogle" name="goGoggle" />
     </td>
 </tr>
 <tr>
@@ -56,15 +58,15 @@ $applicant = $this->applicant;
         <label id="regionmsg" for="region"><?=JText::_('STATE');?>:</label>
     </td>
     <td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($applicant->region ? PVCombo::keySearch('state', $appliant->region) : 'PA'), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($applicant->region ? $applicant->region : 'PA'), true)?>
 </td>
 </tr>
 <tr>
     <td height="40">
-        <label id="postcodemsg" for="postcode"><?=JText::_('ZIPCODE');?>:</label>
+        <label id="postcodemsg" for="postcode"><?=JText::_('POSTCODE');?>:</label>
     </td>
     <td>
-        <input type="text" id="postcode" name="postcode" size="60%" value="<?=$applicant->postcode?>" class="inputbox required" maxlength="60" placeholder=<?=JText::_('ZIPCODE PLACEHOLDER');?> />
+        <input type="text" id="postcode" name="postcode" size="60%" value="<?=$applicant->postcode?>" class="inputbox required" maxlength="60" placeholder=<?=JText::_('POSTCODE PLACEHOLDER');?> />
     </td>
 </tr>
 <tr>
