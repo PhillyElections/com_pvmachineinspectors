@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+$document = &JFactory::getDocument();
 // we'll need these for the combo
 jimport("pvcombo.PVCombo");
 if (count(JRequest::getVar('msg', null, 'post'))) {
