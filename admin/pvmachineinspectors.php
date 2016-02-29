@@ -19,6 +19,9 @@ defined('_JEXEC') or die('Restricted access');
 // pull in the super-groovy debugger
 jimport('kint.kint');
 
+$language = JFactory::getLanguage();
+$language->load(JRequest::getCmd('option'), JPATH_ADMINISTRATOR);
+
 // Require the base controller
 
 require_once JPATH_COMPONENT . DS . 'controller.php';
