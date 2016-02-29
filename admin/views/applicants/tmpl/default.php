@@ -11,19 +11,19 @@
 				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?=count($this->items);?>);" />
 			</th>
 			<th>
-				<?=JText::_('NAME');?>
+				<?=JText::_('Name');?>
 			</th>
 			<th width="5">
-				<?=JText::_('WARD');?>
+				<?=JText::_('Ward');?>
 			</th>
 			<th width="5">
-				<?=JText::_('DIVISION');?>
+				<?=JText::_('Division');?>
 			</th>
 			<th>
-				<?=JText::_('PHONE');?>
+				<?=JText::_('Phone');?>
 			</th>
 			<th>
-				<?=JText::_('EMAIL');?>
+				<?=JText::_('Email');?>
 			</th>
 		</tr>
 	</thead>
