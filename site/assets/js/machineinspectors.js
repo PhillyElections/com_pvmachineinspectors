@@ -88,11 +88,5 @@ var AC = (function() {
   return outer;
 })();
 window.addEvent('domready', function() {
-  if (typeof document.getElementById('goGoogle') === 'undefined' || document.getElementById('goGoogle').value = false) {
-    AC.init();
-  }
-  document.getElementById('goGoogle').addEventListener('changed', function(){
-    console.log('changed');
-    if 
-  });
+  AC.init();
 });
