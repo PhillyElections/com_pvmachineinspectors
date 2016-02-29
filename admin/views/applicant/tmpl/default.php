@@ -26,14 +26,11 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-
-        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', PVCombo::get('prefix', PVCombo::keySearch('prefix', $applicant->prefix)), 'prefix')?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('prefix', $applicant->prefix), 'prefix')?>
         <input type="text" name="first_name" id="first_name" size="18%" value="<?=$applicant->first_name?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
         <input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$applicant->middle_name?>" class="inputbox optional" maxlength="25" />
         <input type="text" name="last_name" id="last_name" size="18%" value="<?=$applicant->last_name?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::get('suffix', PVCombo::keySearch('suffix', $applicant->suffix)), 'suffix')?>
-        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix1', 'class="inputbox required"', 'idx', 'value', 1, 'suffix1')?>
-        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix2', 'class="inputbox required"', 'idx', 'value', 'Mr', 'suffix2')?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('suffix', $applicant->suffix), 'suffix')?>
     </td>
 
 </tr>
