@@ -31,6 +31,8 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         <input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$applicant->middle_name?>" class="inputbox optional" maxlength="25" />
         <input type="text" name="last_name" id="last_name" size="18%" value="<?=$applicant->last_name?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
         <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::get('suffix', PVCombo::keySearch('suffix', $applicant->suffix)), true)?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', 1, true)?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', 'Mr', true)?>
     </td>
 
 </tr>
