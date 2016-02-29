@@ -114,34 +114,3 @@ d(PVCombo::keySearch('suffix', $applicant->suffix), PVCombo::get('state', $appli
 </tr>
 </table>
 </form>
-    </td>
-</tr>
-<tr>
-    <td height="40">
-        <label id="phonemsg" for="phone"><?=JText::_('PHONE');?>:</label>
-    </td>
-    <td>
-        <input type="text" id="phone" name="phone" size="60%" value="<?=$applicant->phone?>" class="inputbox" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
-    </td>
-</tr>
-<tr>
-    <td height="40">
-        <label id="emailmsg" for="email"><?=JText::_('EMAIL');?>:</label>
-    </td>
-    <td>
-        <input type="text" id="email" name="email" size="60%" value="<?=$applicant->email?>" class="inputbox required" maxlength="100"  />
-    </td>
-</tr>
-<tr>
-    <td height="40">&nbsp;</td>
-    <td>
-        <button class="button validate" type="submit"><?=JText::_('UPDATE');?></button>
-        <input type="hidden" name="task" value="update" />
-        <input type="hidden" name="controller" value="applicant" />
-        <input type="hidden" name="id" value="<?=$applicant->id?>" />
-        <input type="hidden" name="division_id" value="<?=$applicant->division_id?>" />
-<?=JHTML::_('form.token');?>
-</td>
-</tr>
-</table>
-</form>
