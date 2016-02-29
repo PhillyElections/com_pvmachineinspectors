@@ -12,7 +12,7 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
     }
 }
 $applicant = $this->applicant;
-d(PVCombo::get('suffix', PVCombo::keySearch('suffix', $applicant->suffix)), PVCombo::get('state', $applicant->region));
+d(PVCombo::get('suffix', PVCombo::keySearch('suffix', $applicant->suffix)), PVCombo::keySearch('suffix', $applicant->suffix));
 
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 ?>
