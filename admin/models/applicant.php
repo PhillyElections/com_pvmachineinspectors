@@ -97,6 +97,7 @@ class PvmachineinspectorsModelApplicant extends JModel
         $data['postcode'] = $data['postcode'] ? JString::substr(trim($data['postcode']), 0, 5) : '';
 
         $division = $this->getTable('Division');
+        $data['division_id'] = 0;
         $data['division_id'] = $division->getRemoteDivision($data);
 
         // Bind the form fields to the Pvmachineinspector table
