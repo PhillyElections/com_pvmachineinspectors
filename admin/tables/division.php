@@ -63,6 +63,6 @@ class TableDivision extends JTable
             $this->loadFromKeyValuePairs(array('division_id' => $response['data']['division']));
             return $this->get('id');
         }
-        return null;
+        return 0;
     }
 }
