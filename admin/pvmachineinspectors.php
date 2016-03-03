@@ -20,9 +20,8 @@ defined('_JEXEC') or die('Restricted access');
 jimport('kint.kint');
 
 $language = JFactory::getLanguage();
-$language->load('com_pvmachineinspectors');
-/*    $language = JFactory::getLanguage();
-$language->load('com_k2');*/
+$language->load(JRequest::getCmd('option'), JPATH_SITE);
+
 // Require the base controller
 
 require_once JPATH_COMPONENT . DS . 'controller.php';
