@@ -29,7 +29,10 @@
 		<folder>models/</folder>
 		<folder>views/</folder>
 	</files>
-	<administration>
+    <languages folder="language/site/">
+        <language tag="en-GB">en-GB/en-GB.com_pvmachineinspectors.ini</language>
+        <language tag="es-ES">es-ES/es-ES.com_pvmachineinspectors.ini</language>
+    </languages>	<administration>
 		<menu link="option=com_pvmachineinspectors">Machine Inspectors</menu>
 <!-- 		<submenu>
 			<menu controller="applicants">Manage</menu>
@@ -46,12 +49,8 @@
 			<folder>views/</folder>
 		</files>
 	</administration>
-    <languages folder="site/">
-        <language tag="en-GB">language/en-GB/en-GB.com_pvmachineinspectors.ini</language>
-        <language tag="es-ES">language/es-ES/es-ES.com_pvmachineinspectors.ini</language>
-    </languages>
-    <languages folder="admin/">
-        <language tag="en-GB">language/en-GB/en-GB.com_pvmachineinspectors.ini</language>
-        <language tag="es-ES">language/es-ES/es-ES.com_pvmachineinspectors.ini</language>
+    <languages folder="language/admin/">
+        <language tag="en-GB">en-GB/en-GB.com_pvmachineinspectors.ini</language>
+        <language tag="es-ES">es-ES/es-ES.com_pvmachineinspectors.ini</language>
     </languages>
 </install>
