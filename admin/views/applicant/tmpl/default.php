@@ -1,6 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 $document = &JFactory::getDocument();
@@ -12,7 +10,6 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
     }
 }
 $applicant = $this->applicant;
-d(PVCombo::get('suffix', PVCombo::keySearch('suffix', $applicant->suffix)), PVCombo::keySearch('suffix', $applicant->suffix));
 
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 ?>
