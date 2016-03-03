@@ -88,7 +88,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <input type="text" id="phone" name="phone" size="60%" value="<?=$applicant->phone?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
+        <input type="text" id="phone" name="phone" size="60%" value="<?=$applicant->phone?>" class="inputbox required" maxlength="100" placeholder="(a phone number is required)" />
     </td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <input type="text" id="email" name="email" size="60%" value="<?=$applicant->email?>" class="inputbox" maxlength="100" placeholder="(either email or phone required)" />
+        <input type="text" id="email" name="email" size="60%" value="<?=$applicant->email?>" class="inputbox" maxlength="100" />
     </td>
 </tr>
 <tr>
