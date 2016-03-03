@@ -5,14 +5,14 @@ $document = &JFactory::getDocument();
 jimport("pvcombo.PVCombo");
 
 if (count(JRequest::getVar('msg', null, 'post'))) {
-    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
-        JError::raiseWarning(1, $msg);
-    }
+	foreach (JRequest::getVar('msg', null, 'post') as $msg) {
+		JError::raiseWarning(1, $msg);
+	}
 }
 // lets go through the post array and extract any existing values for display
 $fields = array('prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
 foreach ($fields as $field) {
-    $$field = JRequest::getVar($field, null, 'post');
+	$$field = JRequest::getVar($field, null, 'post');
 }
 
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
@@ -53,7 +53,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         <label id="citymsg" for="city"><?=JText::_('CITY');?>:</label>
     </td>
     <td>
-        <input type="text" id="city" name="city" size="60%" value="<?=($city ? $city : 'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
+        <input type="text" id="city" name="city" size="60%" value="<?=($city?$city:'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
     </td>
 </tr>
 <tr>
@@ -62,7 +62,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
 <?=JText::_('REGION');?>:
         </label>
     </td>
-    <td><?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'region')?></td>
+    <td><?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region?$region:'PA'), 'region')?></td>
 </tr>
 <tr>
     <td height="40">
@@ -97,8 +97,10 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
 <tr>
     <td height="40">&nbsp;</td>
     <td>
-        <button class="button validate" type="submit"><?=JText::_('REGISTER');?></button>
-        <input type="hidden" name="task" value="save" />
+    <td>
+        <button class="button validate" type="submit"><?=JText::_('UPDATE');?></button>
+        <input type="hidden" name="task" value="register" />
+        <input type="hidden" name="controller" value="applicant" />
     </td>
 </tr>
 </table>
