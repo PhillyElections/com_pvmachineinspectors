@@ -1,4 +1,10 @@
-<?php defined('_JEXEC') or die('Restricted access');?>
+<?php defined('_JEXEC') or die('Restricted access');
+
+// import JPagination class
+jimport('joomla.html.pagination');
+// create JPagination object
+$pagination = new JPagination($total, $limitstart, $limit);
+?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm">
 	<div id="editcell">
 		<table class="adminlist">
@@ -10,6 +16,12 @@
 					<th width="5">
 						<input type="checkbox" name="toggle" value="" onclick="checkAll(<?=count($this->items);?>);" />
 					</th>
+					<th width="5">
+<?=JText::_('WARD');?>
+</th>
+					<th width="5">
+<?=JText::_('DIVISION');?>
+</th>
 					<th>
 <?=JText::_('NAME');?>
 </th>
@@ -18,12 +30,6 @@
 </th>
 					<th>
 <?=JText::_('EMAIL');?>
-</th>
-					<th width="5">
-<?=JText::_('WARD');?>
-</th>
-					<th width="5">
-<?=JText::_('DIVISION');?>
 </th>
 					<th>
 <?=JText::_('STREET ADDRESS');?>
@@ -43,36 +49,35 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
 	$matches  = '';
 	preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
 	?>
-				<tr class="<?="row$k";?>">
-					<td>
+					<tr class="<?="row$k";?>">
+						<td>
 	<?=$row->id;?>
 	</td>
-					<td>
+						<td>
 	<?=$checked;?>
-					</td>
-					<td>
-						<a href="<?=$link;
-	?>"><?=$fullname;?></a>
-					</td>
-					<td>
-	<?=count($matches)?sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]):'';?>
 	</td>
-					<td>
-	<?=$row->email;?>
-	</td>
-					<td>
+		</td>
+						<td>
 	<?=$row->ward;?>
 	</td>
-					<td>
+						<td>
 	<?=$row->division;?>
+		</td>					<td>
+							<a href="<?=$link;
+	?>"><?=$fullname;?></a>
+						</td>
+						<td>
+	<?=count($matches)?sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]):'';?>
 	</td>
-					<td>
+						<td>
+	<?=$row->email;?>
+	<td>
 	<?=$row->address1.($row->address2?' '.$row->address2:'');?>
 	</td>
-					<td>
+						<td>
 	<?=$row->postcode;?>
 	</td>
-				</tr>
+					</tr>
 	<?php
 	$k = 1-$k;
 }
@@ -85,3 +90,5 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
 	<input type="hidden" name="controller" value="applicant" />
 <?=JHTML::_('form.token');?>
 </form>
+
+<?=$pagination->getListFooter();?>
