@@ -18,7 +18,7 @@ foreach ($fields as $field) {
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 
 ?>
-<form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="josForm" name="josForm" class="form-validate">
+<form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="contentpane">
 <tr>
     <td width="30%" height="40">
@@ -97,7 +97,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
 <tr>
     <td height="40">&nbsp;</td>
     <td>
-        <button class="button validate" type="submit"><?=JText::_('UPDATE');?></button>
+        <button class="button validate" type="submit"><?=JText::_('REGISTER');?></button>
         <input type="hidden" name="task" value="register" />
         <input type="hidden" name="controller" value="applicant" />
     </td>
