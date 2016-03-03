@@ -28,11 +28,11 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', $prefix, true)?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', $prefix, 'prefix')?>
         <input type="text" name="first_name" id="first_name" size="18%" value="<?=$first_name?>" class="inputbox required" maxlength="50" placeholder="(firstname is required)" />
         <input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$middle_name?>" class="inputbox optional" maxlength="25" />
         <input type="text" name="last_name" id="last_name" size="18%" value="<?=$last_name?>" class="inputbox required" maxlength="50" placeholder="(lastname is required)" />
-        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', $suffix, true)?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', $suffix, 'suffix')?>
     </td>
 
 </tr>
@@ -73,7 +73,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), true)?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'region')?>
 </td>
 </tr>
 <tr>
