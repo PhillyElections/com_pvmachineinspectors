@@ -1,7 +1,7 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-
+$document = &JFactory::getDocument();
 jimport("pvcombo.PVCombo");
 
 if (count(JRequest::getVar('msg', null, 'post'))) {
