@@ -19,40 +19,48 @@ jimport('joomla.application.component.model');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class PvmachineinspectorsModelApplicants extends JModel
-{
-    /**
-     * Pvmachineinspectors data array
-     *
-     * @var array
-     */
-    public $_data;
+class PvmachineinspectorsModelApplicants extends JModel {
+	/**
+	 * Pvmachineinspectors data array
+	 *
+	 * @var array
+	 */
+	public $_data;
 
-    /**
-     * Returns the query
-     * @return string The query to be used to retrieve the rows from the database
-     */
-    public function _buildQuery()
-    {
-        $query = ' SELECT ia.*, d.ward, d.division '
-            . ' FROM #__pv_inspector_applicants ia left join #__divisions d on ia.division_id=d.id '
-        ;
+	/**
+	 * Returns the query
+	 * @return string The query to be used to retrieve the rows from the database
+	 */
+	public function _buildQuery() {
 
-        return $query;
-    }
+		$query = ' SELECT ia.*, d.ward, d.division '
+		.' FROM #__pv_inspector_applicants ia left join #__divisions d on ia.division_id=d.id '
+		;
 
-    /**
-     * Retrieves the Pvmachineinspector data
-     * @return array Array of objects containing the data from the database
-     */
-    public function getData()
-    {
-        // Lets load the data if it doesn't already exist
-        if (empty($this->_data)) {
-            $query = $this->_buildQuery();
-            $this->_data = $this->_getList($query);
-        }
+		return $query;
+	}
 
-        return $this->_data;
-    }
+	/**
+	 * Retrieves the Pvmachineinspector data
+	 * @return array Array of objects containing the data from the database
+	 */
+	public function getData() {
+		// get the application object
+		$app = &JFactory::getApplication();
+		// define the state context
+		$context = 'com_pvmachineinspectors.list.';
+		// get the limit
+		$limit = $app->getUserStateFromRequest($context.'limit', 'limit', 0, 'int');
+		// get the limitstart (backend)
+		$limitstart = $app->getUserStateFromRequest($context.'limitstart', 'limitstart', 0, 'int');
+		$limitstart = ($limit != 0?(floor($limitstart/$limit)*$limit):0);
+
+		// Lets load the data if it doesn't already exist
+		if (empty($this->_data)) {
+			$query       = $this->_buildQuery();
+			$this->_data = $this->_getList($query, $limitstart, $limit);
+		}
+
+		return $this->_data;
+	}
 }
