@@ -46,10 +46,12 @@
 			<folder>views/</folder>
 		</files>
 	</administration>
-    <languages>
-        <language tag="en-GB">site/language/en-GB/en-GB.com_pvmachineinspectors.ini</language>
-        <language tag="es-ES">site/language/es-ES/es-ES.com_pvmachineinspectors.ini</language>
-        <language tag="en-GB">admin/language/en-GB/en-GB.com_pvmachineinspectors.ini</language>
-        <language tag="es-ES">admin/language/es-ES/es-ES.com_pvmachineinspectors.ini</language>
+    <languages folder="site/">
+        <language tag="en-GB">language/en-GB/en-GB.com_pvmachineinspectors.ini</language>
+        <language tag="es-ES">language/es-ES/es-ES.com_pvmachineinspectors.ini</language>
+    </languages>
+    <languages folder="admin/">
+        <language tag="en-GB">language/en-GB/en-GB.com_pvmachineinspectors.ini</language>
+        <language tag="es-ES">language/es-ES/es-ES.com_pvmachineinspectors.ini</language>
     </languages>
 </install>
