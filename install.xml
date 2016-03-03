@@ -50,8 +50,4 @@
 			<folder>views/</folder>
 		</files>
 	</administration>
-    <languages folder="language/admin">
-        <language tag="en-GB">en-GB.com_pvmachineinspectors.ini</language>
-        <language tag="es-ES">es-ES.com_pvmachineinspectors.ini</language>
-    </languages>
 </install>
