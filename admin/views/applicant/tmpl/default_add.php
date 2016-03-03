@@ -97,7 +97,6 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
 <tr>
     <td height="40">&nbsp;</td>
     <td>
-    <td>
         <button class="button validate" type="submit"><?=JText::_('UPDATE');?></button>
         <input type="hidden" name="task" value="register" />
         <input type="hidden" name="controller" value="applicant" />
