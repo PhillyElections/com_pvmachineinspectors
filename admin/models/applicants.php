@@ -56,17 +56,24 @@ class PvmachineinspectorsModelApplicants extends JModel {
 		// Lets load the data if it doesn't already exist
 		if (empty($this->_data)) {
 			$query = $this->_buildQuery();
-			$this->_db->query($query);
-			d($this, $this->_db->getNumRows());
-			$this->_data = $this->_getList($query, $limitstart, $limit);
-			dd($this->_db->getNumRows());
 
+			// set naked query to get total
+			$this->_db->query($query);
+			$total = $this->_db->getNumRows();
+
+			// import JPagination class
+			jimport('joomla.html.pagination');
+
+			// create JPagination object
+			$paginmtion        = new JPagination($total, $limitstart, $limit);
+			$this->_pagination = $pagination;
+			$this->_data       = $this->_getList($query, $limitstart, $limit);
 		}
 
 		return $this->_data;
 	}
 
 	public function getPagination() {
-
+		return $this->_pagination;
 	}
 }
