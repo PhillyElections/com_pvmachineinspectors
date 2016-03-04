@@ -65,7 +65,7 @@ class PvmachineinspectorsModelApplicants extends JModel {
 			jimport('joomla.html.pagination');
 
 			// create JPagination object
-			$paginmtion        = new JPagination($total, $limitstart, $limit);
+			$pagination        = new JPagination($total, $limitstart, $limit);
 			$this->_pagination = $pagination;
 			$this->_data       = $this->_getList($query, $limitstart, $limit);
 		}
