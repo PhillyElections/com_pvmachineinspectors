@@ -33,7 +33,7 @@ class PvmachineinspectorsViewApplicants extends JView
         JToolBarHelper::addNewX();
 
         // Get data from the model
-        \
+
         $items = &$this->get('Data');
         $pagination = &$this->get('Pagination');
 
