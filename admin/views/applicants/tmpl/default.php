@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die('Restricted access');
 
-$pagination = &$this->pagination();
+$pagination = &$this->pagination;
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm">
 	<div id="editcell">
@@ -46,35 +46,35 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
 	$matches  = '';
 	preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
 	?>
-						<tr class="<?="row$k";?>">
-							<td>
+							<tr class="<?="row$k";?>">
+								<td>
 	<?=$row->id;?>
 	</td>
-							<td>
+								<td>
 	<?=$checked;?>
 	</td>
-			</td>
-							<td>
+				</td>
+								<td>
 	<?=$row->ward;?>
 	</td>
-							<td>
+								<td>
 	<?=$row->division;?>
-			</td>					<td>
-								<a href="<?=$link;
+				</td>					<td>
+									<a href="<?=$link;
 	?>"><?=$fullname;?></a>
-							</td>
-							<td>
+								</td>
+								<td>
 	<?=count($matches)?sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]):'';?>
 	</td>
-							<td>
+								<td>
 	<?=$row->email;?>
 	<td>
 	<?=$row->address1.($row->address2?' '.$row->address2:'');?>
 	</td>
-							<td>
+								<td>
 	<?=$row->postcode;?>
 	</td>
-						</tr>
+							</tr>
 	<?php
 	$k = 1-$k;
 }
