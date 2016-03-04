@@ -48,19 +48,23 @@ class PvmachineinspectorsModelApplicants extends JModel {
 		// get the application object
 		$app = &JFactory::getApplication();
 		// define the state context
-		$context = 'com_pvmachineinspectors.list.';
 		// get the limit
-		$limit = $app->getUserStateFromRequest($context.'limit', 'limit', 0, 'int');
+		$limit = $app->getUserStateFromRequest('limit', 'limit', 0, 'int');
 		// get the limitstart (backend)
 		$limitstart = $app->getUserStateFromRequest($context.'limitstart', 'limitstart', 0, 'int');
 		$limitstart = ($limit != 0?(floor($limitstart/$limit)*$limit):0);
 
 		// Lets load the data if it doesn't already exist
 		if (empty($this->_data)) {
-			$query       = $this->_buildQuery();
+			$query = $this->_buildQuery();
+			dd($this);
 			$this->_data = $this->_getList($query, $limitstart, $limit);
 		}
 
 		return $this->_data;
+	}
+
+	public function getPagination() {
+
 	}
 }
