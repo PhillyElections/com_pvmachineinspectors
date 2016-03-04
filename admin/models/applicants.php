@@ -56,9 +56,9 @@ class PvmachineinspectorsModelApplicants extends JModel {
 
 		// Lets load the data if it doesn't already exist
 		if (empty($this->_data)) {
-			$query = $this->_buildQuery();
-			dd($this);
+			$query       = $this->_buildQuery();
 			$this->_data = $this->_getList($query, $limitstart, $limit);
+			dd($this, $this->_db->getNumRows());
 		}
 
 		return $this->_data;
