@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die('Restricted access');
 $pagination = &$this->pagination;
-dd($this, $this->pagination);
+
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm">
 	<div id="editcell">
