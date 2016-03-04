@@ -19,61 +19,89 @@ jimport('joomla.application.component.model');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class PvmachineinspectorsModelApplicants extends JModel {
-	/**
-	 * Pvmachineinspectors data array
-	 *
-	 * @var array
-	 */
-	public $_data;
+class PvmachineinspectorsModelApplicants extends JModel
+{
+    /**
+     * Pvmachineinspectors data array
+     *
+     * @var array
+     */
+    public $_data;
 
-	/**
-	 * Returns the query
-	 * @return string The query to be used to retrieve the rows from the database
-	 */
-	public function _buildQuery() {
+    /**
+     * Items total
+     * @var integer
+     */
+    public $_total;
 
-		$query = ' SELECT ia.*, d.ward, d.division '
-		.' FROM #__pv_inspector_applicants ia left join #__divisions d on ia.division_id=d.id ';
+    /**
+     * Pagination object
+     * @var object
+     */
+    public $_pagination;
 
-		return $query;
-	}
+    public function __construct()
+    {
+        parent::__construct();
 
-	/**
-	 * Retrieves the Pvmachineinspector data
-	 * @return array Array of objects containing the data from the database
-	 */
-	public function getData() {
-		// get the application object
-		$app = &JFactory::getApplication();
-		// define the state context
-		// get the limit
-		$limit = $app->getUserStateFromRequest('limit', 'limit', 0, 'int');
-		// get the limitstart (backend)
-		$limitstart = $app->getUserStateFromRequest($context.'limitstart', 'limitstart', 0, 'int');
-		$limitstart = ($limit != 0?(floor($limitstart/$limit)*$limit):0);
+        $mainframe = JFactory::getApplication();
 
-		// Lets load the data if it doesn't already exist
-		if (empty($this->_data)) {
-			$query = $this->_buildQuery();
+        // Get pagination request variables
+        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
+        $limitstart = JRequest::getVar('limitstart', 0, '', 'int');
 
-			// set naked query to get total
-			$this->_db->query($query);
-			$total = $this->_db->getNumRows();
+        // In case limit has been changed, adjust it
+        $limitstart = ($limit != 0 ? (floor($limitstart / $limit) * $limit) : 0);
 
-			// import JPagination class
-			jimport('joomla.html.pagination');
+        $this->setState('limit', $limit);
+        $this->setState('limitstart', $limitstart);
+    }
 
-			// create JPagination object
-			$pagination        = new JPagination($total, $limitstart, $limit);
-			$this->_pagination = $pagination;
-			$this->_data       = $this->_getList($query, $limitstart, $limit);
-		}
+    /**
+     * Returns the query
+     * @return string The query to be used to retrieve the rows from the database
+     */
+    public function _buildQuery()
+    {
 
-		return $this->_data;
-	}
+        $query = ' SELECT ia.*, d.ward, d.division '
+            . ' FROM #__pv_inspector_applicants ia left join #__divisions d on ia.division_id=d.id '
+        ;
 
-	public function getPagination() {
-		return $this->_pagination;
-	}
+        return $query;
+    }
+
+    /**
+     * Retrieves the Pvmachineinspector data
+     * @return array Array of objects containing the data from the database
+     */
+    public function getData()
+    {
+        // if data hasn't already been obtained, load it
+        if (empty($this->_data)) {
+            $query = $this->_buildQuery();
+            $this->_data = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+        }
+        return $this->_data;
+    }
+
+    public function getTotal()
+    {
+        // Load the content if it doesn't already exist
+        if (empty($this->_total)) {
+            $query = $this->_buildQuery();
+            $this->_total = $this->_getListCount($query);
+        }
+        return $this->_total;
+    }
+
+    public function getPagination()
+    {
+        // Load the content if it doesn't already exist
+        if (empty($this->_pagination)) {
+            jimport('joomla.html.pagination');
+            $this->_pagination = new JPagination($this->getTotal(), $this->getState('limitstart'), $this->getState('limit'));
+        }
+        return $this->_pagination;
+    }
 }
