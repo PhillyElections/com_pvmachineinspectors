@@ -25,22 +25,15 @@ class PvmachineinspectorsViewApplicants extends JView
      * Pvmachineinspectors view display method
      * @return void
      **/
-    public function display($tpl = null)
+    public function display($tpl = 'export')
     {
+
         // Get data from the model
+
         $items = &$this->get('Data');
+
         $this->assignRef('items', $items);
 
-        if (!$tpl) {
-            JToolBarHelper::title(JText::_('Pvmachineinspector Manager'), 'generic.png');
-            JToolBarHelper::deleteList();
-            JToolBarHelper::editListX();
-            JToolBarHelper::addNewX();
-
-            $pagination = &$this->get('Pagination');
-            $this->assignRef('pagination', $pagination);
-        }
-        d($tpl);
         parent::display($tpl);
     }
 }
