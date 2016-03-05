@@ -40,7 +40,7 @@ class PvmachineinspectorsViewApplicants extends JView
             $pagination = &$this->get('Pagination');
             $this->assignRef('pagination', $pagination);
         }
-
+        d($tpl);
         parent::display($tpl);
     }
 }
