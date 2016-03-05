@@ -19,29 +19,9 @@ defined('_JEXEC') or die('Restricted access');
  */
 class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsController
 {
-    /**
-     * constructor (registers additional tasks to methods)
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-
-        // Register Extra tasks
-        $this->registerTask('export', 'export');
-
-    }
-
     public function display()
     {
         JRequest::setVar('view', 'applicants');
         parent::display();
-    }
-
-    public function export()
-    {
-        JRequest::setVar('view', 'applicants');
-        parent::display('export');
     }
 }
