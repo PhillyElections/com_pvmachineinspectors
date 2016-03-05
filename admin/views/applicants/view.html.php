@@ -27,20 +27,19 @@ class PvmachineinspectorsViewApplicants extends JView
      **/
     public function display($tpl = null)
     {
+        JToolBarHelper::title(JText::_('Pvmachineinspector Manager'), 'generic.png');
+        JToolBarHelper::deleteList();
+        JToolBarHelper::editListX();
+        JToolBarHelper::addNewX();
+
         // Get data from the model
+
         $items = &$this->get('Data');
+        $pagination = &$this->get('Pagination');
+
         $this->assignRef('items', $items);
+        $this->assignRef('pagination', $pagination);
 
-        if (!$tpl) {
-            JToolBarHelper::title(JText::_('Pvmachineinspector Manager'), 'generic.png');
-            JToolBarHelper::deleteList();
-            JToolBarHelper::editListX();
-            JToolBarHelper::addNewX();
-
-            $pagination = &$this->get('Pagination');
-            $this->assignRef('pagination', $pagination);
-        }
-        d($tpl);
         parent::display($tpl);
     }
 }
