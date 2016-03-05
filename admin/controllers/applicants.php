@@ -24,4 +24,10 @@ class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsControl
         JRequest::setVar('view', 'applicants');
         parent::display();
     }
+
+    public function export()
+    {
+        JRequest::setVar('view', 'applicants');
+        parent::display('export');
+    }
 }
