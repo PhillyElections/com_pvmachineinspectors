@@ -2,7 +2,7 @@
 
 //      JToolBarHelper::back();
 
-$exportFilename = date('Y-m-d') . '_appliants_export' . '.csv';
+$exportFilename = date('Y-m-d_h-i-s') . '_appliants_export' . '.csv';
 
 JResponse::clearHeaders();
 
@@ -26,14 +26,45 @@ ob_end_flush();
 
 JResponse::sendHeaders();
 $output = fopen('php://output', 'w');
-fputcsv($output, array('id', 'ward', 'division', 'prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'address1', 'address2', 'city', 'state', 'zip', 'email', 'phone'));
+fputcsv($output,
+    array('id',
+        'ward',
+        'division',
+        'prefix',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'suffix',
+        'address1',
+        'address2',
+        'city',
+        'state',
+        'zip',
+        'email',
+        'phone',
+    )
+);
 
 $k = 0;
 for ($i = 0, $n = count($this->items); $i < $n; $i++) {
     $row = &$this->items[$i];
-    fputcsv($output, array('id', 'ward', 'division', 'prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'address1', 'address2', 'city', 'state', 'zip', 'email', 'phone'));
-
-    fputcsv($output, array($row->id, $row->ward, $row->division, $row->prefix, $row->first_name, $row->middle_name, $row->last_name, $row->suffix, $row->address1, $row->address2, $row->address3, $row->city, $row->region, $row->postcode, $row->email, $row->phone));
-
+    fputcsv($output,
+        array($row->id,
+            $row->ward,
+            $row->division,
+            $row->prefix,
+            $row->first_name,
+            $row->middle_name,
+            $row->last_name,
+            $row->suffix,
+            $row->address1,
+            $row->address2,
+            $row->city,
+            $row->region,
+            $row->postcode,
+            $row->email,
+            $row->phone,
+        )
+    );
     $k = 1 - $k;
 }
