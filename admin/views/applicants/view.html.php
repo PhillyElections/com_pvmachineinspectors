@@ -32,7 +32,7 @@ class PvmachineinspectorsViewApplicants extends JView
         JToolBarHelper::editListX();
         JToolBarHelper::addNewX();
         $t = &JToolbar::getInstance('toolbar');
-        $t->appendButton('Popup', 'default', 'Export all', 'index.php?option=com_pvmachineinspectors&controller=applicants&task=export');
+        $t->appendButton('Popup', 'default', 'Export all', 'index.php?option=com_pvmachineinspectors&controller=applicants&format=raw');
         // Get data from the model
 
         $items = &$this->get('Data');
