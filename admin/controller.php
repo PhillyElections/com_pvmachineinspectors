@@ -2,9 +2,8 @@
 /**
  * Pvmachineinspectors default controller
  *
- * @package    Joomla.Tutorials
+ * @package    Philadelphia.Votes
  * @subpackage Components
- * @link http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_4
  * @license        GNU/GPL
  */
 
@@ -16,7 +15,7 @@ jimport('joomla.application.component.controller');
 /**
  * Pvmachineinspectors Component Controller
  *
- * @package    Joomla.Tutorials
+ * @package    Philadelphia.Votes
  * @subpackage Components
  */
 class PvmachineinspectorsController extends JController

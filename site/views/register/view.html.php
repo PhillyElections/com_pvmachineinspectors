@@ -1,13 +1,10 @@
 <?php
 /**
- * $Id: site/views/register/view.html.php $
- * $LastChangedBy: Matt Murphy $
- * Election Officials - Philadelphiavotes.com
- * a component for Joomla! 1.5 CMS (http://www.joomla.org)
- * Author Website: http://www.philadelphiavotes.com
- * @copyright Copyright (C) 2015 City of Philadelphia
- * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
- * @package Philadelphia.Votes
+ * Pvmachineinspectors register view
+ *
+ * @package    Philadelphia.Votes
+ * @subpackage Components
+ * @license        GNU/GPL
  */
 
 // Check to ensure this file is included in Joomla!

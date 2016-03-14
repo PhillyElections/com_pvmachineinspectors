@@ -2,9 +2,8 @@
 /**
  * Pvmachineinspectors Model for Pvmachineinspectors Component
  *
- * @package    Joomla.Tutorials
+ * @package    Philadelphia.Votes
  * @subpackage Components
- * @link http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_4
  * @license        GNU/GPL
  */
 
@@ -16,7 +15,7 @@ jimport('joomla.application.component.model');
 /**
  * Pvmachineinspector Model
  *
- * @package    Joomla.Tutorials
+ * @package    Philadelphia.Votes
  * @subpackage Components
  */
 class PvmachineinspectorsModelApplicants extends JModel

@@ -1,13 +1,10 @@
 <?php
 /**
- * $Id: site/views/thanks/view.html.php $
- * $LastChangedBy: Matt Murphy $
- * Election Officials - Philadelphiavotes.com
- * a component for Joomla! 1.5 CMS (http://www.joomla.org)
- * Author Website: http://www.philadelphiavotes.com
- * @copyright Copyright (C) 2015 City of Philadelphia
- * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
- * @package Philadelphia.Votes
+ * Pvmachineinspectors thanks view
+ *
+ * @package    Philadelphia.Votes
+ * @subpackage Components
+ * @license        GNU/GPL
  */
 
 // Check to ensure this file is included in Joomla!
@@ -20,8 +17,10 @@ jimport('joomla.application.component.view');
  *
  * @since 1.0
  */
-class PvmachineinspectorsViewThanks extends JView {
-    public function display() {
+class PvmachineinspectorsViewThanks extends JView
+{
+    public function display()
+    {
         global $mainframe;
         $pathway = &$mainframe->getPathway();
         $document = &JFactory::getDocument();

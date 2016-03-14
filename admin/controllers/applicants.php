@@ -2,9 +2,8 @@
 /**
  * Pvmachineinspector Controller for Pvmachineinspectors Component
  *
- * @package    Joomla.Tutorials
+ * @package    Philadelphia.Votes
  * @subpackage Components
- * @link http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_4
  * @license        GNU/GPL
  */
 
@@ -14,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 /**
  * Pvmachineinspector Pvmachineinspector Controller
  *
- * @package    Joomla.Tutorials
+ * @package    Philadelphia.Votes
  * @subpackage Components
  */
 class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsController

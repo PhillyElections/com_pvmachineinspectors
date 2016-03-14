@@ -1,10 +1,7 @@
 <?php
 /**
- * $Id: admin/tables/division.php $
- * $LastChangedBy: Matt Murphy $
- * Campaign Finance Reports - Philadelphiavotes.com
- * a component for Joomla! 1.5 CMS (http://www.joomla.org)
- * Author Website: http://www.philadelphiavotes.com
+ * division table for Pvmachineinspectors Component
+ *
  * @copyright Copyright (C) 2015 City of Philadelphia
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  * @package Philadelphia.Votes
