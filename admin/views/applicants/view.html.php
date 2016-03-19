@@ -26,7 +26,7 @@ class PvmachineinspectorsViewApplicants extends JView
      **/
     public function display($tpl = null)
     {
-        JToolBarHelper::title(JText::_('Pvmachineinspector Manager'), 'generic.png');
+        JToolBarHelper::title(JText::_('Machine Inspectors Manager'), 'generic.png');
         JToolBarHelper::deleteList();
         JToolBarHelper::editListX();
         JToolBarHelper::addNewX();
