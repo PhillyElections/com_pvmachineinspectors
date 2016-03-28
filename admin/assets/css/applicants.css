@@ -1,0 +1,123 @@
+/*The container that holds the dropdown items*/
+.mcs-container{
+    width:100%;
+    max-height: 15em;
+    overflow-y:scroll;
+    background:#ddd;
+    box-sizing: border-box;
+    display:none;
+    position: relative;
+    padding:.5em;
+    clear:both;
+}
+
+/*The menu items (options)*/
+.additem,
+.mcs-open,
+.mcs-item{
+    box-sizing: border-box;
+    background:#ccc;
+    color:#222;    
+    text-decoration: none;
+    width:3em;
+    float:left;
+    height: 2em;
+    line-height: 1.66em;
+    text-align: center;
+    border:.1em solid #aaa;    
+}
+
+.additem{
+    width:4em;
+}
+
+.mcs-open{
+    border: 0;
+    text-align: left;
+    padding: auto;
+    width:100%;
+    margin-top:1em;
+}
+
+.mcs-open.open{
+    background:#fff;
+    color:#444;
+}
+.mcs-open.open:hover{
+    background:#444;
+    color:#fff;
+}
+
+.mcs-item.active{
+    background:#e8e8e8;
+    color:#222;
+    border:.1em solid #222;
+}
+
+.additem:hover,
+.mcs-item:hover,
+.mcs-open:hover{
+    background:#444;
+    color:#fff;
+    cursor:pointer;
+}
+
+button:hover{
+    cursor:pointer;
+}
+
+/*Hide Select Form Control*/
+.hidden{
+    visibility: hidden;
+    height: 0;
+    width:0;
+    position:absolute;
+}
+
+/*Clear class used to push float- can just point to an exsisting clear class*/
+.clear{
+    display:block;
+    clear:both;
+}
+
+.wrapper{
+    width:100%;
+    padding:2em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mcs-open{
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size:1em;
+}           
+
+.additem,
+.mcs-item{
+    font-family: 'Ubuntu', sans-serif;
+    font-size:1.2em;
+    -webkit-border-radius: .2em .2em .2em .2em;
+    border-radius: .2em .2em .2em .2em;
+    text-shadow: -.1em .1em .1em #eee;
+    -webkit-box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
+    box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
+}
+
+.mcs-item:hover{
+    -webkit-border-radius: .2em .2em .2em .2em;
+    border-radius: .2em .2em .2em .2em;
+    text-shadow: -.1em .1em .1em #eee;
+    -webkit-box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
+    box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
+
+}
+
+.mcs-item.active{
+    text-shadow: 0 0 0 #FFF;
+    border: .25em;
+}
+
+.mcs-item.active:hover{
+    background:#FFF;
+    text-shadow: 0 0 0 #FFF;
+}
