@@ -1,12 +1,21 @@
 <?php defined('_JEXEC') or die('Restricted access');
 $pagination = &$this->pagination;
 
+$document = &JFactory::getDocument();
+$document->addCustomTag('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>');
+$document->addCustomTag('<script src="components/com_pvpollingplaces/assets/js/filter.js"></script>');
+$document->addCustomTag('<script src="/media/multi-column-select/Multi-Column-Select/Multi-Column-Select.js" async defer></script>');
+$document->addStyleSheet('components/com_pvpollingplaces/assets/css/filter.css');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm">
 	<div id="editcell">
 		<table class="adminlist">
 			<thead>
 				<tr>
+                <tr>
+                    <th colspan="9" id="selectcontrol" data-label="Filter by Wards">
+                        <?=JHTML::_('select.genericlist', PVCombo::getsFromObject($this->wards, 'ward', 'ward'), 'ward[]', 'multiple', 'idx', 'value', (JRequest::getVar('ward') ? JRequest::getVar('ward') : ''), 'ward');?></th>
+                </tr>
 					<th width="5">
 						<?=JText::_('ID');?>
 					</th>
