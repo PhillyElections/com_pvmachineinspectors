@@ -2,7 +2,7 @@
 .mcs-container{
     width:100%;
     max-height: 15em;
-    overflow-y:scroll;
+    overflow:auto;
     background:#ddd;
     box-sizing: border-box;
     display:none;
@@ -118,6 +118,7 @@ button:hover{
 }
 
 .mcs-item.active:hover{
+    color: #CCC;
     background:#FFF;
     text-shadow: 0 0 0 #FFF;
 }

@@ -17,25 +17,27 @@ var Applicants = (function($) {
         });
     };
     inner.build = function() {
-        $("#selectcontrol").MultiColumnSelect({
-            multiple: true, // Single or Multiple Select- Default Single
-            useOptionText: true, // Use text from option. Use false if you plan to use images
-            hideselect: true, // Hide Original Select Control
-            openmenuClass: 'mcs-open', // Toggle Open Button Class
-            openmenuText: 'Filter by Ward', // Text for button
-            openclass: 'open', // Class added to Toggle button on open
-            containerClass: 'mcs-container', // Class of parent container
-            itemClass: 'mcs-item', // Class of menu items
-            idprefix: 'wards-', // Assign as ID to items eg 'item-' = #item-1, #item-2, #item-3...
-            duration: 200, //Toggle Height duration
+        $selectcontrol = $("#selectcontrol");
+        $selectcontrol.MultiColumnSelect({
+            multiple: true,
+            useOptionText: true,
+            hideselect: true,
+            openmenuClass: 'mcs-open',
+            openmenuText: 'Filter by Ward',
+            openclass: 'open',
+            containerClass: 'mcs-container',
+            itemClass: 'mcs-item',
+            idprefix: 'wards-',
+            duration: 200,
             onOpen: function() {},
             onClose: function() {},
             onItemSelect: function() {}
         });
-        $('#selectcontrol').MultiColumnSelectAddItem('all', 'All', 'wards-');
-        $('#selectcontrol').MultiColumnSelectAddItem('none', 'None', 'wards-');
-        $('#selectcontrol').MultiColumnSelectAddItem('invert', 'Invert', 'wards-');
-        $('#selectcontrol').MultiColumnSelectAddItem('submit', 'Submit', 'wards-');
+        $('.mcs-container').append('<hr class="clear" />');
+        $selectcontrol.MultiColumnSelectAddItem('all', 'All', 'wards-');
+        $selectcontrol.MultiColumnSelectAddItem('none', 'None', 'wards-');
+        $selectcontrol.MultiColumnSelectAddItem('invert', 'Invert', 'wards-');
+        $selectcontrol.MultiColumnSelectAddItem('submit', 'Submit', 'wards-');
     };
     outer.init = function() {
         inner.build();
