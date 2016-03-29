@@ -62,12 +62,40 @@ class PvmachineinspectorsModelApplicants extends JModel
      */
     public function _buildQuery()
     {
-
+        $where = '';
+        $tmp = array();
         $query = ' SELECT ia.*, d.ward, d.division '
             . ' FROM #__pv_inspector_applicants ia left join #__divisions d on ia.division_id=d.id '
         ;
+        $wards_list = $divisions_list = array();
 
-        return $query;
+        $wards = JRequest::getVar('ward', false);
+        $divisions = JRequest::getVar('div', false);
+
+        if ($divisions) {
+            $where = ' where ';
+            foreach ($divisions as $division) {
+                $div_elem = (string) JString::substr(trim($division), 0, 2);
+                if (!isset($divisions_list[$div_elem])) {
+                    $divisions_list[$div_elem] = array();
+                }
+                array_push($divisions_list[$div_elem], $this->_db->quote(JString::substr($division, 2, 2)));
+            }
+            foreach ($divisions_list as $ward => $divs) {
+                $tmp[] = '(d.ward=' . $this->_db->quote($ward) . ' and d.division in (' . implode(', ', $divs) . '))';
+
+            }
+            $where .= implode(' or ', $tmp);
+
+        } elseif ($wards) {
+            foreach ($wards as $ward) {
+                $wards_list[] = $this->_db->quote((int) $ward);
+            }
+            $where = ' where ';
+            $where = ' where TRIM(LEADING \'0\' FROM ward) in (' . implode(", ", $wards_list) . ') ';
+        }
+
+        return $query . $where;
     }
 
     /**
