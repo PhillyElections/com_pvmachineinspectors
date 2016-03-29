@@ -35,7 +35,7 @@ class PvmachineinspectorsViewApplicants extends JView
         // Get data from the model
 
         $model = $this->getModel('Wards');
-        d($model);
+        d($model, $this);
         $wards = $model->getData();
         $this->assignRef('wards', $wards);
 
