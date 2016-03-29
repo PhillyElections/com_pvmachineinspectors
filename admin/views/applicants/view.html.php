@@ -26,12 +26,12 @@ class PvmachineinspectorsViewApplicants extends JView
      **/
     public function display($tpl = null)
     {
+        $divlink = $wardlink = '';
         JToolBarHelper::title(JText::_('Machine Inspectors Manager'), 'generic.png');
         JToolBarHelper::deleteList();
         JToolBarHelper::editListX();
         JToolBarHelper::addNewX();
-        $t = &JToolbar::getInstance('toolbar');
-        $t->appendButton('Link', 'default', 'Export Filter', 'index.php?option=com_pvmachineinspectors&controller=applicants&format=raw');
+
         // Get data from the model
 
         $model = $this->getModel('Wards');
@@ -48,6 +48,9 @@ class PvmachineinspectorsViewApplicants extends JView
             $divisions = $model->getData();
             $this->assignRef('divisions', $divisions);
         }
+
+        $t = &JToolbar::getInstance('toolbar');
+        $t->appendButton('Link', 'default', 'Export Filter', 'index.php?option=com_pvpollingplaces&controller=places&format=raw' . $wardlink . $divlink);
 
         $items = &$this->get('Data');
         $pagination = &$this->get('Pagination');
