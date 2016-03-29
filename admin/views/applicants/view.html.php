@@ -34,6 +34,21 @@ class PvmachineinspectorsViewApplicants extends JView
         $t->appendButton('Link', 'default', 'Export Filter', 'index.php?option=com_pvmachineinspectors&controller=applicants&format=raw');
         // Get data from the model
 
+        $model = $this->getModel('Wards');
+        $wards = $model->getData();
+        $this->assignRef('wards', $wards);
+
+        // leaving division wiring in place
+        if (JRequest::getVar('ward', false) && !JRequest::getVar('format', false)) {
+            if (JRequest::getVar('div', false)) {
+                $divlink = "&div=" . JRequest::getVar('div');
+            }
+            $wardlink = "&ward=" . JRequest::getVar('ward');
+            $model = $this->getModel('Divisions');
+            $divisions = $model->getData();
+            $this->assignRef('divisions', $divisions);
+        }
+
         $items = &$this->get('Data');
         $pagination = &$this->get('Pagination');
 
