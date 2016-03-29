@@ -20,7 +20,15 @@ class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsControl
 {
     public function display()
     {
-        JRequest::setVar('view', 'applicants');
-        parent::display();
+        // if 'raw' isn't explicit, set to 'html'
+        $view = $this->getView('places', JRequest::getWord('format', 'html'));
+        $view->setModel($this->getModel('Places'), true);
+        $view->setModel($this->getModel('Wards'), false);
+
+        if (JRequest::getVar('ward', false)) {
+            $view->setModel($this->getModel('Divisions'), false);
+        }
+
+        $view->display();
     }
 }
