@@ -25,9 +25,9 @@ class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsControl
         $view->setModel($this->getModel('Applicants'), true);
         $view->setModel($this->getModel('Wards'), false);
 
-        //if (JRequest::getVar('ward', false)) {
-        //    $view->setModel($this->getModel('Divisions'), false);
-        //}
+        if (JRequest::getVar('ward', false)) {
+            $view->setModel($this->getModel('Divisions'), false);
+        }
 
         $view->display();
     }
