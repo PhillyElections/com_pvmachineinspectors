@@ -9,7 +9,7 @@ $document->addCustomTag('<script src="components/com_pvpollingplaces/assets/js/f
 $document->addCustomTag('<script src="/media/multi-column-select/Multi-Column-Select/Multi-Column-Select.js" async defer></script>');
 $document->addStyleSheet('components/com_pvpollingplaces/assets/css/filter.css');
 ?>
-<form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm">
+<form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm" id="adminForm">
 	<div id="editcell">
 		<table class="adminlist">
 			<thead>
