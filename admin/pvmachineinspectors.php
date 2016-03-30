@@ -35,7 +35,7 @@ if ($controller = JRequest::getWord('controller', 'applicants')) {
         $controller = '';
     }
 }
-
+d($controller);
 // Create the controller
 $classname = 'PvmachineinspectorsController' . ucfirst($controller);
 
