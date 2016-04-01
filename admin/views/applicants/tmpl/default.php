@@ -18,7 +18,7 @@ if (count($this->items)):
 ?>
                 <tr>
                     <th colspan="9" data-filter="Filter by Wards">
-                        <?=JHTML::_('select.genericlist', PVCombo::getsFromObject($this->wards, 'ward', 'ward'), 'ward[]', 'multiple', 'idx', 'value', (JRequest::getVar('ward') ? JRequest::getVar('ward') : ''), 'ward');?></th>
+                        <?=JHTML::_('select.genericlist', PVCombo::getsFromObject($this->wards, 'ward', 'ward'), 'ward[]', 'multiple style="display:none"', 'idx', 'value', (JRequest::getVar('ward') ? JRequest::getVar('ward') : ''), 'ward');?></th>
                 </tr>
 <?php
 endif;
