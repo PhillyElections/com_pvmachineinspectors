@@ -35,9 +35,9 @@
 }
 
 .mcs-open{
-    margin: auto;
+/*    margin: auto;
     width:auto;
-    padding:.1em .25em .1em .25em;
+*/    padding:.1em 1em .1em 1em;
 }
 
 .mcs-open.open{
