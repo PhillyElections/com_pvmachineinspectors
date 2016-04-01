@@ -18,7 +18,7 @@ jQuery.noConflict();
     };
     inner.build = function() {
         var selectcontrols = document.querySelectorAll("[data-filter]");
-        for (var i=0; i<selectcontrols.length; $i++) {
+        for (var i=0; i<selectcontrols.length; i++) {
             $selectcontrol = $(selectcontrols[i]);
             $selectcontrol.MultiColumnSelect({
                 multiple: true,
