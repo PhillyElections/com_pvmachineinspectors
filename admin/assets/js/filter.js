@@ -23,7 +23,7 @@ jQuery.noConflict();
             useOptionText: true,
             hideselect: true,
             openmenuClass: 'mcs-open',
-            openmenuText: $(this).data('filter'),
+            openmenuText: this.data('filter'),
             openclass: 'open',
             containerClass: 'mcs-container',
             itemClass: 'mcs-item',
