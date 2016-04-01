@@ -36,6 +36,12 @@ class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsControl
     {
         $mainframe = JFactory::getApplication();
         $cid = JRequest::getVar('cid');
-        $mainframe->redirect('index.php?option=com_pvmachineinspectors&controller=applicant&cid=' . $cid[0]);
+        $mainframe->redirect('index.php?option=com_pvmachineinspectors&controller=applicant&task=edit&cid=' . $cid[0]);
+    }
+
+    public function add()
+    {
+        $mainframe = JFactory::getApplication();
+        $mainframe->redirect('index.php?option=com_pvmachineinspectors&controller=applicant&task=add&&cid=' . $cid[0]);
     }
 }
