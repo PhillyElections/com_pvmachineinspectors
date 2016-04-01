@@ -35,7 +35,7 @@ jQuery.noConflict();
                 onClose: function() {},
                 onItemSelect: function() {}
             });
-            $('.mcs-container').append('<hr class="clear" />');
+            $selectcontrol.child('.mcs-container').append('<hr class="clear" />');
             $selectcontrol.MultiColumnSelectAddItem('all', 'All', 'wards-');
             $selectcontrol.MultiColumnSelectAddItem('none', 'None', 'wards-');
             $selectcontrol.MultiColumnSelectAddItem('invert', 'Invert', 'wards-');
