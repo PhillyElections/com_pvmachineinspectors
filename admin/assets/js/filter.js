@@ -17,13 +17,13 @@ jQuery.noConflict();
         });
     };
     inner.build = function() {
-        $selectcontrol = $("#selectcontrol");
+        $selectcontrol = $("[data-filter=*]");
         $selectcontrol.MultiColumnSelect({
             multiple: true,
             useOptionText: true,
             hideselect: true,
             openmenuClass: 'mcs-open',
-            openmenuText: 'Filter by Ward',
+            openmenuText: $(this).data('filter'),
             openclass: 'open',
             containerClass: 'mcs-container',
             itemClass: 'mcs-item',
