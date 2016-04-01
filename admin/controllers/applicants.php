@@ -36,6 +36,6 @@ class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsControl
     {
         $mainframe = JFactory::getApplication();
         $cid = JRequest::getVar('cid');
-        $mainframe->redirect('index.php?option=com_pvmachineinspectors&view=applicant&cid=' . $cid[0]);
+        $mainframe->redirect('index.php?option=com_pvmachineinspectors&controller=applicant&cid=' . $cid[0]);
     }
 }
