@@ -34,10 +34,9 @@
 .mcs-open{
     border: .1em;
     text-align: left;
-    padding: auto;
+    margin: auto;
     width:auto;
-    margin:.1em .25em .1em .25em;
-    border:.1em solid #222;
+    padding:.1em .25em .1em .25em;
 }
 
 .mcs-open.open{
@@ -95,28 +94,13 @@ button:hover{
 .mcs-item{
     font-family: 'Ubuntu', sans-serif;
     font-size:1.2em;
-    -webkit-border-radius: .2em .2em .2em .2em;
-    border-radius: .2em .2em .2em .2em;
-    text-shadow: -.1em .1em .1em #eee;
-    -webkit-box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
-    box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
-}
-
-.mcs-item:hover{
-    -webkit-border-radius: .2em .2em .2em .2em;
-    border-radius: .2em .2em .2em .2em;
-    text-shadow: -.1em .1em .1em #eee;
-    -webkit-box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
-    box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
 }
 
 .mcs-item.active{
-    text-shadow: 0 0 0 #FFF;
     border: .25em;
 }
 
 .mcs-item.active:hover{
     color: #CCC;
     background:#FFF;
-    text-shadow: 0 0 0 #FFF;
 }
