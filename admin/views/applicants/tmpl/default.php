@@ -17,7 +17,7 @@ $document->addStyleSheet('components/com_pvpollingplaces/assets/css/filter.css')
 if (count($this->items)):
 ?>
                 <tr>
-                    <th colspan="9" id="selectcontrol" data-label="Filter by Wards">
+                    <th colspan="9" data-filter="Filter by Wards">
                         <?=JHTML::_('select.genericlist', PVCombo::getsFromObject($this->wards, 'ward', 'ward'), 'ward[]', 'multiple', 'idx', 'value', (JRequest::getVar('ward') ? JRequest::getVar('ward') : ''), 'ward');?></th>
                 </tr>
 <?php
