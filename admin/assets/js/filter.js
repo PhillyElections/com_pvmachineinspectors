@@ -19,6 +19,7 @@ jQuery.noConflict();
     inner.build = function() {
         $selectcontrols = $("[data-filter]");
         $selectcontrols.each(function($selectcontrol) {
+            d($selectcontrol);
             $selectcontrol.MultiColumnSelect({
                 multiple: true,
                 useOptionText: true,
