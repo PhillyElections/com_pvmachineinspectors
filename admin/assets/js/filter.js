@@ -17,9 +17,9 @@ jQuery.noConflict();
         });
     };
     inner.build = function() {
-        $selectcontrols = $("[data-filter]");
-        $selectcontrols.each(function($selectcontrol) {
-            console.log($selectcontrol);
+        var selectcontrols = document.querySelectorAll("[data-filter]");
+        for (var i=1, i<selectcontrols.length, $i++) {
+            $selectcontrol = $(selectcontrols[i]);
             $selectcontrol.MultiColumnSelect({
                 multiple: true,
                 useOptionText: true,
@@ -40,7 +40,7 @@ jQuery.noConflict();
             $selectcontrol.MultiColumnSelectAddItem('none', 'None', 'wards-');
             $selectcontrol.MultiColumnSelectAddItem('invert', 'Invert', 'wards-');
             $selectcontrol.MultiColumnSelectAddItem('submit', 'Submit', 'wards-');
-        });
+        }
     };
     outer.init = function() {
         inner.build();
