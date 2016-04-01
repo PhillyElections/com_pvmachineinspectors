@@ -19,7 +19,6 @@
     background:#ccc;
     color:#222;
     text-decoration: none;
-    width:3em;
     float:left;
     height: 2em;
     line-height: 1.66em;
@@ -31,9 +30,11 @@
     width:4em;
 }
 
+.mcs-item {
+    width:3em;
+}
+
 .mcs-open{
-    border: .1em;
-    text-align: left;
     margin: auto;
     width:auto;
     padding:.1em .25em .1em .25em;
@@ -47,7 +48,6 @@
 .mcs-item.active{
     background:#e8e8e8;
     color:#222;
-    border:.1em solid #222;
 }
 
 .additem:hover,
@@ -57,11 +57,14 @@
     color:#ddd;
     cursor:pointer;
     text-decoration: none;
-    border:.1em solid #222;
 }
 
-button:hover{
-    cursor:pointer;
+.mcs-item.active{
+    border: .25em;
+}
+.mcs-item.active:hover{
+    background:#FFF;
+    color: #222;
 }
 
 /*Hide Select Form Control*/
@@ -94,13 +97,4 @@ button:hover{
 .mcs-item{
     font-family: 'Ubuntu', sans-serif;
     font-size:1.2em;
-}
-
-.mcs-item.active{
-    border: .25em;
-}
-
-.mcs-item.active:hover{
-    color: #CCC;
-    background:#FFF;
 }
