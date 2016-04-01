@@ -32,16 +32,15 @@
 }
 
 .mcs-open{
-    border: 0;
+    border: .1em;
     text-align: left;
     padding: auto;
-    width:100%;
-    margin-top:1em;
-    text-decoration: none;
+    width:auto;
+    margin:.1em .25em .1em .25em;
 }
 
 .mcs-open.open{
-    background:#fff;
+    background:#e8e8e8;
     color:#444;
 }
 .mcs-open.open:hover{
@@ -58,9 +57,10 @@
 .additem:hover,
 .mcs-item:hover,
 .mcs-open:hover{
-    background:#444;
-    color:#fff;
+    background:#888;
+    color:#ddd;
     cursor:pointer;
+    text-decoration: none;
 }
 
 button:hover{
@@ -110,7 +110,6 @@ button:hover{
     text-shadow: -.1em .1em .1em #eee;
     -webkit-box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
     box-shadow: 0 0 .2em .1em rgba(0,0,0,0.4);
-
 }
 
 .mcs-item.active{
