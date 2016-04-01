@@ -17,13 +17,13 @@ jQuery.noConflict();
         });
     };
     inner.build = function() {
-        $selectcontrol = $("[data-filter=*]");
+        $selectcontrol = $("[data-filter]");
         $selectcontrol.MultiColumnSelect({
             multiple: true,
             useOptionText: true,
             hideselect: true,
             openmenuClass: 'mcs-open',
-            openmenuText: $(this).data('filter'),
+            openmenuText: $(this).dataAttr('filter'),
             openclass: 'open',
             containerClass: 'mcs-container',
             itemClass: 'mcs-item',
