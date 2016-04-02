@@ -1,99 +1,98 @@
-/*The container that holds the dropdown items*/
-.mcs-container{
-    width:100%;
-    max-height: 15em;
-    overflow:auto;
-    background:#ddd;
-    box-sizing: border-box;
-    display:none;
-    position: relative;
-    padding:.5em;
-    clear:both;
+.mcs-container {
+  width: 100%;
+  max-height: 15em;
+  overflow: auto;
+  background: #ddd;
+  box-sizing: border-box;
+  display: none;
+  position: relative;
+  padding: .5em;
+  clear: both
 }
 
-/*The menu items (options)*/
 .additem,
 .mcs-open,
-.mcs-item{
-    box-sizing: border-box;
-    background:#ccc;
-    color:#222;
-    text-decoration: none;
-    float:left;
-    height: 2em;
-    line-height: 1.66em;
-    text-align: center;
-    border:.1em solid #aaa;    
+.mcs-item {
+  box-sizing: border-box;
+  background: #ccc;
+  color: #222;
+  text-decoration: none;
+  float: left;
+  height: 2em;
+  line-height: 1.66em;
+  text-align: center;
+  border: .1em solid #aaa;
+  -moz-border-radius: .1em;
+  -webkit-border-radius: .1em;
+  border-radius: .1em;
+  -khtml-border-radius: .1em
 }
 
-.additem{
-    min-width: 4em;
-    width:auto;
-    padding-right: .5em;
-    padding-left: .5em;
+.additem {
+  min-width: 4em;
+  width: auto;
+  padding-right: .5em;
+  padding-left: .5em
 }
 
 .mcs-item {
-    width:3em;
+  width: 3em
 }
 
-.mcs-open{
-/*    margin: auto;
-    width:auto;
-*/    padding:.1em 1em .1em 1em;
+.mcs-open {
+  padding: .1em 1em .1em 1em
 }
 
-.mcs-open.open{
-    background:#e8e8e8;
-    color:#444;
+.mcs-open.open {
+  background: #e8e8e8;
+  color: #444
 }
 
-.mcs-item.active{
-    background:#e8e8e8;
-    color:#222;
+.mcs-item.active {
+  background: #e8e8e8;
+  color: #222
 }
 
 .additem:hover,
 .mcs-item:hover,
-.mcs-open:hover{
-    background:#888;
-    color:#ddd;
-    cursor:pointer;
-    text-decoration: none;
-}
-.mcs-item.active:hover{
-    background:#FFF;
-    color: #222;
+.mcs-open:hover {
+  background: #888;
+  color: #ddd;
+  cursor: pointer;
+  text-decoration: none
 }
 
-/*Hide Select Form Control*/
-.hidden{
-    visibility: hidden;
-    height: 0;
-    width:0;
-    position:absolute;
+.mcs-item.active:hover {
+  background: #FFF;
+  color: #222
 }
 
-/*Clear class used to push float- can just point to an exsisting clear class*/
-.clear{
-    display:block;
-    clear:both;
+.hidden {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  position: absolute
 }
 
-.wrapper{
-    width:100%;
-    padding:2em;
-    margin: 0 auto;
-    text-align: center;
+.clear {
+  display: block;
+  clear: both
 }
 
-.mcs-open{
-    font-family: 'Ubuntu Condensed', sans-serif;
-    font-size:1em;
-}           
+.wrapper {
+  width: 100%;
+  padding: 2em;
+  margin: 0 auto;
+  text-align: center
+}
+
+.mcs-open {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 1em
+}
 
 .additem,
-.mcs-item{
-    font-family: 'Ubuntu', sans-serif;
-    font-size:1.2em;
+.mcs-item {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2em
 }
