@@ -18,7 +18,7 @@ jQuery.noConflict();
     };
     inner.build = function() {
         var selectcontrols = document.querySelectorAll("[data-filter]");
-        for (var i=0; i<selectcontrols.length; i++) {
+        for (var i = 0; i < selectcontrols.length; i++) {
             $selectcontrol = $(selectcontrols[i]);
             $selectcontrol.MultiColumnSelect({
                 multiple: true,
@@ -36,10 +36,12 @@ jQuery.noConflict();
                 onItemSelect: function() {}
             });
             $selectcontrol.children('.mcs-container').append('<hr class="clear" />');
-            $selectcontrol.MultiColumnSelectAddItem('all', 'All', 'wards-');
-            $selectcontrol.MultiColumnSelectAddItem('none', 'None', 'wards-');
-            $selectcontrol.MultiColumnSelectAddItem('invert', 'Invert', 'wards-');
-            $selectcontrol.MultiColumnSelectAddItem('submit', 'Submit', 'wards-');
+            $selectcontrol.
+                MultiColumnSelectAddItem('all', 'All', 'wards-').
+                MultiColumnSelectAddItem('none', 'None', 'wards-').
+                MultiColumnSelectAddItem('invert', 'Invert', 'wards-').
+                MultiColumnSelectAddItem('submit', 'Submit', 'wards-');
+            $selectcontrol.children('.mcs-container').append('<hr class="clear" />');
         }
     };
     outer.init = function() {
