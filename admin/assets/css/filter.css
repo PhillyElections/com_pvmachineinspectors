@@ -6,13 +6,19 @@
   box-sizing: border-box;
   display: none;
   position: relative;
-  padding: .5em;
+  padding: .25em;
   clear: both
+}
+
+.mcs-container hr {
+  padding: auto;
+  margin: auto;
 }
 
 .additem,
 .mcs-open,
 .mcs-item {
+  margin: .02em;
   box-sizing: border-box;
   background: #ccc;
   color: #222;
@@ -22,10 +28,10 @@
   line-height: 1.66em;
   text-align: center;
   border: .1em solid #aaa;
-  -moz-border-radius: .15em;
-  -webkit-border-radius: .15em;
-  border-radius: .15em;
-  -khtml-border-radius: .15em
+  -moz-border-radius: .25em;
+  -webkit-border-radius: .25em;
+  border-radius: .25em;
+  -khtml-border-radius: .25em
 }
 
 .additem {
@@ -77,13 +83,6 @@
 .clear {
   display: block;
   clear: both
-}
-
-.wrapper {
-  width: 100%;
-  padding: 2em;
-  margin: 0 auto;
-  text-align: center
 }
 
 .mcs-open {
