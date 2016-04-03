@@ -40,7 +40,6 @@ jQuery.noConflict();
             $selectcontrol.MultiColumnSelectAddItem('none', 'None', 'wards-');
             $selectcontrol.MultiColumnSelectAddItem('invert', 'Invert', 'wards-');
             $selectcontrol.MultiColumnSelectAddItem('submit', 'Submit', 'wards-');
-            $selectcontrol.children('.mcs-container').append('<hr class="clear" />');
         }
     };
     outer.init = function() {
