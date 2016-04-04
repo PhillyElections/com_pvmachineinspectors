@@ -31,7 +31,8 @@
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
   border-radius: .25em;
-  -khtml-border-radius: .25em
+  -khtml-border-radius: .25em;
+  padding-top: .2em
 }
 
 .additem {
@@ -46,7 +47,7 @@
 }
 
 .mcs-open {
-  padding: .1em 1em .1em 1em
+  padding: .2em 1em .1em 1em
 }
 
 .mcs-open.open {
