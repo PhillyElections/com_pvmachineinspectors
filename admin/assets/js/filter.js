@@ -17,7 +17,7 @@ jQuery.noConflict();
         });
     };
     inner.build = function() {
-        var selectcontrols = document.querySelectorAll("[data-filter]");
+        var selectcontrols = document.querySelectorAll("[data-filter]"), $selectcontrol=[];
         for (var i=0; i<selectcontrols.length; i++) {
             $selectcontrol = $(selectcontrols[i]);
             $selectcontrol.MultiColumnSelect({
