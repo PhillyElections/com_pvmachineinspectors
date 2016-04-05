@@ -15,7 +15,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="contentpane">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="adminform">
 <tr>
     <td width="30%" height="40">
         <label id="namemsg" for="first_name">
