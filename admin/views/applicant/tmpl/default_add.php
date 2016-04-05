@@ -19,7 +19,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td width="25em" height="2em">
+                <td width="50em" height="2em">
                     <label id="namemsg" for="first_name"><?=JText::_('NAME');?>:</label>
                 </td>
                 <td>
@@ -35,7 +35,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td height="2em">
+                <td width="50em" height="2em">
                     <label id="address1msg" for="address1"><?=JText::_('STREET ADDRESS');?>:</label>
                 </td>
                 <td>
@@ -81,7 +81,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td height="2em">
+                <td width="50em" height="2em">
                     <label id="phonemsg" for="phone">
                         <?=JText::_('PHONE');?>:
                     </label>
