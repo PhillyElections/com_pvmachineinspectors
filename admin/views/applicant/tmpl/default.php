@@ -13,8 +13,8 @@ $applicant = $this->applicant;
 
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 ?>
+<div class="m">
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
-
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="adminform">
 <tbody>
 <tr>
@@ -32,7 +32,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     </td>
 
 </tr>
-</body>
+</tbody>
 </table>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="adminform">
 <tbody><tr>
@@ -123,3 +123,4 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
 </tbody>
 </table>
 </form>
+</div>
