@@ -16,6 +16,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="adminform">
+<tbody>
 <tr>
     <td width="30%" height="40">
         <label id="namemsg" for="first_name">
@@ -31,9 +32,10 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     </td>
 
 </tr>
+</body>
 </table>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="adminform">
-<tr>
+<tbody><tr>
     <td height="40">
         <label id="address1msg" for="address1">
 <?=JText::_('STREET ADDRESS');?>:
@@ -83,8 +85,10 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         <input type="text" id="postcode" name="postcode" size="60%" value="<?=$applicant->postcode?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('POSTCODE PLACEHOLDER');?>" />
     </td>
 </tr>
+</tbody>
 </table>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="adminform">
+<tbody>
 <tr>
     <td height="40">
         <label id="phonemsg" for="phone">
@@ -116,5 +120,6 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         <?=JHTML::_('form.token');?>
     </td>
 </tr>
+</tbody>
 </table>
 </form>
