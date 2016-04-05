@@ -16,16 +16,16 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td width="25em" height="40">
+                <td width="200" height="30">
                     <label id="namemsg" for="first_name">
                         <?=JText::_('Name');?>:
                     </label>
                 </td>
                 <td>
                     <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="input_box required"', 'idx', 'value', PVCombo::keySearch('prefix', $applicant->prefix), 'prefix')?>
-                    <input type="text" name="first_name" id="first_name" size="4em" value="<?=$applicant->first_name?>" class="input_box required" maxlength="50" placeholder="<?=JText::_('FNAME PLACEHOLDER');?>" />
-                    <input type="text" name="middle_name" id="middle_name" size="1em" value="<?=$applicant->middle_name?>" class="input_box optional" maxlength="25" />
-                    <input type="text" name="last_name" id="last_name" size="4em" value="<?=$applicant->last_name?>" class="input_box required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
+                    <input type="text" name="first_name" id="first_name" size="18" value="<?=$applicant->first_name?>" class="input_box required" maxlength="50" placeholder="<?=JText::_('FNAME PLACEHOLDER');?>" />
+                    <input type="text" name="middle_name" id="middle_name" size="1" value="<?=$applicant->middle_name?>" class="input_box optional" maxlength="25" />
+                    <input type="text" name="last_name" id="last_name" size="18" value="<?=$applicant->last_name?>" class="input_box required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
                     <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="input_box required"', 'idx', 'value', PVCombo::keySearch('suffix', $applicant->suffix), 'suffix')?>
                 </td>
             </tr>
@@ -34,37 +34,37 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td height="40">
+                <td width="200" height="30">
                     <label id="address1msg" for="address1">
                         <?=JText::_('STREET ADDRESS');?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="address1" name="address1" size="80em" value="<?=$applicant->address1?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
+                    <input type="text" id="address1" name="address1" size="60" value="<?=$applicant->address1?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
                 </td>
             </tr>
             <tr>
-                <td height="40">
+                <td height="30">
                     <label id="address2msg" for="address2">
                         <?=JText::_('APT_UNIT_SUITE');?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="address2" name="address2" size="80em" value="<?=$applicant->address2?>" class="input_box optional" maxlength="60" />
+                    <input type="text" id="address2" name="address2" size="60" value="<?=$applicant->address2?>" class="input_box optional" maxlength="60" />
                 </td>
             </tr>
             <tr>
-                <td height="40">
+                <td height="30">
                     <label id="citymsg" for="city">
                         <?=JText::_('CITY');?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="city" name="city" size="80em" value="<?=($applicant->city ? $applicant->city : 'Philadelphia')?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
+                    <input type="text" id="city" name="city" size="60" value="<?=($applicant->city ? $applicant->city : 'Philadelphia')?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
                 </td>
             </tr>
             <tr>
-                <td height="40">
+                <td height="30">
                     <label id="regionmsg" for="region">
                         <?=JText::_('REGION');?>:
                     </label>
@@ -74,13 +74,13 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 </td>
             </tr>
             <tr>
-                <td height="40">
+                <td height="30">
                     <label id="postcodemsg" for="postcode">
                         <?=JText::_('POSTCODE');?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="postcode" name="postcode" size="80em" value="<?=$applicant->postcode?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('POSTCODE PLACEHOLDER');?>" />
+                    <input type="text" id="postcode" name="postcode" size="60" value="<?=$applicant->postcode?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('POSTCODE PLACEHOLDER');?>" />
                 </td>
             </tr>
         </tbody>
@@ -88,27 +88,27 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td height="40">
+                <td width="200" height="30">
                     <label id="phonemsg" for="phone">
                         <?=JText::_('PHONE');?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="phone" name="phone" size="80em" value="<?=$applicant->phone?>" class="input_box required" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
+                    <input type="text" id="phone" name="phone" size="60" value="<?=$applicant->phone?>" class="input_box required" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
                 </td>
             </tr>
             <tr>
-                <td height="40">
+                <td height="30">
                     <label id="emailmsg" for="email">
                         <?=JText::_('EMAIL');?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="email" name="email" size="80em" value="<?=$applicant->email?>" class="input_box" maxlength="100" />
+                    <input type="text" id="email" name="email" size="60" value="<?=$applicant->email?>" class="input_box" maxlength="100" />
                 </td>
             </tr>
             <tr>
-                <td height="40">&nbsp;</td>
+                <td height="30">&nbsp;</td>
                 <td>
                     <button class="button validate" type="submit"><?=$this->isNew ? JText::_('REGISTER') : JText::_('UPDATE');?></button>
                     <input type="hidden" name="task" value="<?=$this->isNew ? 'register' : 'update'?>" />
