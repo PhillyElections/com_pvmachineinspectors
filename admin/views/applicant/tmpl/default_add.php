@@ -24,9 +24,9 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 </td>
                 <td>
                     <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', $prefix, 'prefix')?>
-                    <input type="text" name="first_name" id="first_name" size="60" value="<?=$first_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('FNAME PLACEHOLDER');?>" />
+                    <input type="text" name="first_name" id="first_name" size="18" value="<?=$first_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('FNAME PLACEHOLDER');?>" />
                     <input type="text" name="middle_name" id="middle_name" size="1" value="<?=$middle_name?>" class="inputbox optional" maxlength="25" />
-                    <input type="text" name="last_name" id="last_name" size="60" value="<?=$last_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
+                    <input type="text" name="last_name" id="last_name" size="18" value="<?=$last_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
                     <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', $suffix, 'suffix')?>
                 </td>
             </tr>
