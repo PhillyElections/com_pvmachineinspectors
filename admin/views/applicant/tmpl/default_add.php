@@ -19,7 +19,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td width="50em" height="2em">
+                <td max-width="10%" height="3em">
                     <label id="namemsg" for="first_name"><?=JText::_('NAME');?>:</label>
                 </td>
                 <td>
@@ -35,7 +35,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td width="50em" height="2em">
+                <td max-width="10%" height="3em">
                     <label id="address1msg" for="address1"><?=JText::_('STREET ADDRESS');?>:</label>
                 </td>
                 <td>
@@ -43,7 +43,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 </td>
             </tr>
             <tr>
-                <td height="2em">
+                <td height="3em">
                     <label id="address2msg" for="address2"><?=JText::_('APT_UNIT_SUITE');?>:</label>
                 </td>
                 <td>
@@ -51,7 +51,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 </td>
             </tr>
             <tr>
-                <td height="2em">
+                <td height="3em">
                     <label id="citymsg" for="city"><?=JText::_('CITY');?>:</label>
                 </td>
                 <td>
@@ -59,7 +59,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 </td>
             </tr>
             <tr>
-                <td height="2em">
+                <td height="3em">
                     <label id="regionmsg" for="region">
                         <?=JText::_('REGION');?>:
                     </label>
@@ -67,7 +67,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 <td><?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($region ? $region : 'PA'), 'region')?></td>
             </tr>
             <tr>
-                <td height="2em">
+                <td height="3em">
                     <label id="postcodemsg" for="postcode">
                         <?=JText::_('POSTCODE');?>:
                     </label>
@@ -81,7 +81,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
-                <td width="50em" height="2em">
+                <td max-width="10%" height="3em">
                     <label id="phonemsg" for="phone">
                         <?=JText::_('PHONE');?>:
                     </label>
@@ -91,7 +91,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 </td>
             </tr>
             <tr>
-                <td height="2em">
+                <td height="3em">
                     <label id="emailmsg" for="email">
                         <?=JText::_('EMAIL');?>:
                     </label>
@@ -101,7 +101,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 </td>
             </tr>
             <tr>
-                <td height="2em">&nbsp;</td>
+                <td height="3em">&nbsp;</td>
                 <td>
                     <button class="button validate" type="submit"><?=JText::_('REGISTER');?></button>
                     <input type="hidden" name="task" value="register" />
