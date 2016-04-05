@@ -23,14 +23,16 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('prefix', $applicant->prefix), 'prefix')?>
-        <input type="text" name="first_name" id="first_name" size="18%" value="<?=$applicant->first_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('FNAME PLACEHOLDER');?>" />
-        <input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$applicant->middle_name?>" class="inputbox optional" maxlength="25" />
-        <input type="text" name="last_name" id="last_name" size="18%" value="<?=$applicant->last_name?>" class="inputbox required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
-        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="inputbox required"', 'idx', 'value', PVCombo::keySearch('suffix', $applicant->suffix), 'suffix')?>
+        <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="input_box required"', 'idx', 'value', PVCombo::keySearch('prefix', $applicant->prefix), 'prefix')?>
+        <input type="text" name="first_name" id="first_name" size="18%" value="<?=$applicant->first_name?>" class="input_box required" maxlength="50" placeholder="<?=JText::_('FNAME PLACEHOLDER');?>" />
+        <input type="text" name="middle_name" id="middle_name" size="1%" value="<?=$applicant->middle_name?>" class="input_box optional" maxlength="25" />
+        <input type="text" name="last_name" id="last_name" size="18%" value="<?=$applicant->last_name?>" class="input_box required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
+        <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="input_box required"', 'idx', 'value', PVCombo::keySearch('suffix', $applicant->suffix), 'suffix')?>
     </td>
 
 </tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="adminform">
 <tr>
     <td height="40">
         <label id="address1msg" for="address1">
@@ -38,7 +40,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <input type="text" id="address1" name="address1" size="60%" value="<?=$applicant->address1?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
+        <input type="text" id="address1" name="address1" size="60%" value="<?=$applicant->address1?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
     </td>
 </tr>
 <tr>
@@ -48,7 +50,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <input type="text" id="address2" name="address2" size="60%" value="<?=$applicant->address2?>" class="inputbox optional" maxlength="60" />
+        <input type="text" id="address2" name="address2" size="60%" value="<?=$applicant->address2?>" class="input_box optional" maxlength="60" />
     </td>
 </tr>
 <tr>
@@ -58,7 +60,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <input type="text" id="city" name="city" size="60%" value="<?=($applicant->city ? $applicant->city : 'Philadelphia')?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
+        <input type="text" id="city" name="city" size="60%" value="<?=($applicant->city ? $applicant->city : 'Philadelphia')?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
     </td>
 </tr>
 <tr>
@@ -68,7 +70,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="inputbox required"', 'idx', 'value', ($applicant->region ? $applicant->region : 'PA'), 'region')?>
+<?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="input_box required"', 'idx', 'value', ($applicant->region ? $applicant->region : 'PA'), 'region')?>
 </td>
 </tr>
 <tr>
@@ -78,9 +80,11 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <input type="text" id="postcode" name="postcode" size="60%" value="<?=$applicant->postcode?>" class="inputbox required" maxlength="60" placeholder="<?=JText::_('POSTCODE PLACEHOLDER');?>" />
+        <input type="text" id="postcode" name="postcode" size="60%" value="<?=$applicant->postcode?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('POSTCODE PLACEHOLDER');?>" />
     </td>
 </tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="adminform">
 <tr>
     <td height="40">
         <label id="phonemsg" for="phone">
@@ -88,7 +92,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <input type="text" id="phone" name="phone" size="60%" value="<?=$applicant->phone?>" class="inputbox required" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
+        <input type="text" id="phone" name="phone" size="60%" value="<?=$applicant->phone?>" class="input_box required" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
     </td>
 </tr>
 <tr>
@@ -98,7 +102,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         </label>
     </td>
     <td>
-        <input type="text" id="email" name="email" size="60%" value="<?=$applicant->email?>" class="inputbox" maxlength="100" />
+        <input type="text" id="email" name="email" size="60%" value="<?=$applicant->email?>" class="input_box" maxlength="100" />
     </td>
 </tr>
 <tr>
