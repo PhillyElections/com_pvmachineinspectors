@@ -40,7 +40,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="address1" name="address1" size="60" value="<?=$applicant->address1?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
+                    <input type="text" id="address1" name="address1" size="62 value="<?=$applicant->address1?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
                 </td>
             </tr>
             <tr>
@@ -50,7 +50,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="address2" name="address2" size="60" value="<?=$applicant->address2?>" class="input_box optional" maxlength="60" />
+                    <input type="text" id="address2" name="address2" size="62 value="<?=$applicant->address2?>" class="input_box optional" maxlength="60" />
                 </td>
             </tr>
             <tr>
@@ -60,7 +60,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="city" name="city" size="60" value="<?=($applicant->city ? $applicant->city : 'Philadelphia')?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
+                    <input type="text" id="city" name="city" size="62 value="<?=($applicant->city ? $applicant->city : 'Philadelphia')?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
                 </td>
             </tr>
             <tr>
@@ -80,7 +80,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="postcode" name="postcode" size="60" value="<?=$applicant->postcode?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('POSTCODE PLACEHOLDER');?>" />
+                    <input type="text" id="postcode" name="postcode" size="62 value="<?=$applicant->postcode?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('POSTCODE PLACEHOLDER');?>" />
                 </td>
             </tr>
         </tbody>
@@ -94,7 +94,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="phone" name="phone" size="60" value="<?=$applicant->phone?>" class="input_box required" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
+                    <input type="text" id="phone" name="phone" size="62 value="<?=$applicant->phone?>" class="input_box required" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
                 </td>
             </tr>
             <tr>
@@ -104,7 +104,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="email" name="email" size="60" value="<?=$applicant->email?>" class="input_box" maxlength="100" />
+                    <input type="text" id="email" name="email" size="62 value="<?=$applicant->email?>" class="input_box" maxlength="100" />
                 </td>
             </tr>
             <tr>
