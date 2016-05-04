@@ -4,8 +4,10 @@ defined('_JEXEC') or die('Restricted access');
 $document = &JFactory::getDocument();
 jimport("pvcombo.PVCombo");
 jimport("kint.kint");
-if (count(JRequest::getVar('msg', null, 'post'))) {
-    foreach (JRequest::getVar('msg', null, 'post') as $msg) {
+$messages = JRequest::getVar('msg', null, 'post');
+if (count($messages)) {
+    d($messages);
+    foreach ($messages as $msg) {
         JError::raiseWarning(1, $msg);
     }
 }
