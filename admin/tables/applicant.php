@@ -48,55 +48,69 @@ class TableApplicant extends JTable
      */
     public function check()
     {
+        $error = array();
         // we need a first_name
         if (!JString::trim($this->first_name)) {
-            $this->setError(JText::_('VALIDATION FIRSTNAME REQUIRED'));
+            $error[] = JText::_('VALIDATION FIRSTNAME REQUIRED');
+            //$this->setError(JText::_('VALIDATION FIRSTNAME REQUIRED'));
+
         }
 
         // we need a last_name
         if (!JString::trim($this->last_name)) {
-            $this->setError(JText::_('VALIDATION LASTNAME REQUIRED'));
+            $error[] = JText::_('VALIDATION LASTNAME REQUIRED');
+            // $this->setError(JText::_('VALIDATION LASTNAME REQUIRED'));
         }
 
         // we need an address1
         if (!JString::trim($this->address1)) {
-            $this->setError(JText::_('VALIDATION STREET ADDRESS REQUIRED'));
+            $error[] = JText::_('VALIDATION STREET ADDRESS REQUIRED');
+            // $this->setError(JText::_('VALIDATION STREET ADDRESS REQUIRED'));
         }
 
         // we need a city
         if (!JString::trim($this->city)) {
-            $this->setError(JText::_('VALIDATION CITY REQUIRED'));
+            $error[] = JText::_('VALIDATION CITY REQUIRED');
+            // $this->setError(JText::_('VALIDATION CITY REQUIRED'));
         }
 
         // we need a 2-digit region
         if (JString::strlen(trim($this->region)) !== 2) {
-            $this->setError(JText::_('VALIDATION STATE REQUIRED'));
+            $error[] = JText::_('VALIDATION STATE REQUIRED');
+            // $this->setError(JText::_('VALIDATION STATE REQUIRED'));
         }
 
         // we need a 5 numeric digits starting from the left in out postcode
         if (!is_numeric(JString::trim($this->postcode))) {
-            $this->setError(JText::_('VALIDATION ZIPCODE REQUIRED'));
+            $error[] = JText::_('VALIDATION ZIPCODE REQUIRED');
+            // $this->setError(JText::_('VALIDATION ZIPCODE REQUIRED'));
         }
 
         // if we have an email, we need a valid email
         if (JString::trim($this->email) && !filter_var(JString::trim($this->email), FILTER_VALIDATE_EMAIL)) {
-            $this->setError(JString::trim($this->email) . JText::_('VALIDATION EMAIL INVALID'));
+            $error[] = JString::trim($this->email) . JText::_('VALIDATION EMAIL INVALID');
+            // $this->setError(JString::trim($this->email) . JText::_('VALIDATION EMAIL INVALID'));
         }
 
         if (JString::strlen(JString::trim($this->phone))) {
             // reject phone numbers with letters in them
             if (!is_numeric(JString::trim($this->phone))) {
-                $this->setError(JText::_('VALIDATION PHONE NUMERIC'));
+                $error[] = JText::_('VALIDATION PHONE NUMERIC');
+                // $this->setError(JText::_('VALIDATION PHONE NUMERIC'));
             }
             // Phone numbers may be given with the leading '1' or not
             if (JString::strlen(preg_replace('/^1|\D/', "", JString::trim($this->phone))) !== 10) {
-                $this->setError(JText::_('VALIDATION PHONE LENGTH'));
+                $error[] = JText::_('VALIDATION PHONE LENGTH');
+                // $this->setError(JText::_('VALIDATION PHONE LENGTH'));
             }
         } else {
-            $this->setError(JText::_('VALIDATION PHONE EMPTY'));
+            $error[] = JText::_('VALIDATION PHONE EMPTY');
+            // $this->setError(JText::_('VALIDATION PHONE EMPTY'));
         }
 
-        if (count($this->getErrors())) {
+        //if (count($this->getErrors())) {
+        if (count($error)) {
+            $this->setError(implode('<br>', $error));
             return false;
         }
         return true;
