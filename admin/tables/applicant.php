@@ -110,6 +110,7 @@ class TableApplicant extends JTable
 
         //if (count($this->getErrors())) {
         if (count($error)) {
+            d($error);
             $this->setError(implode('<br>', $error));
             return false;
         }
