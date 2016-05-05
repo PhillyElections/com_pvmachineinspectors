@@ -91,8 +91,7 @@ class TableApplicant extends JTable
             $error++;
         }
 
-        $phone = JString::trim($this->phone);
-        d($phone, preg_replace('/^1|\D/', "", $phone));
+        $phone = preg_replace('/^1|\D/', "", JString::trim($this->phone));
         if ($phone) {
             // reject phone numbers with letters in them
             if (!is_numeric($phone)) {
@@ -100,7 +99,7 @@ class TableApplicant extends JTable
                 $error++;
             }
             // Phone numbers may be given with the leading '1' or not
-            if (JString::strlen(preg_replace('/^1|\D/', "", $phone)) !== 10) {
+            if (JString::strlen($phone) !== 10) {
                 $this->setError(JText::_('VALIDATION PHONE LENGTH'));
                 $error++;
             }
