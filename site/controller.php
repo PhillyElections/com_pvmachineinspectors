@@ -27,7 +27,7 @@ class PvmachineinspectorsController extends JController
     {
         JRequest::setVar('view', 'register');
         JRequest::setVar('msg', $this->_msg);
-
+        d($this->_msg);
         parent::display();
     }
 
