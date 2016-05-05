@@ -31,7 +31,6 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
         $this->registerTask('add', 'edit');
         $this->registerTask('register', 'save');
         $this->registerTask('update', 'save');
-
     }
 
     /**
@@ -55,15 +54,14 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
         JRequest::checkToken() or jexit('Invalid Token');
 
         $model = $this->getModel('applicant');
-        $post = JRequest::get('post');
+        $post  = JRequest::get('post');
 
         if ($model->store($post)) {
             $msg = JText::_('Saved!');
         } else {
             // let's grab all those errors and make them available to the view
             JRequest::setVar('msg', $model->getErrors());
-            /*            JRequest::setVar('view', 'applicant');
-            parent::display();*/
+
             return $this->edit();
         }
 
