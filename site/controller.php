@@ -27,7 +27,7 @@ class PvmachineinspectorsController extends JController
     {
         JRequest::setVar('view', 'register');
         JRequest::setVar('msg', $this->_msg);
-        d($this->_msg);
+
         parent::display();
     }
 
@@ -71,7 +71,6 @@ class PvmachineinspectorsController extends JController
             $msg = JText::_('Saved!');
         } else {
             // let's grab all those errors and make them available to the view
-            d($model->getErrors(), $model);
             foreach ($model->getErrors() as $msg) {
                 $this->_setMessage($msg);
             }

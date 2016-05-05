@@ -59,7 +59,6 @@ class PvmachineinspectorsModelApplicant extends JModel
             foreach ($row->getErrors() as $msg) {
                 $this->setError($msg);
             }
-            d($row);
             return false;
         }
 

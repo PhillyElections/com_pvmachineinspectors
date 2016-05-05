@@ -6,7 +6,6 @@ jimport("pvcombo.PVCombo");
 jimport("kint.kint");
 $messages = JRequest::getVar('msg', null, 'post');
 if (count($messages)) {
-    d($messages);
     foreach ($messages as $msg) {
         JError::raiseWarning(1, $msg);
     }
