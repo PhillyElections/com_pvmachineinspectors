@@ -11,7 +11,7 @@
 defined('_JEXEC') or die;
 
 /**
- * User Component Remind Model.
+ * Applicant Model.
  *
  * @since       1.5
  */
