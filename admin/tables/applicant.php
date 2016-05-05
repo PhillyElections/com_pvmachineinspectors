@@ -91,14 +91,15 @@ class TableApplicant extends JTable
             $error++;
         }
 
-        if (JString::strlen(JString::trim($this->phone))) {
+        $phone = JString::trim($this->phone);
+        if (JString::strlen($phone)) {
             // reject phone numbers with letters in them
-            if (!is_numeric(JString::trim($this->phone))) {
+            if (!is_numeric($phone)) {
                 $this->setError(JText::_('VALIDATION PHONE NUMERIC'));
                 $error++;
             }
             // Phone numbers may be given with the leading '1' or not
-            if (JString::strlen(preg_replace('/^1|\D/', "", JString::trim($this->phone))) !== 10) {
+            if (JString::strlen(preg_replace('/^1|\D/', "", $phone)) !== 10) {
                 $this->setError(JText::_('VALIDATION PHONE LENGTH'));
                 $error++;
             }
