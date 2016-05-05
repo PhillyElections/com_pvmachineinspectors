@@ -31,7 +31,7 @@ class PvmachineinspectorsModelApplicant extends JModel
         parent::__construct();
 
         $array = JRequest::getVar('cid', 0, '', 'array');
-        $id = JRequest::getInt('id');
+        $id    = JRequest::getInt('id');
         if ($id) {
             // in case we're updating and check() failed
             $this->setId((int) $id);
@@ -50,7 +50,7 @@ class PvmachineinspectorsModelApplicant extends JModel
     public function setId($id)
     {
         // Set id and wipe data
-        $this->_id = $id;
+        $this->_id   = $id;
         $this->_data = null;
     }
 
@@ -69,8 +69,8 @@ class PvmachineinspectorsModelApplicant extends JModel
             $this->_data = $this->_db->loadObject();
         }
         if (!$this->_data) {
-            $this->_data = new stdClass();
-            $this->_data->id = 0;
+            $this->_data           = new stdClass();
+            $this->_data->id       = 0;
             $this->_data->greeting = null;
         }
         return $this->_data;
@@ -89,13 +89,17 @@ class PvmachineinspectorsModelApplicant extends JModel
 
         $data = JRequest::get('post');
 
-        $data['phone'] = $data['phone'] ? preg_replace('/^1|\D/', "", $data['phone']) : '';
-        $data['prefix'] = $data['prefix'] ? PVCombo::get('prefix', $data['prefix']) : '';
-        $data['suffix'] = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
-        $data['email'] = $data['email'] ? JString::strtolower($data['email']) : '';
-        $data['postcode'] = $data['postcode'] ? JString::substr(trim($data['postcode']), 0, 5) : '';
+        foreach ($data as $key => $value) {
+            $data[$key] = JString::trim($value);
+        }
 
-        $division = $this->getTable('Division');
+        $data['phone']    = $data['phone'] ? preg_replace('/^1|\D/', "", $data['phone']) : '';
+        $data['prefix']   = $data['prefix'] ? PVCombo::get('prefix', $data['prefix']) : '';
+        $data['suffix']   = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
+        $data['email']    = $data['email'] ? JString::strtolower($data['email']) : '';
+        $data['postcode'] = $data['postcode'] ? JString::substr($data['postcode'], 0, 5) : '';
+
+        $division            = $this->getTable('Division');
         $data['division_id'] = $division->getRemoteDivision($data);
 
         // Bind the form fields to the Pvmachineinspector table
