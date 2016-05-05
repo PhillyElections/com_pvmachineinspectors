@@ -31,11 +31,15 @@ class PvmachineinspectorsModelApplicant extends JModel
 
         $data = JRequest::get('post');
 
+        foreach ($data as $key => $value) {
+            $data[$key] = JString::trim($value);
+        }
+
         $data['phone']    = $data['phone'] ? preg_replace('/^1|\D/', "", $data['phone']) : '';
         $data['prefix']   = $data['prefix'] ? PVCombo::get('prefix', $data['prefix']) : '';
         $data['suffix']   = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
         $data['email']    = $data['email'] ? JString::strtolower($data['email']) : '';
-        $data['postcode'] = $data['postcode'] ? JString::substr(trim($data['postcode']), 0, 5) : '';
+        $data['postcode'] = $data['postcode'] ? JString::substr($data['postcode'], 0, 5) : '';
 
         if (!$data['division_id']) {
             $division = $this->getTable('Division');
