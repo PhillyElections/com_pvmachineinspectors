@@ -50,57 +50,55 @@ class TableApplicant extends JTable
     {
         $error = 0;
         // we need a first_name
-        if (!JString::trim($this->first_name)) {
+        if (!$this->first_name) {
             $this->setError(JText::_('VALIDATION FIRSTNAME REQUIRED'));
             $error++;
         }
 
         // we need a last_name
-        if (!JString::trim($this->last_name)) {
+        if (!$this->last_name) {
             $this->setError(JText::_('VALIDATION LASTNAME REQUIRED'));
             $error++;
         }
 
         // we need an address1
-        if (!JString::trim($this->address1)) {
+        if (!$this->address1) {
             $this->setError(JText::_('VALIDATION STREET ADDRESS REQUIRED'));
             $error++;
         }
 
         // we need a city
-        if (!JString::trim($this->city)) {
+        if (!$this->city) {
             $this->setError(JText::_('VALIDATION CITY REQUIRED'));
             $error++;
         }
 
         // we need a 2-digit region
-        if (JString::strlen(trim($this->region)) !== 2) {
+        if (JString::strlen($this->region) !== 2) {
             $this->setError(JText::_('VALIDATION STATE REQUIRED'));
             $error++;
         }
 
         // we need a 5 numeric digits starting from the left in out postcode
-        if (!is_numeric(JString::trim($this->postcode))) {
+        if (!is_numeric($this->postcode)) {
             $this->setError(JText::_('VALIDATION ZIPCODE REQUIRED'));
             $error++;
         }
 
         // if we have an email, we need a valid email
-        if (JString::trim($this->email) && !filter_var(JString::trim($this->email), FILTER_VALIDATE_EMAIL)) {
-            $this->setError(JString::trim($this->email) . JText::_('VALIDATION EMAIL INVALID'));
+        if ($this->email && !filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            $this->setError($this->email . JText::_('VALIDATION EMAIL INVALID'));
             $error++;
         }
 
-        $phone = preg_replace('/^1|\D/', "", JString::trim($this->phone));
-
-        if ($phone) {
+        if ($this->phone) {
             // reject phone numbers with letters in them
-            if (!is_numeric($phone)) {
+            if (!is_numeric($this->phone)) {
                 $this->setError(JText::_('VALIDATION PHONE NUMERIC'));
                 $error++;
             }
             // Phone numbers may be given with the leading '1' or not
-            if (JString::strlen($phone) !== 10) {
+            if (JString::strlen($this->phone) !== 10) {
                 $this->setError(JText::_('VALIDATION PHONE LENGTH'));
                 $error++;
             }
@@ -110,7 +108,6 @@ class TableApplicant extends JTable
         }
 
         if ($error) {
-            d($error, $phone);
             return false;
         }
         return true;
