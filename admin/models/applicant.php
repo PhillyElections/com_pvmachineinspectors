@@ -73,6 +73,7 @@ class PvmachineinspectorsModelApplicant extends JModel
             $this->_data->id       = 0;
             $this->_data->greeting = null;
         }
+        d($this->_data);
         return $this->_data;
     }
 
