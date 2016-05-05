@@ -8,13 +8,14 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
         JError::raiseWarning(1, $msg);
     }
 }
-d('add template', $_POST, new JRequest);
+d('add template', $_POST, JRequest::get());
 // lets go through the post array and extract any existing values for display
 $fields = array('prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
 foreach ($fields as $field) {
     $$field = JRequest::getVar($field, null, 'post');
 }
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
+
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
