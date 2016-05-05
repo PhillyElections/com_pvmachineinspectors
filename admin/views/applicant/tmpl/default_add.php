@@ -10,11 +10,8 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
 }
 d('add template', $_POST, JRequest::get());
 // lets go through the post array and extract any existing values for display
-$fields = array('prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
-foreach ($fields as $field) {
-    $$field = JString::trim(JRequest::getVar($field, null, 'post'));
-    d($field . "=" . $$field);
-}
+$data = JRequest::get('post');
+
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 
 ?>
@@ -27,9 +24,9 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 </td>
                 <td>
                     <?php echo JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="input_box required"', 'idx', 'value', $prefix, 'prefix'); ?>
-                    <input type="text" name="first_name" id="first_name" size="18" value="<?php echo $first_name; ?>" class="input_box required" maxlength="50" placeholder="<?php echo JText::_('FNAME PLACEHOLDER'); ?>" />
-                    <input type="text" name="middle_name" id="middle_name" size="1" value="<?php echo $middle_name; ?>" class="input_box optional" maxlength="25" />
-                    <input type="text" name="last_name" id="last_name" size="18" value="<?php echo $last_name; ?>" class="input_box required" maxlength="50" placeholder="<?php echo JText::_('LNAME PLACEHOLDER'); ?>" />
+                    <input type="text" name="first_name" id="first_name" size="18" value="<?php echo $data['first_name']; ?>" class="input_box required" maxlength="50" placeholder="<?php echo JText::_('FNAME PLACEHOLDER'); ?>" />
+                    <input type="text" name="middle_name" id="middle_name" size="1" value="<?php echo $data['middle_name']; ?>" class="input_box optional" maxlength="25" />
+                    <input type="text" name="last_name" id="last_name" size="18" value="<?php echo $data['last_name']; ?>" class="input_box required" maxlength="50" placeholder="<?php echo JText::_('LNAME PLACEHOLDER'); ?>" />
                     <?php echo JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="input_box required"', 'idx', 'value', $suffix, 'suffix'); ?>
                 </td>
             </tr>
@@ -42,7 +39,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     <label id="address1msg" for="address1"><?php echo JText::_('STREET ADDRESS'); ?>:</label>
                 </td>
                 <td>
-                    <input type="text" id="address1" name="address1" size="62 value="<?php echo $address1; ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('STREET PLACEHOLDER'); ?>" />
+                    <input type="text" id="address1" name="address1" size="62 value="<?php echo $data['address1']; ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('STREET PLACEHOLDER'); ?>" />
                 </td>
             </tr>
             <tr>
@@ -50,7 +47,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     <label id="address2msg" for="address2"><?php echo JText::_('APT_UNIT_SUITE'); ?>:</label>
                 </td>
                 <td>
-                    <input type="text" id="address2" name="address2" size="62 value="<?php echo $address2; ?>" class="input_box optional" maxlength="60" />
+                    <input type="text" id="address2" name="address2" size="62 value="<?php echo $data['address2']; ?>" class="input_box optional" maxlength="60" />
                 </td>
             </tr>
             <tr>
@@ -76,7 +73,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="postcode" name="postcode" size="62 value="<?php echo $postcode; ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('POSTCODE PLACEHOLDER'); ?>" />
+                    <input type="text" id="postcode" name="postcode" size="62 value="<?php echo $data['postcode']; ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('POSTCODE PLACEHOLDER'); ?>" />
                 </td>
             </tr>
         </tbody>
@@ -90,7 +87,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="phone" name="phone" size="62 value="<?php echo $phone; ?>" class="input_box required" maxlength="100" placeholder="<?php echo JText::_('PHONE PLACEHOLDER'); ?>" />
+                    <input type="text" id="phone" name="phone" size="62 value="<?php echo $data['phone']; ?>" class="input_box required" maxlength="100" placeholder="<?php echo JText::_('PHONE PLACEHOLDER'); ?>" />
                 </td>
             </tr>
             <tr>
@@ -100,7 +97,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="email" name="email" size="62 value="<?php echo $email; ?>" class="input_box" maxlength="100" />
+                    <input type="text" id="email" name="email" size="62 value="<?php echo $data['email']; ?>" class="input_box" maxlength="100" />
                 </td>
             </tr>
             <tr>
