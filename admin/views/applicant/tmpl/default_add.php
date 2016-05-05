@@ -8,7 +8,7 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
         JError::raiseWarning(1, $msg);
     }
 }
-d('add template');
+d('add template', $_POST, JRequest::get());
 // lets go through the post array and extract any existing values for display
 $fields = array('prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
 foreach ($fields as $field) {
