@@ -8,7 +8,7 @@ if (count(JRequest::getVar('msg', null, 'post'))) {
         JError::raiseWarning(1, $msg);
     }
 }
-d('add template', $_POST, JRequest::get());
+
 // lets go through the post array and extract any existing values for display
 $data = JRequest::get('post');
 
