@@ -23,11 +23,11 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     <label id="namemsg" for="first_name"><?php echo JText::_('NAME'); ?>:</label>
                 </td>
                 <td>
-                    <?php echo JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="input_box required"', 'idx', 'value', $prefix, 'prefix'); ?>
+                    <?php echo JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="input_box required"', 'idx', 'value', $data['prefix'], 'prefix'); ?>
                     <input type="text" name="first_name" id="first_name" size="18" value="<?php echo $data['first_name']; ?>" class="input_box required" maxlength="50" placeholder="<?php echo JText::_('FNAME PLACEHOLDER'); ?>" />
                     <input type="text" name="middle_name" id="middle_name" size="1" value="<?php echo $data['middle_name']; ?>" class="input_box optional" maxlength="25" />
                     <input type="text" name="last_name" id="last_name" size="18" value="<?php echo $data['last_name']; ?>" class="input_box required" maxlength="50" placeholder="<?php echo JText::_('LNAME PLACEHOLDER'); ?>" />
-                    <?php echo JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="input_box required"', 'idx', 'value', $suffix, 'suffix'); ?>
+                    <?php echo JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="input_box required"', 'idx', 'value', $data['suffix'], 'suffix'); ?>
                 </td>
             </tr>
         </tbody>
@@ -55,7 +55,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                     <label id="citymsg" for="city"><?php echo JText::_('CITY'); ?>:</label>
                 </td>
                 <td>
-                    <input type="text" id="city" name="city" size="62" value="<?php echo ($city ? $city : 'Philadelphia'); ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('CITY PLACEHOLDER'); ?>" />
+                    <input type="text" id="city" name="city" size="62" value="<?php echo ($data['city'] ? $data['city'] : 'Philadelphia'); ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('CITY PLACEHOLDER'); ?>" />
                 </td>
             </tr>
             <tr>
@@ -64,7 +64,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                         <?php echo JText::_('REGION'); ?>:
                     </label>
                 </td>
-                <td><?php echo JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="input_box required"', 'idx', 'value', ($region ? $region : 'PA'), 'region'); ?></td>
+                <td><?php echo JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="input_box required"', 'idx', 'value', ($data['region'] ? $data['region'] : 'PA'), 'region'); ?></td>
             </tr>
             <tr>
                 <td height="30">
