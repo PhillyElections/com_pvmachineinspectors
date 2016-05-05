@@ -18,19 +18,19 @@ foreach ($fields as $field) {
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 
 ?>
-<form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" id="adminForm" name="adminForm" class="form-validate">
+<form action="<?php echo JRoute::_('index.php?option=com_pvmachineinspectors'); ?>" method="post" id="adminForm" name="adminForm" class="form-validate">
     <table cellpadding="0" cellspacing="0" border="0" class="adminform">
         <tbody>
             <tr>
                 <td width="200" height="30">
-                    <label id="namemsg" for="first_name"><?=JText::_('NAME');?>:</label>
+                    <label id="namemsg" for="first_name"><?php echo JText::_('NAME'); ?>:</label>
                 </td>
                 <td>
-                    <?=JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="input_box required"', 'idx', 'value', $prefix, 'prefix');?>
-                    <input type="text" name="first_name" id="first_name" size="18" value="<?=$first_name;?>" class="input_box required" maxlength="50" placeholder="<?=JText::_('FNAME PLACEHOLDER');?>" />
-                    <input type="text" name="middle_name" id="middle_name" size="1" value="<?=$middle_name;?>" class="input_box optional" maxlength="25" />
-                    <input type="text" name="last_name" id="last_name" size="18" value="<?=$last_name;?>" class="input_box required" maxlength="50" placeholder="<?=JText::_('LNAME PLACEHOLDER');?>" />
-                    <?=JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="input_box required"', 'idx', 'value', $suffix, 'suffix');?>
+                    <?php echo JHTML::_('select.genericlist', PVCombo::gets('prefix'), 'prefix', 'class="input_box required"', 'idx', 'value', $prefix, 'prefix'); ?>
+                    <input type="text" name="first_name" id="first_name" size="18" value="<?php echo $first_name; ?>" class="input_box required" maxlength="50" placeholder="<?php echo JText::_('FNAME PLACEHOLDER'); ?>" />
+                    <input type="text" name="middle_name" id="middle_name" size="1" value="<?php echo $middle_name; ?>" class="input_box optional" maxlength="25" />
+                    <input type="text" name="last_name" id="last_name" size="18" value="<?php echo $last_name; ?>" class="input_box required" maxlength="50" placeholder="<?php echo JText::_('LNAME PLACEHOLDER'); ?>" />
+                    <?php echo JHTML::_('select.genericlist', PVCombo::gets('suffix'), 'suffix', 'class="input_box required"', 'idx', 'value', $suffix, 'suffix'); ?>
                 </td>
             </tr>
         </tbody>
@@ -39,44 +39,44 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
         <tbody>
             <tr>
                 <td width="200" height="30">
-                    <label id="address1msg" for="address1"><?=JText::_('STREET ADDRESS');?>:</label>
+                    <label id="address1msg" for="address1"><?php echo JText::_('STREET ADDRESS'); ?>:</label>
                 </td>
                 <td>
-                    <input type="text" id="address1" name="address1" size="62 value="<?=$address1;?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('STREET PLACEHOLDER');?>" />
+                    <input type="text" id="address1" name="address1" size="62 value="<?php echo $address1; ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('STREET PLACEHOLDER'); ?>" />
                 </td>
             </tr>
             <tr>
                 <td height="30">
-                    <label id="address2msg" for="address2"><?=JText::_('APT_UNIT_SUITE');?>:</label>
+                    <label id="address2msg" for="address2"><?php echo JText::_('APT_UNIT_SUITE'); ?>:</label>
                 </td>
                 <td>
-                    <input type="text" id="address2" name="address2" size="62 value="<?=$address2;?>" class="input_box optional" maxlength="60" />
+                    <input type="text" id="address2" name="address2" size="62 value="<?php echo $address2; ?>" class="input_box optional" maxlength="60" />
                 </td>
             </tr>
             <tr>
                 <td height="30">
-                    <label id="citymsg" for="city"><?=JText::_('CITY');?>:</label>
+                    <label id="citymsg" for="city"><?php echo JText::_('CITY'); ?>:</label>
                 </td>
                 <td>
-                    <input type="text" id="city" name="city" size="62 value="<?=($city ? $city : 'Philadelphia');?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('CITY PLACEHOLDER');?>" />
+                    <input type="text" id="city" name="city" size="62 value="<?php echo ($city ? $city : 'Philadelphia'); ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('CITY PLACEHOLDER'); ?>" />
                 </td>
             </tr>
             <tr>
                 <td height="30">
                     <label id="regionmsg" for="region">
-                        <?=JText::_('REGION');?>:
+                        <?php echo JText::_('REGION'); ?>:
                     </label>
                 </td>
-                <td><?=JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="input_box required"', 'idx', 'value', ($region ? $region : 'PA'), 'region');?></td>
+                <td><?php echo JHTML::_('select.genericlist', PVCombo::gets('state'), 'region', 'class="input_box required"', 'idx', 'value', ($region ? $region : 'PA'), 'region'); ?></td>
             </tr>
             <tr>
                 <td height="30">
                     <label id="postcodemsg" for="postcode">
-                        <?=JText::_('POSTCODE');?>:
+                        <?php echo JText::_('POSTCODE'); ?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="postcode" name="postcode" size="62 value="<?=$postcode;?>" class="input_box required" maxlength="60" placeholder="<?=JText::_('POSTCODE PLACEHOLDER');?>" />
+                    <input type="text" id="postcode" name="postcode" size="62 value="<?php echo $postcode; ?>" class="input_box required" maxlength="60" placeholder="<?php echo JText::_('POSTCODE PLACEHOLDER'); ?>" />
                 </td>
             </tr>
         </tbody>
@@ -86,32 +86,32 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
             <tr>
                 <td width="200" height="30">
                     <label id="phonemsg" for="phone">
-                        <?=JText::_('PHONE');?>:
+                        <?php echo JText::_('PHONE'); ?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="phone" name="phone" size="62 value="<?=$phone;?>" class="input_box required" maxlength="100" placeholder="<?=JText::_('PHONE PLACEHOLDER');?>" />
+                    <input type="text" id="phone" name="phone" size="62 value="<?php echo $phone; ?>" class="input_box required" maxlength="100" placeholder="<?php echo JText::_('PHONE PLACEHOLDER'); ?>" />
                 </td>
             </tr>
             <tr>
                 <td height="30">
                     <label id="emailmsg" for="email">
-                        <?=JText::_('EMAIL');?>:
+                        <?php echo JText::_('EMAIL'); ?>:
                     </label>
                 </td>
                 <td>
-                    <input type="text" id="email" name="email" size="62 value="<?=$email;?>" class="input_box" maxlength="100" />
+                    <input type="text" id="email" name="email" size="62 value="<?php echo $email; ?>" class="input_box" maxlength="100" />
                 </td>
             </tr>
             <tr>
                 <td height="30">&nbsp;</td>
                 <td>
-                    <button class="button validate" type="submit"><?=JText::_('REGISTER');?></button>
+                    <button class="button validate" type="submit"><?php echo JText::_('REGISTER'); ?></button>
                     <input type="hidden" name="task" value="register" />
                     <input type="hidden" name="controller" value="applicant" />
                 </td>
             </tr>
         </tbody>
     </table>
-    <?=JHTML::_('form.token');?>
+    <?php echo JHTML::_('form.token'); ?>
 </form>
