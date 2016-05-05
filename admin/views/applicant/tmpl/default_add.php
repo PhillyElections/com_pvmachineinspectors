@@ -12,7 +12,7 @@ d('add template', $_POST, JRequest::get());
 // lets go through the post array and extract any existing values for display
 $fields = array('prefix', 'first_name', 'middle_name', 'last_name', 'suffix', 'division', 'address1', 'address2', 'city', 'region', 'postcode', 'phone', 'email');
 foreach ($fields as $field) {
-    $$field = JRequest::getVar($field, null, 'post');
+    $$field = JRequest::getVar($field, null);
 }
 $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets/js/machineinspectors.js" async defer></script>');
 
