@@ -92,6 +92,7 @@ class TableApplicant extends JTable
         }
 
         $phone = preg_replace('/^1|\D/', "", JString::trim($this->phone));
+
         if ($phone) {
             // reject phone numbers with letters in them
             if (!is_numeric($phone)) {
@@ -109,7 +110,7 @@ class TableApplicant extends JTable
         }
 
         if ($error) {
-            d($error);
+            d($error, $phone);
             return false;
         }
         return true;
