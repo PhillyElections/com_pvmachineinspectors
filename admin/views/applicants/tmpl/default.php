@@ -2,7 +2,7 @@
 $pagination = &$this->pagination;
 
 jimport("pvcombo.PVCombo");
-
+d(JRequest::get());
 $document = &JFactory::getDocument();
 $document->addCustomTag('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>');
 $document->addCustomTag('<script src="components/com_pvmachineinspectors/assets/js/filter.js"></script>');
@@ -57,11 +57,11 @@ endif;
 			<?php
 $k = 0;
 for ($i = 0, $n = count($this->items); $i < $n; $i++) {
-    $row = &$this->items[$i];
-    $checked = JHTML::_('grid.id', $i, $row->id);
-    $link = JRoute::_('index.php?option=com_pvmachineinspectors&controller=applicant&task=edit&cid[]=' . $row->id);
+    $row      = &$this->items[$i];
+    $checked  = JHTML::_('grid.id', $i, $row->id);
+    $link     = JRoute::_('index.php?option=com_pvmachineinspectors&controller=applicant&task=edit&cid[]=' . $row->id);
     $fullname = ($row->prefix ? $row->prefix . " " : "") . $row->first_name . " " . ($row->middle_name ? $row->middle_name . " " : "") . $row->last_name . ($row->suffix ? ", " . $row->suffix : "");
-    $matches = '';
+    $matches  = '';
     preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
     ?>
 			<tr class="<?="row$k";?>">
