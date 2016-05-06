@@ -41,16 +41,16 @@ class PvmachineinspectorsViewApplicants extends JView
         // leaving division wiring in place
         if (JRequest::getVar('ward', false) && !JRequest::getVar('format', false)) {
             if (JRequest::getVar('div', false)) {
-                $divlink = "&div=[" . implode(",", JRequest::getVar('div')) . "]";
+                $divlink = "&div[]=[" . implode(",", JRequest::getVar('div')) . "]";
             }
-            $wardlink  = "&ward=[" . implode(",", JRequest::getVar('ward')) . "]";
+            $wardlink  = "&ward[]=[" . implode(",", JRequest::getVar('ward')) . "]";
             $model     = $this->getModel('Divisions');
             $divisions = $model->getData();
             $this->assignRef('divisions', $divisions);
         }
 
         $t = &JToolbar::getInstance('toolbar');
-        $t->appendButton('Link', 'default', 'Export Filter', 'index.php?option=com_pvmachineinspectors&controller=applicants' . $wardlink . $divlink);
+        $t->appendButton('Link', 'default', 'Export Filter', 'index.php?option=com_pvmachineinspectors&controller=applicants&format=raw' . $wardlink . $divlink);
 
         $items      = &$this->get('Data');
         $pagination = &$this->get('Pagination');
