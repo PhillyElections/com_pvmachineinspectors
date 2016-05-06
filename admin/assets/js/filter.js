@@ -46,7 +46,12 @@ jQuery.noConflict();
         inner.build();
         inner.events();
     };
-    window.addEvent('domready', function() {
-        outer.init();
+    $(function() {
+        window.setTimeout(function() {outer.init();}, 50);
+        
     });
+
+//    window.addEvent('domready', function() {
+
+//    });
 })(jQuery);
