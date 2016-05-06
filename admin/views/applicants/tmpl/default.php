@@ -2,7 +2,7 @@
 $pagination = &$this->pagination;
 
 jimport("pvcombo.PVCombo");
-d(JRequest::get());
+
 $document = &JFactory::getDocument();
 $document->addCustomTag('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>');
 $document->addCustomTag('<script src="components/com_pvmachineinspectors/assets/js/filter.js"></script>');
