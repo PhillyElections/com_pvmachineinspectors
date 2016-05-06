@@ -50,7 +50,7 @@ class PvmachineinspectorsViewApplicants extends JView
         }
 
         $t = &JToolbar::getInstance('toolbar');
-        $t->appendButton('Link', 'default', 'Export Filter', 'index.php?option=com_pvmachineinspectors&controller=applicants&format=raw' . $wardlink . $divlink);
+        $t->appendButton('Link', 'default', 'Export Filter', 'index.php?option=com_pvmachineinspectors&controller=applicants' . $wardlink . $divlink);
 
         $items      = &$this->get('Data');
         $pagination = &$this->get('Pagination');
