@@ -29,7 +29,7 @@ class PvmachineinspectorsModelApplicant extends JModel
         jimport('pvcombo.PVCombo');
         $row = &$this->getTable();
 
-        $datenow = &JFactory::getDate();
+        $datenow = JFactory::getDate();
 
         $data = JRequest::get('post');
 
@@ -42,7 +42,7 @@ class PvmachineinspectorsModelApplicant extends JModel
         $data['suffix']   = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
         $data['email']    = $data['email'] ? JString::strtolower($data['email']) : '';
         $data['postcode'] = $data['postcode'] ? JString::substr($data['postcode'], 0, 5) : '';
-        $data['created']  = $datenow->toFormat("%Y-%m-%d-%H-%M-%S");
+        $data['created']  = $datenow->toMySQL();
 
         if (!$data['division_id']) {
             $division = $this->getTable('Division');
