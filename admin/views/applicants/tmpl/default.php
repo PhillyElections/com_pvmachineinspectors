@@ -18,8 +18,10 @@ $document->addStyleSheet('components/com_pvmachineinspectors/assets/css/filter.c
 if (count($this->items) or JRequest::getVar('ward')):
 ?>
                 <tr>
-                    <th colspan="9" data-filter="Filter by Wards">
+                    <th colspan="3" data-filter="Filter by Wards">
                         <?=JHTML::_('select.genericlist', PVCombo::getsFromObject($this->wards, 'ward', 'ward'), 'ward[]', 'multiple ', 'idx', 'value', (JRequest::getVar('ward') ? JRequest::getVar('ward') : ''), 'ward');?></th>
+                    <th colspan="3" data-filter="Filter by Date">&nbsp;</th>
+                    <th colspan="4" >&nbsp;</th>
                 </tr>
 <?php
 endif;
