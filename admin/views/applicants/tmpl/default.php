@@ -21,7 +21,7 @@ if (count($this->items) or JRequest::getVar('ward')):
                     <th colspan="10">
                     <div data-filter="Filter by Wards">
                         <?=JHTML::_('select.genericlist', PVCombo::getsFromObject($this->wards, 'ward', 'ward'), 'ward[]', 'multiple ', 'idx', 'value', (JRequest::getVar('ward') ? JRequest::getVar('ward') : ''), 'ward');?></div>
-                    <div data-filter="Filter by Date">&nbsp;</div></th>
+                    <!--<div data-filter="Filter by Date">&nbsp;</div>--></th>
                 </tr>
 <?php
 endif;
