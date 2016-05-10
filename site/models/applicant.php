@@ -28,9 +28,8 @@ class PvmachineinspectorsModelApplicant extends JModel
     {
         jimport('pvcombo.PVCombo');
         $row = &$this->getTable();
-
+ 
         $dateNow = JFactory::getDate();
-        dd($dateNow);
 
         $data = JRequest::get('post');
 
