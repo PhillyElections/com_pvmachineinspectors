@@ -1,4 +1,5 @@
-<?php defined('_JEXEC') or die('Restricted access');
+<?php 
+defined('_JEXEC') or die('Restricted access');
 $pagination = &$this->pagination;
 
 jimport("pvcombo.PVCombo");
