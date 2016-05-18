@@ -90,7 +90,7 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
                     <td>
                         <?=count($matches) ? sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]) : '';?>
                     </td>
-                    <td> 
+                    <td>
                         <?=$row->email;?>
                     </td>
                     <td>
