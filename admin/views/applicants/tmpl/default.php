@@ -11,9 +11,9 @@ $document->addCustomTag('<script src="/media/multi-column-select/Multi-Column-Se
 $document->addStyleSheet('components/com_pvmachineinspectors/assets/css/filter.css');
 ?>
 <form action="<?=JRoute::_('index.php?option=com_pvmachineinspectors');?>" method="post" name="adminForm" id="adminForm">
-	<div id="editcell">
-		<table class="adminlist">
-			<thead>
+    <div id="editcell">
+        <table class="adminlist">
+            <thead>
 <?php 
 // show if there are any results or if there's a ward filter set
 if (count($this->items) or JRequest::getVar('ward')):
@@ -27,40 +27,41 @@ if (count($this->items) or JRequest::getVar('ward')):
 <?php
 endif;
 ?>
-				<tr>
-					<th width="5">
-						<?=JText::_('ID');?>
-					</th>
-					<th width="5">
-						<input type="checkbox" name="toggle" value="" onclick="checkAll(<?=count($this->items);?>);" />
-					</th>
-					<th width="5">
-						<?=JText::_('WARD');?>
-					</th>
-					<th width="5">
-						<?=JText::_('DIVISION');?>
-					</th>
-					<th>
-						<?=JText::_('NAME');?>
-					</th>
-					<th>
-						<?=JText::_('PHONE');?>
-					</th>
-					<th>
-						<?=JText::_('EMAIL');?>
-					</th>
-					<th>
-						<?=JText::_('STREET ADDRESS');?>
-					</th>
-					<th>
-						<?=JText::_('POSTCODE');?>
-					</th>
-					<th>
-						<?=JText::_('DATE');?>
-					</th>
-				</tr>
-			</thead>
-			<?php
+                <tr>
+                    <th width="5">
+                        <?=JText::_('ID');?>
+                    </th>
+                    <th width="5">
+                        <input type="checkbox" name="toggle" value="" onclick="checkAll(<?=count($this->items);?>);" />
+                    </th>
+                    <th width="5">
+                        <?=JText::_('WARD');?>
+                    </th>
+                    <th width="5">
+                        <?=JText::_('DIVISION');?>
+                    </th>
+                    <th>
+                        <?=JText::_('NAME');?>
+                    </th>
+                    <th>
+                        <?=JText::_('PHONE');?>
+                    </th>
+                    <th>
+                        <?=JText::_('EMAIL');?>
+                    </th>
+                    <th>
+                        <?=JText::_('STREET ADDRESS');?>
+                    </th>
+                    <th>
+                        <?=JText::_('POSTCODE');?>
+                    </th>
+                    <th>
+                        <?=JText::_('DATE');?>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
 $k = 0;
 for ($i = 0, $n = count($this->items); $i < $n; $i++) {
     $row      = &$this->items[$i];
@@ -70,52 +71,53 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
     $matches  = '';
     preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
     ?>
-			<tr class="<?="row$k";?>">
-				<td>
-					<?=$row->id;?>
-				</td>
-				<td>
-					<?=$checked;?>
-				</td>
-			    <td>
-				    <?=$row->ward;?>
-				</td>
-				<td>
-					<?=$row->division;?>
-				</td>
-				<td>
-					<a href="<?=$link;?>"><?=$fullname;?></a>
-				</td>
-				<td>
-					<?=count($matches) ? sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]) : '';?>
-				</td>
-				<td>
-					<?=$row->email;?>
-				</td>
-				<td>
-					<?=$row->address1 . ($row->address2 ? ' ' . $row->address2 : '');?>
-				</td>
-				<td>
-					<?=$row->postcode;?>
-				</td>
-				<td>
-					<?=$row->created;?>
-				</td>
-			</tr>
-			<?php
-$k = 1 - $k;
+                <tr class="<?="row$k";?>">
+                    <td>
+                        <?=$row->id;?>
+                    </td>
+                    <td>
+                        <?=$checked;?>
+                    </td>
+                    <td>
+                        <?=$row->ward;?>
+                    </td>
+                    <td>
+                        <?=$row->division;?>
+                    </td>
+                    <td>
+                        <a href="<?=$link;?>"><?=$fullname;?></a>
+                    </td>
+                    <td>
+                        <?=count($matches) ? sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]) : '';?>
+                    </td>
+                    <td>
+                        <?=$row->email;?>
+                    </td>
+                    <td>
+                        <?=$row->address1 . ($row->address2 ? ' ' . $row->address2 : '');?>
+                    </td>
+                    <td>
+                        <?=$row->postcode;?>
+                    </td>
+                    <td>
+                        <?=$row->created;?>
+                    </td>
+                </tr>
+            <?php
+    $k = 1 - $k;
 }
 ?>
-			<tfoot>
-			<tr>
-				<td colspan="10"><?php echo $this->pagination->getListFooter(); ?></td>
-			</tr>
-			</tfoot>
-		</table>
-	</div>
-	<?=JHTML::_('form.token');?>
-	<input type="hidden" name="task" value="" />
-	<input type="hidden" name="boxchecked" value="0" />
-	<input type="hidden" name="controller" value="applicants" />
-	<?=JHTML::_('form.token');?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="10"><?php echo $this->pagination->getListFooter(); ?></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <?=JHTML::_('form.token');?>
+    <input type="hidden" name="task" value="" />
+    <input type="hidden" name="boxchecked" value="0" />
+    <input type="hidden" name="controller" value="applicants" />
+    <?=JHTML::_('form.token');?>
 </form>
