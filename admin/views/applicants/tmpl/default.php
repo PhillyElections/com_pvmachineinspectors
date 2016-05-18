@@ -14,7 +14,7 @@ $document->addStyleSheet('components/com_pvmachineinspectors/assets/css/filter.c
 	<div id="editcell">
 		<table class="adminlist">
 			<thead>
-<?php
+<?php 
 // show if there are any results or if there's a ward filter set
 if (count($this->items) or JRequest::getVar('ward')):
 ?>
