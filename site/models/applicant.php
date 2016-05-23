@@ -28,7 +28,7 @@ class PvmachineinspectorsModelApplicant extends JModel
     {
         jimport('pvcombo.PVCombo');
         $row = &$this->getTable();
- 
+
         $dateNow = JFactory::getDate();
 
         $data = JRequest::get('post');
@@ -64,7 +64,7 @@ class PvmachineinspectorsModelApplicant extends JModel
             }
             return false;
         }
-
+        dd($row, $data);
         // Store the web link table to the database
         if (!$row->store()) {
             $this->setError($row->getErrorMsg());
