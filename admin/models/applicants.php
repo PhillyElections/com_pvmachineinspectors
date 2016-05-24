@@ -44,6 +44,7 @@ class PvmachineinspectorsModelApplicants extends JModel
         parent::__construct();
 
         $mainframe = JFactory::getApplication();
+
         // Get pagination request variables
         $limit      = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
         $limitstart = JRequest::getVar('limitstart', 0, '', 'int');
@@ -53,8 +54,6 @@ class PvmachineinspectorsModelApplicants extends JModel
 
         $this->setState('limit', $limit);
         $this->setState('limitstart', $limitstart);
-        d($this);
-
     }
 
     /**
