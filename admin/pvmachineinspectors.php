@@ -16,7 +16,6 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
-// pull in the super-groovy debugger
 jimport('kint.kint');
 
 $language = JFactory::getLanguage();
