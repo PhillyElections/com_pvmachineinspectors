@@ -11,7 +11,6 @@
 defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.view');
-jimport('joomla.html.html.toolbar');
 
 /**
  * Pvmachineinspectors View
@@ -28,13 +27,8 @@ class PvmachineinspectorsViewApplicants extends JView
     public function display($tpl = null)
     {
         $divlink = $wardlink = '';
-        JToolBarHelper::title(JText::_('Machine Inspectors Manager'), 'generic.png');
-        JToolBarHelper::deleteList();
-        JToolBarHelper::editListX();
-        JToolBarHelper::addNewX();
 
         // Get data from the model
-
         $model = $this->getModel('Wards');
         $wards = $model->getData();
         $this->assignRef('wards', $wards);
@@ -50,14 +44,14 @@ class PvmachineinspectorsViewApplicants extends JView
             $this->assignRef('divisions', $divisions);
         }
 
-        $t = &JToolbar::getInstance('toolbar');
-        $t->appendButton('Link', 'default', 'Export Filter', 'index.php?option=com_pvmachineinspectors&controller=applicants&format=raw' . $wardlink . $divlink);
+        $export_link = 'index.php?option=com_pvmachineinspectors&controller=applicants&format=raw' . $wardlink . $divlink;
 
         $items      = &$this->get('Data');
         $pagination = &$this->get('Pagination');
 
         $this->assignRef('items', $items);
         $this->assignRef('pagination', $pagination);
+        $this->assignRef('export_link', $export_link);
 
         parent::display($tpl);
     }
