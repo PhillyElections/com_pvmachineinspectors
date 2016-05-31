@@ -1,6 +1,6 @@
 <?php
 /**
- * Pvmachineinspector Model for Pvmachineinspectors Component
+ * Pvmachineinspectors applicant model
  *
  * @package    Philadelphia.Votes
  * @subpackage Components
@@ -103,7 +103,7 @@ class PvmachineinspectorsModelApplicant extends JModel
         $data['suffix']   = $data['suffix'] ? PVCombo::get('suffix', $data['suffix']) : '';
         $data['email']    = $data['email'] ? JString::strtolower($data['email']) : '';
         $data['postcode'] = $data['postcode'] ? JString::substr($data['postcode'], 0, 5) : '';
-        $data[$dateIndex] = $dateNow->toMySQL();
+        $data['created']  = $dateNow->toMySQL();
 
         $division            = $this->getTable('Division');
         $data['division_id'] = $division->getRemoteDivision($data);
