@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.model');
 
 /**
- * Pvmachineinspector Model
+ * Pvmachineinspector Applicants Model
  *
  * @package    Philadelphia.Votes
  * @subpackage Components
