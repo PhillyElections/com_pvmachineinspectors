@@ -30,8 +30,8 @@ class PvmachineinspectorsViewApplicants extends JView
 
         // Get data from the model
         $model = $this->getModel('Wards');
-//        $wards = $model->getData();
-//        $this->assignRef('wards', $wards);
+        $wards = $model->getData();
+        $this->assignRef('wards', $wards);
 
         // leaving division wiring in place
         if (JRequest::getVar('ward', false) && !JRequest::getVar('format', false)) {
