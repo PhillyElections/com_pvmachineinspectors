@@ -44,7 +44,7 @@ class PvmachineinspectorsViewApplicants extends JView
             $this->assignRef('divisions', $divisions);
         }
 
-        $export_link = 'index.php?option=com_pvmachineinspectors&view=applicants&format=raw' . $wardlink . $divlink;
+        $export_link = 'index.php?option=com_pvmachineinspectors&view=applicants&format=raw' . $wardlink . $divlink . '&ItemId=' . JRequest::getVar('ItemId', '', 'int');
 
         $items      = &$this->get('Data');
         $pagination = &$this->get('Pagination');

@@ -66,7 +66,7 @@ $k = 0;
 for ($i = 0, $n = count($this->items); $i < $n; $i++) {
     $row      = &$this->items[$i];
     $checked  = JHTML::_('grid.id', $i, $row->id);
-    $link     = JRoute::_('index.php?option=com_pvmachineinspectors&view=applicant&task=edit&cid[]=' . $row->id);
+    $link     = JRoute::_('index.php?option=com_pvmachineinspectors&view=applicant&task=edit&cid[]=' . $row->id . '&ItemId='.JRequest::getVar('ItemId', '', 'int'));
     $fullname = ($row->prefix ? $row->prefix . " " : "") . $row->first_name . " " . ($row->middle_name ? $row->middle_name . " " : "") . $row->last_name . ($row->suffix ? ", " . $row->suffix : "");
     $matches  = '';
     preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
@@ -116,6 +116,7 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
         </table>
     </div>
     <?=JHTML::_('form.token');?>
+    <input type="hidden" name="ItemId" value="<?=JRequest::getVar('ItemId', '', 'int')?>" />
     <input type="hidden" name="task" value="" />
     <input type="hidden" name="boxchecked" value="0" />
     <input type="hidden" name="view" value="applicants" />

@@ -66,7 +66,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
         }
 
         // Let's go back to the default view
-        $link = 'index.php?option=com_pvmachineinspectors';
+        $link = 'index.php?option=com_pvmachineinspectors&view=applicants&ItemId=' . JRequest::getVar('ItemId', '', 'int');
         $this->setRedirect($link, $msg);
     }
 
@@ -86,7 +86,7 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
             $msg = JText::_('Applicants(s) Deleted');
         }
 
-        $this->setRedirect('index.php?option=com_pvmachineinspectors', $msg);
+        $this->setRedirect('index.php?option=com_pvmachineinspectors&view=applicants&ItemId=' . JRequest::getVar('ItemId','', 'int'), $msg);
     }
 
     /**
@@ -97,6 +97,6 @@ class PvmachineinspectorsControllerApplicant extends PvmachineinspectorsControll
     public function cancel()
     {
         $msg = JText::_('Operation Cancelled');
-        $this->setRedirect('index.php?option=com_pvmachineinspectors', $msg);
+        $this->setRedirect('index.php?option=com_pvmachineinspectors&view=applicants&ItemId=' . JRequest::getVar('ItemId', '', 'int'), $msg);
     }
 }

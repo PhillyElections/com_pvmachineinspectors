@@ -104,6 +104,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 <td height="30">&nbsp;</td>
                 <td>
                     <button class="button validate" type="submit"><?php echo JText::_('REGISTER'); ?></button>
+                    <input type="hidden" name="ItemId" value="<?=JRequest::getVar('ItemId', '', 'int')?>" />
                     <input type="hidden" name="task" value="register" />
                     <input type="hidden" name="view" value="applicant" />
                 </td>
