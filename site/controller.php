@@ -27,6 +27,7 @@ class PvmachineinspectorsController extends JController
      */
     public function display()
     {
+        d($this);
         parent::display();
     }
 }
