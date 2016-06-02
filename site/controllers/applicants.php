@@ -20,7 +20,7 @@ class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsControl
 {
     public function display()
     {
-        // if 'raw' isn't explicit, set to 'html'
+        // if format isn't 'raw', explicitly set to 'html'
         $view = $this->getView('applicants', JRequest::getWord('format', 'html'));
         $view->setModel($this->getModel('Applicants'), true);
         $view->setModel($this->getModel('Wards'), false);
@@ -43,6 +43,6 @@ class PvmachineinspectorsControllerApplicants extends PvmachineinspectorsControl
     public function add()
     {
         $mainframe = JFactory::getApplication();
-        $mainframe->redirect('index.php?option=com_pvmachineinspectors&controller=applicant&task=add&&cid=' . $cid[0]);
+        $mainframe->redirect('index.php?option=com_pvmachineinspectors&controller=applicant&task=add&&cid=');
     }
 }
