@@ -9,6 +9,8 @@
 // No direct access
 defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
+require_once('administrator/includes/toolbar.php');
+
 /**
  * Applicant View
  *
