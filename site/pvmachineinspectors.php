@@ -40,8 +40,6 @@ $classname = 'PvmachineinspectorsController' . ucfirst($controller);
 
 $controller = new $classname();
 
-d($path, $controller, $classname);
-
 // Perform the Request task
 $controller->execute(JRequest::getVar('task'));
 
