@@ -112,7 +112,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 <td>
                     <button class="button validate" type="submit"><?=$this->isNew ? JText::_('REGISTER') : JText::_('UPDATE');?></button>
                     <input type="hidden" name="task" value="<?=$this->isNew ? 'register' : 'update';?>" />
-                    <input type="hidden" name="controller" value="applicant" />
+                    <input type="hidden" name="view" value="applicant" />
                     <input type="hidden" name="id" value="<?=$applicant->id;?>" />
                     <input type="hidden" name="division_id" value="<?=$applicant->division_id;?>" />
                     <?=JHTML::_('form.token');?>

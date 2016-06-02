@@ -105,7 +105,7 @@ $document->addCustomTag('<script src="/components/com_pvmachineinspectors/assets
                 <td>
                     <button class="button validate" type="submit"><?php echo JText::_('REGISTER'); ?></button>
                     <input type="hidden" name="task" value="register" />
-                    <input type="hidden" name="controller" value="applicant" />
+                    <input type="hidden" name="view" value="applicant" />
                 </td>
             </tr>
         </tbody>
