@@ -28,7 +28,7 @@ class PvmachineinspectorsViewApplicant extends JView
         $isNew = ($applicant->id < 1);
         $text = $isNew ? JText::_('New') : JText::_('Edit');
 
-        $tpl = $isNew?'add':'';
+        $tpl = $isNew ? 'add' : '';
 
         $this->assignRef('applicant', $applicant);
         $this->assignRef('isNew', $isNew);
