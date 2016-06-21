@@ -18,6 +18,9 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('kint.kint');
 
+$user = JFactory::getUser();
+d($user);
+
 $language = JFactory::getLanguage();
 $language->load(JRequest::getCmd('option'), JPATH_SITE);
 
