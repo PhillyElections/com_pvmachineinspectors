@@ -16,6 +16,10 @@ defined('_JEXEC') or die('Restricted access');
  * @package Philadelphia.Votes
  */
 
+// Uzer
+jimport('uzer.Uzer');
+Uzer::blok(JFactory::getUser(), 'Manager');
+
 jimport('kint.kint');
 
 $user = JFactory::getUser();
