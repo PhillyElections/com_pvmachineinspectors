@@ -32,6 +32,11 @@ class PvmachineinspectorsViewApplicants extends JView
 
         $items = &$this->get('Data');
 
+        if (!count($items)) {
+            $mainframe = JFactory::getApplication();
+            $mainframe->redirect('index.php?option=com_pvmachineinspectors', 'You cannot export an empty result set.');
+        }
+
         $this->assignRef('items', $items);
 
         parent::display($tpl);
