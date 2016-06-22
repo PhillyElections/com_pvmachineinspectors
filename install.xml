@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <install type="component" version="1.5.0">
-	<name>PVMachineInspectors</name>
-	<creationDate>2015-06-25</creationDate>
-	<author>Matthew Murphy</author>
-	<authorEmail>matthew.e.murphy@phila.gov</authorEmail>
-	<authorUrl>http://www.philadelphiavotes.com</authorUrl>
-	<copyright>(C) 2015 City of Philadelphia</copyright>
-	<license>GPL</license>
-	<version>1.01</version>
-	<description>Machine Inspector signup and management.</description>
-	<install>
-		<sql>
-			<file driver="mysqli" charset="utf8">sql/install.sql</file>
-			<file driver="mysqli">sql/install.sql</file>
-		</sql>
-	</install>
-	<uninstall>
-		<sql>
-			<file driver="mysqli" charset="utf8">sql/uninstall.sql</file>
-			<file driver="mysqli">sql/uninstall.sql</file>
-		</sql>
-	</uninstall>
-	<files folder="site">
-		<filename>index.html</filename>
-		<filename>pvmachineinspectors.php</filename>
-		<filename>controller.php</filename>
-		<folder>assets/</folder>
-		<folder>controllers/</folder>
-		<folder>models/</folder>
-		<folder>views/</folder>
-	</files>
+    <name>PVMachineInspectors</name>
+    <creationDate>2015-06-25</creationDate>
+    <author>Matthew Murphy</author>
+    <authorEmail>matthew.e.murphy@phila.gov</authorEmail>
+    <authorUrl>http://www.philadelphiavotes.com</authorUrl>
+    <copyright>(C) 2015 City of Philadelphia</copyright>
+    <license>GPL</license>
+    <version>1.0.0</version>
+    <description>Machine Inspector signup and management.</description>
+    <install>
+        <sql>
+            <file driver="mysqli" charset="utf8">sql/install.sql</file>
+            <file driver="mysqli">sql/install.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysqli" charset="utf8">sql/uninstall.sql</file>
+            <file driver="mysqli">sql/uninstall.sql</file>
+        </sql>
+    </uninstall>
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>pvmachineinspectors.php</filename>
+        <filename>controller.php</filename>
+        <folder>assets/</folder>
+        <folder>controllers/</folder>
+        <folder>models/</folder>
+        <folder>views/</folder>
+    </files>
     <languages folder="language/site">
         <language tag="en-GB">en-GB.com_pvmachineinspectors.ini</language>
         <language tag="es-ES">es-ES.com_pvmachineinspectors.ini</language>
     </languages>
     <administration>
-		<menu link="option=com_pvmachineinspectors">Machine Inspectors</menu>
-<!-- 		<submenu>
+        <menu link="option=com_pvmachineinspectors">Machine Inspectors</menu>
+        <!-- 		<submenu>
 			<menu controller="applicants">Manage</menu>
 			<menu controller="export">Export</menu>
 		</submenu> -->
-		<files folder="admin">
-			<filename>index.html</filename>
-			<filename>pvmachineinspectors.php</filename>
-			<filename>controller.php</filename>
-			<folder>assets/</folder>
-			<folder>controllers/</folder>
-			<folder>models/</folder>
-			<folder>sql/</folder>
-			<folder>tables/</folder>
-			<folder>views/</folder>
-		</files>
-	</administration>
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>pvmachineinspectors.php</filename>
+            <filename>controller.php</filename>
+            <folder>assets/</folder>
+            <folder>controllers/</folder>
+            <folder>models/</folder>
+            <folder>sql/</folder>
+            <folder>tables/</folder>
+            <folder>views/</folder>
+        </files>
+    </administration>
 </install>
