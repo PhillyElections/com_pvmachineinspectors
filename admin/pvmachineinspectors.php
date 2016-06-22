@@ -22,9 +22,6 @@ Uzer::blok(JFactory::getUser(), 'Manager');
 
 jimport('kint.kint');
 
-$user = JFactory::getUser();
-d($user);
-
 $language = JFactory::getLanguage();
 $language->load(JRequest::getCmd('option'), JPATH_SITE);
 
