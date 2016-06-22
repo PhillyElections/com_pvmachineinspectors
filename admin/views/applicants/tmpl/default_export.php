@@ -40,7 +40,6 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
             $row->division,
             ($row->prefix ? $row->prefix . ' ' : '') . $row->first_name . ' ' . ($row->middle_name ? $row->middle_name . ' ' : '') . $row->last_name . ($row->suffix ? ' ' . $row->suffix : ''),
             $row->address1 . ($row->address2 ? ' ' . $row->address2 : ''),
-            $row->city,
             $row->postcode,
             $row->phone,
             $row->email,
