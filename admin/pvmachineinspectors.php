@@ -20,8 +20,6 @@ defined('_JEXEC') or die('Restricted access');
 jimport('uzer.Uzer');
 Uzer::blok(JFactory::getUser(), 'Manager');
 
-jimport('kint.kint');
-
 $language = JFactory::getLanguage();
 $language->load(JRequest::getCmd('option'), JPATH_SITE);
 
