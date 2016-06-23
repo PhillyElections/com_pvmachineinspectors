@@ -7,7 +7,7 @@
     <authorUrl>http://www.philadelphiavotes.com</authorUrl>
     <copyright>(C) 2015 City of Philadelphia</copyright>
     <license>GPL</license>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>Machine Inspector signup and management.</description>
     <install>
         <sql>
