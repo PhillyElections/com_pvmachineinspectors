@@ -5,4 +5,4 @@ It's just a signup form that uses google maps to give the signer a hand and whic
 Required libraries:
 * [j1.5-combo-data](https://github.com/mattyhead/j1.5-combo-data)
 * [j1.5-uzer](https://github.com/mattyhead/j1.5-uzer)
-* [multi-select-columns](https://github.com/mattyhead/multi-column-select)
+* [multi-column-select](https://github.com/mattyhead/multi-column-select)
