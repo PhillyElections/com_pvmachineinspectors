@@ -27,7 +27,7 @@ ob_end_flush();
 JResponse::sendHeaders();
 $output = fopen('php://output', 'w');
 fputcsv($output,
-    array('WD', 'DIV', 'NAME', 'ADDRESS', 'ZIP', 'PHONE', 'EMAIL', 'PARTY',
+    array('WD', 'DIV', 'NAME', 'ADDRESS', 'ZIP', 'PHONE', 'EMAIL', 'PARTY', 'SOURCE',
     )
 );
 
@@ -44,6 +44,7 @@ for ($i = 0, $n = count($this->items); $i < $n; $i++) {
             $row->phone,
             $row->email,
             '',
+            'website',
         )
     );
     $k = 1 - $k;
