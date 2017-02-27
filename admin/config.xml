@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <params>
+        <param name="recaptcha_client" type="text" size="30" default="" label="Recaptcha client" description="Recaptcha client key for this domain." />
+        <param name="recaptcha_secret" type="text" size="30" default="" label="Recaptcha secret" description="Recaptcha secret key for this domain." />
+        <param name="recaptcha_show" type="radio" default="0" label="Show Recaptcha" description="Show/Hide the Recaptcha elements (enabled/disable recptcha code)">
+            <option value="0">Hide</option>
+            <option value="1">Show</option>
+        </param>
+    </params>
+</config>
